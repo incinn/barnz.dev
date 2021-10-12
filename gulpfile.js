@@ -10,6 +10,7 @@ const cleanCSS = require('gulp-clean-css');
 
 const outputLocation = './dist';
 const sassLocation = './src/css/main.scss';
+const htmlLocation = './src/html/index.html';
 
 function compileSass() {
     return src(sassLocation)
@@ -25,9 +26,14 @@ function compileSass() {
         .pipe(dest(outputLocation));
 }
 
-function watchSource() {
-    watch(sassLocation, compileSass);
+function copyHtml() {
+    return src(htmlLocation).pipe(dest(outputLocation));
 }
 
-exports.build = series(compileSass);
-exports.watch = series(compileSass, watchSource);
+function watchSource() {
+    watch(sassLocation, compileSass);
+    watch(htmlLocation, copyHtml);
+}
+
+exports.build = series(copyHtml, compileSass);
+exports.watch = series(copyHtml, compileSass, watchSource);
