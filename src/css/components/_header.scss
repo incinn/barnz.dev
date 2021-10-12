@@ -1,0 +1,26 @@
+body > header {
+    display: flex;
+    width: var(--content-width);
+    padding: var(--gutter);
+
+    h1 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    nav {
+        display: flex;
+        flex: 1;
+
+        ul {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+            align-items: center;
+
+            li {
+                margin-left: 1.5rem;
+            }
+        }
+    }
+}
