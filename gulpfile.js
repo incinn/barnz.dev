@@ -1,5 +1,5 @@
 require('dotenv').config();
-const _PROD = process.env.MODE === 'production' ? true : false;
+const _PROD = process.env.MODE === 'prod' ? true : false;
 
 const { src, dest, watch, series, parallel } = require('gulp');
 const gulpif = require('gulp-if');
