@@ -36,7 +36,7 @@ function copyHtml() {
 }
 
 function watchSource() {
-    watch(sassLocation, compileSass);
+    watch('./src/css/**/*.scss', compileSass);
     watch(htmlLocation, copyHtml);
 }
 
