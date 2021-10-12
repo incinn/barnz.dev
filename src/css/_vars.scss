@@ -1,0 +1,16 @@
+:root {
+    --gutter: 0.85rem;
+    --content-width: 980px;
+
+    --dark-hue: 244;
+    --dark: hsla(var(--dark-hue), 20%, 13%, 100%);
+
+    --light-hue: 60;
+    --light: hsla(var(--light-hue), 53%, 97%, 100%);
+
+    --grey-hue: 90;
+    --grey: hsla(var(--grey-hue), 4%, 90%);
+
+    --red-hue: 340;
+    --red: hsla(var(--red-hue), 86%, 47%, 100%);
+}
