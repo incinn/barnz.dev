@@ -1,10 +1,10 @@
 body > header {
     display: flex;
-    margin: var(--gutter) 0;
 
     h1 {
         font-size: 2rem;
         font-weight: bold;
+        margin: var(--gutter) 0;
     }
 
     nav {
