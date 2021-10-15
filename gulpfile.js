@@ -12,6 +12,7 @@ const del = require('del');
 const outputLocation = './dist';
 const sassLocation = './src/css/main.scss';
 const htmlLocation = './src/html/index.html';
+const assetLocation = './src/assets/**/*.*';
 
 function cleanup() {
     return del([outputLocation + '/**/*']);
@@ -35,11 +36,15 @@ function copyHtml() {
     return src(htmlLocation).pipe(dest(outputLocation));
 }
 
+function copyAssets() {
+    return src(assetLocation).pipe(dest(outputLocation));
+}
+
 function watchSource() {
     watch('./src/css/**/*.scss', compileSass);
     watch(htmlLocation, copyHtml);
 }
 
-exports.build = series(cleanup, parallel(copyHtml, compileSass));
-exports.watch = series(cleanup, copyHtml, compileSass, watchSource);
+exports.build = series(cleanup, parallel(copyHtml, copyAssets, compileSass));
+exports.watch = series(cleanup, copyHtml, copyAssets, compileSass, watchSource);
 exports.clean = cleanup;
