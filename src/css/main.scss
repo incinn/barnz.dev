@@ -27,7 +27,6 @@ body {
     & > footer,
     & > main {
         max-width: var(--content-width);
-        width: 100%;
         padding: 0 var(--gutter);
         margin: 0 auto;
     }
