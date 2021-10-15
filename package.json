@@ -17,6 +17,7 @@
     "gulp-if": "^3.0.0",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
+    "include-media": "^1.4.10",
     "live-server": "^1.2.1",
     "reset-css": "^5.0.1",
     "sass": "^1.42.1"
