@@ -6,9 +6,35 @@
         font-size: 2.7rem;
         line-height: 2;
         margin-bottom: 1em;
+
+        @include media('<desktop', '>phone') {
+            font-size: 4vw;
+        }
+
+        @include media('<=phone') {
+            font-size: 1.5rem;
+            font-weight: bold;
+
+            br {
+                display: none;
+            }
+        }
     }
 
     em {
         color: var(--red);
+    }
+
+    p {
+        font-size: 1.45rem;
+        line-height: 1.5;
+
+        @include media('<desktop', '>phone') {
+            font-size: 2.7vw;
+        }
+
+        @include media('<=phone') {
+            font-size: 1rem;
+        }
     }
 }
