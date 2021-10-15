@@ -20,7 +20,14 @@ body {
         text-decoration: none;
 
         &:hover {
-            text-decoration: underline;
+            text-decoration: none;
+            border-bottom: 2px solid var(--light);
+        }
+
+        &:focus {
+            outline: none;
+            text-decoration: none;
+            border-bottom: 2px solid var(--red);
         }
     }
 
