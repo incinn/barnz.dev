@@ -1,4 +1,5 @@
 @import '/node_modules/reset-css/reset.css';
+@import './fonts';
 @import './vars';
 @import './components/header';
 @import './components/blurb';
@@ -11,7 +12,7 @@ body {
     color: var(--light);
     font-size: 18px;
     line-height: 1.3;
-    font-family: monospace;
+    font-family: Ubuntu-Mono, monospace;
 
     a {
         color: var(--light);
