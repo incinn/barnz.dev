@@ -5,9 +5,7 @@
 @import './components/blurb';
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
     background-color: var(--dark);
     color: var(--light);
     font-size: 18px;
@@ -24,7 +22,12 @@ body {
         }
     }
 
-    main > * {
-        width: var(--content-width);
+    & > header,
+    & > footer,
+    & > main {
+        max-width: var(--content-width);
+        width: 100%;
+        padding: 0 var(--gutter);
+        margin: 0 auto;
     }
 }

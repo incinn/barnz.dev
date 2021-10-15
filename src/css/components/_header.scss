@@ -1,7 +1,6 @@
 body > header {
     display: flex;
-    width: var(--content-width);
-    padding: var(--gutter);
+    margin: var(--gutter) 0;
 
     h1 {
         font-size: 2rem;
