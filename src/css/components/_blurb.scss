@@ -7,6 +7,10 @@
         line-height: 2;
         margin-bottom: 1em;
 
+        .space {
+            display: none;
+        }
+
         @include media('<desktop', '>phone') {
             font-size: 4vw;
         }
@@ -17,6 +21,10 @@
 
             br {
                 display: none;
+            }
+
+            .space {
+                display: inline-block;
             }
         }
     }
