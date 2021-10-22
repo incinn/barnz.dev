@@ -56,4 +56,26 @@
             font-size: 1rem;
         }
     }
+
+    .divider {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+
+        svg {
+            position: relative;
+            display: block;
+            width: calc(125% + 1.3px);
+            height: 75px;
+
+            .shape-fill {
+                fill: var(--grey);
+            }
+        }
+    }
 }
