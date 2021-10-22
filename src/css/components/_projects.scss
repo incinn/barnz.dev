@@ -1,0 +1,47 @@
+.projects {
+    padding-top: calc(var(--gutter) * 10);
+
+    &__inner {
+        max-width: var(--content-width);
+        width: 100%;
+        padding: 0 var(--gutter);
+        margin: 0 auto;
+
+        > h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: var(--gutter);
+        }
+
+        > p {
+            margin-bottom: calc(var(--gutter) * 2);
+        }
+
+        &__item {
+            background-color: var(--grey);
+            color: var(--dark);
+            padding: var(--gutter);
+            border-radius: 3px;
+            margin-bottom: calc(var(--gutter) * 2);
+        }
+    }
+
+    &__item {
+        &:not(:last-of-type) {
+            margin-bottom: calc(var(--gutter) * 2);
+        }
+
+        > h1 {
+            font-size: 1.75rem;
+            letter-spacing: 2px;
+            margin-bottom: calc(var(--gutter) / 2);
+        }
+
+        p {
+            em {
+                font-weight: bold;
+            }
+        }
+    }
+}
