@@ -11,6 +11,18 @@ body > header {
         font-size: 2rem;
         font-weight: bold;
         margin: var(--gutter) 0;
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            width: 40px;
+            height: auto;
+            margin-right: var(--gutter);
+        }
     }
 
     nav {
