@@ -1,6 +1,17 @@
 .blurb {
-    margin: 25vh 0;
+    padding: 25vh 0;
+    position: relative;
     text-align: center;
+    color: var(--light);
+    background-color: var(--dark);
+    background: linear-gradient(10deg, #313142 0%, #1b1b27 65%);
+
+    &__inner {
+        max-width: var(--content-width);
+        width: 100%;
+        padding: 0 var(--gutter);
+        margin: 0 auto;
+    }
 
     h1 {
         font-size: 2.7rem;

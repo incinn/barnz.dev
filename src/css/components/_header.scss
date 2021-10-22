@@ -1,11 +1,18 @@
-body > header {
-    display: flex;
+.header {
     position: fixed;
-    width: 100%;
     right: 0;
     left: 0;
     top: 0;
     background-color: var(--dark);
+    z-index: 5;
+
+    &__inner {
+        display: flex;
+        max-width: var(--content-width);
+        width: 100%;
+        padding: 0 var(--gutter);
+        margin: 0 auto;
+    }
 
     h1 {
         font-size: 2rem;
