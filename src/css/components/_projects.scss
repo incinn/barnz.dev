@@ -38,6 +38,12 @@
             }
         }
 
+        &:nth-child(even) {
+            .content {
+                margin-right: calc(var(--gutter) * 2);
+            }
+        }
+
         &:not(:last-of-type) {
             margin-bottom: calc(var(--gutter) * 5);
         }
