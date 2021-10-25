@@ -44,4 +44,75 @@
             }
         }
     }
+
+    .window {
+        $radius: 6px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 350px;
+        aspect-ratio: 16/9;
+
+        &__bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: var(--dark);
+            height: 20px;
+            width: 100%;
+            border-top-left-radius: $radius;
+            border-top-right-radius: $radius;
+            border: 2px solid var(--dark);
+
+            @mixin window-button {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                top: 5px;
+            }
+
+            &:before,
+            &:after {
+                @include window-button;
+            }
+
+            &:before {
+                background-color: #fe5f57;
+                top: 5px;
+                left: 5px;
+            }
+
+            &:after {
+                background-color: #febb2c;
+                top: 5px;
+                left: 20px;
+            }
+
+            span {
+                color: var(--light);
+                font-size: 0.75rem;
+                text-align: center;
+
+                &:before {
+                    @include window-button;
+
+                    background-color: #28cc42;
+                    top: 5px;
+                    left: 35px;
+                }
+            }
+        }
+
+        img {
+            position: relative;
+            width: 100%;
+            border: 2px solid var(--dark);
+            border-top: none;
+            border-bottom-left-radius: $radius;
+            border-bottom-right-radius: $radius;
+        }
+    }
 }
