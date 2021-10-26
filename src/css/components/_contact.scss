@@ -54,6 +54,7 @@
 
         input[type='text'] {
             @include input;
+            width: 300px;
         }
 
         input[type='submit'] {
