@@ -9,19 +9,40 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        align-items: center;
 
-        p,
-        a {
+        > * {
             opacity: 0.5;
-            margin: 0;
-            font-size: 0.8rem;
-
             &:hover {
                 opacity: 1;
             }
+        }
+
+        p,
+        a {
+            margin: 0;
+            font-size: 0.8rem;
 
             span {
                 color: red;
+            }
+        }
+
+        > span {
+            display: flex;
+            align-items: center;
+
+            a {
+                border: none;
+            }
+        }
+
+        img {
+            &.github {
+                padding-right: 0.5rem;
+                width: auto;
+                height: 15px;
+                filter: invert(100%);
             }
         }
     }
