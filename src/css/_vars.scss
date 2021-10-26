@@ -8,8 +8,12 @@ $breakpoints: (
     --gutter: 0.85rem;
     --content-width: 1024px;
 
+    --white: #fff;
+
     --dark-hue: 244;
-    --dark: hsla(var(--dark-hue), 20%, 13%, 100%);
+    --dark-sat: 20%;
+    --dark-lightness: 13%;
+    --dark: hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 100%);
 
     --light-hue: 60;
     --light: hsla(var(--light-hue), 53%, 97%, 100%);

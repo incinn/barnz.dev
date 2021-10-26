@@ -15,7 +15,7 @@
         }
 
         > p {
-            margin-bottom: calc(var(--gutter) * 2);
+            margin-bottom: calc(var(--gutter) * 5);
         }
 
         &__item {
@@ -34,13 +34,13 @@
             flex-direction: row-reverse;
 
             .content {
-                margin-left: calc(var(--gutter) * 2);
+                margin-left: calc(var(--gutter) * 3);
             }
         }
 
         &:nth-child(even) {
             .content {
-                margin-right: calc(var(--gutter) * 2);
+                margin-right: calc(var(--gutter) * 3);
             }
         }
 
