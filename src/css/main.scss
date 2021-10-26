@@ -3,10 +3,12 @@
 @import '/node_modules/reset-css/reset.css';
 @import './fonts';
 
+@import './components/buttons';
 @import './components/header';
 @import './components/blurb';
 @import './components/projects';
 @import './components/articles';
+@import './components/contact';
 @import './components/footer';
 
 body {

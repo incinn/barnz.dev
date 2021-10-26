@@ -1,0 +1,70 @@
+.contact {
+    padding: calc(var(--gutter) * 10) 0;
+
+    &__inner {
+        max-width: var(--content-width);
+        width: 100%;
+        padding: 0 var(--gutter);
+        margin: 0 auto;
+
+        > h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: var(--gutter);
+        }
+
+        > p {
+            margin-bottom: calc(var(--gutter) * 2);
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        @mixin input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border-radius: 3px;
+            border: 1px solid hsla(var(--dark-hue), var(--dark-sat), 75%, 100%);
+            box-shadow: none;
+            margin-bottom: var(--gutter);
+
+            &:focus {
+                box-shadow: 0px 0px 10px 1px
+                    hsla(
+                        var(--dark-hue),
+                        var(--dark-sat),
+                        var(--dark-lightness),
+                        25%
+                    );
+
+                outline: none;
+                border-color: transparent;
+            }
+        }
+
+        label {
+            margin: 0 0 10px 0;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        input[type='text'] {
+            @include input;
+        }
+
+        input[type='submit'] {
+            margin-right: auto;
+            width: 100px;
+        }
+
+        textarea {
+            @include input;
+            height: 80px;
+            resize: vertical;
+        }
+    }
+}

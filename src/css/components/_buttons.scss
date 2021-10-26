@@ -1,0 +1,21 @@
+.btn {
+    border-radius: 6px;
+    border: 1px solid transparent;
+    padding: var(--gutter);
+    font-weight: bold;
+    cursor: pointer;
+
+    &--dark {
+        color: var(--grey);
+        border-color: var(--dark);
+        background-color: var(--dark);
+
+        &:hover {
+            background-color: hsla(var(--dark-hue), var(--dark-sat), 18%, 100%);
+        }
+
+        &:active {
+            box-shadow: inset 0px 0px 10px 1px var(--dark);
+        }
+    }
+}

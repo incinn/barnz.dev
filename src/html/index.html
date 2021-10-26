@@ -156,8 +156,31 @@
                 </div>
             </section>
             <article class="contact">
-                <h1>Contact</h1>
-                <p>The best way to get in contact with me is via email.</p>
+                <div class="contact__inner">
+                    <h1>Contact</h1>
+                    <p>The best way to get in contact with me is via email.</p>
+                    <form
+                        action="mailto:hi@barnz.dev"
+                        method="get"
+                        enctype="text/plain"
+                    >
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" />
+                        <label for="message">Message</label>
+                        <textarea
+                            name="message"
+                            id="message"
+                            cols="20"
+                            rows="10"
+                        ></textarea>
+                        <input
+                            class="btn btn--dark"
+                            type="submit"
+                            name="submit"
+                            value="Send"
+                        />
+                    </form>
+                </div>
             </article>
         </main>
         <footer class="footer">
