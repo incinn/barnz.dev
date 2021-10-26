@@ -51,7 +51,7 @@ function compileSass() {
 function copyHtml() {
     return src(htmlLocation)
         .pipe(
-            replace('%UPDATED:DATE%', () => {
+            replace('%UPDATED_DATE%', () => {
                 const date = new Date();
                 return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
             })
