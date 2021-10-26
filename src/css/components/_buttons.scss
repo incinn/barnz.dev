@@ -16,6 +16,7 @@
 
         &:active {
             box-shadow: inset 0px 0px 10px 1px var(--dark);
+            transform: scale(0.95);
         }
     }
 }
