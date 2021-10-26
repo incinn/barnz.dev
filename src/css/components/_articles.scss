@@ -28,7 +28,10 @@
         color: var(--dark);
         padding: calc(var(--gutter) * 1.5);
         border-radius: 3px;
-        margin-bottom: calc(var(--gutter) * 2);
+
+        &:not(:last-of-type) {
+            margin-bottom: calc(var(--gutter) * 2);
+        }
 
         > h1 {
             font-weight: bold;
