@@ -8,11 +8,27 @@ const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const del = require('del');
+const replace = require('gulp-replace');
 
 const outputLocation = './dist';
 const sassLocation = './src/css/main.scss';
 const htmlLocation = './src/html/index.html';
 const assetLocation = './src/assets/**/*.*';
+
+const monthNames = [
+    'jan',
+    'feb',
+    'mar',
+    'apr',
+    'may',
+    'jun',
+    'jul',
+    'aug',
+    'sept',
+    'oct',
+    'nov',
+    'dec',
+];
 
 function cleanup() {
     return del([outputLocation + '/**/*']);
@@ -33,7 +49,14 @@ function compileSass() {
 }
 
 function copyHtml() {
-    return src(htmlLocation).pipe(dest(outputLocation));
+    return src(htmlLocation)
+        .pipe(
+            replace('%UPDATED:DATE%', () => {
+                const date = new Date();
+                return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+            })
+        )
+        .pipe(dest(outputLocation));
 }
 
 function copyAssets() {
