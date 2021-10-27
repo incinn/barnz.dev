@@ -1,9 +1,32 @@
 .btn {
+    display: flex;
+    align-items: center;
     border-radius: 6px;
     border: 1px solid transparent;
     padding: var(--gutter);
     font-weight: bold;
     cursor: pointer;
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    img {
+        width: 15px;
+        height: 15px;
+        margin-right: 0.5rem;
+    }
+
+    &--small {
+        padding: calc(var(--gutter) / 2);
+        font-size: 0.75rem;
+    }
+
+    &--invert {
+        img {
+            filter: invert(100%);
+        }
+    }
 
     &--dark {
         color: var(--grey);
@@ -16,7 +39,16 @@
 
         &:active {
             box-shadow: inset 0px 0px 10px 1px var(--dark);
-            transform: scale(0.95);
+        }
+    }
+
+    &--light {
+        color: var(--dark);
+        border-color: var(--dark);
+        background-color: var(--grey);
+
+        &:hover {
+            background-color: var(--white);
         }
     }
 }

@@ -53,12 +53,26 @@
             flex-direction: column;
             justify-content: center;
             margin-bottom: 20px; // bar height
-        }
 
-        h1 {
-            font-size: 1.75rem;
-            letter-spacing: 2px;
-            margin-bottom: var(--gutter);
+            &__title {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: var(--gutter);
+
+                h1 {
+                    font-size: 1.75rem;
+                    letter-spacing: 2px;
+                }
+
+                &__buttons {
+                    display: flex;
+
+                    a:not(:last-of-type) {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
         }
 
         p {
