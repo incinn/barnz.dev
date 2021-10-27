@@ -9,6 +9,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const del = require('del');
 const replace = require('gulp-replace');
+const fs = require('fs');
 
 const outputLocation = './dist';
 const sassLocation = './src/css/main.scss';
@@ -48,12 +49,21 @@ function compileSass() {
         .pipe(dest(outputLocation));
 }
 
-function copyHtml() {
+function buildHtml() {
     return src(htmlLocation)
         .pipe(
             replace('%UPDATED_DATE%', () => {
                 const date = new Date();
                 return `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+            })
+        )
+        .pipe(
+            replace('%STYLESHEET%', () => {
+                const stylesheet = fs.readFileSync(
+                    outputLocation + '/main.css',
+                    'utf8'
+                );
+                return `<style type="text/css">\n${stylesheet}</style>`;
             })
         )
         .pipe(dest(outputLocation));
@@ -65,9 +75,15 @@ function copyAssets() {
 
 function watchSource() {
     watch('./src/css/**/*.scss', compileSass);
-    watch(htmlLocation, copyHtml);
+    watch(htmlLocation, buildHtml);
 }
 
-exports.build = series(cleanup, parallel(copyHtml, copyAssets, compileSass));
-exports.watch = series(cleanup, copyHtml, copyAssets, compileSass, watchSource);
+exports.build = series(cleanup, parallel(copyAssets, compileSass), buildHtml);
+exports.watch = series(
+    cleanup,
+    copyAssets,
+    compileSass,
+    buildHtml,
+    watchSource
+);
 exports.clean = cleanup;
