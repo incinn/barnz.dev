@@ -39,16 +39,16 @@
                         var(--dark-lightness),
                         25%
                     );
-
                 outline: none;
                 border-color: transparent;
             }
         }
 
         label {
-            margin: 0 0 10px 0;
+            margin: 0 0 5px 0;
             font-size: 0.75rem;
             font-weight: bold;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
