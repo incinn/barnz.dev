@@ -16,6 +16,10 @@
 
         > p {
             margin-bottom: calc(var(--gutter) * 2);
+
+            small {
+                font-size: 0.65rem;
+            }
         }
     }
 
