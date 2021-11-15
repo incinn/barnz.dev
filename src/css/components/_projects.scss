@@ -103,7 +103,7 @@
             align-items: center;
             position: relative;
             background-color: var(--dark);
-            height: 20px;
+            height: 25px;
             width: 100%;
             border-top-left-radius: $radius;
             border-top-right-radius: $radius;
@@ -125,13 +125,13 @@
 
             &:before {
                 background-color: #fe5f57;
-                top: 5px;
+                top: 7px;
                 left: 5px;
             }
 
             &:after {
                 background-color: #febb2c;
-                top: 5px;
+                top: 7px;
                 left: 20px;
             }
 
@@ -144,8 +144,57 @@
                     @include window-button;
 
                     background-color: #28cc42;
-                    top: 5px;
+                    top: 7px;
                     left: 35px;
+                }
+            }
+        }
+
+        &__address {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            width: 100%;
+            border-right: 2px solid var(--dark);
+            border-left: 2px solid var(--dark);
+            background-color: var(--light);
+
+            @mixin window-ui-button {
+                font-size: 0.75rem;
+                text-align: center;
+                font-weight: bold;
+                position: absolute;
+                background-color: rgba(black, 0.15);
+                height: 15px;
+                width: 15px;
+                border-radius: 3px;
+            }
+
+            &:before {
+                @include window-ui-button;
+                content: '<';
+                left: 5px;
+            }
+
+            &:after {
+                @include window-ui-button;
+                content: '>';
+                left: 25px;
+            }
+
+            span {
+                width: 50%;
+                text-align: left;
+                background-color: rgba(black, 0.25);
+                font-size: 0.6rem;
+                padding: 0.1rem 0.2rem;
+                border-radius: 3px;
+
+                &:after {
+                    @include window-ui-button;
+                    content: '=';
+                    right: 5px;
                 }
             }
         }
