@@ -26,6 +26,7 @@
         @mixin input {
             padding: 0.5rem;
             font-size: 1rem;
+            font-family: Ubuntu-Mono;
             border-radius: 3px;
             border: 1px solid hsla(var(--dark-hue), var(--dark-sat), 75%, 100%);
             box-shadow: none;
