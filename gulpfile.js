@@ -86,4 +86,4 @@ exports.watch = series(
     buildHtml,
     watchSource
 );
-exports.clean = cleanup;
+exports.clean = cleanup; 
