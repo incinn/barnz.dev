@@ -43,6 +43,11 @@
 
 	a {
 	    margin-left: 2rem;
+	    transition: color 100ms;
+	    
+	    &:hover {
+		color: var(--red);
+	    }
 	}
     }
 }
