@@ -89,11 +89,14 @@
         max-width: 350px;
         aspect-ratio: 16/9;
         user-select: none;
+	background-color: var(--dark);
+	border-radius: 6px;
+	backface-visibility: hidden;
 	transition: all 200ms;
 
 	&:hover {
-	    transform: scale(1.05);
-	    box-shadow: 0px 0px 3px 2px var(--dark);
+	    transform: scale(1.048);
+	    box-shadow: 10px 25px 15px 2px var(--dark);
 	}
 
         &__bar {
