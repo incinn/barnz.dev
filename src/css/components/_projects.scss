@@ -17,14 +17,6 @@
         > p {
             margin-bottom: calc(var(--gutter) * 5);
         }
-
-        &__item {
-            background-color: var(--grey);
-            color: var(--dark);
-            padding: var(--gutter);
-            border-radius: 3px;
-            margin-bottom: calc(var(--gutter) * 2);
-        }
     }
 
     &__item {
@@ -96,6 +88,12 @@
         max-width: 350px;
         aspect-ratio: 16/9;
         user-select: none;
+	transition: all 200ms;
+
+	&:hover {
+	    transform: scale(1.05);
+	    box-shadow: 0px 0px 3px 2px var(--dark);
+	}
 
         &__bar {
             display: flex;
