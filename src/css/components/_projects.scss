@@ -101,7 +101,7 @@
             align-items: center;
             position: relative;
             background-color: var(--dark);
-            height: 25px;
+            min-height: 25px;
             width: 100%;
             border-top-left-radius: $radius;
             border-top-right-radius: $radius;
@@ -152,7 +152,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 25px;
+            min-height: 25px;
             width: 100%;
             border-right: 2px solid var(--dark);
             border-left: 2px solid var(--dark);
