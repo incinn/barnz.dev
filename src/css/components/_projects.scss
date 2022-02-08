@@ -37,7 +37,7 @@
         }
 
         &:not(:last-of-type) {
-            margin-bottom: calc(var(--gutter) * 5);
+            margin-bottom: 8rem;
         }
 
         .content {
