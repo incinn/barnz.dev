@@ -38,16 +38,11 @@
     nav {
         display: flex;
         flex: 1;
+        justify-content: flex-end;
+        align-items: center;
 
-        ul {
-            display: flex;
-            justify-content: flex-end;
-            flex: 1;
-            align-items: center;
-
-            li {
-                margin-left: 1.5rem;
-            }
-        }
+	a {
+	    margin-left: 2rem;
+	}
     }
 }
