@@ -1,5 +1,12 @@
+@keyframes more_bounce {
+    0%, 100% {
+	transform: translate(-50%, 0);
+    }
+    50% { transform: translate(-50%, -10px); }
+}
+
 .blurb {
-    padding: 25vh 0;
+    padding: 37vh 0;
     position: relative;
     text-align: center;
     color: var(--light);
@@ -11,6 +18,35 @@
         width: 100%;
         padding: 0 var(--gutter);
         margin: 0 auto;
+    }
+
+    &__more {
+	position: absolute;
+	left: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--white);
+	color: var(--red);
+	font-weight: bold;
+	font-size: 1.5rem;
+	box-shadow: 0px 0px 10px 2px var(--dark);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	bottom: 0;
+	z-index: 1;
+	cursor: pointer;
+	animation: more_bounce 1500ms infinite;
+
+	&:hover {
+	    background-color: var(--red);
+	    color: var(--white);
+	}
+
+	span {
+	    transform: rotate(90deg);
+	}
     }
 
     h1 {
