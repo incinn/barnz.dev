@@ -50,7 +50,11 @@
 	}
 
 	span {
-	    transform: rotate(90deg) translateY(3%);
+	    transform: rotate(90deg);
+
+	    @include firefoxOnly {
+		transform: rotate(90deg) translateY(-3%);
+	    }
 	}
     }
 
