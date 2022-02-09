@@ -56,11 +56,6 @@
             text-transform: uppercase;
         }
 
-        input[type='text'] {
-            @include input;
-            width: 300px;
-        }
-
         input[type='submit'] {
             margin-right: auto;
             width: 100px;
