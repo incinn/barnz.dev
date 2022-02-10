@@ -1,39 +1,29 @@
 .footer {
-    background-color: var(--dark);
-    color: var(--grey);
+    background-color: hsl(var(--grey-hue), var(--grey-sat), 86%);
 
     &__inner {
         max-width: var(--content-width);
-        padding: calc(var(--gutter) / 2) var(--gutter);
+        padding: calc(var(--gutter)) var(--gutter);
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        > * {
-            opacity: 0.5;
-            &:hover {
-                opacity: 1;
-            }
-        }
-
         p,
         a {
+	    color: var(--dark);
             margin: 0;
             font-size: 0.8rem;
 
-            span {
+            .heart {
                 color: red;
             }
         }
 
-        > span {
+        a {
             display: flex;
             align-items: center;
-
-            a {
-                border: none;
-            }
+	    font-weight: normal;
         }
 
         img {
@@ -41,7 +31,6 @@
                 padding-right: 0.5rem;
                 width: auto;
                 height: 15px;
-                filter: invert(100%);
             }
         }
     }
