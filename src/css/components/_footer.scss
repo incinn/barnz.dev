@@ -6,8 +6,13 @@
         padding: calc(var(--gutter)) var(--gutter);
         margin: 0 auto;
         display: flex;
+	flex-direction: column;
         justify-content: space-between;
         align-items: center;
+
+	@include media('>tablet') {
+	    flex-direction: row;
+	}
 
         p,
         a {
@@ -19,6 +24,14 @@
                 color: red;
             }
         }
+
+	p {
+	    margin-bottom: 1rem;
+
+	    @include media('>tablet') {
+		margin-bottom: initial;
+	    }
+	}
 
         a {
             display: flex;
