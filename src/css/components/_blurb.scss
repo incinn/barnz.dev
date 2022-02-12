@@ -17,11 +17,17 @@
 	flex-direction: column;
 	align-content: center;
 	justify-content: center;
-        max-width: var(--content-width);
-	height: 90vh;
+	height: 80vh;
 	min-height: 500px;
+	max-width: 360px;
         padding: 0 var(--gutter);
         margin: 0 auto;
+
+	@include media('>tablet') {
+	    height: 90vh;
+            max-width: var(--content-width);
+	    min-height: 500px;
+	}
     }
 
     &__more {
@@ -59,29 +65,27 @@
     }
 
     h1 {
-        font-size: 2.7rem;
+        font-size: 2rem;
         line-height: 2;
-        margin-bottom: 1em;
+        margin-bottom: 4rem;
+	text-align: left;
 
-        .space {
-            display: none;
-        }
+        br {
+	    display: none;
+	}
 
-        @include media('<desktop', '>phone') {
-            font-size: 4vw;
-        }
+        @include media('>tablet') {
+	    font-size: 2.7rem;
+	    text-align: center;
+	    margin-bottom: 1.25rem;
 
-        @include media('<=phone') {
-            font-size: 1.5rem;
-            font-weight: bold;
+	    br {
+		display: initial;
+	    }
 
-            br {
-                display: none;
-            }
-
-            .space {
-                display: inline-block;
-            }
+	    .space {
+		display: none;
+	    }
         }
     }
 
@@ -90,16 +94,16 @@
     }
 
     p {
-        font-size: 1.45rem;
+        font-size: 1rem;
         line-height: 1.5;
+	text-align: left;
+	max-width: 230px;
 
-        @include media('<desktop', '>phone') {
-            font-size: 2.7vw;
-        }
-
-        @include media('<=phone') {
-            font-size: 1rem;
-        }
+        @include media('>tablet') {
+	    font-size: 1.45rem;
+	    text-align: center;
+	    max-width: unset;
+	}
     }
 
     .divider {
