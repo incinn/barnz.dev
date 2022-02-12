@@ -1,16 +1,25 @@
 .header {
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
   background-color: var(--dark);
-  z-index: 5;
+
+  @include media(">tablet") {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 5;
+  }
 
   &__inner {
     display: flex;
+    justify-content: center;
     max-width: var(--content-width);
     padding: 0 var(--gutter);
     margin: 0 auto;
+    border-bottom: 2px dashed var(--red);
+
+    @include media(">tablet") {
+      border-bottom: none;
+    }
   }
 
   h1 {
@@ -40,6 +49,10 @@
     flex: 1;
     justify-content: flex-end;
     align-items: center;
+
+    @include media("<tablet") {
+      display: none;
+    }
 
     a {
       margin-left: 2rem;
