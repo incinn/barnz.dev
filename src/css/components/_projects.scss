@@ -51,9 +51,14 @@
 
       &__title {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: space-between;
         margin-bottom: var(--gutter);
+
+        @include media(">tablet") {
+          flex-direction: row;
+        }
 
         h1 {
           font-size: 1.75rem;
@@ -63,9 +68,18 @@
 
         &__buttons {
           display: flex;
+          margin-top: var(--gutter);
+
+          @include media(">tablet") {
+            margin-top: unset;
+          }
 
           a:not(:last-of-type) {
-            margin-right: 0.5rem;
+            margin-right: 1.5rem;
+
+            @include media(">tablet") {
+              margin-right: 0.5rem;
+            }
           }
         }
       }
