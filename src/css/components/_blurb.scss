@@ -22,9 +22,13 @@
     justify-content: center;
     height: 80vh;
     min-height: 500px;
-    max-width: 390px;
+    max-width: 250px;
     padding: 0 var(--gutter);
     margin: 0 auto;
+
+    @include media('>phone') {
+	max-width: 390px;
+    }
 
     @include media(">tablet") {
       height: 90vh;
@@ -68,13 +72,17 @@
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 2;
     margin-bottom: 4rem;
     text-align: left;
 
     br {
       display: none;
+    }
+
+    @include media('>phone') {
+	font-size: 2rem;
     }
 
     @include media(">tablet") {
@@ -101,11 +109,13 @@
     line-height: 1.5;
     text-align: left;
     max-width: 230px;
+    margin-bottom: 4rem;
 
     @include media(">tablet") {
       font-size: 1.45rem;
       text-align: center;
       max-width: unset;
+      margin-bottom: initial;
     }
   }
 
