@@ -1,130 +1,133 @@
 @keyframes more_bounce {
-    0%, 100% {
-	transform: translate(-50%, 0);
-    }
-    50% { transform: translate(-50%, -10px); }
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -10px);
+  }
 }
 
 .blurb {
-    position: relative;
-    text-align: center;
-    color: var(--light);
-    background-color: var(--dark);
-    background: linear-gradient(10deg, #313142 0%, #1b1b27 65%);
+  position: relative;
+  text-align: center;
+  color: var(--light);
+  background-color: var(--dark);
+  background: linear-gradient(10deg, #313142 0%, #1b1b27 65%);
 
-    &__inner {
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	justify-content: center;
-	height: 80vh;
-	min-height: 500px;
-	max-width: 360px;
-        padding: 0 var(--gutter);
-        margin: 0 auto;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 80vh;
+    min-height: 500px;
+    max-width: 360px;
+    padding: 0 var(--gutter);
+    margin: 0 auto;
 
-	@include media('>tablet') {
-	    height: 90vh;
-            max-width: var(--content-width);
-	    min-height: 500px;
-	}
+    @include media(">tablet") {
+      height: 90vh;
+      max-width: var(--content-width);
+      min-height: 500px;
+    }
+  }
+
+  &__more {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    color: var(--red);
+    font-weight: bold;
+    font-size: 1.5rem;
+    box-shadow: 0px 0px 10px 2px var(--dark);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
+    animation: more_bounce 1500ms infinite;
+    transition: background-color 100ms, color 100ms;
+
+    &:hover {
+      background-color: var(--red);
+      color: var(--white);
     }
 
-    &__more {
-	position: absolute;
-	left: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: var(--white);
-	color: var(--red);
-	font-weight: bold;
-	font-size: 1.5rem;
-	box-shadow: 0px 0px 10px 2px var(--dark);
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	bottom: 0;
-	z-index: 1;
-	cursor: pointer;
-	animation: more_bounce 1500ms infinite;
-	transition: background-color 100ms, color 100ms;
+    span {
+      transform: rotate(90deg);
 
-	&:hover {
-	    background-color: var(--red);
-	    color: var(--white);
-	}
+      @include firefoxOnly {
+        transform: rotate(90deg) translateY(-3%);
+      }
+    }
+  }
 
-	span {
-	    transform: rotate(90deg);
+  h1 {
+    font-size: 2rem;
+    line-height: 2;
+    margin-bottom: 4rem;
+    text-align: left;
 
-	    @include firefoxOnly {
-		transform: rotate(90deg) translateY(-3%);
-	    }
-	}
+    br {
+      display: none;
     }
 
-    h1 {
-        font-size: 2rem;
-        line-height: 2;
-        margin-bottom: 4rem;
-	text-align: left;
+    @include media(">tablet") {
+      font-size: 2.7rem;
+      text-align: center;
+      margin-bottom: 1.25rem;
 
-        br {
-	    display: none;
-	}
+      br {
+        display: initial;
+      }
 
-        @include media('>tablet') {
-	    font-size: 2.7rem;
-	    text-align: center;
-	    margin-bottom: 1.25rem;
-
-	    br {
-		display: initial;
-	    }
-
-	    .space {
-		display: none;
-	    }
-        }
+      .space {
+        display: none;
+      }
     }
+  }
 
-    em {
-        color: var(--red);
+  em {
+    color: var(--red);
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 230px;
+
+    @include media(">tablet") {
+      font-size: 1.45rem;
+      text-align: center;
+      max-width: unset;
     }
+  }
 
-    p {
-        font-size: 1rem;
-        line-height: 1.5;
-	text-align: left;
-	max-width: 230px;
+  .divider {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
 
-        @include media('>tablet') {
-	    font-size: 1.45rem;
-	    text-align: center;
-	    max-width: unset;
-	}
+    svg {
+      position: relative;
+      display: block;
+      width: calc(125% + 1.3px);
+      height: 105px;
+
+      .shape-fill {
+        fill: var(--grey);
+      }
     }
-
-    .divider {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg);
-
-        svg {
-            position: relative;
-            display: block;
-            width: calc(125% + 1.3px);
-            height: 105px;
-
-            .shape-fill {
-                fill: var(--grey);
-            }
-        }
-    }
+  }
 }
