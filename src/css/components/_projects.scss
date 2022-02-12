@@ -20,18 +20,23 @@
 
   &__item {
     display: flex;
+    flex-direction: column-reverse;
 
-    &:nth-child(odd) {
-      flex-direction: row-reverse;
+    @include media(">tablet") {
+      flex-direction: row;
 
-      .content {
-        margin-left: calc(var(--gutter) * 3);
+      &:nth-child(odd) {
+        flex-direction: row-reverse;
+
+        .content {
+          margin-left: calc(var(--gutter) * 3);
+        }
       }
-    }
 
-    &:nth-child(even) {
-      .content {
-        margin-right: calc(var(--gutter) * 3);
+      &:nth-child(even) {
+        .content {
+          margin-right: calc(var(--gutter) * 3);
+        }
       }
     }
 
@@ -43,7 +48,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-bottom: 20px; // bar height
 
       &__title {
         display: flex;
@@ -80,21 +84,28 @@
 
   .window {
     $radius: 6px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
-    min-width: 350px;
-    max-width: 350px;
     user-select: none;
     background-color: var(--dark);
     border-radius: 6px;
     backface-visibility: hidden;
-    transition: all 200ms;
+    width: 100%;
+    margin-bottom: 2rem;
 
-    &:hover {
-      transform: scale(1.048);
-      box-shadow: 10px 25px 15px 2px var(--dark);
+    @include media(">tablet") {
+      min-width: 350px;
+      max-width: 350px;
+      margin-bottom: unset;
+      transition: all 200ms;
+
+      &:hover {
+        transform: scale(1.048);
+        box-shadow: 10px 25px 15px 2px var(--dark);
+      }
     }
 
     &__bar {
