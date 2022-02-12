@@ -113,7 +113,7 @@
     @include media(">tablet") {
       min-width: 350px;
       max-width: 350px;
-      margin-bottom: unset;
+      margin-bottom: auto;
       transition: all 200ms;
 
       &:hover {
