@@ -132,8 +132,12 @@
     svg {
       position: relative;
       display: block;
-      width: calc(125% + 1.3px);
       height: 105px;
+      width: 1000px;
+
+      @include media(">tablet") {
+        width: 120vw;
+      }
 
       .shape-fill {
         fill: var(--grey);
