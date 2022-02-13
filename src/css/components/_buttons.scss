@@ -6,6 +6,7 @@
     padding: var(--gutter);
     font-weight: bold;
     cursor: pointer;
+    transition: 100ms;
 
     &:active {
         transform: scale(0.95);
