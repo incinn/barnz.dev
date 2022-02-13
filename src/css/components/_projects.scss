@@ -117,8 +117,8 @@
       transition: all 200ms;
 
       &:hover {
-        transform: scale(1.048);
-        box-shadow: 10px 25px 15px 2px var(--dark);
+        transform: scale(1.06);
+        box-shadow: 10px 20px 15px 2px hsla(var(--dark-hue), var(--dark-sat),var(--dark-lightness), 0.6);
       }
     }
 
