@@ -27,6 +27,11 @@
     font-weight: bold;
     margin: var(--gutter) 0;
 
+    span.dot {
+      color: var(--red);
+      opacity: 1;
+    }
+
     a {
       display: flex;
       align-items: center;
