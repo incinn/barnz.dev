@@ -26,8 +26,8 @@
     padding: 0 var(--gutter);
     margin: 0 auto;
 
-    @include media('>phone') {
-	max-width: 390px;
+    @include media(">phone") {
+      max-width: 390px;
     }
 
     @include media(">tablet") {
@@ -81,8 +81,8 @@
       display: none;
     }
 
-    @include media('>phone') {
-	font-size: 2rem;
+    @include media(">phone") {
+      font-size: 2rem;
     }
 
     @include media(">tablet") {
