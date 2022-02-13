@@ -25,7 +25,10 @@
   form {
     display: flex;
     flex-direction: column;
-    max-width: calc(var(--content-width) / 2);
+
+    @include media(">tablet") {
+      max-width: calc(var(--content-width) / 2);
+    }
 
     @mixin input {
       padding: 0.5rem;
