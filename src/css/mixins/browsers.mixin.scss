@@ -1,0 +1,5 @@
+@mixin firefoxOnly {
+    @supports (-moz-appearance: none) {
+	@content;
+    }
+}
