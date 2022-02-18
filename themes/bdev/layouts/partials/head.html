@@ -7,4 +7,10 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello I am barnz, passionate web developer from the UK 🇬🇧</title>
+
+    {{ $sass := resources.Get "sass/main.scss" }} {{ $style := $sass |
+    resources.ToCSS | resources.Minify }}
+    <style>
+        {{ $style.Content | safeCSS }}
+    </style>
 </head>
