@@ -1,7 +1,7 @@
 @import './mixins/browsers.mixin';
 @import './vars';
 @import 'node_modules/include-media/dist/_include-media.scss';
-@import 'node_modules/reset-css/reset.css';
+@import 'node_modules/reset-css/sass/_reset';
 @import './fonts';
 
 @import './components/buttons';
