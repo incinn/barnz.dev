@@ -2,6 +2,7 @@ baseURL = "https://barnz.dev/"
 languageCode = "en-gb"
 title = "barnz.dev"
 theme = "bdev"
+copyright = "barnz.dev"
 
 [params]
   description = "Hello, I am Barnz, a passionate web developer from the UK."
