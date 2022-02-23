@@ -1,7 +1,10 @@
-baseURL = 'https://barnz.dev/'
-languageCode = 'en-gb'
-title = 'My New Hugo Site'
-theme = 'bdev'
+baseURL = "https://barnz.dev/"
+languageCode = "en-gb"
+title = "barnz.dev"
+theme = "bdev"
+
+[params]
+  description = "Hello, I am Barnz, a passionate web developer from the UK."
 
 [module]
   [[module.mounts]]
