@@ -5,8 +5,8 @@ theme = 'bdev'
 
 [module]
   [[module.mounts]]
-    source = "static"
-    target = "static"
+    source = "assets"
+    target = "assets"
   [[module.mounts]]
     source = "node_modules/feather-icons/dist/icons"
-    target = "static/icons"
+    target = "assets/icons"
