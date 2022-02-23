@@ -1,149 +1,146 @@
 @keyframes more_bounce {
-  0%,
-  100% {
-    transform: translate(-50%, 5px);
-  }
-  50% {
-    transform: translate(-50%, -15px);
-  }
+    0%,
+    100% {
+        transform: translate(-50%, 5px);
+    }
+    50% {
+        transform: translate(-50%, -15px);
+    }
 }
 
 .blurb {
-  position: relative;
-  text-align: center;
-  color: var(--light);
-  background-color: var(--dark);
-  background: linear-gradient(10deg, #313142 0%, #1b1b27 65%);
+    position: relative;
+    text-align: center;
+    color: var(--light);
+    background-color: var(--dark);
+    background: linear-gradient(10deg, #313142 0%, #1b1b27 65%);
 
-  &__inner {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    height: 80vh;
-    min-height: 500px;
-    max-width: 250px;
-    padding: 0 var(--gutter);
-    margin: 0 auto;
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        height: 80vh;
+        min-height: 500px;
+        max-width: 250px;
+        padding: 0 var(--gutter);
+        margin: 0 auto;
 
-    @include media(">phone") {
-      max-width: 390px;
+        @include media('>phone') {
+            max-width: 390px;
+        }
+
+        @include media('>tablet') {
+            height: 90vh;
+            max-width: var(--content-width);
+            min-height: 500px;
+        }
     }
 
-    @include media(">tablet") {
-      height: 90vh;
-      max-width: var(--content-width);
-      min-height: 500px;
-    }
-  }
+    &__more {
+        position: absolute;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
+        color: var(--red);
+        font-weight: bold;
+        font-size: 1.5rem;
+        box-shadow: 0px 0px 10px 2px
+            hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 0.6);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        bottom: 0;
+        z-index: 1;
+        cursor: pointer;
+        animation: more_bounce 1500ms infinite;
+        transition: background-color 100ms, color 100ms;
 
-  &__more {
-    position: absolute;
-    left: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--white);
-    color: var(--red);
-    font-weight: bold;
-    font-size: 1.5rem;
-    box-shadow: 0px 0px 10px 2px
-      hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 0.6);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    bottom: 0;
-    z-index: 1;
-    cursor: pointer;
-    animation: more_bounce 1500ms infinite;
-    transition: background-color 100ms, color 100ms;
+        &:hover {
+            background-color: var(--red);
+            text-decoration: none;
+            color: var(--white);
+        }
 
-    &:hover {
-      background-color: var(--red);
-      text-decoration: none;
-      color: var(--white);
-    }
-
-    span {
-      transform: rotate(90deg);
-
-      @include firefoxOnly {
-        transform: rotate(90deg) translateY(-3%);
-      }
-    }
-  }
-
-  h1 {
-    font-size: 1.5rem;
-    line-height: 2;
-    margin-bottom: 4rem;
-    text-align: left;
-
-    br {
-      display: none;
+        .icon svg {
+            width: 33px;
+            height: 33px;
+        }
     }
 
-    @include media(">phone") {
-      font-size: 2rem;
+    h1 {
+        font-size: 1.5rem;
+        line-height: 2;
+        margin-bottom: 4rem;
+        text-align: left;
+
+        br {
+            display: none;
+        }
+
+        @include media('>phone') {
+            font-size: 2rem;
+        }
+
+        @include media('>tablet') {
+            font-size: 2.7rem;
+            text-align: center;
+            margin-bottom: 1.25rem;
+
+            br {
+                display: initial;
+            }
+
+            .space {
+                display: none;
+            }
+        }
     }
 
-    @include media(">tablet") {
-      font-size: 2.7rem;
-      text-align: center;
-      margin-bottom: 1.25rem;
-
-      br {
-        display: initial;
-      }
-
-      .space {
-        display: none;
-      }
+    em {
+        color: var(--red);
     }
-  }
 
-  em {
-    color: var(--red);
-  }
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: left;
+        max-width: 230px;
+        margin-bottom: 4rem;
 
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: left;
-    max-width: 230px;
-    margin-bottom: 4rem;
-
-    @include media(">tablet") {
-      font-size: 1.45rem;
-      text-align: center;
-      max-width: unset;
-      margin-bottom: initial;
+        @include media('>tablet') {
+            font-size: 1.45rem;
+            text-align: center;
+            max-width: unset;
+            margin-bottom: initial;
+        }
     }
-  }
 
-  .divider {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
+    .divider {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
 
-    svg {
-      position: relative;
-      display: block;
-      height: 105px;
-      width: 1000px;
+        svg {
+            position: relative;
+            display: block;
+            height: 105px;
+            width: 1000px;
 
-      @include media(">tablet") {
-        width: 120vw;
-      }
+            @include media('>tablet') {
+                width: 120vw;
+            }
 
-      .shape-fill {
-        fill: var(--grey);
-      }
+            .shape-fill {
+                fill: var(--grey);
+            }
+        }
     }
-  }
 }
