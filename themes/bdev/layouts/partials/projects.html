@@ -3,152 +3,47 @@
         <h1 id="projects">Projects</h1>
         <p>Some projects I've worked on that I'm especially proud of:</p>
 
+        {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
         <article class="projects__item">
             <div class="content">
                 <div class="content__title">
-                    <h1>StartPage</h1>
+                    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
                     <div class="content__title__buttons">
                         <a
                             class="btn btn--small btn--light"
-                            title="Visit startpage project website"
-                            href="https://start.barnz.dev"
+                            title="Visit {{ .Title }} project website"
+                            href="{{ .Params.liveUrl }}"
                             target="_blank"
                         >
                             visit site
                         </a>
                         <a
                             class="btn btn--invert btn--small btn--dark"
-                            title="View Startpage project source"
-                            href="https://barnz.dev"
+                            title="View {{ .Title }} project source"
+                            href="{{ .Params.sourceUrl }}"
                             target="_blank"
                         >
                             {{ partial "icon" "github" }} source
                         </a>
                     </div>
                 </div>
-                <p>
-                    My start page. A lightweight page which provides quick
-                    access to information that is important to me.
-                </p>
-                <p>
-                    Built with <em>Typescript</em> and <em>semantic HTML</em> to
-                    be as fast to load as possible. Makes use of browser
-                    <em>local storage</em> to cache third party data.
-                </p>
+                {{ .Summary }}
             </div>
             <div class="window">
                 <div class="window__bar">
-                    <span>StartPage</span>
+                    <span>{{ .Title }}</span>
                 </div>
                 <div class="window__address">
-                    <span>https://start.barnz.dev</span>
+                    <span>{{ .Params.liveUrl }}</span>
                 </div>
                 <img
-                    src="/img/startpage-screenshot.webp"
+                    src="/img/{{ .Params.screenshotImage }}"
                     alt="StartPage screenshot"
                     width="350px"
                     height="190px"
                 />
             </div>
         </article>
-
-        <article class="projects__item">
-            <div class="content">
-                <div class="content__title">
-                    <h1>barnz.dev</h1>
-                    <div class="content__title__buttons">
-                        <a
-                            class="btn btn--small btn--light"
-                            title="View barnz.com project website"
-                            href="https://barnz.dev"
-                            target="_blank"
-                        >
-                            visit site
-                        </a>
-                        <a
-                            class="btn btn--invert btn--small btn--dark"
-                            title="View barnz.dev project source"
-                            href="https://barnz.dev"
-                            target="_blank"
-                        >
-                            {{ partial "icon" "github" }} source
-                        </a>
-                    </div>
-                </div>
-                <p>
-                    This website. A simple static page. This project is ever
-                    evolving and changing. Built with
-                    <em>SASS</em> and <em>Typescript</em>, aiming to be as
-                    lightweight as possible. This project will never be
-                    completed.
-                </p>
-                <p>I am the worst client.</p>
-            </div>
-            <div class="window">
-                <div class="window__bar">
-                    <span>barnz.dev</span>
-                </div>
-                <div class="window__address">
-                    <span>https://barnz.dev</span>
-                </div>
-                <img
-                    src="/img/barnzdev-screenshot.webp"
-                    alt="barnz.dev screenshot"
-                    width="350px"
-                    height="190px"
-                />
-            </div>
-        </article>
-
-        <article class="projects__item">
-            <div class="content">
-                <div class="content__title">
-                    <h1>TubeSync</h1>
-                    <div class="content__title__buttons">
-                        <a
-                            class="btn btn--small btn--light"
-                            title="Visit tubesync project website"
-                            href="https://barnz.dev"
-                            target="_blank"
-                        >
-                            visit site
-                        </a>
-                        <a
-                            class="btn btn--invert btn--small btn--dark"
-                            title="View tubesync project source"
-                            href="https://barnz.dev"
-                            target="_blank"
-                        >
-                            {{ partial "icon" "github" }} source
-                        </a>
-                    </div>
-                </div>
-                <p>
-                    A web app which allows users to create either a private or
-                    pubic room to watch YouTube videos together with friends.
-                    Videos remain in sync with all users inside the room.
-                    Includes playlist support and live chat.
-                </p>
-                <p>
-                    A frontend SPA built with <em>Angular</em> and
-                    <em>Typescript</em>.<br />An API built with <em>NestJS</em>.
-                </p>
-            </div>
-
-            <div class="window">
-                <div class="window__bar">
-                    <span>TubeSync</span>
-                </div>
-                <div class="window__address">
-                    <span>https://localhost:8080</span>
-                </div>
-                <img
-                    src="/img/startpage-screenshot.webp"
-                    alt="TubeSync screenshot"
-                    width="350px"
-                    height="190px"
-                />
-            </div>
-        </article>
+        {{end}}
     </div>
 </section>
