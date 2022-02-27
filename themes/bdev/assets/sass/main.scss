@@ -30,11 +30,14 @@ html {
             text-decoration: none;
         }
 
-        main a {
-            color: var(--dark);
+        main {
+            padding-top: 69px;
+            a {
+                color: var(--dark);
 
-            &:hover {
-                text-decoration: underline;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
