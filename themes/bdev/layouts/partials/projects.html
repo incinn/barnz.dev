@@ -13,6 +13,7 @@
                             class="btn btn--small btn--light"
                             title="Visit {{ .Title }} project website"
                             href="{{ .Params.liveUrl }}"
+                            rel="noreferrer noopener"
                             target="_blank"
                         >
                             visit site
@@ -21,6 +22,7 @@
                             class="btn btn--invert btn--small btn--dark"
                             title="View {{ .Title }} project source"
                             href="{{ .Params.sourceUrl }}"
+                            rel="noreferrer noopener"
                             target="_blank"
                         >
                             {{ partial "icon" "github" }} source
