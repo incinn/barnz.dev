@@ -32,6 +32,8 @@ html {
 
         main {
             padding-top: 69px;
+            min-height: calc(100vh - 44px - 69px);
+
             a {
                 color: var(--dark);
 
