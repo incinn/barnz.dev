@@ -5,7 +5,7 @@
     </div>
     <section class="projectList__items">
     {{ range .Pages.ByPublishDate.Reverse }}
-        {{ partial "projectItem" (dict "context" .) }}
+        {{ partial "components/projectItem" (dict "context" .) }}
     {{ end }}
     </section>
 </div>

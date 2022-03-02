@@ -1,0 +1,16 @@
+<div class="articleItem">
+    <div class="articleItem__title">
+      {{ if .context.Params.externalLink }}
+          {{ partial "components/icon" "external-link" }}
+          <a target="_blank" href="{{ .context.Params.externalLink }}">{{ .context.Title }}</a>
+      {{ else }}
+          <a href="{{ .context.RelPermalink }}">{{ .context.Title }}</a>
+      {{ end }}
+  </div>
+
+  <div class="articleItem__summary">{{ .context.Summary | safeHTML | truncate 200 }}</div>
+
+  <span class="articleItem__date">
+      {{ .context.Date.Format "Mon" }} {{ .context.Date.Format "2" }}{{ if in (slice 1 21 31) .context.Date.Day }}st{{ else if in (slice 2 22) .context.Date.Day}}nd{{ else if in (slice 3 23) .context.Date.Day }}rd{{ else }}th {{ end }} {{ .context.Date.Format "Jan 2006" }}
+  </span>
+</div>

@@ -1,0 +1,28 @@
+.articles {
+    padding-top: calc(var(--gutter) * 10);
+
+    &__inner {
+        max-width: var(--content-width);
+        padding: 0 var(--gutter);
+        margin: 0 auto;
+
+        > h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: var(--gutter);
+        }
+
+        > p {
+            margin-bottom: calc(var(--gutter) * 2);
+        }
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-gap: 2rem;
+        max-width: var(--content-width);
+        margin: 0 auto;
+    }
+}

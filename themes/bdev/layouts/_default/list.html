@@ -6,20 +6,7 @@
 
     <section class="list__content">
         {{ range .Pages.ByPublishDate.Reverse }}
-        <div class="item">
-            <div class="item__title">    
-                {{ if .Params.externalLink }}
-                    {{ partial "components/icon" "external-link" }}
-                    <a target="_blank" href="{{ .Params.externalLink }}">{{ .Title }}</a>
-                {{ else }}
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                {{ end }}
-            </div>
-            <div class="item__summary">{{ .Summary | safeHTML | truncate 200 }}</div>
-            <span class="item__date">
-                {{ .Date.Format "Mon" }} {{ .Date.Format "2" }}{{ if in (slice 1 21 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format "Jan 2006" }}
-            </span>
-        </div>
+            {{ partial "components/articleItem" (dict "context" .) }}
         {{ end }}
     </section>
 </div>
