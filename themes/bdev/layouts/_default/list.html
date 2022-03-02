@@ -9,7 +9,7 @@
         <div class="item">
             <div class="item__title">    
                 {{ if .Params.externalLink }}
-                    {{ partial "icon" "external-link" }}
+                    {{ partial "components/icon" "external-link" }}
                     <a target="_blank" href="{{ .Params.externalLink }}">{{ .Title }}</a>
                 {{ else }}
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
