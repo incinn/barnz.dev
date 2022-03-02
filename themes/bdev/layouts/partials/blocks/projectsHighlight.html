@@ -4,7 +4,7 @@
         <p>Some projects I've worked on that I'm especially proud of:</p>
 
         {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
-            {{ partial "projectItem" (dict "context" .) }}
+            {{ partial "components/projectItem" (dict "context" .) }}
         {{end}}
     </div>
 </section>
