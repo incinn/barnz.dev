@@ -4,48 +4,7 @@
         <p>Some projects I've worked on that I'm especially proud of:</p>
 
         {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
-        <article class="projects__item">
-            <div class="content">
-                <div class="content__title">
-                    <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-                    <div class="content__title__buttons">
-                        <a
-                            class="btn btn--small btn--light"
-                            title="Visit {{ .Title }} project website"
-                            href="{{ .Params.liveUrl }}"
-                            rel="noreferrer noopener"
-                            target="_blank"
-                        >
-                            visit site
-                        </a>
-                        <a
-                            class="btn btn--invert btn--small btn--dark"
-                            title="View {{ .Title }} project source"
-                            href="{{ .Params.sourceUrl }}"
-                            rel="noreferrer noopener"
-                            target="_blank"
-                        >
-                            {{ partial "icon" "github" }} source
-                        </a>
-                    </div>
-                </div>
-                {{ .Summary | safeHTML }}
-            </div>
-            <div class="window">
-                <div class="window__bar">
-                    <span>{{ .Title }}</span>
-                </div>
-                <div class="window__address">
-                    <span>{{ .Params.liveUrl }}</span>
-                </div>
-                <img
-                    src="/img/{{ .Params.screenshotImage }}"
-                    alt="{{ .Title }} screenshot"
-                    width="350px"
-                    height="190px"
-                />
-            </div>
-        </article>
+            {{ partial "projectItem" (dict "context" .) }}
         {{end}}
     </div>
 </section>

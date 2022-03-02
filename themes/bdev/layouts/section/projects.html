@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="projectList">
+    <div class="projectList__header">
+        <div class="projectList__header__inner">{{ .Content | safeHTML }}</div>
+    </div>
+    <section class="projectList__items">
+    {{ range .Pages.ByPublishDate.Reverse }}
+        {{ partial "projectItem" (dict "context" .) }}
+    {{ end }}
+    </section>
+</div>
+{{ end }}
