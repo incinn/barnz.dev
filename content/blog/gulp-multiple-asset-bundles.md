@@ -1,6 +1,7 @@
 ---
 title: 'Gulp Multiple Asset Bundles'
 date: 2021-02-22T00:00:00Z
+draft: false
 slug: testing
 coverImage:
 externalLink: https://www.rocksolidknowledge.com/articles/using-gulp-to-create-multiple-asset-bundles
