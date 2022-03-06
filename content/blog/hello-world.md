@@ -1,67 +1,19 @@
 ---
-title: 'Hello World'
+title: 'Hello World!'
 date: 2022-02-28T20:04:08Z
 draft: false
 ---
 
-Lorem ipsum dolor sit amet, _consectetur_ adipisicing elit, sed do eiusmod
-tempor incididunt ut **labore et dolore magna aliqua**. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisiudut aliquip ex ea commodo
-consequat. **_Duis aute irure dolor_** in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. ~~Excepteur sint occaecat~~ cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Hello world!
 
-## H2
+I am entirely new to blogging. Typically I don't like to write about things which I do not fully understand, which inevitably results in me not writing anything at all. I hope to change that: by learning more, and documenting what I learn here.
 
-Lorem ipsum dolor sit amet, _consectetur_ adipisicing elit, sed do eiusmod
-tempor incididunt ut **labore et dolore magna aliqua**. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
+My vision for this blog is for it to be a place where I can consolidate my notes. Providing further information and insight (hopefully) on how I've solved specific problems and the issues I've faced along the way.
 
----
+I expect to write about **HTML/CSS** and **JavaScript** mainly, as well as **web development** as a whole. I might document some cool **Linux** tools I come across too.
 
-**_Duis aute irure dolor_** in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. ~~Excepteur sint occaecat~~ cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+If this sounds like something you'd be interested in, consider consuming my [RSS](/blog/index.xml) feed, or join my [mailing list]().
 
-### H3
+If not, no hard feelings.
 
-unordered list:
-
--   item-1
-    -   sub-item-1
-    -   sub-item-2
-
-*   item-2
-    -   sub-item-3
-    -   sub-item-4
-
--   item-3
-    -   sub-item-5
-    -   sub-item-6
-
-ordered list:
-
-1. item-1
-    1. sub-item-1
-    2. sub-item-2
-2. item-2
-    1. sub-item-3
-    2. sub-item-4
-3. item-3
-
-#### Header4
-
-| Table Header-1 | Table Header-2 | Table Header-3 |
-| :------------- | :------------: | -------------: |
-| Table Data-1   |  Table Data-2  |   Table Data-3 |
-| TD-4           |      Td-5      |           TD-6 |
-| Table Data-7   |  Table Data-8  |   Table Data-9 |
-
-##### Header5
-
-You may also want some images right in here like ![GitHub Logo](https://cloud.githubusercontent.com/assets/5456665/13322882/e74f6626-dc00-11e5-921d-f6d024a01eaa.png 'GitHub') - you can do that but I would recommend you to use the component "image" and simply split your text.
-
-###### Header6
-
-Let us do some links - this for example: https://github.com/MinhasKamal/github-markdown-syntax is **NOT** a link but this: is [GitHub](https://github.com/MinhasKamal/github-markdown-syntax)
+_Barnz_.
