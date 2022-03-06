@@ -1,6 +1,7 @@
 ---
 title: 'Markdown Formatting Demo'
 date: 2022-03-05T13:07:39Z
+author: barnz
 slug:
 coverImage:
 externalLink:
