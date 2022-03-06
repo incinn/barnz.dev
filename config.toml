@@ -4,6 +4,10 @@ title = "barnz.dev"
 theme = "bdev"
 copyright = "barnz.dev"
 
+[author]
+  name = "Barnz"
+  email = "hi@barnz.dev"
+
 [params]
   description = "Hello, I am Barnz, a passionate web developer from the UK."
 
