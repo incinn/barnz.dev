@@ -1,0 +1,26 @@
+aside.tags {
+    display: flex;
+    max-width: var(--content-width);
+    margin: 0 auto 2rem auto;
+    padding: var(--gutter);
+
+    h2 {
+        text-transform: uppercase;
+    }
+
+    .icon {
+        font-size: 2rem;
+        width: 20px;
+        height: 20px;
+        margin-right: 1rem;
+    }
+
+    ul {
+        display: flex;
+        font-size: 1rem;
+
+        li {
+            margin-right: 1rem;
+        }
+    }
+}

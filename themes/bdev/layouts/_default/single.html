@@ -18,7 +18,7 @@
     </section>
 </div>
 
-{{ $author := index .Site.Data.authors (.Params.author | default "barnz") }}
+{{ partial "components/tags" . }}
 {{ partial "blocks/author" . }}
 
 {{ end }}
