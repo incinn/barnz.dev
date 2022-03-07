@@ -130,13 +130,44 @@
             tbody {
                 td {
                     border: 1px solid var(--dark);
+                    word-break: break-all;
                 }
 
                 tr {
+                    background-color: var(--white);
+
                     &:nth-child(even) {
                         background-color: #eee;
                     }
                 }
+            }
+        }
+
+        code {
+            font-size: 0.85rem;
+            font-weight: bold;
+            background-color: var(--grey);
+            color: var(--dark);
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+        }
+
+        pre {
+            code {
+                background-color: transparent;
+                font-weight: inherit;
+                color: inherit;
+                padding: inherit;
+                border-radius: unset;
+            }
+        }
+
+        .highlight {
+            margin-bottom: 1rem;
+
+            div {
+                padding: 1rem;
+                border-radius: 6px;
             }
         }
     }
