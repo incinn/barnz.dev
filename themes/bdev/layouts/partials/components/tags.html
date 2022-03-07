@@ -1,6 +1,6 @@
-<aside class="tags">
-  {{ $taxonomy := "tags" }}
-  {{ with .Param $taxonomy }}
+{{ $taxonomy := "tags" }}
+{{ with .Param $taxonomy }}
+  <aside class="tags">
     {{ partial "components/icon" "tag" }}
     <ul>
       {{ range $index, $tag := . }}
@@ -11,5 +11,5 @@
         {{- end -}}
       {{- end -}}
     </ul>
-  {{ end }}
-</aside>
+  </aside>
+{{ end }}
