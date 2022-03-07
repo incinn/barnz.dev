@@ -1,0 +1,41 @@
+.author {
+    display: flex;
+
+    &__inner {
+        display: flex;
+        background-color: var(--dark);
+        color: var(--light);
+        border-radius: 6px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: var(--content-width);
+        padding: 2rem;
+        margin: 0 auto 3rem auto;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__avatar {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        margin-right: 2rem;
+        border: 2px solid rgba(225, 225, 225, 0.25);
+    }
+
+    &__name {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    &__social {
+        margin-left: 2rem;
+
+        a {
+            color: var(--light);
+        }
+    }
+}
