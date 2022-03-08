@@ -2,6 +2,7 @@
 title: 'Gulp Multiple Asset Bundles'
 date: 2021-02-22T00:00:00Z
 draft: false
+tags: ['gulp']
 author: barnz
 slug: testing
 coverImage:
