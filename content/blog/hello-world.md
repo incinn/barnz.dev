@@ -2,6 +2,7 @@
 title: 'Hello World!'
 date: 2022-02-28T20:04:08Z
 draft: false
+tags: ['hello-world']
 author: barnz
 ---
 

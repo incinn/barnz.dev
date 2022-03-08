@@ -2,7 +2,20 @@
 title: 'Markdown Formatting Demo'
 date: 2022-03-05T13:07:39Z
 author: barnz
-tags: ['markdown', 'example']
+tags:
+    [
+        'markdown',
+        'example',
+        'lorem',
+        'ipsum',
+        'wunderbar',
+        'longtextexample',
+        'wowanotherreallylongtag',
+        'shockedpikachu',
+        'welovetagsyeswedo',
+        'whatdowelove',
+        'tagstagstagstagstagstags',
+    ]
 slug:
 coverImage:
 externalLink:
