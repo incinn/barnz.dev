@@ -1,8 +1,8 @@
 <div class="articleItem">
     <div class="articleItem__title">
       {{ if .context.Params.externalLink }}
-          {{ partial "components/icon" "external-link" }}
           <a target="_blank" href="{{ .context.Params.externalLink }}">{{ .context.Title }}</a>
+          {{ partial "components/icon" "external-link" }}
       {{ else }}
           <a href="{{ .context.RelPermalink }}">{{ .context.Title }}</a>
       {{ end }}
