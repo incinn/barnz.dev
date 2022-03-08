@@ -1,5 +1,5 @@
-{{ $author := index .Site.Data.authors (.Params.author | default "barnz") }} {{-
-if $author -}}
+{{ $author := index .Site.Data.authors (.Params.author | default "barnz") }}
+{{- if $author -}}
 <aside class="author">
     <div class="author__inner">
         <img
@@ -15,9 +15,15 @@ if $author -}}
         </div>
 
         <div class="author__social">
-            <a href="" target="_blank">
-                {{ partial "components/icon" "twitter" }}
-            </a>
+            {{ with $author.social.twitter -}}
+                <a
+                    href="{{ $author.social.twitter }}"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                >
+                    {{ partial "components/icon" "twitter" }}
+                </a>
+            {{- end -}}
         </div>
     </div>
 </aside>
