@@ -1,8 +1,12 @@
 aside.tags {
     display: flex;
-    max-width: var(--content-width);
-    margin: 0 auto 2rem auto;
-    padding: var(--gutter);
+    overflow: hidden;
+    margin: 2rem -2rem -2rem -2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+    background-color: rgb(235, 235, 235);
+    padding: 1rem 2rem;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 
     h2 {
         text-transform: uppercase;
@@ -18,9 +22,15 @@ aside.tags {
     ul {
         display: flex;
         font-size: 1rem;
+        margin: 0;
+        list-style: none;
 
         li {
             margin-right: 1rem;
+
+            a {
+                text-decoration: none;
+            }
         }
     }
 }

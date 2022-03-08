@@ -2,23 +2,23 @@
 <div class="post">
     <section class="post__header">
         <div class="post__header__inner">
-        <h1>{{ .Title }}</h1>
-        {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
-        else }}
-        {{ .Date.Format "Monday" }} {{ .Date.Format "2" }}{{ if in (slice 1 21 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format "January 2006" }}
-        {{ end }}
+            <h1>{{ .Title }}</h1>
+            {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
+            else }}
+            {{ .Date.Format "Monday" }} {{ .Date.Format "2" }}{{ if in (slice 1 21 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format "January 2006" }}
+            {{ end }}
 
-        Reading time:
-        {{ math.Round (div (countwords .Content) 220.0) }}
-        minutes.
+            Reading time:
+            {{ math.Round (div (countwords .Content) 220.0) }}
+            minutes.
         </div>
     </section>
     <section class="post__content">
         {{ .Content | safeHTML }}
+        {{ partial "components/tags" . }}
     </section>
 </div>
 
-{{ partial "components/tags" . }}
 {{ partial "blocks/author" . }}
 
 {{ end }}
