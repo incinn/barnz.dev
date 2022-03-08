@@ -5,12 +5,16 @@
             <h1>{{ .Title }}</h1>
             {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
             else }}
-            {{ .Date.Format "Monday" }} {{ .Date.Format "2" }}{{ if in (slice 1 21 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format "January 2006" }}
+            <span class="post__date">
+                <span>Posted:</span>
+                {{ .Date.Format "Monday" }} {{ .Date.Format "2" }}{{ if in (slice 1 21 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format "January 2006" }}
+            </span>
             {{ end }}
-
-            Reading time:
-            {{ math.Round (div (countwords .Content) 220.0) }}
-            minutes.
+            <span class="post__readTime">
+                <span>Read Time:</span>
+                {{ math.Round (div (countwords .Content) 220.0) }}
+                minute(s)
+            </span>
         </div>
     </section>
     <section class="post__content">

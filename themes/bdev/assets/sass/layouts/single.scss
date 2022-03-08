@@ -21,6 +21,18 @@
         }
     }
 
+    &__date,
+    &__readTime {
+        span {
+            font-weight: bold;
+            opacity: 0.5;
+        }
+    }
+
+    &__readTime {
+        margin-left: 2rem;
+    }
+
     &__content {
         background-color: var(--white);
         border-radius: 6px;
