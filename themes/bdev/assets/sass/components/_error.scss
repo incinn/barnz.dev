@@ -1,0 +1,41 @@
+.error {
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(252, 227, 227);
+        border-radius: 6px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        width: calc(var(--content-width) / 2);
+        padding: 2rem;
+        margin: 40vh auto 0 auto;
+
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+
+            .icon {
+                margin-right: 1rem;
+                color: red;
+            }
+        }
+
+        p:not(:last-of-type) {
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            margin: 2.5rem auto 0 auto;
+            justify-content: center;
+
+            .icon {
+                margin-right: 1rem;
+            }
+        }
+    }
+}

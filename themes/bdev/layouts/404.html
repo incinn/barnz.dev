@@ -1,0 +1,15 @@
+{{ define "main"}}
+<section class="error">
+    <div class="error__container">
+        <h1>{{ partial "components/icon" "alert-triangle" }} Page Not Found</h1>
+        <p>
+            Sorry the page you're looking for cannot be found. Maybe it has
+            moved, or maybe it never existed. ¯\_(ツ)_/¯
+        </p>
+        <p>Error code 404: Page not found</p>
+        <a class="btn btn--dark" href="/">
+            {{ partial "components/icon" "home" }} Go Home
+        </a>
+    </div>
+</section>
+{{ end }}
