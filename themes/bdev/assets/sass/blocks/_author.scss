@@ -34,6 +34,13 @@
     &__social {
         margin-left: 2rem;
 
+        .icon {
+            transition: transform 200ms;
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
+
         a {
             color: var(--light);
         }
