@@ -36,6 +36,8 @@
 
         .icon {
             transition: transform 200ms;
+            margin-bottom: 1rem;
+
             &:hover {
                 transform: scale(1.15);
             }

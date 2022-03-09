@@ -15,6 +15,16 @@
         </div>
 
         <div class="author__social">
+            {{ with $author.social.website -}}
+                <a
+                    href="{{ $author.social.website }}"
+                    title="{{ $author.name }}'s website"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                >
+                    {{ partial "components/icon" "link" }}
+                </a>
+            {{- end -}}
             {{ with $author.social.twitter -}}
                 <a
                     href="{{ $author.social.twitter }}"
