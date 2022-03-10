@@ -13,6 +13,16 @@
         <span class="author__bio">{{ $author.bio }}</span>
 
         <div class="author__social">
+        {{ with $author.social.twitter -}}
+                <a
+                    href="{{ $author.social.twitter }}"
+                    title="{{ $author.name }} on Twitter"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                >
+                    {{ partial "components/icon" "twitter" }}
+                </a>
+            {{- end -}}
             {{ with $author.social.website -}}
                 <a
                     href="{{ $author.social.website }}"
@@ -23,14 +33,14 @@
                     {{ partial "components/icon" "link" }}
                 </a>
             {{- end -}}
-            {{ with $author.social.twitter -}}
+            {{ with $author.social.github -}}
                 <a
-                    href="{{ $author.social.twitter }}"
-                    title="{{ $author.name }} on Twitter"
+                    href="{{ $author.social.github }}"
+                    title="{{ $author.name }} on GitHub"
                     rel="noreferrer noopener"
                     target="_blank"
                 >
-                    {{ partial "components/icon" "twitter" }}
+                    {{ partial "components/icon" "github" }}
                 </a>
             {{- end -}}
         </div>
