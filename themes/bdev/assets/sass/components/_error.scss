@@ -5,12 +5,13 @@
     &__container {
         display: flex;
         flex-direction: column;
-        background-color: rgb(252, 227, 227);
+        border: 5px solid rgb(255, 186, 186);
+        background-color: var(--white);
         border-radius: 6px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         width: calc(var(--content-width) / 2);
         padding: 2rem;
-        margin: 40vh auto 0 auto;
+        margin: 35vh auto 0 auto;
 
         h1 {
             display: flex;

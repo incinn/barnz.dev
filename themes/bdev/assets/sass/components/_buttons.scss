@@ -1,77 +1,77 @@
 .btn {
-  display: flex;
-  align-items: center;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  padding: 1.25rem 3rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 100ms;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    padding: 1.25rem 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 100ms;
 
-  @include media(">tablet") {
-    padding: 0.85rem;
-  }
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0px 0px 8px 1px var(--red);
-  }
-
-  img {
-    width: 15px;
-    height: 15px;
-    margin-right: 0.5rem;
-  }
-
-  &--small {
-    font-size: 0.75rem;
-    padding: 0.85rem 1.5rem;
-
-    @include media(">tablet") {
-      padding: calc(var(--gutter) / 2);
+    @include media('>tablet') {
+        padding: 0.85rem;
     }
-  }
-
-  &--invert {
-    img {
-      filter: invert(100%);
-    }
-  }
-
-  &--dark {
-    color: var(--grey);
-    border-color: var(--dark);
-    background-color: var(--dark);
 
     &:hover {
-      background-color: hsla(var(--dark-hue), var(--dark-sat), 18%, 100%);
+        text-decoration: none;
     }
 
     &:active {
-      box-shadow: inset 0px 0px 10px 1px var(--dark);
+        transform: scale(0.95);
     }
 
     &:focus-visible {
-      outline: 1px solid var(--red);
-      outline-offset: 0px;
+        outline: none;
+        box-shadow: 0px 0px 8px 1px var(--red);
     }
-  }
 
-  &--light {
-    color: var(--dark);
-    border-color: var(--dark);
-    background-color: var(--grey);
-
-    &:hover {
-      background-color: var(--white);
+    img {
+        width: 15px;
+        height: 15px;
+        margin-right: 0.5rem;
     }
-  }
+
+    &--small {
+        font-size: 0.75rem;
+        padding: 0.85rem 1.5rem;
+
+        @include media('>tablet') {
+            padding: calc(var(--gutter) / 2);
+        }
+    }
+
+    &--invert {
+        img {
+            filter: invert(100%);
+        }
+    }
+
+    &--dark {
+        color: var(--grey);
+        border-color: var(--dark);
+        background-color: var(--dark);
+
+        &:hover {
+            background-color: hsla(var(--dark-hue), var(--dark-sat), 18%, 100%);
+        }
+
+        &:active {
+            box-shadow: inset 0px 0px 10px 1px var(--dark);
+        }
+
+        &:focus-visible {
+            outline: 1px solid var(--red);
+            outline-offset: 0px;
+        }
+    }
+
+    &--light {
+        color: var(--dark);
+        border-color: rgba(black, 0.25);
+        background-color: var(--grey);
+
+        &:hover {
+            background-color: var(--white);
+        }
+    }
 }
