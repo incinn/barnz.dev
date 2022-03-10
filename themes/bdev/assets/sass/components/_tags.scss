@@ -1,6 +1,5 @@
 aside.tags {
     display: flex;
-    align-items: center;
     overflow: hidden;
     margin: 2rem -1.5rem -1.5rem -1.5rem;
     border-top: 1px solid rgba(0, 0, 0, 0.075);
@@ -21,6 +20,7 @@ aside.tags {
         font-size: 2rem;
         width: 20px;
         height: 20px;
+        margin-top: 5px;
         margin-right: 1rem;
     }
 
