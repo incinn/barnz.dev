@@ -9,9 +9,15 @@
         padding: 5rem 0 15rem 0;
 
         &__inner {
-            max-width: var(--content-width);
+            display: flex;
+            flex-direction: column;
+            max-width: calc(var(--content-width) / 2.5);
             padding: 0 var(--gutter);
             margin: 0 auto;
+
+            @include media('>tablet') {
+                max-width: var(--content-width);
+            }
 
             h1 {
                 font-size: 2rem;
@@ -23,23 +29,27 @@
 
     &__date,
     &__readTime {
+        font-size: 0.9rem;
+
         span {
             font-weight: bold;
             opacity: 0.5;
         }
     }
 
-    &__readTime {
-        margin-left: 2rem;
-    }
-
     &__content {
+        align-self: center;
         background-color: var(--white);
         border-radius: 6px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         max-width: var(--content-width);
-        padding: 2rem;
-        margin: -10rem auto 3rem auto;
+        padding: 1.5rem;
+        margin: -10rem var(--gutter) calc(var(--gutter) * 2) var(--gutter);
+
+        @include media('>desktop') {
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
 
         h1,
         h2,
