@@ -9,10 +9,8 @@
             alt="Author image"
             src="{{ $author.avatar }}"
         />
-        <div class="author__info">
-            <span class="author__name">{{ $author.name }}</span>
-            <span class="author__bio">{{ $author.bio }}</span>
-        </div>
+        <span class="author__name">{{ $author.name }}</span>
+        <span class="author__bio">{{ $author.bio }}</span>
 
         <div class="author__social">
             {{ with $author.social.website -}}
