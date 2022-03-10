@@ -15,7 +15,7 @@
             padding: 0 var(--gutter);
             margin: 0 auto;
 
-            @include media('>tablet') {
+            @include media('>desktop') {
                 max-width: var(--content-width);
             }
 
