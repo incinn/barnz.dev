@@ -28,10 +28,15 @@
 
     &__content {
         display: grid;
-        grid-template-columns: 2fr 2fr;
-        grid-gap: 3rem;
+        grid-template-columns: 1r;
+        grid-gap: 1.5rem;
         max-width: var(--content-width);
         padding: 0 var(--gutter);
         margin: 0 auto;
+
+        @include media('>tablet') {
+            grid-template-columns: 2fr 2fr;
+            grid-gap: 2rem;
+        }
     }
 }
