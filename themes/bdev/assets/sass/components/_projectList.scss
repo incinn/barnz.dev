@@ -24,7 +24,6 @@
     &__items {
         display: flex;
         flex-direction: column;
-        width: 100%;
         max-width: var(--content-width);
         padding: 0 var(--gutter);
         margin: 4rem auto;
