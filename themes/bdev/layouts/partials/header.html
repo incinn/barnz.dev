@@ -5,6 +5,22 @@
                 barnz<span class="dot">.</span><span class="dev">dev</span>
             </a>
         </h1>
+
+        <input
+            type="checkbox"
+            name="menuToggle"
+            id="menuToggle"
+            class="menuToggle__input"
+        />
+        <label for="menuToggle" class="menuToggle">
+            <span class="menuToggle__open">
+                {{ partial "components/icon" "menu" }}
+            </span>
+            <span class="menuToggle__close">
+                {{ partial "components/icon" "x" }}
+            </span>
+        </label>
+
         <nav>
             <a href="/projects" title="projects">projects</a>
             <a href="/blog" title="articles">blog</a>

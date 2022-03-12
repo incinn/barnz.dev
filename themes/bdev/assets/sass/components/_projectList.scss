@@ -26,7 +26,11 @@
         flex-direction: column;
         max-width: var(--content-width);
         padding: 0 var(--gutter);
-        margin: 4rem auto;
+        margin: 1rem 0;
+
+        @include media('>tablet') {
+            margin: 4rem 0;
+        }
     }
 
     .item {
