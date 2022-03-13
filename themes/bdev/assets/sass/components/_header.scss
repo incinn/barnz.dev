@@ -55,6 +55,7 @@
     nav {
         @include media('<tablet') {
             transform: translateY(-100%);
+            transition: transform 300ms;
             position: absolute;
             top: 0;
             right: 0;
