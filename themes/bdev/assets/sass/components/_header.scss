@@ -70,6 +70,11 @@
                 font-size: 1.5rem;
                 text-align: center;
                 padding: 1rem var(--gutter);
+
+                &.showMobile {
+                    display: initial;
+                    visibility: visible;
+                }
             }
         }
 
@@ -85,6 +90,11 @@
 
                 &:hover {
                     color: var(--red);
+                }
+
+                &.showMobile {
+                    display: none;
+                    visibility: hidden;
                 }
             }
         }
