@@ -21,7 +21,11 @@
     }
 
     &:not(:last-of-type) {
-        margin-bottom: 8rem;
+        margin-bottom: 4rem;
+
+        @include media('>tablet') {
+            margin-bottom: 8rem;
+        }
     }
 
     .content {
