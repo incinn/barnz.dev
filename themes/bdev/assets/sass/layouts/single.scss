@@ -186,12 +186,22 @@
         }
 
         .highlight {
+            max-width: calc(100vw - calc(var(--gutter) * 2));
+            margin-right: -1rem;
+            margin-left: -1rem;
             margin-bottom: 1rem;
-            max-width: 79vw;
+
+            @include media('>tablet') {
+                margin: 0 0 1rem 0;
+            }
 
             div {
                 padding: 1rem;
-                border-radius: 6px;
+                border-radius: 0px;
+
+                @include media('>tablet') {
+                    border-radius: 6px;
+                }
             }
         }
     }
