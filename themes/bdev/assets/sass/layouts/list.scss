@@ -31,7 +31,7 @@
 
     &__content {
         display: grid;
-        grid-template-columns: 1r;
+        grid-template-columns: 1fr;
         grid-gap: 1.5rem;
         max-width: var(--content-width);
         padding: 0 var(--gutter);
