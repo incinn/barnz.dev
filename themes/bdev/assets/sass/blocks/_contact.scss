@@ -56,9 +56,14 @@
 
         input[type='submit'] {
             margin-left: auto;
-            margin-top: 2rem;
-            width: 75px;
+            margin-top: 1rem;
+            width: 100%;
             justify-content: center;
+
+            @include media('>tablet') {
+                margin-top: 2rem;
+                width: 75px;
+            }
         }
 
         textarea {
