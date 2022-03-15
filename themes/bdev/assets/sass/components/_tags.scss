@@ -1,0 +1,44 @@
+aside.tags {
+    display: flex;
+    overflow: hidden;
+    margin: 2rem -1rem -1rem -1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+    background-color: rgb(235, 235, 235);
+    padding: 1rem 2rem;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+
+    @include media('>desktop') {
+        margin: 2rem -2rem -2rem -2rem;
+    }
+
+    h2 {
+        text-transform: uppercase;
+    }
+
+    .icon {
+        font-size: 2rem;
+        width: 20px;
+        height: 20px;
+        margin-top: 5px;
+        margin-right: 1rem;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+        margin: 0;
+        list-style: none;
+
+        li {
+            margin-right: 1rem;
+
+            a {
+                display: block;
+                text-decoration: none;
+                padding: 0.25rem;
+            }
+        }
+    }
+}

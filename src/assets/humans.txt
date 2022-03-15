@@ -1,4 +1,0 @@
-Name: Barnz
-Site: https://barnz.dev
-Twitter: @_qwnz
-Source: https://github.com/incinn/barnz.dev

@@ -1,0 +1,21 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        {{ if not .IsHome }}
+            {{ with .Title }}
+                {{ . }}
+                |
+            {{ end }}
+        {{ end }}
+        {{ .Site.Title }}
+    </title>
+
+    {{ $sass := resources.Get "sass/main.scss" }}
+    {{ $style := $sass | resources.ToCSS | resources.Minify }}
+    <style>
+        {{ $style.Content | safeCSS }}
+    </style>
+</head>

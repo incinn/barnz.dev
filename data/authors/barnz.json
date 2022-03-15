@@ -1,0 +1,10 @@
+{
+  "name": "Barnz",
+  "bio": "Self-taught software engineer with a passion for web dev. Interested in web frontend, especially Angular. Lover of Linux, ramen, and open source software.",
+  "avatar": "/img/authors/barnz.png",
+  "social": {
+    "twitter": "https://twitter.com/_qwnz",
+    "website": "https://barnz.dev",
+    "github": "https://github.com/incinn"
+  }
+}

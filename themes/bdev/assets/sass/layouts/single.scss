@@ -1,0 +1,208 @@
+.post {
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        background-color: #313142;
+        color: var(--light);
+        background: linear-gradient(0deg, #313142 0%, #1b1b27 65%);
+        padding: 5rem 0 15rem 0;
+
+        &__inner {
+            display: flex;
+            flex-direction: column;
+            max-width: calc(var(--content-width) / 2.5);
+            padding: 0 var(--gutter);
+            margin: 0 auto;
+
+            @include media('>desktop') {
+                max-width: var(--content-width);
+            }
+
+            h1 {
+                font-size: 2rem;
+                font-weight: bold;
+                margin-bottom: 0.75rem;
+            }
+        }
+    }
+
+    &__date,
+    &__readTime {
+        font-size: 0.9rem;
+
+        span {
+            font-weight: bold;
+            opacity: 0.5;
+        }
+    }
+
+    &__content {
+        align-self: center;
+        background-color: var(--white);
+        border-radius: 6px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: var(--content-width);
+        padding: 1rem;
+        margin: -10rem var(--gutter) calc(var(--gutter) * 2) var(--gutter);
+
+        @include media('>desktop') {
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 0.75rem;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        strong {
+            font-weight: bold;
+            color: var(--red);
+        }
+
+        a {
+            text-decoration: underline;
+            text-decoration-color: var(--red);
+            text-decoration-thickness: 2px;
+            word-break: break-all;
+
+            &:hover {
+                text-decoration-color: orange;
+                text-decoration-thickness: 2px;
+            }
+        }
+
+        hr {
+            width: 75%;
+            border: 1px dashed var(--red);
+            border-radius: 5px;
+            margin: 4rem auto;
+        }
+
+        ul {
+            list-style: disc;
+            list-style-position: outside;
+            margin: 0 0 1rem 1.25rem;
+
+            ul {
+                list-style: circle;
+                list-style-position: outside;
+            }
+        }
+
+        ol {
+            list-style: decimal-leading-zero;
+            list-style-position: outside;
+            margin: 0 0 1rem 2.25rem;
+
+            ::marker {
+                font-weight: bold;
+            }
+
+            ol {
+                list-style: lower-roman;
+                list-style-position: outside;
+            }
+        }
+
+        table {
+            margin-bottom: 2rem;
+
+            td {
+                padding: 0.75rem 1rem;
+            }
+
+            thead {
+                th {
+                    background-color: var(--dark);
+                    color: var(--light);
+                    padding: 0.75rem 1rem;
+                    text-transform: uppercase;
+                    border: 1px solid var(--dark);
+                    font-weight: bold;
+                }
+            }
+
+            tbody {
+                td {
+                    border: 1px solid var(--dark);
+                    word-break: break-all;
+                }
+
+                tr {
+                    background-color: var(--white);
+
+                    &:nth-child(even) {
+                        background-color: #eee;
+                    }
+                }
+            }
+        }
+
+        code {
+            font-size: 0.85rem;
+            font-weight: bold;
+            background-color: var(--grey);
+            color: var(--dark);
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+        }
+
+        pre {
+            code {
+                background-color: transparent;
+                font-weight: inherit;
+                color: inherit;
+                padding: inherit;
+                border-radius: unset;
+            }
+        }
+
+        .highlight {
+            max-width: calc(100vw - calc(var(--gutter) * 2));
+            margin-right: -1rem;
+            margin-left: -1rem;
+            margin-bottom: 1rem;
+
+            @include media('>tablet') {
+                margin: 0 0 1rem 0;
+            }
+
+            div {
+                padding: 1rem;
+                border-radius: 0px;
+
+                @include media('>tablet') {
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+}

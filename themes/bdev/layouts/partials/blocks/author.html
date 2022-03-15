@@ -1,0 +1,49 @@
+{{ $author := index .Site.Data.authors (.Params.author | default "barnz") }}
+{{- if $author -}}
+<aside class="author">
+    <div class="author__inner">
+        <img
+            class="author__avatar"
+            width="125px"
+            height="125px"
+            alt="Author image"
+            src="{{ $author.avatar }}"
+        />
+        <span class="author__name">{{ $author.name }}</span>
+        <span class="author__bio">{{ $author.bio }}</span>
+
+        <div class="author__social">
+        {{ with $author.social.twitter -}}
+                <a
+                    href="{{ $author.social.twitter }}"
+                    title="{{ $author.name }} on Twitter"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                >
+                    {{ partial "components/icon" "twitter" }}
+                </a>
+            {{- end -}}
+            {{ with $author.social.website -}}
+                <a
+                    href="{{ $author.social.website }}"
+                    title="{{ $author.name }}'s website"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                >
+                    {{ partial "components/icon" "link" }}
+                </a>
+            {{- end -}}
+            {{ with $author.social.github -}}
+                <a
+                    href="{{ $author.social.github }}"
+                    title="{{ $author.name }} on GitHub"
+                    rel="noreferrer noopener"
+                    target="_blank"
+                >
+                    {{ partial "components/icon" "github" }}
+                </a>
+            {{- end -}}
+        </div>
+    </div>
+</aside>
+{{- end -}}

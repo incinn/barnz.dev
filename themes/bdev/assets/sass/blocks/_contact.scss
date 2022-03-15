@@ -1,0 +1,75 @@
+.contact {
+    padding: calc(var(--gutter) * 10) 0;
+
+    &__inner {
+        max-width: var(--content-width);
+        padding: 0 var(--gutter);
+        margin: 0 auto;
+
+        > h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: var(--gutter);
+        }
+
+        > p {
+            margin-bottom: calc(var(--gutter) * 2);
+
+            small {
+                font-size: 0.65rem;
+            }
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        @include media('>tablet') {
+            max-width: calc(var(--content-width) / 2);
+        }
+
+        @mixin input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            font-family: Ubuntu-Mono;
+            border-radius: 3px;
+            border: 2px solid hsla(var(--dark-hue), var(--dark-sat), 75%, 100%);
+            box-shadow: none;
+            margin-bottom: var(--gutter);
+            transition: 200ms;
+
+            &:focus {
+                outline: none;
+                border-color: var(--red);
+            }
+        }
+
+        label {
+            margin: 0 0 5px 0;
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        input[type='submit'] {
+            margin-left: auto;
+            margin-top: 1rem;
+            width: 100%;
+            justify-content: center;
+
+            @include media('>tablet') {
+                margin-top: 2rem;
+                width: 75px;
+            }
+        }
+
+        textarea {
+            @include input;
+            height: 80px;
+            resize: vertical;
+        }
+    }
+}

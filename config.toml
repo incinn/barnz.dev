@@ -1,0 +1,23 @@
+baseURL = "https://barnz.dev/"
+languageCode = "en-gb"
+title = "barnz.dev"
+theme = "bdev"
+copyright = "barnz.dev"
+
+[author]
+  name = "Barnz"
+  email = "hi@barnz.dev"
+
+[params]
+  description = "Hello, I am Barnz, a passionate web developer from the UK."
+
+[taxonomies]
+  tag = "tags"
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "node_modules/feather-icons/dist/icons"
+    target = "assets/icons"

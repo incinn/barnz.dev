@@ -1,0 +1,31 @@
+<header class="header">
+    <div class="header__inner">
+        <h1>
+            <a href="/" title="homepage">
+                barnz<span class="dot">.</span><span class="dev">dev</span>
+            </a>
+        </h1>
+
+        <input
+            type="checkbox"
+            name="menuToggle"
+            id="menuToggle"
+            class="menuToggle__input"
+        />
+        <label for="menuToggle" class="menuToggle">
+            <span class="menuToggle__open">
+                {{ partial "components/icon" "menu" }}
+            </span>
+            <span class="menuToggle__close">
+                {{ partial "components/icon" "x" }}
+            </span>
+        </label>
+
+        <nav>
+            <a href="/" title="home" class="showMobile">home</a>
+            <a href="/projects" title="projects">projects</a>
+            <a href="/blog" title="articles">blog</a>
+            <a href="/contact" title="contact">contact</a>
+        </nav>
+    </div>
+</header>

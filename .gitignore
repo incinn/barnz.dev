@@ -1,5 +1,7 @@
-.env
-node_modules/
-dist/
-
 .log/
+
+node_modules/
+
+resources/_gen/
+
+.hugo_build.lock

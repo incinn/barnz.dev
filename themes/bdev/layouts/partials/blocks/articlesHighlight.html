@@ -1,0 +1,11 @@
+<section class="articles">
+	<div class="articles__inner">
+		<h1 id="articles">Articles</h1>
+		<p>I don't write much, but when I do it will appear here.</p>
+    <div class="articles__list">
+    {{ range ( where .Site.RegularPages "Type" "blog" | first 2 ) }}
+      {{ partial "components/articleItem" (dict "context" .) }}
+    {{end}}
+    </div>
+	</div>
+</section>

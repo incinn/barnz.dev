@@ -1,28 +1,36 @@
 {
-  "name": "barnz.dev",
-  "version": "1.0.0",
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/incinn/barnz.dev/issues"
+  },
+  "comments": {
+    "dependencies": {
+      "feather-icons": "project"
+    },
+    "devDependencies": {
+      "include-media": "project",
+      "reset-css": "project"
+    }
+  },
+  "dependencies": {
+    "feather-icons": "^4.28.0"
+  },
   "description": "",
+  "devDependencies": {
+    "include-media": "^1.4.10",
+    "reset-css": "^5.0.1"
+  },
+  "homepage": "https://github.com/incinn/barnz.dev#readme",
+  "keywords": [],
+  "license": "ISC",
   "main": "index.js",
+  "name": "barnz.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incinn/barnz.dev.git"
+  },
   "scripts": {
-    "dev": "concurrently \"gulp watch\" \"npx live-server ./dist\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^6.3.0",
-    "del": "^6.0.0",
-    "dotenv": "^10.0.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-if": "^3.0.0",
-    "gulp-replace": "^1.1.3",
-    "gulp-sass": "^5.0.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "include-media": "^1.4.10",
-    "live-server": "^1.2.1",
-    "reset-css": "^5.0.1",
-    "sass": "^1.42.1"
-  }
+  "version": "1.0.0"
 }
