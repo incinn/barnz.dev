@@ -17,6 +17,7 @@
   },
   "description": "",
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "include-media": "^1.4.10",
     "reset-css": "^5.0.1"
   },
