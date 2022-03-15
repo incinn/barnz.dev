@@ -98,6 +98,14 @@
                 }
             }
         }
+
+        .lightSwitch {
+            margin-left: 1.5rem;
+            background-color: transparent;
+            color: var(--light);
+            border: none;
+            cursor: pointer;
+        }
     }
 
     .menuToggle {
@@ -113,6 +121,7 @@
                 ~ .menuToggle .menuToggle__open {
                     display: none;
                 }
+
                 ~ .menuToggle .menuToggle__close {
                     display: block;
                 }
