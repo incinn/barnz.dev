@@ -19,6 +19,7 @@ class LightSwitch {
         this.switchEl.addEventListener('click', this.handleToggle.bind(this));
 
         this.navEl.appendChild(this.switchEl);
+        this.setThemeAttr();
     }
 
     createSwitch(): HTMLButtonElement {
@@ -36,10 +37,15 @@ class LightSwitch {
         this.switchEl.innerHTML = this.toggle
             ? feather.icons.sun.toSvg()
             : feather.icons.moon.toSvg();
+
+        this.setThemeAttr();
     }
 
-    setBodyClass(): void {
-        document.body.classList.add;
+    setThemeAttr(): void {
+        document.documentElement.setAttribute(
+            'data-theme',
+            this.toggle ? 'light' : 'dark'
+        );
     }
 }
 

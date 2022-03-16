@@ -35,3 +35,7 @@ $breakpoints: (
     --red-lightness: 47%;
     --red: hsla(var(--red-hue), var(--red-sat), var(--red-lightness), 100%);
 }
+
+[data-theme='light'] {
+    --light: red;
+}
