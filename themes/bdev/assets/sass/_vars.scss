@@ -18,7 +18,12 @@ $breakpoints: (
     --light-hue: 60;
     --light-sat: 53%;
     --light-lightness: 97%;
-    --light: hsla(var(--light-hue), var(--light-sat), var(--light-lightness), 100%);
+    --light: hsla(
+        var(--light-hue),
+        var(--light-sat),
+        var(--light-lightness),
+        100%
+    );
 
     --grey-hue: 90;
     --grey-sat: 4%;
