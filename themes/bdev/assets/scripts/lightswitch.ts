@@ -16,9 +16,11 @@ class LightSwitch {
 
     init(): void {
         this.switchEl = this.createSwitch();
-        this.switchEl.addEventListener('click', this.handleToggle.bind(this));
 
+        this.switchEl.addEventListener('click', this.handleToggle.bind(this));
         this.navEl.appendChild(this.switchEl);
+
+        this.setToggleIcon();
         this.setThemeAttr();
     }
 
@@ -34,11 +36,14 @@ class LightSwitch {
     handleToggle(): void {
         this.toggle = !this.toggle;
 
+        this.setToggleIcon();
+        this.setThemeAttr();
+    }
+
+    setToggleIcon(): void {
         this.switchEl.innerHTML = this.toggle
             ? feather.icons.sun.toSvg()
             : feather.icons.moon.toSvg();
-
-        this.setThemeAttr();
     }
 
     setThemeAttr(): void {
