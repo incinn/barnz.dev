@@ -2,6 +2,24 @@ import { LightSwitch } from '../themes/bdev/assets/scripts/lightswitch';
 import fs = require('fs');
 import feather = require('feather-icons');
 
+describe('Lightswitch should not load if', () => {
+  const consoleSpy = jest.spyOn(console, 'error');
+
+  beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    consoleSpy.mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test('no navigation item found', () => {
+    new LightSwitch();
+    expect(consoleSpy).toHaveBeenCalled();
+  });
+});
+
 describe('Lightswitch', () => {
   let component: LightSwitch;
 
@@ -61,7 +79,7 @@ describe('Lightswitch', () => {
     expect(setThemeAttrSpy).toHaveBeenCalled();
   });
 
-  test('setToggleIcon should set the correct icon', () => {
+  test('setToggleIcon() should set the correct icon', () => {
     component.switchEl = component.createSwitch();
     
     component.toggle = true;
@@ -73,7 +91,7 @@ describe('Lightswitch', () => {
     expect(component.switchEl.innerHTML).toContain('moon');
   });
 
-  test('setThemeAttr should set the correct document data attribute for the theme', () => {
+  test('setThemeAttr() should set the correct document data attribute for the theme', () => {
     component.toggle = true;
     component.setThemeAttr();
     expect(document.documentElement.dataset.theme).toBe('light');
