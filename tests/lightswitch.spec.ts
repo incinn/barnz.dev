@@ -15,7 +15,7 @@ describe('Lightswitch should not load if', () => {
 
   test('no navigation item found', () => {
     new LightSwitch();
-    expect(consoleSpy).toHaveBeenCalled();
+    expect(consoleSpy).toHaveBeenCalledWith('LightSwitch unable to start');
   });
 });
 
