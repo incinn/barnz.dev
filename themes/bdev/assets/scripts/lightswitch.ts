@@ -1,58 +1,57 @@
-const feather = require('feather-icons');
+import feather = require('feather-icons');
 
 export class LightSwitch {
-    switchEl: HTMLButtonElement;
-    navEl: HTMLElement;
-    toggle: boolean = true;
+  switchEl: HTMLButtonElement;
+  navEl: HTMLElement;
+  toggle = true;
 
-    constructor() {
-        this.navEl = document.getElementById('js-nav');
+  constructor() {
+    this.navEl = document.getElementById('js-nav');
 
-        if (!this.navEl || !feather) {
-            this.init = () => {};
-            console.error('LightSwitch unable to start');
-        }
+    if (!this.navEl || !feather) {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      this.init = () => {};
+      console.error('LightSwitch unable to start');
     }
+  }
 
-    init(): void {
-        this.switchEl = this.createSwitch();
+  init(): void {
+    this.switchEl = this.createSwitch();
 
-        this.switchEl.addEventListener('click', this.handleToggle.bind(this));
-        this.navEl.appendChild(this.switchEl);
+    this.switchEl.addEventListener('click', this.handleToggle.bind(this));
+    this.navEl.appendChild(this.switchEl);
 
-        this.setToggleIcon();
-        this.setThemeAttr();
-    }
+    this.setToggleIcon();
+    this.setThemeAttr();
+  }
 
-    createSwitch(): HTMLButtonElement {
-        let btn = document.createElement('button');
+  createSwitch(): HTMLButtonElement {
+    const btn = document.createElement('button');
 
-        btn.classList.add('lightSwitch');
-        btn.innerHTML = feather.icons.sun.toSvg();
+    btn.classList.add('lightSwitch');
+    btn.innerHTML = feather.icons.sun.toSvg();
 
-        return btn;
-    }
+    return btn;
+  }
 
-    handleToggle(): void {
-        this.toggle = !this.toggle;
+  handleToggle(): void {
+    this.toggle = !this.toggle;
 
-        this.setToggleIcon();
-        this.setThemeAttr();
-    }
+    this.setToggleIcon();
+    this.setThemeAttr();
+  }
 
-    setToggleIcon(): void {
-        this.switchEl.innerHTML = this.toggle
-            ? feather.icons.sun.toSvg()
-            : feather.icons.moon.toSvg();
-    }
+  setToggleIcon(): void {
+    this.switchEl.innerHTML = this.toggle
+      ? feather.icons.sun.toSvg()
+      : feather.icons.moon.toSvg();
+  }
 
-    setThemeAttr(): void {
-        document.documentElement.setAttribute(
-            'data-theme',
-            this.toggle ? 'light' : 'dark'
-        );
-    }
+  setThemeAttr(): void {
+    document.documentElement.setAttribute(
+      'data-theme',
+      this.toggle ? 'light' : 'dark'
+    );
+  }
 }
 
-const lightSwitch = new LightSwitch();
-lightSwitch.init();
