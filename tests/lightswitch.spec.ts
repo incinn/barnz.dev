@@ -1,63 +1,85 @@
 import { LightSwitch } from '../themes/bdev/assets/scripts/lightswitch';
-const fs = require('fs');
-const feather = require('feather-icons');
+import fs = require('fs');
+import feather = require('feather-icons');
 
 describe('Lightswitch', () => {
-    let component: LightSwitch;
+  let component: LightSwitch;
 
-    beforeEach(() => {
-        window.document.body.innerHTML = fs.readFileSync(
-            './tests/lightswitch.fixture.html'
-        );
+  beforeEach(() => {
+    window.document.body.innerHTML = fs.readFileSync(
+      './tests/lightswitch.fixture.html',
+    ).toString();
 
-        component = new LightSwitch();
-    });
+    component = new LightSwitch();
+  });
 
-    test('should create', () => {
-        const spy = jest.spyOn(console, 'error');
+  test('should create', () => {
+    const spy = jest.spyOn(console, 'error');
 
-        expect(component).toBeDefined();
-        expect(spy).not.toHaveBeenCalled();
-    });
+    expect(component).toBeDefined();
+    expect(spy).not.toHaveBeenCalled();
+  });
 
-    test('init() should set up the switch', () => {
-        const createSwitchSpy = jest.spyOn(component, 'createSwitch');
-        const setToggleSpy = jest.spyOn(component, 'setToggleIcon');
-        const setThemeAttrSpy = jest.spyOn(component, 'setThemeAttr');
+  test('init() should set up the switch', () => {
+    const createSwitchSpy = jest.spyOn(component, 'createSwitch');
+    const setToggleSpy = jest.spyOn(component, 'setToggleIcon');
+    const setThemeAttrSpy = jest.spyOn(component, 'setThemeAttr');
 
-        component.init();
+    component.init();
 
-        expect(createSwitchSpy).toHaveBeenCalled();
-        expect(setToggleSpy).toHaveBeenCalled();
-        expect(setThemeAttrSpy).toHaveBeenCalled();
+    expect(createSwitchSpy).toHaveBeenCalled();
+    expect(setToggleSpy).toHaveBeenCalled();
+    expect(setThemeAttrSpy).toHaveBeenCalled();
 
-        expect(JSON.stringify(component.navEl)).toContain(
-            JSON.stringify(component.switchEl)
-        );
-    });
+    expect(JSON.stringify(component.navEl)).toContain(
+      JSON.stringify(component.switchEl),
+    );
+  });
 
-    test('createSwitch() should create the default switch element', () => {
-        const expected = document.createElement('button');
-        expected.classList.add('lightSwitch');
-        expected.innerHTML = feather.icons.sun.toSvg();
+  test('createSwitch() should create the default switch element', () => {
+    const expected = document.createElement('button');
+    expected.classList.add('lightSwitch');
+    expected.innerHTML = feather.icons.sun.toSvg();
 
-        const actual = component.createSwitch();
-        expect(actual).toStrictEqual(expected);
-    });
+    const actual = component.createSwitch();
+    expect(actual).toStrictEqual(expected);
+  });
 
-    test('handleToggle() should toggle correctly', () => {
-        const setToggleIconSpy = jest
-            .spyOn(component, 'setToggleIcon')
-            .mockImplementation();
-        const setThemeAttrSpy = jest
-            .spyOn(component, 'setThemeAttr')
-            .mockImplementation();
+  test('handleToggle() should toggle correctly', () => {
+    const setToggleIconSpy = jest
+      .spyOn(component, 'setToggleIcon')
+      .mockImplementation();
+    const setThemeAttrSpy = jest
+      .spyOn(component, 'setThemeAttr')
+      .mockImplementation();
 
-        component.toggle = false;
-        component.handleToggle();
+    component.toggle = false;
+    component.handleToggle();
 
-        expect(component.toggle).toBeTruthy();
-        expect(setToggleIconSpy).toHaveBeenCalled();
-        expect(setThemeAttrSpy).toHaveBeenCalled();
-    });
+    expect(component.toggle).toBeTruthy();
+    expect(setToggleIconSpy).toHaveBeenCalled();
+    expect(setThemeAttrSpy).toHaveBeenCalled();
+  });
+
+  test('setToggleIcon should set the correct icon', () => {
+    component.switchEl = component.createSwitch();
+    
+    component.toggle = true;
+    component.setToggleIcon();
+    expect(component.switchEl.innerHTML).toContain('sun');
+
+    component.toggle = false;
+    component.setToggleIcon();
+    expect(component.switchEl.innerHTML).toContain('moon');
+  });
+
+  test('setThemeAttr should set the correct document data attribute for the theme', () => {
+    component.toggle = true;
+    component.setThemeAttr();
+    expect(document.documentElement.dataset.theme).toBe('light');
+
+    component.toggle = false;
+    component.setThemeAttr();
+    expect(document.documentElement.dataset.theme).toBe('dark');
+  });
 });
