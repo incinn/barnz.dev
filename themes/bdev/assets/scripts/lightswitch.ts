@@ -1,9 +1,9 @@
 const feather = require('feather-icons');
 
-class LightSwitch {
-    private switchEl: HTMLButtonElement;
-    private navEl: HTMLElement;
-    private toggle: boolean = true;
+export class LightSwitch {
+    switchEl: HTMLButtonElement;
+    navEl: HTMLElement;
+    toggle: boolean = true;
 
     constructor() {
         this.navEl = document.getElementById('js-nav');
