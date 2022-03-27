@@ -6,8 +6,7 @@ describe('Lightswitch should not load if', () => {
   const consoleSpy = jest.spyOn(console, 'error');
 
   beforeEach(() => {
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
-    consoleSpy.mockImplementation(() => {});
+    consoleSpy.mockImplementation();
   });
 
   afterEach(() => {
