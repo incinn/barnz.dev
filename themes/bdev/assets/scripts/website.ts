@@ -1,6 +1,6 @@
-import { LightSwitch } from './lightswitch';
+import LightSwitch from './lightswitch';
 
-export class Website {
+export default class Website {
   constructor() {
     this.init();
   }

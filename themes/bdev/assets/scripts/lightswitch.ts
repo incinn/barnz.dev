@@ -1,6 +1,6 @@
 import feather = require('feather-icons');
 
-export class LightSwitch {
+export default class LightSwitch {
   switchEl: HTMLButtonElement;
   navEl: HTMLElement;
   toggle = true;

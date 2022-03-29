@@ -1,4 +1,4 @@
-import { LightSwitch } from '../themes/bdev/assets/scripts/lightswitch';
+import LightSwitch from '../themes/bdev/assets/scripts/lightswitch';
 import fs = require('fs');
 import feather = require('feather-icons');
 
