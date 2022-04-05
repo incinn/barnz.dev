@@ -23,6 +23,8 @@ export default class LightSwitch {
 
     this.setToggleIcon();
     this.setThemeAttr();
+    
+    if(this.readTheme() !== this.getThemeName()) this.handleToggle();
   }
 
   createSwitch(): HTMLButtonElement {
@@ -39,6 +41,7 @@ export default class LightSwitch {
 
     this.setToggleIcon();
     this.setThemeAttr();
+    this.storeTheme();
   }
 
   setToggleIcon(): void {
@@ -50,8 +53,21 @@ export default class LightSwitch {
   setThemeAttr(): void {
     document.documentElement.setAttribute(
       'data-theme',
-      this.toggle ? 'light' : 'dark'
+      this.getThemeName()
     );
+  }
+
+  getThemeName(): string {
+    return this.toggle ? 'light' : 'dark';
+  }
+
+  storeTheme(): void {
+    localStorage.setItem('theme', this.getThemeName());
+  }
+
+  readTheme(): string {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme : this.getThemeName();
   }
 }
 
