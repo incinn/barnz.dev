@@ -1,4 +1,4 @@
-import { Website } from './website';
+import Website from './website';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.info('Loading core modules...');
