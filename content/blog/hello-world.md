@@ -6,7 +6,9 @@ tags: ['hello-world']
 author: barnz
 ---
 
-Hello world!
+```js
+console.log('Hello world!');
+```
 
 I am entirely new to blogging. Typically I don't like to write about things which I do not fully understand, which inevitably results in me not writing anything at all. I hope to change that: by learning more, and documenting what I learn here.
 
