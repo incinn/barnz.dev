@@ -39,7 +39,8 @@
 
     &__content {
         align-self: center;
-        background-color: var(--white);
+        background-color: var(--content-bg);
+        color: var(--content-text);
         border-radius: 6px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         max-width: var(--content-width);

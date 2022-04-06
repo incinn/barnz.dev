@@ -8,7 +8,7 @@ $breakpoints: (
     --gutter: 0.85rem;
     --content-width: 1024px;
 
-    --white: #fff;
+    --white: #FFF;
 
     --dark-hue: 244;
     --dark-sat: 20%;
@@ -36,6 +36,41 @@ $breakpoints: (
     --red: hsla(var(--red-hue), var(--red-sat), var(--red-lightness), 100%);
 }
 
+[data-theme='dark'] {
+  // --body-bg: hsla(244, 20%, 13%, 100%);
+  --body-bg: #252532;
+  --body-text: hsla(60, 53%, 97%, 100%);
+  
+  --footer-bg: hsla(244, 20%, 16%, 100%);
+  --footer-text: hsla(60, 53%, 97%, 70%);
+
+  // --card-bg: hsla(244, 20%, 16%, 100%);
+  // --card-bg: hsla(244, 20%, 13%, 100%);
+  --card-bg: #343442;
+
+  --window-border: #343442;
+
+  --content-bg: var(--card-bg);
+  --content-text: var(--white);
+
+  --tags-bg: var(--dark);
+  --tags-text: ;
+}
+
 [data-theme='light'] {
-    --light: red;
+  --body-bg: hsla(90, 4%, 90%, 100%);
+  --body-text: hsla(244, 20%, 13%, 100%);
+  
+  --footer-bg: hsla(90, 4%, 85%, 100%);
+  --footer-text: hsla(244, 20%, 13%, 80%);
+
+  --card-bg: #fbfbfb;
+  
+  --window-border: hsla(244, 20%, 13%, 100%);
+
+  --content-bg: var(--white);
+  --content-text: var(--body-text);
+
+  --tags-bg: rgb(235, 235, 235);
+  --tags-text: ;
 }

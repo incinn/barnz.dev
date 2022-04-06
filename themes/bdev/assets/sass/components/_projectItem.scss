@@ -93,7 +93,8 @@
         justify-content: center;
         position: relative;
         user-select: none;
-        background-color: var(--dark);
+        background-color: var(--window-border);
+        color: var(--dark);
         border-radius: 6px;
         backface-visibility: hidden;
         width: 100%;
@@ -122,12 +123,12 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            background-color: var(--dark);
+            background-color: var(--window-border);
             min-height: 25px;
             width: 100%;
             border-top-left-radius: $radius;
             border-top-right-radius: $radius;
-            border: 2px solid var(--dark);
+            border: 2px solid var(--window-border);
 
             @mixin window-button {
                 content: '';
@@ -176,8 +177,8 @@
             justify-content: center;
             min-height: 25px;
             width: 100%;
-            border-right: 2px solid var(--dark);
-            border-left: 2px solid var(--dark);
+            border-right: 2px solid var(--window-border);
+            border-left: 2px solid var(--window-border);
             background-color: var(--light);
 
             @mixin window-ui-button {
@@ -223,7 +224,7 @@
             position: relative;
             width: 100%;
             height: auto;
-            border: 2px solid var(--dark);
+            border: 2px solid var(--window-border);
             border-top: none;
             border-bottom-left-radius: $radius;
             border-bottom-right-radius: $radius;
