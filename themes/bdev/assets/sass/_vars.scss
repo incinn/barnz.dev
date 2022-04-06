@@ -52,9 +52,6 @@ $breakpoints: (
 
   --content-bg: var(--card-bg);
   --content-text: var(--white);
-
-  --tags-bg: var(--dark);
-  --tags-text: ;
 }
 
 [data-theme='light'] {
@@ -70,7 +67,4 @@ $breakpoints: (
 
   --content-bg: var(--white);
   --content-text: var(--body-text);
-
-  --tags-bg: rgb(235, 235, 235);
-  --tags-text: ;
 }
