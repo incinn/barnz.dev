@@ -21,10 +21,25 @@ export default class LightSwitch {
     this.switchEl.addEventListener('click', this.handleToggle.bind(this));
     this.navEl.appendChild(this.switchEl);
 
-    this.setToggleIcon();
-    this.setThemeAttr();
-    
-    if(this.readTheme() !== this.getThemeName()) this.handleToggle();
+    this.setTheme();
+  }
+
+  setTheme(): void {
+    let theme = localStorage.getItem('theme');
+
+    if (!theme) {
+      theme =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+    }
+
+    if (theme !== this.getThemeName()) this.handleToggle();
+    else {
+      this.setToggleIcon();
+      this.setThemeAttr();
+    }
   }
 
   createSwitch(): HTMLButtonElement {
@@ -51,10 +66,7 @@ export default class LightSwitch {
   }
 
   setThemeAttr(): void {
-    document.documentElement.setAttribute(
-      'data-theme',
-      this.getThemeName()
-    );
+    document.documentElement.setAttribute('data-theme', this.getThemeName());
   }
 
   getThemeName(): string {
@@ -64,10 +76,4 @@ export default class LightSwitch {
   storeTheme(): void {
     localStorage.setItem('theme', this.getThemeName());
   }
-
-  readTheme(): string {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme ? savedTheme : this.getThemeName();
-  }
 }
-
