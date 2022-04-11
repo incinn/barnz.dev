@@ -2,8 +2,9 @@ aside.tags {
     display: flex;
     overflow: hidden;
     margin: 2rem -1rem -1rem -1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.075);
-    background-color: rgb(235, 235, 235);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(black, 0.05);
+    color: var(--tags-text);
     padding: 1rem 2rem;
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;

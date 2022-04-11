@@ -8,7 +8,7 @@ $breakpoints: (
     --gutter: 0.85rem;
     --content-width: 1024px;
 
-    --white: #fff;
+    --white: #FFF;
 
     --dark-hue: 244;
     --dark-sat: 20%;
@@ -18,7 +18,12 @@ $breakpoints: (
     --light-hue: 60;
     --light-sat: 53%;
     --light-lightness: 97%;
-    --light: hsla(var(--light-hue), var(--light-sat), var(--light-lightness), 100%);
+    --light: hsla(
+        var(--light-hue),
+        var(--light-sat),
+        var(--light-lightness),
+        100%
+    );
 
     --grey-hue: 90;
     --grey-sat: 4%;
@@ -29,4 +34,37 @@ $breakpoints: (
     --red-sat: 86%;
     --red-lightness: 47%;
     --red: hsla(var(--red-hue), var(--red-sat), var(--red-lightness), 100%);
+}
+
+[data-theme='dark'] {
+  // --body-bg: hsla(244, 20%, 13%, 100%);
+  --body-bg: #252532;
+  --body-text: hsla(60, 53%, 97%, 100%);
+  
+  --footer-bg: hsla(244, 20%, 16%, 100%);
+  --footer-text: hsla(60, 53%, 97%, 70%);
+
+  // --card-bg: hsla(244, 20%, 16%, 100%);
+  // --card-bg: hsla(244, 20%, 13%, 100%);
+  --card-bg: #343442;
+
+  --window-border: #343442;
+
+  --content-bg: var(--card-bg);
+  --content-text: var(--white);
+}
+
+[data-theme='light'] {
+  --body-bg: hsla(90, 4%, 90%, 100%);
+  --body-text: hsla(244, 20%, 13%, 100%);
+  
+  --footer-bg: hsla(90, 4%, 85%, 100%);
+  --footer-text: hsla(244, 20%, 13%, 80%);
+
+  --card-bg: #fbfbfb;
+  
+  --window-border: hsla(244, 20%, 13%, 100%);
+
+  --content-bg: var(--white);
+  --content-text: var(--body-text);
 }

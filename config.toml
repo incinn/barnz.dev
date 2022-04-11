@@ -14,6 +14,21 @@ copyright = "barnz.dev"
 [taxonomies]
   tag = "tags"
 
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = true
+    noHl = false
+    style = 'dracula'
+    tabWidth = 2
+
 [module]
   [[module.mounts]]
     source = "assets"

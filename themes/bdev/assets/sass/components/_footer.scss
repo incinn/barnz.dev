@@ -1,5 +1,5 @@
 .footer {
-    background-color: hsl(var(--grey-hue), var(--grey-sat), 86%);
+    background-color: var(--footer-bg);
 
     &__inner {
         max-width: var(--content-width);
@@ -16,7 +16,7 @@
 
         p,
         a {
-            color: var(--dark);
+            color: var(--footer-text);
             margin: 0;
             font-size: 0.8rem;
 
