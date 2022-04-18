@@ -53,6 +53,8 @@ export default class Picker {
     const icon = document.createElement('span');
     icon.innerHTML = feather.icons.edit.toSvg();
 
+    picker.addEventListener('change', this.handleInputChange.bind(this));
+
     wrapper.appendChild(picker);
     wrapper.appendChild(icon);
 
@@ -65,6 +67,16 @@ export default class Picker {
     if (event !== null && event.target instanceof HTMLButtonElement) {
       this.setColour(event.target.dataset.colour);
     }
+  }
+
+  handleInputChange(event: any): void {
+    event.preventDefault();
+
+    if(event !== null) {
+      this.setColour(event.target.value);
+    }
+  }
+
   setColour(colour: string): void {
     const root = document.querySelector(':root');
 
