@@ -63,7 +63,11 @@ export default class Picker {
     event.preventDefault();
 
     if (event !== null && event.target instanceof HTMLButtonElement) {
-      console.log(event.target.dataset.colour);
+      this.setColour(event.target.dataset.colour);
     }
+  setColour(colour: string): void {
+    const root = document.querySelector(':root');
+
+    root.style.setProperty('--accent', colour);
   }
 }
