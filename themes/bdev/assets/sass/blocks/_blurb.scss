@@ -44,7 +44,7 @@
         align-items: center;
         justify-content: center;
         background: var(--light);
-        color: var(--red);
+        color: var(--accent);
         font-weight: bold;
         font-size: 1.5rem;
         box-shadow: 0px 0px 10px 2px
@@ -59,7 +59,7 @@
         transition: background-color 100ms, color 100ms;
 
         &:hover {
-            background-color: var(--red);
+            background-color: var(--accent);
             text-decoration: none;
             color: var(--white);
         }
@@ -100,7 +100,7 @@
     }
 
     em {
-        color: var(--red);
+        color: var(--accent);
     }
 
     p {
