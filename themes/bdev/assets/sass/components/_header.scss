@@ -16,7 +16,7 @@
     max-width: var(--content-width);
     padding: 0 var(--gutter);
     margin: 0 auto;
-    border-bottom: 2px dashed var(--red);
+    border-bottom: 2px dashed var(--accent);
 
     @include media('>tablet') {
       border-bottom: none;
@@ -29,7 +29,7 @@
     margin: var(--gutter) 0;
 
     span.dot {
-      color: var(--red);
+      color: var(--accent);
       opacity: 1;
     }
 
@@ -96,7 +96,7 @@
         color: var(--light);
 
         &:hover {
-          color: var(--red);
+          color: var(--accent);
         }
 
         &.showMobile {
