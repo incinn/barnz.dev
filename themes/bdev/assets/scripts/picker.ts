@@ -1,8 +1,18 @@
 import feather = require('feather-icons');
 
+interface UserChangedResponse {
+  text: string;
+  postText: string;
+}
+
 const component = `
   <div class="picker__inner">
-    <h1>Select an Accent</h1>
+    <h1>
+      <span class="picker__titleText">Hate</span>
+      <span class="picker__titleColor">#000000</span>
+      <span class="picker__titleTextPost">?</span>
+    </h1>
+    <p>Yeah, me too 👀 Change below, or select a custom colour.</p>
     <div class="picker__presets">
     </div>
   </div>
@@ -13,6 +23,38 @@ const presets = ['#df1155', '#26bf80', '#457dd3', '#c18f34', '#681fd6'];
 export default class Picker {
   wrapperEl: HTMLElement;
   color: string;
+
+  userChangedResponses: UserChangedResponse[] = [
+    {
+      text: 'Hmmm',
+      postText: '...',
+    },
+    {
+      text: '',
+      postText: 'is much nicer!',
+    },
+    {
+      text: 'Isn\'t',
+      postText: 'gross!',
+    },
+    {
+      text: '',
+      postText: 'is alright I guess...'
+    },
+    {
+      text: '',
+      postText: 'would not be my first choice...'
+    },
+    {
+      text: 'I like',
+      postText: '!'
+    },
+    {
+      text: '',
+      postText: 'reminds me of Comic Sans'
+    }
+    
+  ];
 
   constructor() {}
 
@@ -61,25 +103,46 @@ export default class Picker {
     return wrapper;
   }
 
+  update(colour: string): void {
+    this.color = colour;
+
+    this.setColour();
+    this.updateText();
+  }
+
+  updateText(): void {
+    const colorText = this.wrapperEl.querySelector('.picker__titleColor');
+    const text = this.wrapperEl.querySelector('.picker__titleText');
+    const textPost = this.wrapperEl.querySelector('.picker__titleTextPost');
+
+    colorText.innerHTML = this.color;
+
+    const random = Math.floor(Math.random() * this.userChangedResponses.length);
+    const response = this.userChangedResponses[random];
+
+    text.innerHTML = response.text;
+    textPost.innerHTML = response.postText;
+  }
+
   handlePresetClick(event: MouseEvent): void {
     event.preventDefault();
 
     if (event !== null && event.target instanceof HTMLButtonElement) {
-      this.setColour(event.target.dataset.colour);
+      this.update(event.target.dataset.colour);
     }
   }
 
   handleInputChange(event: Event): void {
     event.preventDefault();
 
-    if(event !== null) {
-      this.setColour(event.target.value);
+    if (event !== null) {
+      this.update(event.target.value);
     }
   }
 
-  setColour(colour: string): void {
+  setColour(): void {
     const root = document.querySelector(':root');
 
-    root.style.setProperty('--accent', colour);
+    root.style.setProperty('--accent', this.color);
   }
 }
