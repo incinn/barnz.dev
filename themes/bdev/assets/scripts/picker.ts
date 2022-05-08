@@ -69,7 +69,7 @@ export default class Picker {
     }
   }
 
-  handleInputChange(event: any): void {
+  handleInputChange(event: Event): void {
     event.preventDefault();
 
     if(event !== null) {
