@@ -9,12 +9,14 @@ const component = `
   <div class="picker__inner">
     <h1>
       <span class="picker__titleText">Hate</span>
-      <span class="picker__titleColor">#000000</span>
+      <span class="picker__titleColor">#df1155</span>
       <span class="picker__titleTextPost">?</span>
     </h1>
-    <p>Yeah, me too 👀 Change below, or select a custom colour.</p>
-    <div class="picker__presets">
-    </div>
+    <p>
+      Select a preset accent colour below, or choose your own with the picker on the right.
+    </p>
+    <div class="picker__presets"></div>
+    <small>Changing the accent colour may impact readability. This is not my fault. I tried to set sensible defaults, but you insisted on changing it anyway.</small>
   </div>
 `;
 
@@ -31,10 +33,14 @@ export default class Picker {
     },
     {
       text: '',
+      postText: '👀'
+    },
+    {
+      text: '😍',
       postText: 'is much nicer!',
     },
     {
-      text: 'Isn\'t',
+      text: '🤢',
       postText: 'gross!',
     },
     {
@@ -43,17 +49,24 @@ export default class Picker {
     },
     {
       text: '',
-      postText: 'would not be my first choice...'
+      postText: 'wouldn\'t be my first choice...'
     },
     {
-      text: 'I like',
-      postText: '!'
+      text: 'I love',
+      postText: '❤️'
     },
     {
       text: '',
       postText: 'reminds me of Comic Sans'
+    },
+    {
+      text: '😵',
+      postText: 'if you insist '
+    },
+    {
+      text: '',
+      postText: 'perfect!'
     }
-    
   ];
 
   constructor() {}
