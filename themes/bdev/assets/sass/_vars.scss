@@ -36,6 +36,7 @@ $breakpoints: (
     --red: hsla(var(--red-hue), var(--red-sat), var(--red-lightness), 100%);
 
     --accent: hsla(340, 86%, 47%, 100%);
+    --accent-alt: var(--white);
 }
 
 [data-theme='dark'] {

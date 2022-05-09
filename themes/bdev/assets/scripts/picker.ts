@@ -20,7 +20,7 @@ const component = `
   </div>
 `;
 
-const presets = ['#df1155', '#26bf80', '#457dd3', '#c18f34', '#681fd6'];
+const presets = ['#df1155', '#26bf80', '#457dd3', '#c18f34', '#834ed3'];
 
 export default class Picker {
   wrapperEl: HTMLElement;
@@ -33,7 +33,7 @@ export default class Picker {
     },
     {
       text: '',
-      postText: '👀'
+      postText: '👀',
     },
     {
       text: '😍',
@@ -45,28 +45,28 @@ export default class Picker {
     },
     {
       text: '',
-      postText: 'is alright I guess...'
+      postText: 'is alright I guess...',
     },
     {
       text: '',
-      postText: 'wouldn\'t be my first choice...'
+      postText: "wouldn't be my first choice...",
     },
     {
       text: 'I love',
-      postText: '❤️'
+      postText: '❤️',
     },
     {
-      text: '',
-      postText: 'reminds me of Comic Sans'
+      text: '👀',
+      postText: 'reminds me of Comic Sans',
     },
     {
       text: '😵',
-      postText: 'if you insist '
+      postText: 'if you insist ',
     },
     {
       text: '',
-      postText: 'perfect!'
-    }
+      postText: 'perfect!',
+    },
   ];
 
   constructor() {}
@@ -155,7 +155,29 @@ export default class Picker {
 
   setColour(): void {
     const root = document.querySelector(':root');
+    const contrast = this.getContrastColour(this.color);
 
     root.style.setProperty('--accent', this.color);
+    root.style.setProperty('--accent-alt', contrast);
+  }
+
+  getContrastColour(color: string): string {
+    const rgbColor = this.hexToRgb(color);
+    const contrast =
+      0.2126 * rgbColor[0] + 0.7152 * rgbColor[1] + 0.0722 * rgbColor[2];
+
+    return contrast >= 165 ? '#000000' : '#ffffff';
+  }
+
+  hexToRgb(hex: string): number[] {
+    // https://javascript.plainenglish.io/convert-hex-to-rgb-with-javascript-4984d16219c3
+    if (hex[0] === '#') hex = hex.slice(1);
+
+    const aRgbHex = hex.match(/.{1,2}/g);
+    return [
+      parseInt(aRgbHex[0], 16),
+      parseInt(aRgbHex[1], 16),
+      parseInt(aRgbHex[2], 16),
+    ];
   }
 }
