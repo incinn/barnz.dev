@@ -1,17 +1,22 @@
 .picker {
   display: flex;
-  flex-direction: column;
-  padding: 0 0 calc(var(--gutter) * 4) 0;
+  justify-content: center;
+  padding-top: 3rem;
+
+  &__container {
+    padding: 0 var(--gutter);
+    max-width: var(--content-width);
+    width: 100%;
+  }
 
   &__inner {
+    padding: var(--gutter);
+    box-sizing: border-box;
     align-self: center;
     background-color: var(--content-bg);
     color: var(--content-text);
     border-radius: 6px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: var(--content-width);
-    width: 100%;
-    padding: 1rem;
     text-align: center;
 
     h1 {

@@ -6,17 +6,19 @@ interface UserChangedResponse {
 }
 
 const component = `
-  <div class="picker__inner">
-    <h1>
-      <span class="picker__titleText">Hate</span>
-      <span class="picker__titleColor">#df1155</span>
-      <span class="picker__titleTextPost">?</span>
-    </h1>
-    <p>
-      Select a preset accent colour below, or choose your own with the picker on the right.
-    </p>
-    <div class="picker__presets"></div>
-    <small>Changing the accent colour may impact readability. This is not my fault. I tried to set sensible defaults, but you insisted on changing it anyway.</small>
+  <div class="picker__container">
+    <div class="picker__inner">
+      <h1>
+        <span class="picker__titleText">Hate</span>
+        <span class="picker__titleColor">#df1155</span>
+        <span class="picker__titleTextPost">?</span>
+      </h1>
+      <p>
+        Select an accent colour below, or choose your own with the picker on the right.
+      </p>
+      <div class="picker__presets"></div>
+      <small>Changing the accent colour may impact readability. This is not my fault. I tried to set sensible defaults, but you insisted on changing it anyway.</small>
+    </div>
   </div>
 `;
 
@@ -155,10 +157,9 @@ export default class Picker {
 
   setColour(): void {
     const root = document.querySelector(':root');
-    const contrast = this.getContrastColour(this.color);
 
     root.style.setProperty('--accent', this.color);
-    root.style.setProperty('--accent-alt', contrast);
+    root.style.setProperty('--accent-alt', this.getContrastColour(this.color));
   }
 
   getContrastColour(color: string): string {

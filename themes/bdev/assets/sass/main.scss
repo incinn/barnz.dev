@@ -32,6 +32,10 @@
 html {
   scroll-behavior: smooth;
 
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     display: block;
     background-color: var(--body-bg);
