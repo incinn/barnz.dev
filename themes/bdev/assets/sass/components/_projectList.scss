@@ -1,45 +1,45 @@
 .projectList {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    background-color: #313142;
+    color: var(--light);
+    background: linear-gradient(0deg, #313142 0%, #1b1b27 65%);
+    padding: 5rem 0;
+
+    &__inner {
+      max-width: var(--content-width);
+      padding: 0 var(--gutter);
+      margin: 0 auto;
+
+      h1 {
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+
+  &__items {
     display: flex;
     flex-direction: column;
+    max-width: var(--content-width);
+    padding: 0 var(--gutter);
+    margin: -2rem 0 4rem 0;
 
-    &__header {
-        background-color: #313142;
-        color: var(--light);
-        background: linear-gradient(0deg, #313142 0%, #1b1b27 65%);
-        padding: 5rem 0;
-
-        &__inner {
-            max-width: var(--content-width);
-            padding: 0 var(--gutter);
-            margin: 0 auto;
-
-            h1 {
-                font-size: 1.75rem;
-                font-weight: bold;
-                margin-bottom: 0.75rem;
-            }
-        }
+    @include media('>tablet') {
+      margin: 4rem 0;
     }
+  }
 
-    &__items {
-        display: flex;
-        flex-direction: column;
-        max-width: var(--content-width);
-        padding: 0 var(--gutter);
-        margin: -2rem 0 4rem 0;
+  .item {
+    padding: var(--gutter);
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 0 0 3rem 0;
 
-        @include media('>tablet') {
-            margin: 4rem 0;
-        }
+    &__screenshot {
     }
-
-    .item {
-        padding: var(--gutter);
-        border-radius: 6px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        margin: 0 0 3rem 0;
-
-        &__screenshot {
-        }
-    }
+  }
 }
