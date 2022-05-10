@@ -53,15 +53,20 @@
     }
   }
 
-  &__content {
+  &__container {
+    padding: 0 var(--gutter);
     align-self: center;
+    max-width: var(--content-width);
+    width: 100%;
+  }
+
+  &__content {
     background-color: var(--content-bg);
     color: var(--content-text);
     border-radius: 6px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: var(--content-width);
     padding: 1rem;
-    margin: -10rem var(--gutter) calc(var(--gutter) * 2) var(--gutter);
+    margin-top: -10rem;
 
     @include media('>desktop') {
       padding: 2rem;
