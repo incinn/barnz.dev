@@ -24,6 +24,7 @@
   &__items {
     display: flex;
     flex-direction: column;
+    align-self: center;
     max-width: var(--content-width);
     padding: 0 var(--gutter);
     margin: -2rem 0 4rem 0;
