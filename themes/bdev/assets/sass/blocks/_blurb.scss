@@ -43,10 +43,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--light);
-    color: var(--accent);
+    background: var(--accent);
+    color: var(--accent-alt);
     font-weight: bold;
-    font-size: 1.5rem;
     box-shadow: 0px 0px 10px 2px
       hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 0.6);
     border-radius: 50%;
@@ -59,9 +58,7 @@
     transition: background-color 100ms, color 100ms;
 
     &:hover {
-      background-color: var(--accent);
       text-decoration: none;
-      color: var(--white);
     }
 
     .icon svg {
