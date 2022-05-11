@@ -59,6 +59,10 @@
     color: var(--dark);
     transition: opacity 150ms;
 
+    svg {
+      width: 20px;
+    }
+
     &:hover {
       opacity:1;
        
