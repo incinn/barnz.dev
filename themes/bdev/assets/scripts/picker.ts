@@ -51,7 +51,7 @@ export default class Picker {
     },
     {
       text: '',
-      postText: "wouldn't be my first choice...",
+      postText: 'wouldn\'t be my first choice...',
     },
     {
       text: 'I love',
@@ -75,6 +75,9 @@ export default class Picker {
 
   init(): void {
     this.create();
+
+    const savedAccent = this.loadValueFromStore();
+    if(savedAccent) this.update(savedAccent);
   }
 
   create(): void {
@@ -118,9 +121,18 @@ export default class Picker {
     return wrapper;
   }
 
+  loadValueFromStore(): string | undefined {
+    return localStorage.getItem('accent');
+  }
+
+  setValueInStore(): void {
+    localStorage.setItem('accent', this.color);
+  }
+
   update(colour: string): void {
     this.color = colour;
 
+    this.setValueInStore();
     this.setColour();
     this.updateText();
   }
