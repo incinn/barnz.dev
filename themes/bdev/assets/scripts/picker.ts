@@ -129,7 +129,7 @@ export default class Picker {
   createResetButton(): HTMLButtonElement {
     const button = this.wrapperEl.querySelector('.picker__reset');
     const icon = document.createElement('span');
-    icon.innerHTML = feather.icons.circle.toSvg();
+    icon.innerHTML = feather.icons['refresh-cw'].toSvg();
 
     button.addEventListener('click', this.reset.bind(this));
     button.appendChild(icon);
