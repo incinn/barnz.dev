@@ -17,7 +17,8 @@ const component = `
         Select an accent colour below, or choose your own with the picker on the right.
       </p>
       <div class="picker__presets"></div>
-      <small>Changing the accent colour may impact readability. This is not my fault. I tried to set sensible defaults, but you insisted on changing it anyway.</small>
+      <small>Changing the accent colour may impact readability. This is not my fault. I tried to set sensible defaults, but you changed it anyway.</small>
+      <button class="picker__reset" title="I made a mistake, put it back to how it was"></button>
     </div>
   </div>
 `;
@@ -93,6 +94,10 @@ export default class Picker {
     });
     presetContainer.appendChild(this.createPicker());
 
+    const pickerInner = this.wrapperEl.querySelector('.picker__inner');
+    const resetButton = this.createResetButton();
+    pickerInner.appendChild(resetButton);
+
     const main = document.querySelector('body > main');
     main.appendChild(this.wrapperEl);
   }
@@ -121,12 +126,28 @@ export default class Picker {
     return wrapper;
   }
 
+  createResetButton(): HTMLButtonElement {
+    const button = this.wrapperEl.querySelector('.picker__reset');
+    const icon = document.createElement('span');
+    icon.innerHTML = feather.icons.circle.toSvg();
+
+    button.addEventListener('click', this.reset.bind(this));
+    button.appendChild(icon);
+
+    return button;
+  }
+
   loadValueFromStore(): string | undefined {
     return localStorage.getItem('accent');
   }
 
   setValueInStore(): void {
     localStorage.setItem('accent', this.color);
+  }
+
+  reset(): void {
+    localStorage.removeItem('accent');
+    window.location.reload(true);
   }
 
   update(colour: string): void {
