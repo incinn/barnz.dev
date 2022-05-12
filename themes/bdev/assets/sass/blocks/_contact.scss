@@ -27,7 +27,7 @@
     flex-direction: column;
 
     @include media('>tablet') {
-      max-width: calc(var(--content-width) / 2);
+      max-width: calc(var(--content-width) / 1.5);
     }
 
     @mixin input {
@@ -35,14 +35,14 @@
       font-size: 1rem;
       font-family: Ubuntu-Mono;
       border-radius: 3px;
-      border: 2px solid hsla(var(--dark-hue), var(--dark-sat), 75%, 100%);
+      border: 4px solid hsla(var(--dark-hue), var(--dark-sat), 75%, 100%);
       box-shadow: none;
       margin-bottom: var(--gutter);
       transition: 200ms;
 
       &:focus {
         outline: none;
-        border-color: var(--red);
+        border-color: var(--accent);
       }
     }
 

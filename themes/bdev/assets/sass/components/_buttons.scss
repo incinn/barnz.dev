@@ -12,9 +12,10 @@
         padding: 0.85rem;
     }
 
-    &:hover {
-        text-decoration: none;
-    }
+  &:hover {
+    text-decoration: none;
+    transform: scale(1.05);
+  }
 
     &:active {
         transform: scale(0.95);
@@ -31,9 +32,15 @@
         margin-right: 0.5rem;
     }
 
-    &--small {
-        font-size: 0.75rem;
-        padding: 0.85rem 1.5rem;
+  &--primary {
+    color: var(--accent-alt);
+    background-color: var(--accent);
+  }
+
+  &--dark {
+    color: var(--grey);
+    border-color: var(--dark);
+    background-color: var(--dark);
 
         @include media('>tablet') {
             padding: calc(var(--gutter) / 2);
