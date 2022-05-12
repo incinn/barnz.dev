@@ -12,9 +12,9 @@
       </small>
     </p>
     <form
-      action="mailto:hi@barnz.dev?subject=Contact%20Form"
+      action="mailto:website+contactform@barnz.dev"
       method="get"
-      enctype="text/plain"
+      enctype="multipart/form-data"
     >
       <label for="body">Message</label>
       <textarea
@@ -24,6 +24,7 @@
         cols="20"
         rows="12"
       ></textarea>
+      <input type="hidden" name="subject" value="barnz.dev&nbsp;contact&nbsp;form"/>
       <input
         class="btn btn--primary"
         type="submit"
