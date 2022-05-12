@@ -43,6 +43,14 @@
       &:focus {
         outline: none;
         border-color: var(--accent);
+
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+
+      &::placeholder {
+        opacity: .6;
       }
     }
 
