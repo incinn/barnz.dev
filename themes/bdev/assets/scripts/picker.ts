@@ -127,7 +127,7 @@ export default class Picker {
   }
 
   createResetButton(): HTMLButtonElement {
-    const button = this.wrapperEl.querySelector('.picker__reset');
+    const button = this.wrapperEl.querySelector('.picker__reset') as HTMLButtonElement;
     const icon = document.createElement('span');
     icon.innerHTML = feather.icons['refresh-cw'].toSvg();
 
@@ -147,7 +147,7 @@ export default class Picker {
 
   reset(): void {
     localStorage.removeItem('accent');
-    window.location.reload(true);
+    window.location.reload();
   }
 
   update(colour: string): void {
@@ -184,12 +184,12 @@ export default class Picker {
     event.preventDefault();
 
     if (event !== null) {
-      this.update(event.target.value);
+      this.update((<HTMLInputElement>event.target).value);
     }
   }
 
   setColour(): void {
-    const root = document.querySelector(':root');
+    const root = document.querySelector(':root') as HTMLElement;
 
     root.style.setProperty('--accent', this.color);
     root.style.setProperty('--accent-alt', this.getContrastColour(this.color));
