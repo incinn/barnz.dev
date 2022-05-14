@@ -137,8 +137,9 @@ export default class Picker {
     return button;
   }
 
-  loadValueFromStore(): string | undefined {
-    return localStorage.getItem('accent');
+  loadValueFromStore(): string | null {
+    const savedValue = localStorage.getItem('accent');
+    return savedValue ? savedValue : null;
   }
 
   setValueInStore(): void {
