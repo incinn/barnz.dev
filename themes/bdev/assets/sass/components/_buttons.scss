@@ -81,4 +81,9 @@
             background-color: var(--white);
         }
     }
+
+  &--small {
+    padding: .75rem;
+    font-size: .9rem;
+  }
 }
