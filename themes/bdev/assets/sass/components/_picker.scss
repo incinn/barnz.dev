@@ -7,7 +7,11 @@
 .picker {
   display: flex;
   justify-content: center;
-  padding-top: 3rem;
+  padding-top: 0rem;
+
+  @include media('>phone') {
+    padding-top: 3rem;
+  }
 
   &__container {
     padding: 0 var(--gutter);
@@ -17,7 +21,7 @@
 
   &__inner {
     position: relative;
-    padding: 3rem;
+    padding: 1.5rem;
     box-sizing: border-box;
     align-self: center;
     color: var(--content-text);
@@ -34,9 +38,17 @@
     border-image-slice: 1;
     text-align: center;
 
+    @include media('>phone') {
+      padding: 3rem;
+    }
+
     h1 {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
+
+      @include media('>phone') {
+        font-size: 2.5rem;
+      }
     }
 
     small {
@@ -73,10 +85,15 @@
   }
 
   &__presets {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+    justify-items: center;
     margin: 2rem 0 1.5rem 0;
+
+    @include media('>phone') {
+      grid-template-columns: repeat(6, 1fr);
+    }
 
     button,
     input[type='color'] {
