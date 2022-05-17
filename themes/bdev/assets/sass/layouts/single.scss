@@ -106,7 +106,7 @@
 
     strong {
       font-weight: bold;
-      color: var(--red);
+      color: var(--accent);
     }
 
     del {
@@ -116,7 +116,7 @@
 
     a {
       text-decoration: underline;
-      text-decoration-color: var(--red);
+      text-decoration-color: var(--accent);
       text-decoration-thickness: 2px;
       word-break: break-all;
 
@@ -128,7 +128,7 @@
 
     hr {
       width: 75%;
-      border: 1px dashed var(--red);
+      border: 1px dashed var(--accent);
       border-radius: 5px;
       margin: 4rem auto;
     }
