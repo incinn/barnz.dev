@@ -1,0 +1,137 @@
+[data-theme='dark'] {
+  .picker .picker__reset {
+    color: var(--light);
+  }
+}
+
+.picker {
+  display: flex;
+  justify-content: center;
+  padding-top: 0rem;
+
+  @include media('>phone') {
+    padding-top: 3rem;
+  }
+
+  &__container {
+    padding: 0 var(--gutter);
+    max-width: var(--content-width);
+    width: 100%;
+  }
+
+  &__inner {
+    position: relative;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    align-self: center;
+    color: var(--content-text);
+    border-radius: 6px;
+    border: 6px solid transparent;
+    border-image: linear-gradient(
+      to bottom right,
+      #b827fc 0%,
+      #2c90fc 25%,
+      #b8fd33 50%,
+      #fec837 75%,
+      #fd1892 100%
+    );
+    border-image-slice: 1;
+    text-align: center;
+
+    @include media('>phone') {
+      padding: 3rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+
+      @include media('>phone') {
+        font-size: 2.5rem;
+      }
+    }
+
+    small {
+      display: block;
+      text-align: center;
+      font-size: 0.75rem;
+      opacity: 0.25;
+    }
+  }
+
+  &__reset {
+    position: absolute;
+    top: var(--gutter);
+    right: var(--gutter);
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.25;
+    color: var(--dark);
+    transition: opacity 150ms;
+
+    svg {
+      width: 20px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__titleColor {
+    color: var(--accent);
+  }
+
+  &__presets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+    justify-items: center;
+    margin: 2rem 0 1.5rem 0;
+
+    @include media('>phone') {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    button,
+    input[type='color'] {
+      height: 50px;
+      width: 50px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 150ms;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .colorWrapper {
+      position: relative;
+
+      span {
+        position: absolute;
+        pointer-events: none;
+        top: 12px;
+        color: var(--accent-alt);
+        left: 12.5px;
+      }
+      input[type='color'] {
+        &::-webkit-color-swatch-wrapper {
+          padding: 0;
+        }
+        &::-webkit-color-swatch {
+          border: none;
+          border-radius: 50%;
+        }
+        &::-moz-color-swatch {
+          border: none;
+          border-radius: 100%;
+        }
+      }
+    }
+  }
+}

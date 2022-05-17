@@ -1,25 +1,7 @@
 import LightSwitch from '../themes/bdev/assets/scripts/lightswitch';
 import fs = require('fs');
 import feather = require('feather-icons');
-
-const fakeLocalStorage = (() => {
-  let store = {};
-
-  return {
-    getItem: (key: string) => {
-      return store[key] || null;
-    },
-    setItem: (key: string, value: string) => {
-      store[key] = value.toString();
-    },
-    removeItem: (key: string) => {
-      delete store[key];
-    },
-    clear: () => {
-      store = {};
-    },
-  };
-})();
+import { fakeLocalStorage } from './helpers/store.helper';
 
 describe('Lightswitch should not load if', () => {
   const consoleSpy = jest.spyOn(console, 'error');
