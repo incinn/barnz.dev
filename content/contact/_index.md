@@ -1,0 +1,5 @@
+---
+kind: page
+layout: contact
+---
+
