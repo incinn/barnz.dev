@@ -35,7 +35,7 @@
     grid-gap: 1.5rem;
     max-width: var(--content-width);
     padding: 0 var(--gutter);
-    margin: -1.5rem auto 0 auto;
+    margin: -5rem auto 0 auto;
 
     @include media('>tablet') {
       grid-template-columns: 2fr 2fr;
