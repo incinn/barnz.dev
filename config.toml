@@ -9,7 +9,7 @@ copyright = "barnz.dev"
   email = "hi@barnz.dev"
 
 [params]
-  description = "Hello, I am Barnz, a passionate web developer from the UK."
+  description = "Hello, I am Barnz, a web developer from the UK."
 
 [taxonomies]
   tag = "tags"
