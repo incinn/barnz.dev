@@ -1,7 +1,4 @@
-.list {
-  display: flex;
-  flex-direction: column;
-
+.contactPage {
   &__header {
     background-color: #313142;
     color: var(--light);
@@ -30,16 +27,8 @@
   }
 
   &__content {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 1.5rem;
     max-width: var(--content-width);
     padding: 0 var(--gutter);
-    margin: -5rem auto 0 auto;
-
-    @include media('>tablet') {
-      grid-template-columns: 2fr 2fr;
-      grid-gap: 2rem;
-    }
+    margin: 5rem auto 2rem;
   }
 }

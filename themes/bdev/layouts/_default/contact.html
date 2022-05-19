@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <div class="contactPage">
+    <div class="contactPage__header">
+      <div class="contactPage__header__inner">
+        {{ .Content | safeHTML }}  
+      </div>
+    </div>
+
+    <div class="contactPage__content"> 
+      {{- partial "components/contactForm.html" . -}}
+    </div>
+  </div>
+{{ end }}

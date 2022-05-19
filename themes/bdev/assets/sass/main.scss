@@ -4,12 +4,15 @@
 @import 'node_modules/reset-css/sass/_reset';
 @import './fonts';
 
+@import './pages/contact';
+
 @import './components/icons';
 @import './components/buttons';
 @import './components/header';
 @import './components/projectItem';
 @import './components/articleItem';
 @import './components/projectList';
+@import './components/contactForm';
 @import './components/tags';
 @import './components/error';
 @import './components/picker';
