@@ -22,7 +22,7 @@ Hitting `CTRL+Z` sends a `SIGTSTP` signal. This is designed to suspend a process
 ## Ok, so what does `fg` do?
 It brings a suspend process back to the foreground. You can suspend multiple processes and choose between. To see all your suspended processes you can run `jobs -l` to list them out, which would look something like this:
 
-```bash
+```bash {linenos=false}
 [4]+ 6161 Stopped       ping barnz.dev
 ```
 
