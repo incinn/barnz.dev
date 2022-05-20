@@ -121,7 +121,7 @@
       word-break: break-all;
 
       &:hover {
-        text-decoration-color: orange;
+        text-decoration-color: var(--light);
         text-decoration-thickness: 2px;
       }
     }
