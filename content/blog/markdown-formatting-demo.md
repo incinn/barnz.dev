@@ -16,9 +16,7 @@ tags:
         'whatdowelove',
         'tagstagstagstagstagstags',
     ]
-slug:
-coverImage:
-externalLink:
+draft: true
 ---
 
 This is post contains all formatting for posts...
