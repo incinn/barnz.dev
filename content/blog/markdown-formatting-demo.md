@@ -16,9 +16,7 @@ tags:
         'whatdowelove',
         'tagstagstagstagstagstags',
     ]
-slug:
-coverImage:
-externalLink:
+draft: true
 ---
 
 This is post contains all formatting for posts...
@@ -89,17 +87,17 @@ You may also want some images right in here like ![GitHub Logo](https://cloud.gi
 
 Let us do some links - this for example: https://github.com/MinhasKamal/github-markdown-syntax is **NOT** a link but this: is [GitHub](https://github.com/MinhasKamal/github-markdown-syntax)
 
-```html {linenos=table,linenostart=1}
+```html
 <span class="test">Hello world</span>
 ```
 
-```js {linenos=table,linenostart=1}
+```js
 console.log('Hello world');
 ```
 
 ---
 
-```html {linenos=table,hl_lines=["2-4"],linenostart=1}
+```html {hl_lines=["2-4"]}
 <!-- partial header example -->
 <head>
     <meta charset="UTF-8" />
@@ -110,13 +108,13 @@ console.log('Hello world');
 
 `foo` and `bar`
 
-```go {linenos=table,hl_lines=[3, 7],linenostart=1}
+```go
 // This is a comment
 package main
 import "fmt"
 
 // Main function
 func main() {
-  fmt.Println("!... Hello World ...!")
+  fmt.Println("Hello World!")
 }
 ```

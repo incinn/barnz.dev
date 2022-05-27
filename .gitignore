@@ -7,3 +7,5 @@ resources/_gen/
 .hugo_build.lock
 
 coverage/
+
+public/
