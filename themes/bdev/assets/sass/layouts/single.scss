@@ -11,6 +11,10 @@
         }
       }
     }
+    p code, h1 code, h2 code {
+      color: var(--white);
+      background-color: rgba(225,225,225,0.1);
+    }
   }
 }
 
