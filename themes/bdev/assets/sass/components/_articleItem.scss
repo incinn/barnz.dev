@@ -1,32 +1,32 @@
 .articleItem {
+  display: flex;
+  flex-direction: column;
+  padding: var(--gutter);
+  background-color: var(--card-bg);
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  &__title {
     display: flex;
-    flex-direction: column;
-    padding: var(--gutter);
-    background-color: var(--card-bg);
-    border-radius: 6px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    font-size: 1.5rem;
 
-    &__title {
-        display: flex;
-        font-size: 1.5rem;
-
-        .icon {
-            margin-left: auto;
-            width: 30px;
-            height: 30px;
-        }
-
-        a {
-            margin-right: 1rem;
-        }
+    .icon {
+      margin-left: auto;
+      width: 30px;
+      height: 30px;
     }
 
-    &__summary {
-        margin: 1rem 0;
+    a {
+      margin-right: 1rem;
     }
+  }
 
-    &__date {
-        margin-top: auto;
-        font-size: 0.75rem;
-    }
+  &__summary {
+    margin: 1rem 0;
+  }
+
+  &__date {
+    margin-top: auto;
+    font-size: 0.75rem;
+  }
 }
