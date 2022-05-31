@@ -1,5 +1,9 @@
 .contact {
-  padding: calc(var(--gutter) * 10) 0;
+  padding: calc(var(--gutter) * 5) 0;
+
+  @include media('>tablet') {
+    padding: calc(var(--gutter) * 10) 0;
+  }
 
   &__inner {
     max-width: var(--content-width);
