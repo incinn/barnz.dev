@@ -1,7 +1,8 @@
 ---
+title: 'Contact'
 kind: page
 layout: contact
-description: Get in touch with me via any of the methods below
+description: Say hi! Get in touch with the contact form below
 ---
 
 # Contact
