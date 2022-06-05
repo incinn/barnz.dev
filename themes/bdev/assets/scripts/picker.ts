@@ -23,7 +23,7 @@ const component = `
   </div>
 `;
 
-const presets = ['#df1155', '#26bf80', '#457dd3', '#c18f34', '#834ed3'];
+const presets = ['#26bf80', '#df1155', '#457dd3', '#c18f34', '#834ed3'];
 
 export default class Picker {
   wrapperEl: HTMLElement;
