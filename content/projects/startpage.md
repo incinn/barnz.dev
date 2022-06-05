@@ -5,6 +5,7 @@ slug:
 liveUrl: 'https://start.barnz.dev/'
 sourceUrl: 'https://barnz.dev/'
 screenshotImage: 'startpage-screenshot.webp'
+fullPage: false
 ---
 
 My start page. A lightweight page which provides quick access to information that is important to me.
