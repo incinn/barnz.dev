@@ -35,9 +35,15 @@ And I wanted to provide the following features:
 
 As for the design, I went through a bunch of iterations before landing on what you see now. I wanted it to be simple, but allow for the user to customise the experience to some degree. I think it is a nice middle ground.
 
+# Technologies
+
+- PUG
+- TypeScript
+- SASS
+
 # Usage
 
-Anyone can use the startpage. All configuration options, theme settings, bookmarks and weather location data is saved to your browsers **local storage**. Making clearing your data trivial.
+Anyone can use the startpage. All configuration options, theme settings, bookmarks and weather location data is saved to the browser's **local storage**. Making clearing your data trivial.
 
 Settings can be found by clicking the cog icon in the top right of the page. Here you're able to configure certain components, add bookmarks etc.
 

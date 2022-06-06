@@ -14,3 +14,5 @@ A frontend SPA built with _Angular_ and _Typescript_.
 An API built with _NestJS_.
 
 <!--more-->
+
+More info coming soon.
