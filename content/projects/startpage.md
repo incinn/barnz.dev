@@ -34,11 +34,14 @@ And I wanted to provide the following features:
 
 As for the design, I went through a bunch of iterations before landing on what you see now. I wanted it to be simple, but allow for the user to customise the experience to some degree. I think it is a nice middle ground.
 
-# Technologies
+# Technology
 
 - PUG
+  - Templating
 - TypeScript
+  - Brains
 - SASS
+  - CSS preprocessor
 
 # Usage
 
