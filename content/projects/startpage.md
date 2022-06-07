@@ -5,7 +5,6 @@ slug:
 liveUrl: 'https://start.barnz.dev/'
 sourceUrl: 'https://barnz.dev/'
 screenshotImage: 'startpage-screenshot.webp'
-fullPage: true
 tags: ['TypeScript']
 ---
 

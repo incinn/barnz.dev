@@ -2,11 +2,7 @@
   <div class="content">
     <div class="content__title">
       <h1>
-        {{ if eq .context.Params.fullPage true }}
           <a href="{{ .context.Permalink }}">{{ .context.Title }}</a>
-        {{ else }}
-          {{ .context.Title }}
-        {{ end }}
       </h1>
       <div class="content__title__buttons">
         <a
