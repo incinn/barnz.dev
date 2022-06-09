@@ -1,9 +1,10 @@
 ---
 title: 'Startpage'
 date: 2022-02-25T00:03:14Z
+lastmod: 2022-06-09T21:44:00Z
 slug:
 liveUrl: 'https://start.barnz.dev/'
-sourceUrl: 'https://barnz.dev/'
+sourceUrl: https://github.com/incinn/startpage
 screenshotImage: 'startpage-screenshot.webp'
 tags: ['TypeScript']
 ---
