@@ -42,7 +42,13 @@
       <span>{{ .context.Title }}</span>
     </div>
     <div class="window__address">
-      <span>{{ .context.Params.liveUrl }}</span>
+      <span>
+        {{ if .context.Params.liveUrl }}
+          {{ .context.Params.liveUrl }}
+        {{ else }}
+          https://localhost
+        {{ end }}
+      </span>
     </div>
     <img
       src="/img/{{ .context.Params.screenshotImage }}"
