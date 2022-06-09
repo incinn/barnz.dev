@@ -2,7 +2,13 @@
   <div class="content">
     <div class="content__title">
       <h1>
-          <a href="{{ .context.Permalink }}">{{ .context.Title }}</a>
+        {{ with .context.Permalink }}
+          <a href="{{ . }}">
+        {{ end }}
+          {{ .context.Title }}
+        {{ with .context.Permalink }}
+        </a>
+        {{ end }}
       </h1>
       <div class="content__title__buttons">
         <a
