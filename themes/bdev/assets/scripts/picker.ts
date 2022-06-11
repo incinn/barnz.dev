@@ -17,13 +17,13 @@ const component = `
         Select an accent colour below, or choose your own with the picker on the right.
       </p>
       <div class="picker__presets"></div>
-      <small>Changing the accent colour may impact readability. This is not my fault. I tried to set sensible defaults, but you changed it anyway.</small>
+      <small>Changing the accent colour may impact readability in some areas.</small>
       <button class="picker__reset" title="I made a mistake, put it back to how it was"></button>
     </div>
   </div>
 `;
 
-const presets = ['#df1155', '#26bf80', '#457dd3', '#c18f34', '#834ed3'];
+const presets = ['#26bf80', '#df1155', '#457dd3', '#c18f34', '#834ed3'];
 
 export default class Picker {
   wrapperEl: HTMLElement;
@@ -44,27 +44,23 @@ export default class Picker {
     },
     {
       text: '🤢',
-      postText: 'gross!',
+      postText: '',
     },
     {
       text: '',
-      postText: 'is alright I guess...',
+      postText: 'if you insist...',
     },
     {
       text: '',
-      postText: 'wouldn\'t be my first choice...',
+      postText: 'wouldn\'t be my first choice',
     },
     {
-      text: 'I love',
+      text: '',
       postText: '❤️',
     },
     {
-      text: '👀',
+      text: '',
       postText: 'reminds me of Comic Sans',
-    },
-    {
-      text: '😵',
-      postText: 'if you insist ',
     },
     {
       text: '',
@@ -152,8 +148,9 @@ export default class Picker {
   }
 
   update(colour: string): void {
-    this.color = colour;
+    if(this.color === colour) return;
 
+    this.color = colour;
     this.setValueInStore();
     this.setColour();
     this.updateText();

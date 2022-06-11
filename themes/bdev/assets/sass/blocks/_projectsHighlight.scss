@@ -1,20 +1,24 @@
 .projects {
+  padding-top: calc(var(--gutter) * 7);
+
+  @include media('>tablet') {
     padding-top: calc(var(--gutter) * 10);
+  }
 
-    &__inner {
-        max-width: var(--content-width);
-        padding: 0 var(--gutter);
-        margin: 0 auto;
+  &__inner {
+    max-width: var(--content-width);
+    padding: 0 var(--gutter);
+    margin: 0 auto;
 
-        > h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: var(--gutter);
-        }
-
-        > p {
-            margin-bottom: calc(var(--gutter) * 5);
-        }
+    > h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: var(--gutter);
     }
+
+    > p {
+      margin-bottom: calc(var(--gutter) * 5);
+    }
+  }
 }

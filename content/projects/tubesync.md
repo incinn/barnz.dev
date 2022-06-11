@@ -1,9 +1,11 @@
 ---
+_build:
+  render: false
 title: 'Tubesync'
 date: 2022-02-25T00:03:26Z
 slug:
-liveUrl: 'https://barnz.dev/'
-sourceUrl: 'https://barnz.dev/'
+liveUrl: 
+sourceUrl: 
 screenshotImage: 'barnzdev-screenshot.webp'
 ---
 
@@ -13,3 +15,5 @@ A frontend SPA built with _Angular_ and _Typescript_.
 An API built with _NestJS_.
 
 <!--more-->
+
+More info coming soon.

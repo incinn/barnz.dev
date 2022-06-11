@@ -1,7 +1,7 @@
 <section class="projects">
     <div class="projects__inner">
         <h1 id="projects">Projects</h1>
-        <p>Some projects I've worked on that I'm especially proud of:</p>
+        <p>Some projects that I'm especially proud of:</p>
 
         {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
             {{ partial "components/projectItem" (dict "context" .) }}

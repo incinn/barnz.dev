@@ -1,42 +1,60 @@
 <section class="projectItem">
-    <div class="content">
-        <div class="content__title">
-            <h1><a href="{{ .context.Permalink }}">{{ .context.Title }}</a></h1>
-            <div class="content__title__buttons">
-                <a
-                    class="btn btn--small btn--light"
-                    title="Visit {{ .context.Title }} project website"
-                    href="{{ .context.Params.liveUrl }}"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                >
-                    visit site
-                </a>
-                <a
-                    class="btn btn--invert btn--small btn--dark"
-                    title="View {{ .context.Title }} project source"
-                    href="{{ .context.Params.sourceUrl }}"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                >
-                    {{ partial "components/icon" "github" }} source
-                </a>
-            </div>
-        </div>
-        {{ .context.Summary | safeHTML }}
+  <div class="content">
+    <div class="content__title">
+      <h1>
+        {{ with .context.Permalink }}
+          <a href="{{ . }}">
+        {{ end }}
+          {{ .context.Title }}
+        {{ with .context.Permalink }}
+        </a>
+        {{ end }}
+      </h1>
+      <div class="content__title__buttons">
+        {{ with .context.Params.liveUrl }}
+        <a
+          class="btn btn--small btn--light"
+          title="Visit project website"
+          href="{{ . }}"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          visit site
+        </a>
+        {{ end }}
+        {{ with .context.Params.sourceUrl }}
+        <a
+          class="btn btn--invert btn--small btn--dark"
+          title="View project source"
+          href="{{ .}}"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          {{ partial "components/icon" "github" }} source
+        </a>
+        {{ end }}
+      </div>
     </div>
-    <div class="window">
-        <div class="window__bar">
-            <span>{{ .context.Title }}</span>
-        </div>
-        <div class="window__address">
-            <span>{{ .context.Params.liveUrl }}</span>
-        </div>
-        <img
-            src="/img/{{ .context.Params.screenshotImage }}"
-            alt="{{ .context.Title }} screenshot"
-            width="350px"
-            height="190px"
-        />
+    {{ .context.Summary | safeHTML }}
+  </div>
+  <div class="window">
+    <div class="window__bar">
+      <span>{{ .context.Title }}</span>
     </div>
+    <div class="window__address">
+      <span>
+        {{ if .context.Params.liveUrl }}
+          {{ .context.Params.liveUrl }}
+        {{ else }}
+          https://localhost
+        {{ end }}
+      </span>
+    </div>
+    <img
+      src="/img/{{ .context.Params.screenshotImage }}"
+      alt="{{ .context.Title }} screenshot"
+      width="350px"
+      height="190px"
+    />
+  </div>
 </section>

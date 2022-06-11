@@ -5,6 +5,8 @@
 }
 
 .picker {
+  $borderWidth: 6px;
+
   display: flex;
   justify-content: center;
   padding-top: 0rem;
@@ -24,19 +26,11 @@
     padding: 1.5rem;
     box-sizing: border-box;
     align-self: center;
-    color: var(--content-text);
+    color: var(--light);
     border-radius: 6px;
-    border: 6px solid transparent;
-    border-image: linear-gradient(
-      to bottom right,
-      #b827fc 0%,
-      #2c90fc 25%,
-      #b8fd33 50%,
-      #fec837 75%,
-      #fd1892 100%
-    );
-    border-image-slice: 1;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to bottom right, #26bf80 0%, #457dd3 100%);
 
     @include media('>phone') {
       padding: 3rem;
@@ -44,7 +38,7 @@
 
     h1 {
       font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
 
       @include media('>phone') {
         font-size: 2.5rem;
@@ -55,7 +49,7 @@
       display: block;
       text-align: center;
       font-size: 0.75rem;
-      opacity: 0.25;
+      opacity: 0.5;
     }
   }
 
@@ -68,7 +62,7 @@
     padding: 0;
     cursor: pointer;
     opacity: 0.25;
-    color: var(--dark);
+    color: var(--light);
     transition: opacity 150ms;
 
     svg {
@@ -82,6 +76,7 @@
 
   &__titleColor {
     color: var(--accent);
+    text-shadow: 0px 0px 2px var(--dark);
   }
 
   &__presets {
@@ -89,7 +84,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 1.5rem;
     justify-items: center;
-    margin: 2rem 0 1.5rem 0;
+    margin: 4rem 0 3rem 0;
 
     @include media('>phone') {
       grid-template-columns: repeat(6, 1fr);
@@ -102,7 +97,9 @@
       border: none;
       border-radius: 50%;
       cursor: pointer;
+      background-color: transparent;
       transition: transform 150ms;
+      border: 4px solid rgba(225,225,225,0.9);
 
       &:hover {
         transform: scale(1.05);
