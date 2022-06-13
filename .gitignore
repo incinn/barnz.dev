@@ -9,3 +9,5 @@ resources/_gen/
 coverage/
 
 public/
+
+.env
