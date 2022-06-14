@@ -39,7 +39,7 @@ echo -e "\tinto directory: ${green}${DEPLOY_HOST_DESTINATION_DIR}${reset}\n"
 }
 
 echo -e "\nUpload ${green}SUCCESSFUL${reset}!\n"
-echo -e "Open ${green}${DEPLOY_HOST}${reset} to view changes."
+echo -e "Open https://${green}${DEPLOY_HOST}${reset} to view changes."
 
 exit 0
 
