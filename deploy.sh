@@ -16,7 +16,6 @@ if [[ -z $DEPLOY_USER || -z $DEPLOY_HOST || -z $DEPLOY_HOST_SSH_PORT || -z $DEPL
   exit 1
 fi
 
-
 echo -e "\nBuilding website...\n"
 
 {
