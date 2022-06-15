@@ -1,9 +1,8 @@
 ---
-_build:
-  render: false
 title: 'Tubesync'
 date: 2022-02-25T00:03:26Z
 slug:
+draft: true
 liveUrl: 
 sourceUrl: 
 screenshotImage: 'barnzdev-screenshot.webp'
