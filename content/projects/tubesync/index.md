@@ -5,7 +5,7 @@ slug:
 draft: true
 liveUrl: 
 sourceUrl: 
-screenshotImage: 'tubesync-screenshot.webp'
+screenshotImage:
 ---
 
 A web app which allows users to create either a private or pubic room to watch YouTube videos together with friends. Videos remain in sync with all users inside the room. Includes playlist support and live chat.
