@@ -19,7 +19,8 @@
           rel="noreferrer noopener"
           target="_blank"
         >
-          visit site
+          view
+          {{ partial "components/icon" "external-link" }}
         </a>
         {{ end }}
         {{ with .context.Params.sourceUrl }}
@@ -30,7 +31,8 @@
           rel="noreferrer noopener"
           target="_blank"
         >
-          {{ partial "components/icon" "github" }} source
+          source
+          {{ partial "components/icon" "github" }}
         </a>
         {{ end }}
       </div>
