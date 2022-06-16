@@ -9,9 +9,9 @@ screenshotImage: 'startpage-screenshot.webp'
 tags: ['TypeScript']
 ---
 
-My start page. A lightweight page which provides quick access to information that is important to me.
+A lightweight page, providing quick access to information that is important to me.
 
-Built in **TypeScript**, with the intention of being as fast to load as possible. Makes use of the browser's **local storage** to cache api results.
+Built with **TypeScript**, with the intention of being as fast to load as possible. Makes use of the browser's **local storage** to cache data.
 
 <!--more-->
 
@@ -25,7 +25,7 @@ Before I began, I wrote down some requirements I had for the project. It had to 
 
 - Fast to load
 - Customisable 
-- Aeasthetic
+- Aesthetic
 
 And I wanted to provide the following features:
 - Search
@@ -33,16 +33,16 @@ And I wanted to provide the following features:
 - Weather
 - Bookmarks
 
-As for the design, I went through a bunch of iterations before landing on what you see now. I wanted it to be simple, but allow for the user to customise the experience to some degree. I think it is a nice middle ground.
+As for the design, I had nothing in mind when I began, and went through many iterations before landing on what you see now. I wanted it to be simple, but allow for the user to customise the experience to some degree. I think it turned out well and accomplished those goals.
 
 # Technology
 
 - PUG
-  - Templating
+  - For quick and easy templating
 - TypeScript
-  - Brains
+  - Controls all interactive elements
 - SASS
-  - CSS preprocessor
+  - CSS preprocessor for sanity
 
 # Usage
 
@@ -50,20 +50,11 @@ Anyone can use the startpage. All configuration options, theme settings, bookmar
 
 Settings can be found by clicking the cog icon in the top right of the page. Here you're able to configure certain components, add bookmarks etc.
 
-I added some default bookmarks as an example so the page doesn't feel so barron. Feel free to remove them!
+I added some default bookmarks as an example so the page doesn't feel so empty. Feel free to remove them!
+
+As it stands, the project currently **requires JavaScript**. I do intend on creating a cut-down version which will run without it enabled. Watch this space!
 
 # Future
 
-I still have plans for the project. It seems every time I load it up, I get struck with an idea on how I can improve it. I intend to support the project for the forseeable future. If you want to contribute, or spot an issue, the entire project is available on [GitHub](https://github.com/incinn/startpage).
-
-# Changelog
-
-## 24/01/2022
-  - Fixed visual bugs
-  - Improved settings panel layout
-  - Improved text visibility
-  - Removed weather icon hover effect
-
-## 16/07/2021
-  - Initial release
+It seems every time I load it up, I get struck with an idea on how I can improve it. I intend to support the project for the foreseeable future, and have many features and improvements I'd like to make. If you spot an issue, please open an issue on the [GitHub](https://github.com/incinn/startpage) issues page for the project.
 
