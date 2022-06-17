@@ -96,7 +96,6 @@
     background-color: var(--window-border);
     color: var(--dark);
     border-radius: 6px;
-    backface-visibility: hidden;
     width: 100%;
     margin-bottom: 2rem;
 
@@ -111,6 +110,11 @@
         box-shadow: 10px 20px 15px 2px
           hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 0.6);
       }
+    }
+
+    * {
+      backface-visibility: hidden;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
 
     &__bar {

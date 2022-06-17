@@ -1,5 +1,6 @@
 export default class ProjectItemEffect {
   private threshold = 10;
+  private scale = 1.2;
 
   constructor() {}
 
@@ -11,6 +12,8 @@ export default class ProjectItemEffect {
         this.effect(preview, ev);
       });
 
+      preview.onwheel = this.handleZoom.bind(this);
+  
       preview.addEventListener('mouseleave', () => {
         preview.style.transform = 'rotateX(0deg) rotateY(0deg)';
         preview.style.filter = 'brightness(1)';
@@ -33,9 +36,17 @@ export default class ProjectItemEffect {
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
 
-    preview.style.transform = `perspective(1000px) scale(1.2) 
+    preview.style.transform = `perspective(1000px)
+      scale(${this.scale}) 
       rotateY(${this.rotate(event.x, centerX)}deg)
       rotateX(${-this.rotate(event.y, centerY)}deg)`;
+  }
+
+  handleZoom(event): void {
+    event.preventDefault();
+    const newScale = this.scale + (event.deltaY * -0.01);
+
+    this.scale = Math.min(Math.max(newScale, 1.2), 2);
   }
 
   rotate(cursorPosition: number, centerPosition: number) {
