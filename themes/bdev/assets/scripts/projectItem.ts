@@ -15,8 +15,7 @@ export default class ProjectItemEffect {
       preview.onwheel = this.handleZoom.bind(this);
   
       preview.addEventListener('mouseleave', () => {
-        preview.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        preview.style.filter = 'brightness(1)';
+        preview.removeAttribute('style');
       });
     });
   }
