@@ -59,7 +59,7 @@ export default class ProjectItemEffect {
       rotateX(${-this.rotate(event.y, centerY)}deg)`;
   }
 
-  handleZoom(event): void {
+  handleZoom(event: WheelEvent): void {
     if (this.shouldHideEffect()) return;
 
     event.preventDefault();
