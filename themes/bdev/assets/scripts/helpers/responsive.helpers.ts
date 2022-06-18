@@ -1,20 +1,20 @@
 export default class ResponsiveHelpers {
-  private breakpoints = {
+  private _breakpoints = {
     phone: 500,
     tablet: 768,
     desktop: 1024
   };
 
   isMobile(): boolean {
-    return this._getWidth() <= this.breakpoints.phone;
+    return this._getWidth() <= this._breakpoints.phone;
   }
 
   isTablet(): boolean {
-    return this._getWidth() > this.breakpoints.phone && this._getWidth() < this.breakpoints.desktop;
+    return this._getWidth() > this._breakpoints.phone && this._getWidth() < this._breakpoints.desktop;
   }
 
   isDesktop(): boolean {
-    return this._getWidth() >= this.breakpoints.desktop;
+    return this._getWidth() >= this._breakpoints.desktop;
   }
 
   _getWidth(): number {
