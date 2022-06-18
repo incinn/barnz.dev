@@ -1,9 +1,8 @@
 export default class ProjectItemEffect {
   private threshold = 10;
-  private defaultScale = 1.2;
-
-  private scale = this.defaultScale;
-
+  private minScale = 1.2;
+  private maxScale = 2;
+  private scale = this.minScale;
 
   init(): void {
     const previews = document.querySelectorAll('.projectItem .window');
@@ -16,12 +15,12 @@ export default class ProjectItemEffect {
       preview.onwheel = this.handleZoom.bind(this);
 
       preview.addEventListener('click', () => {
-        this.handleClick();
+        this.scale = this.minScale;
       });
   
       preview.addEventListener('mouseleave', () => {
         preview.removeAttribute('style');
-        this.scale = this.defaultScale;
+        this.scale = this.minScale;
       });
     });
   }
@@ -51,11 +50,7 @@ export default class ProjectItemEffect {
     event.preventDefault();
     const newScale = this.scale + (event.deltaY * -0.01);
 
-    this.scale = Math.min(Math.max(newScale, 1.2), 2);
-  }
-
-  handleClick(): void {
-    this.scale = 1.2;
+    this.scale = Math.min(Math.max(newScale, this.minScale), this.maxScale);
   }
 
   rotate(cursorPosition: number, centerPosition: number) {
