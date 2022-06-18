@@ -4,7 +4,6 @@ export default class ProjectItemEffect {
 
   private scale = this.defaultScale;
 
-  constructor() {}
 
   init(): void {
     const previews = document.querySelectorAll('.projectItem .window');
