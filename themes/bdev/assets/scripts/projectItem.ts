@@ -36,16 +36,6 @@ export default class ProjectItemEffect {
     return this.responsive.isMobile() || this.responsive.isTablet();
   }
 
-  map(
-    val: number,
-    minA: number,
-    maxA: number,
-    minB: number,
-    maxB: number
-  ): number {
-    return minB + ((val - minA) * (maxB - minB)) / (maxA - minA);
-  }
-
   effect(preview: HTMLElement, event: MouseEvent): void {
     if (this.shouldHideEffect()) return;
 
@@ -68,15 +58,15 @@ export default class ProjectItemEffect {
     this.scale = Math.min(Math.max(newScale, this.minScale), this.maxScale);
   }
 
-  rotate(cursorPosition: number, centerPosition: number): number {
-    if (cursorPosition - centerPosition >= 0) {
-      return cursorPosition - centerPosition >= this.threshold
+  rotate(cursorPosition: number, center: number): number {
+    if (cursorPosition - center >= 0) {
+      return cursorPosition - center >= this.threshold
         ? this.threshold
-        : cursorPosition - centerPosition;
+        : cursorPosition - center;
     } else {
-      return cursorPosition - centerPosition <= -this.threshold
+      return cursorPosition - center <= -this.threshold
         ? -this.threshold
-        : cursorPosition - centerPosition;
+        : cursorPosition - center;
     }
   }
 }
