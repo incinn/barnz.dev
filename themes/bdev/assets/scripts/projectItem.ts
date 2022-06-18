@@ -53,9 +53,11 @@ export default class ProjectItemEffect {
     if (this.shouldHideEffect()) return;
 
     event.preventDefault();
-    const newScale = this.scale + event.deltaY * -0.01;
 
-    this.scale = Math.min(Math.max(newScale, this.minScale), this.maxScale);
+    this.scale = Math.min(
+      Math.max(this.scale + event.deltaY * -0.01, this.minScale),
+      this.maxScale
+    );
   }
 
   rotate(cursorPosition: number, center: number): number {
