@@ -1,4 +1,4 @@
-import ResponsiveHelpers from "./helpers/responsive.helpers";
+import ResponsiveHelpers from './helpers/responsive.helpers';
 
 export default class ProjectItemEffect {
   private responsive: ResponsiveHelpers;
@@ -24,7 +24,7 @@ export default class ProjectItemEffect {
       preview.addEventListener('click', () => {
         this.scale = this.minScale;
       });
-  
+
       preview.addEventListener('mouseleave', () => {
         preview.removeAttribute('style');
         this.scale = this.minScale;
@@ -47,7 +47,7 @@ export default class ProjectItemEffect {
   }
 
   effect(preview: HTMLElement, event: MouseEvent): void {
-    if(this.shouldHideEffect()) return;
+    if (this.shouldHideEffect()) return;
 
     const rect = preview.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -60,10 +60,10 @@ export default class ProjectItemEffect {
   }
 
   handleZoom(event): void {
-    if(this.shouldHideEffect()) return;
-    
+    if (this.shouldHideEffect()) return;
+
     event.preventDefault();
-    const newScale = this.scale + (event.deltaY * -0.01);
+    const newScale = this.scale + event.deltaY * -0.01;
 
     this.scale = Math.min(Math.max(newScale, this.minScale), this.maxScale);
   }
