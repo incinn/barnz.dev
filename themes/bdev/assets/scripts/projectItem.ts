@@ -7,8 +7,8 @@ export default class ProjectItemEffect {
   private maxScale = 2;
   private scale = this.minScale;
 
-  constructor() {
-    this.responsive = new ResponsiveHelpers();
+  constructor(rh: ResponsiveHelpers) {
+    this.responsive = rh;
   }
 
   init(): void {
@@ -51,7 +51,6 @@ export default class ProjectItemEffect {
 
   handleZoom(event: WheelEvent): void {
     if (this.shouldHideEffect()) return;
-
     event.preventDefault();
 
     this.scale = Math.min(
