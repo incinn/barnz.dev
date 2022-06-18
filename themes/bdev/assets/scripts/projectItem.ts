@@ -1,6 +1,8 @@
 export default class ProjectItemEffect {
   private threshold = 10;
-  private scale = 1.2;
+  private defaultScale = 1.2;
+
+  private scale = this.defaultScale;
 
   constructor() {}
 
@@ -20,6 +22,7 @@ export default class ProjectItemEffect {
   
       preview.addEventListener('mouseleave', () => {
         preview.removeAttribute('style');
+        this.scale = this.defaultScale;
       });
     });
   }
