@@ -13,6 +13,10 @@ export default class ProjectItemEffect {
       });
 
       preview.onwheel = this.handleZoom.bind(this);
+
+      preview.addEventListener('click', () => {
+        this.handleClick();
+      });
   
       preview.addEventListener('mouseleave', () => {
         preview.removeAttribute('style');
@@ -46,6 +50,10 @@ export default class ProjectItemEffect {
     const newScale = this.scale + (event.deltaY * -0.01);
 
     this.scale = Math.min(Math.max(newScale, 1.2), 2);
+  }
+
+  handleClick(): void {
+    this.scale = 1.2;
   }
 
   rotate(cursorPosition: number, centerPosition: number) {
