@@ -40,15 +40,12 @@ $breakpoints: (
 }
 
 [data-theme='dark'] {
-  // --body-bg: hsla(244, 20%, 13%, 100%);
   --body-bg: #252532;
   --body-text: hsla(60, 53%, 97%, 100%);
   
   --footer-bg: hsla(244, 20%, 16%, 100%);
   --footer-text: hsla(60, 53%, 97%, 70%);
 
-  // --card-bg: hsla(244, 20%, 16%, 100%);
-  // --card-bg: hsla(244, 20%, 13%, 100%);
   --card-bg: #343442;
 
   --window-border: #343442;
