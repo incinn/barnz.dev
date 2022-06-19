@@ -1,14 +1,16 @@
 import ResponsiveHelpers from './helpers/responsive.helpers';
 
 export default class ProjectItemEffect {
-  private responsive: ResponsiveHelpers;
+  private _responsive: ResponsiveHelpers;
   private threshold = 10;
   private minScale = 1.2;
   private maxScale = 2;
+  private rotateY = 0;
+  private rotateX = 0;
   private scale = this.minScale;
 
   constructor(rh: ResponsiveHelpers) {
-    this.responsive = rh;
+    this._responsive = rh;
   }
 
   init(): void {
@@ -16,40 +18,56 @@ export default class ProjectItemEffect {
 
     previews.forEach((preview: HTMLElement) => {
       preview.addEventListener('mousemove', (ev: MouseEvent) => {
-        this.effect(preview, ev);
+        this.handleMove(preview, ev);
       });
 
-      preview.onwheel = this.handleZoom.bind(this);
+      preview.addEventListener('wheel', (ev: WheelEvent) => {
+        this.handleZoom(preview, ev);
+      });
 
       preview.addEventListener('click', () => {
-        this.scale = this.minScale;
+        this.handleClick(preview);
       });
 
       preview.addEventListener('mouseleave', () => {
-        preview.removeAttribute('style');
-        this.scale = this.minScale;
+        this.reset(preview);
       });
     });
   }
 
   shouldHideEffect(): boolean {
-    return this.responsive.isMobile() || this.responsive.isTablet();
+    return this._responsive.isMobile() || this._responsive.isTablet();
   }
 
-  effect(preview: HTMLElement, event: MouseEvent): void {
+  reset(el: HTMLElement): void {
+    el.removeAttribute('style');
+    this.scale = this.minScale;
+    this.rotateX = 0;
+    this.rotateY = 0;
+  }
+
+  handleMove(el: HTMLElement, event: MouseEvent): void {
     if (this.shouldHideEffect()) return;
 
-    const rect = preview.getBoundingClientRect();
+    const rect = el.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
 
-    preview.style.transform = `perspective(1000px)
-      scale(${this.scale}) 
-      rotateY(${this.rotate(event.x, centerX)}deg)
-      rotateX(${-this.rotate(event.y, centerY)}deg)`;
+    this.rotateX = -this.calcRotation(event.y, centerY);
+    this.rotateY = this.calcRotation(event.x, centerX);
+
+    this.updateStyle(el);
   }
 
-  handleZoom(event: WheelEvent): void {
+  updateStyle(el: HTMLElement): void {
+    el.style.transform = `
+      perspective(1000px)
+      scale(${this.scale}) 
+      rotateY(${this.rotateY}deg)
+      rotateX(${-this.rotateX}deg)`;
+  }
+
+  handleZoom(el: HTMLElement, event: WheelEvent): void {
     if (this.shouldHideEffect()) return;
     event.preventDefault();
 
@@ -57,9 +75,16 @@ export default class ProjectItemEffect {
       Math.max(this.scale + event.deltaY * -0.01, this.minScale),
       this.maxScale
     );
+
+    this.updateStyle(el);
   }
 
-  rotate(cursorPosition: number, center: number): number {
+  handleClick(el: HTMLElement): void {
+    this.scale = this.minScale;
+    this.updateStyle(el);
+  }
+
+  calcRotation(cursorPosition: number, center: number): number {
     if (cursorPosition - center >= 0) {
       return cursorPosition - center >= this.threshold
         ? this.threshold
