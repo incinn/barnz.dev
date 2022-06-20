@@ -18,11 +18,12 @@ export default class ProjectItemEffect {
 
     previews.forEach((preview: HTMLElement) => {
       preview.addEventListener('mousemove', (ev: MouseEvent) => {
-        this.handleMove(preview, ev);
+        this.handleMove(preview, ev.x, ev.y);
       });
 
       preview.addEventListener('wheel', (ev: WheelEvent) => {
-        this.handleZoom(preview, ev);
+        ev.preventDefault();
+        this.handleZoom(preview, ev.deltaY);
       });
 
       preview.addEventListener('click', () => {
@@ -46,15 +47,15 @@ export default class ProjectItemEffect {
     this.rotateY = 0;
   }
 
-  handleMove(el: HTMLElement, event: MouseEvent): void {
+  handleMove(el: HTMLElement, x: number, y: number): void {
     if (this.shouldHideEffect()) return;
 
     const rect = el.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
 
-    this.rotateX = this.calcRotation(event.y, centerY);
-    this.rotateY = this.calcRotation(event.x, centerX);
+    this.rotateX = this.calcRotation(y, centerY);
+    this.rotateY = this.calcRotation(x, centerX);
 
     this.updateStyle(el);
   }
@@ -68,12 +69,11 @@ export default class ProjectItemEffect {
     el.style.zIndex = '999';
   }
 
-  handleZoom(el: HTMLElement, event: WheelEvent): void {
+  handleZoom(el: HTMLElement, deltaY: number): void {
     if (this.shouldHideEffect()) return;
-    event.preventDefault();
 
     this.scale = Math.min(
-      Math.max(this.scale + event.deltaY * -0.01, this.minScale),
+      Math.max(this.scale + deltaY * -0.01, this.minScale),
       this.maxScale
     );
 
