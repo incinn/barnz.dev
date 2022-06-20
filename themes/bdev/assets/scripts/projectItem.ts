@@ -65,6 +65,7 @@ export default class ProjectItemEffect {
       scale(${this.scale}) 
       rotateY(${this.rotateY}deg)
       rotateX(${-this.rotateX}deg)`;
+    el.style.zIndex = '999';
   }
 
   handleZoom(el: HTMLElement, event: WheelEvent): void {
