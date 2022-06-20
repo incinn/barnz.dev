@@ -53,7 +53,7 @@ export default class ProjectItemEffect {
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
 
-    this.rotateX = -this.calcRotation(event.y, centerY);
+    this.rotateX = this.calcRotation(event.y, centerY);
     this.rotateY = this.calcRotation(event.x, centerX);
 
     this.updateStyle(el);
