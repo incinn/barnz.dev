@@ -1,15 +1,25 @@
 <footer class="footer">
     <div class="footer__inner">
         <p>made with <span class="heart">&hearts;</span> by barnz</p>
-        <p>&copy; {{ now.Year }} {{ .Site.Copyright }}</p>
-        <a
-            href="https://github.com/incinn/barnz.dev"
-            title="View source"
-            rel="noreferrer noopener"
-            target="_blank"
-        >
-            {{ partial "components/icon" "github" }}
-        </a>
+        <p>{{ now.Year }} &copy; {{ .Site.Copyright }}</p>
+        <span class="links">
+          <a
+              href="https://twitter.com/devcpu"
+              title="Twitter"
+              rel="noreferrer noopener"
+              target="_blank"
+          >
+              {{ partial "components/icon" "twitter" }}
+          </a>
+          <a
+              href="https://github.com/incinn/barnz.dev"
+              title="View source"
+              rel="noreferrer noopener"
+              target="_blank"
+          >
+              {{ partial "components/icon" "github" }}
+          </a>
+        </span>
     </div>
 </footer>
 
