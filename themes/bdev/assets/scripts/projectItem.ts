@@ -82,7 +82,10 @@ export default class ProjectItemEffect {
   }
 
   handleClick(el: HTMLElement): void {
-    this.scale = this.minScale;
+    if (this.shouldHideEffect()) return;
+    const midway = (this.minScale + this.maxScale) / 2;
+    if (this.scale < midway) this.scale = this.maxScale;
+    else this.scale = this.minScale;
     this.updateStyle(el);
   }
 
