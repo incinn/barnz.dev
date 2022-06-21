@@ -99,7 +99,7 @@
     width: 100%;
     margin-bottom: 2rem;
 
-    @include media('>tablet') {
+    @include media('>desktop') {
       min-width: 350px;
       max-width: 350px;
       margin-bottom: auto;
