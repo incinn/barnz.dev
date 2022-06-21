@@ -22,6 +22,7 @@ export default class ProjectItemEffect {
       });
 
       preview.addEventListener('wheel', (ev: WheelEvent) => {
+        if(this.shouldHideEffect()) return;
         ev.preventDefault();
         this.handleZoom(preview, ev.deltaY);
       });
