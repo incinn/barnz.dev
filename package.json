@@ -42,7 +42,8 @@
     "url": "git+https://github.com/incinn/barnz.dev.git"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "deploy": "bash ./deploy.sh"
   },
   "version": "1.0.0"
 }
