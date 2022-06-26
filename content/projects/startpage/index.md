@@ -9,9 +9,9 @@ screenshotImage: 'startpage-screenshot.webp'
 tags: ['TypeScript']
 ---
 
-A lightweight page, providing quick access to information that is important to me.
+A lightweight start page, providing quick access to information that is important to me.
 
-Built with **TypeScript**, with the intention of being as fast to load as possible. Makes use of the browser's **local storage** to cache data.
+Built with **TypeScript**, with the intention of being as fast to load as possible. Makes use of the browser's **local storage** API to cache data.
 
 <!--more-->
 
@@ -19,10 +19,9 @@ Built with **TypeScript**, with the intention of being as fast to load as possib
 
 # About
 
-I've long admired the creative startpages shown off on [/r/startpages](https://old.reddit.com/r/startpages/) and wanted to have a go at building my own. I was still pretty new to **TypeScript** and thought this would be a nice side project to work on.
+I've long admired the creative startpages shown off on [/r/startpages](https://old.reddit.com/r/startpages/) and wanted to have a go at building my own. I was still pretty new to **TypeScript** when I started, and thought this would be a nice side project to work on.
 
 Before I began, I wrote down some requirements I had for the project. It had to be:
-
 - Fast to load
 - Customisable 
 - Aesthetic
@@ -33,9 +32,10 @@ And I wanted to provide the following features:
 - Weather
 - Bookmarks
 
-As for the design, I had nothing in mind when I began, and went through many iterations before landing on what you see now. I wanted it to be simple, but allow for the user to customise the experience to some degree. I think it turned out well and accomplished those goals.
+As for the design, I had nothing in mind when I started, and went through many iterations before landing on what you see now. I wanted it to be simple, but allow for the user to customise the experience to some degree. I think it turned out well and accomplished those goals.
 
 # Technology
+I used this project as an excuse to play around with the templating language **Pug**.
 
 - PUG
   - For quick and easy templating
@@ -52,9 +52,11 @@ Settings can be found by clicking the cog icon in the top right of the page. Her
 
 I added some default bookmarks as an example so the page doesn't feel so empty. Feel free to remove them!
 
-As it stands, the project currently **requires JavaScript**. I do intend on creating a cut-down version which will run without it enabled. Watch this space!
-
 # Future
 
-It seems every time I load it up, I get struck with an idea on how I can improve it. I intend to support the project for the foreseeable future, and have many features and improvements I'd like to make. If you spot an issue, please open an issue on the [GitHub](https://github.com/incinn/startpage) issues page for the project.
+It seems every time I load it up, I get struck with inspiration on how I can improve it. I use it daily, and intend to support the project for the foreseeable future. 
+
+As it stands, the project currently **requires JavaScript**. I do intend on creating a cut-down version which will run without it enabled. Watch this space!
+
+There are many other features and improvements I'd like to make moving forward. If you spot an issue, feel free to open an issue on the [GitHub](https://github.com/incinn/startpage) issues page for the project.
 
