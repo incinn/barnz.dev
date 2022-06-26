@@ -80,8 +80,12 @@
       margin-bottom: var(--gutter);
     }
 
-    em {
+    strong {
       font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
     }
   }
 
