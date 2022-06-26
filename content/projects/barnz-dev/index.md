@@ -5,7 +5,7 @@ slug: 'barnz-dot-dev'
 liveUrl: 'https://barnz.dev/'
 sourceUrl: 'https://barnz.dev/'
 screenshotImage: 'barnzdev-screenshot.webp'
-tags: ['TypeScript', 'Hugo', 'Markdown']
+tags: ['TypeScript', 'Hugo', 'Markdown', 'Jest']
 ---
 
 This website. My home on the web. Built with **Hugo**, **SASS** and **TypeScript**. This project is ever evolving and changing, I doubt it'll ever be completed.
