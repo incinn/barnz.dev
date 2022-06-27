@@ -69,7 +69,7 @@
         .icon {
           width: 15px;
           height: 15px;
-          margin-right: 0.25rem;
+          margin-left: 0.5rem;
         }
       }
     }
@@ -80,8 +80,12 @@
       margin-bottom: var(--gutter);
     }
 
-    em {
+    strong {
       font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
     }
   }
 
@@ -96,11 +100,10 @@
     background-color: var(--window-border);
     color: var(--dark);
     border-radius: 6px;
-    backface-visibility: hidden;
     width: 100%;
     margin-bottom: 2rem;
 
-    @include media('>tablet') {
+    @include media('>desktop') {
       min-width: 350px;
       max-width: 350px;
       margin-bottom: auto;
@@ -111,6 +114,11 @@
         box-shadow: 10px 20px 15px 2px
           hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 0.6);
       }
+    }
+
+    * {
+      backface-visibility: hidden;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
 
     &__bar {

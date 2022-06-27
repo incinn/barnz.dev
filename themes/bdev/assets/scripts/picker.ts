@@ -94,8 +94,8 @@ export default class Picker {
     const resetButton = this.createResetButton();
     pickerInner.appendChild(resetButton);
 
-    const main = document.querySelector('body > main');
-    main.appendChild(this.wrapperEl);
+    const container = document.getElementById('picker');
+    container.appendChild(this.wrapperEl);
   }
 
   createPresetButton(colour: string): HTMLButtonElement {

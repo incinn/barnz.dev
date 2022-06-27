@@ -1,8 +1,8 @@
 .contact {
-  padding: calc(var(--gutter) * 5) 0;
+  padding-top: calc(var(--gutter) * 7);
 
   @include media('>tablet') {
-    padding: calc(var(--gutter) * 10) 0;
+    padding-top: calc(var(--gutter) * 10);
   }
 
   &__inner {
