@@ -54,7 +54,7 @@
     </div>
     <img
       {{ if .context.Params.screenshotImage }}
-      src="{{ .context.Permalink }}/{{ .context.Params.screenshotImage }}"
+      src="{{ .context.Permalink }}{{ .context.Params.screenshotImage }}"
       {{ else }}
       src="/img/coming-soon.webp"
       {{ end }}
