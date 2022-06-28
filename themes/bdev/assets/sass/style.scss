@@ -4,9 +4,11 @@
 @import 'node_modules/reset-css/sass/_reset';
 @import './fonts';
 
+@import './pages/page';
 @import './pages/contact';
 
 @import './components/icons';
+@import './components/prose';
 @import './components/buttons';
 @import './components/header';
 @import './components/projectItem';

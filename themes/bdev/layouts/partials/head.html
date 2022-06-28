@@ -48,6 +48,6 @@
   />
 
   {{ $sass := resources.Get "sass/style.scss" }}
-  {{ $style := $sass | resources.ToCSS | resources.PostCSS | fingerprint }}
+  {{ $style := $sass | resources.ToCSS | resources.PostCSS | fingerprint "sha512" }}
   <link href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" rel="preload stylesheet" as="style" /> 
 </head>
