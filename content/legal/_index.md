@@ -4,7 +4,9 @@ layout: page
 description: Legal mumbo-jumbo
 ---
 
-# Pricacy Policy
+**TLDR**: I don't collect any user information. I don't use third party analytics or tracking scripts. Code is [open source](https://github.com/incinn/barnz.dev) and released into the public domain. Text content is covered by a Creative Commons license, free to be used for any purpose except commercial.
+
+# Privacy Policy
 I collect and store **no information** about you, period.
 
 The only information I have about your visit is from the webserver **access logs**. This contains information such as your **ip address** and **useragent**. These are rotated often and not stored long-term.
