@@ -47,6 +47,7 @@ export default class LightSwitch {
 
     btn.classList.add('lightSwitch');
     btn.innerHTML = feather.icons.sun.toSvg();
+    btn.setAttribute('aria-label', 'Toggle between light and dark mode');
 
     return btn;
   }

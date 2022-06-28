@@ -104,6 +104,7 @@ export default class Picker {
     const btn = document.createElement('button');
     btn.dataset.colour = colour;
     btn.style.backgroundColor = colour;
+    btn.setAttribute('aria-label', `Set accent colour ${colour}`);
 
     return btn;
   }
