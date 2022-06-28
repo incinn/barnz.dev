@@ -78,6 +78,9 @@ export default class Picker {
   }
 
   create(): void {
+    const container = document.getElementById('picker');
+    if(!container) return;
+
     this.wrapperEl = document.createElement('aside');
     this.wrapperEl.classList.add('picker');
     this.wrapperEl.innerHTML = component;
@@ -94,7 +97,6 @@ export default class Picker {
     const resetButton = this.createResetButton();
     pickerInner.appendChild(resetButton);
 
-    const container = document.getElementById('picker');
     container.appendChild(this.wrapperEl);
   }
 
