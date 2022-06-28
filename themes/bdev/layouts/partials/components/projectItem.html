@@ -37,7 +37,9 @@
         {{ end }}
       </div>
     </div>
-    {{ .context.Summary | safeHTML }}
+    <span class="prose">
+      {{ .context.Summary | safeHTML }}
+    </span>
   </div>
   <div class="window">
     <div class="window__bar">
