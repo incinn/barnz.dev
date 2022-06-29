@@ -1,32 +1,4 @@
 .post {
-  display: flex;
-  flex-direction: column;
-
-  &__header {
-    background-color: #313142;
-    color: var(--light);
-    background: linear-gradient(0deg, #313142 0%, #1b1b27 65%);
-    padding: 5rem 0 15rem 0;
-
-    &__inner {
-      display: flex;
-      flex-direction: column;
-      max-width: calc(var(--content-width) / 2.5);
-      padding: 0 var(--gutter);
-      margin: 0 auto;
-
-      @include media('>desktop') {
-        max-width: var(--content-width);
-      }
-
-      h1 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 0.75rem;
-      }
-    }
-  }
-
   &__date,
   &__readTime {
     font-size: 0.9rem;
@@ -36,26 +8,4 @@
       opacity: 0.5;
     }
   }
-
-  &__container {
-    padding: 0 var(--gutter);
-    align-self: center;
-    max-width: var(--content-width);
-    width: 100%;
-  }
-
-  &__content {
-    background-color: var(--content-bg);
-    color: var(--content-text);
-    border-radius: 6px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    margin-top: -10rem;
-
-    @include media('>desktop') {
-      padding: 2rem;
-      margin-bottom: 3rem;
-    }
-
-      }
 }
