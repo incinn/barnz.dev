@@ -1,8 +1,10 @@
 {{ define "main" }}
-<div class="list">
-    <div class="list__header">
-        <div class="list__header__inner">{{ .Content | safeHTML }}</div>
+<div class="page">
+    <div class="page__header">
+        <div class="page__header__inner">{{ .Content | safeHTML }}</div>
     </div>
+
+    {{- partial "components/separator.html" -}}
 
     <section class="list__content">
         {{ range .Pages.ByPublishDate.Reverse }}
