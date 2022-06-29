@@ -57,7 +57,7 @@ html {
     }
 
     main {
-      min-height: calc(100vh - 44px - 69px);
+      min-height: calc(100vh - 207px);
 
       @include media('>tablet') {
         padding-top: 69px;
