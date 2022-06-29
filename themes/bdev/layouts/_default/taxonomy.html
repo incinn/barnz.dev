@@ -1,12 +1,14 @@
 {{ define "main" }}
-<div class="list">
-    <div class="list__header">
-        <div class="list__header__inner">
+<div class="page">
+    <div class="page__header">
+        <div class="page__header__inner">
           <h1>{{ .Title }}</h1>
           <p>Displaying all posts tagged with <strong>{{ .Title }}</strong></p>
         </div>
     </div>
 
+    {{- partial "components/separator.html" -}}
+    
     <section class="list__content">
         {{ range .Pages.ByPublishDate.Reverse }}
             {{ partial "components/articleItem" (dict "context" .) }}
