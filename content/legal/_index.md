@@ -11,34 +11,36 @@ I collect and store **no information** about you, period.
 
 The only information I have about your visit is from the webserver **access logs**. This contains information such as your **ip address** and **useragent**. These are rotated often and not stored long-term.
 
-Options you have set while using the website (such as the accent colour picker) are stored in your browsers local storage and the data **never leaves your machine**.
+Options you have set while using the website (such as the accent colour picker) are stored in the browser's local storage and the data **never leaves your machine**.
 
 There are no tracking cookies or scripts on this domain.
 
 ## Terms & Conditions
-Nobody is forcing you to be here. I am not to be held liable for anything. Leave me alone.
+I am not to be held liable for anything. Leave me alone.
 
 ## Codebase License
 All code is released into the public domain via the "unlicence" license, this includes:
 
-- Theme(s)
+- Themes
 - SCSS
 - TypeScript
-- Deployment script(s)
+- Deployment scripts
 - Tests
 
-This essentially boils down to _"I accept no liability and offer no warranty for the code provided. Do whatever you want with it"_.
+Find out more [here](https://unlicense.org/).
 
-Find out more [here.](https://unlicense.org/)
-
-View the [license.](https://github.com/incinn/barnz.dev/blob/main/LICENSE)
+View the [license](https://github.com/incinn/barnz.dev/blob/main/LICENSE).
 
 ## Content License
-All written content is covered by the **Creative Commons** license "**CC BY-NC-SA 4.0**".
+All written content is covered by the **Creative Commons** license "**CC BY-NC-SA 4.0**", this includes:
 
-Find out more [here.](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+- Blog posts
+- Project content
+- Page content
 
-View the [license.](https://github.com/incinn/barnz.dev/blob/main/content/LICENSE)
+Find out more [here](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+View the [license](https://github.com/incinn/barnz.dev/blob/main/content/LICENSE).
 
 ## Third Party Software & Acknowledgements
 I make use of the following open source projects:
