@@ -1,0 +1,23 @@
+.separator {
+  $height: 20px;
+  $colour: #313142;
+
+  position: relative;
+  background: $colour;
+  height: $height;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 100%;
+    display: block;
+    height: $height;
+    background-size: $height 100%;
+    background-image: linear-gradient(135deg, $colour 25%, transparent 25%),
+      linear-gradient(225deg, $colour 25%, transparent 25%);
+    background-position: 0 0;
+  }
+}

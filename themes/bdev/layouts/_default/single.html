@@ -1,7 +1,7 @@
 {{ define "main" }}
-<div class="post">
-  <section class="post__header">
-    <div class="post__header__inner">
+<div class="page">
+  <section class="page__header">
+    <div class="page__header__inner">
       <h1>{{ .Title }}</h1>
       {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
       else }}
@@ -19,8 +19,11 @@
       </span>
     </div>
   </section>
-  <div class="post__container">
-    <section class="post__content prose">
+
+  {{- partial "components/separator.html" -}}
+
+  <div class="page__content">
+    <section class="page__content__inner prose">
       {{ .Content | safeHTML }} {{ partial "components/tags" . }}
     </section>
   </div>

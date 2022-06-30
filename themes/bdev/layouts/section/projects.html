@@ -1,12 +1,21 @@
 {{ define "main" }}
-<div class="projectList">
-    <div class="projectList__header">
-        <div class="projectList__header__inner">{{ .Content | safeHTML }}</div>
+<div class="page">
+  <div class="page__header">
+    <div class="page__header__inner">{{ .Content | safeHTML }}</div>
+  </div>
+
+  {{- partial "components/separator.html" -}}
+
+  <div class="page__content">
+    <div class="page__content__inner">
+      <section class="projectList__items">
+        {{ range .Pages.ByPublishDate.Reverse }}
+            {{ partial "components/projectItem" (dict "context" .) }}
+        {{ end }}
+      </section>
     </div>
-    <section class="projectList__items">
-    {{ range .Pages.ByPublishDate.Reverse }}
-        {{ partial "components/projectItem" (dict "context" .) }}
-    {{ end }}
-    </section>
+  </div>
+
+  {{- partial "components/picker.html" . -}}
 </div>
 {{ end }}
