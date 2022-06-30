@@ -5,8 +5,8 @@
   &__header {
     background-color: #313142;
     color: var(--light);
-    background: linear-gradient(0deg, #313142 0%, #1b1b27 65%);
-    padding: 5rem 0;
+    background: linear-gradient(0deg, #313142 0%, #262635 33%, #1b1b27 90%);
+    padding: 5rem 0 7rem 0;
 
     &__inner {
       display: flex;
@@ -34,16 +34,17 @@
     width: 100%;
 
     &__inner {
+      position: relative;
       background-color: var(--content-bg);
       color: var(--content-text);
       border-radius: 6px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       padding: 1rem;
-      margin-top: -2rem;
+      margin-top: -3rem;
+      z-index: 2;
 
       @include media('>desktop') {
         padding: 2rem;
-        margin-bottom: 3rem;
       }
     }
   }

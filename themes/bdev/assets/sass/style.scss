@@ -17,6 +17,7 @@
 @import './components/contactForm';
 @import './components/tags';
 @import './components/error';
+@import './components/separator';
 @import './components/picker';
 @import './components/footer';
 
@@ -36,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: black;
 
   * {
     box-sizing: border-box;
@@ -56,7 +58,7 @@ html {
     }
 
     main {
-      min-height: calc(100vh - 44px - 69px);
+      min-height: calc(100vh - 207px);
 
       @include media('>tablet') {
         padding-top: 69px;

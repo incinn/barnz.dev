@@ -1,13 +1,17 @@
 {{ define "main" }}
-  <div class="contactPage">
-    <div class="contactPage__header">
-      <div class="contactPage__header__inner">
+  <div class="page">
+    <div class="page__header">
+      <div class="page__header__inner">
         {{ .Content | safeHTML }}  
       </div>
     </div>
 
-    <div class="contactPage__content"> 
-      {{- partial "components/contactForm.html" . -}}
+    {{- partial "components/separator.html" -}}
+    
+    <div class="page__content">
+      <div class="page__content__inner contactPage">
+        {{- partial "components/contactForm.html" . -}}
+      </div>
     </div>
 
     {{- partial "components/picker.html" . -}}
