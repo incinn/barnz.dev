@@ -75,10 +75,10 @@
   &--light {
     color: var(--dark);
     border-color: rgba(black, 0.25);
-    background-color: var(--grey);
+    background-color: var(--white);
 
     &:hover {
-      background-color: var(--white);
+      background-color: var(--grey);
     }
   }
 
