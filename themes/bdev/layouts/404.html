@@ -1,15 +1,14 @@
 {{ define "main"}}
 <section class="error">
-    <div class="error__container">
-        <h1>{{ partial "components/icon" "alert-triangle" }} Page Not Found</h1>
-        <p>
-            Sorry the page you're looking for cannot be found. Maybe it has
-            moved, or maybe it never existed. ¯\_(ツ)_/¯
-        </p>
-        <p>Error code 404: Page not found</p>
-        <a class="btn btn--light" href="/">
-            {{ partial "components/icon" "home" }} Go Home
-        </a>
-    </div>
+  <div class="error__container prose">
+    <h1>{{ partial "components/icon" "alert-triangle" }} Page Not Found</h1>
+    <p>¯\_(ツ)_/¯</p>
+    <p>
+      Sorry, the page you're looking for cannot be found. Maybe it has
+      moved and I forgot to redirect it, or maybe it never even existed 
+      to begin with. All I can tell you now is that it isn't here now.
+    </p>
+    <p>If you think this is a mistake, please <a href="/contact/" title="Contact">let me know</a>.</p>
+  </div>
 </section>
 {{ end }}
