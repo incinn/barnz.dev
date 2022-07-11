@@ -46,6 +46,7 @@
 
   p {
     margin-bottom: 0.75rem;
+    word-break: break-word;
   }
 
   em {
@@ -66,7 +67,7 @@
     text-decoration: underline;
     text-decoration-color: var(--accent);
     text-decoration-thickness: 2px;
-    word-break: break-all;
+    word-break: break-word;
 
     &:hover {
       text-decoration-color: var(--light);
