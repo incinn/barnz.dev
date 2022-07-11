@@ -1,42 +1,71 @@
+$error_red: #c63838;
+
+[data-theme='dark'] {
+  .error {
+    &__container {
+      @include media('>tablet') {
+        border: 4px dashed $error_red;
+        box-shadow: 0 0 15px 5px rgba(147, 61, 61, 0.25);
+      }
+    }
+  }
+}
+
 .error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__container {
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+    margin: var(--gutter);
+    color: var(--content-text);
+    text-align: center;
 
-    &__container {
-        display: flex;
-        flex-direction: column;
-        border: 5px solid rgb(255, 186, 186);
-        background-color: var(--white);
-        border-radius: 6px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        width: calc(var(--content-width) / 2);
-        padding: 2rem;
-        margin: 35vh auto 0 auto;
-
-        h1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-
-            .icon {
-                margin-right: 1rem;
-                color: red;
-            }
-        }
-
-        p:not(:last-of-type) {
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            margin: 2.5rem auto 0 auto;
-            justify-content: center;
-
-            .icon {
-                margin-right: 1rem;
-            }
-        }
+    @include media('>tablet') {
+      border: 5px solid rgb(255, 186, 186);
+      background-color: var(--content-bg);
+      border-radius: 6px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      width: calc(var(--content-width) / 1.90);
+      margin-top: 10vh;
     }
+
+    h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
+      margin-top: 0;
+
+      .icon {
+        margin-right: 1rem;
+        color: $error_red;
+      }
+    }
+
+    p:not(:last-of-type) {
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 4rem;
+      width: 100%;
+
+      @include media('>tablet') {
+        margin: 2.5rem auto 0 auto;
+        justify-content: center;
+      }
+
+      .icon {
+        margin-right: 1rem;
+      }
+    }
+  }
 }
