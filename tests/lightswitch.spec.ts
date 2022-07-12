@@ -129,6 +129,7 @@ describe('Lightswitch', () => {
   test('createSwitch() should create the default switch element', () => {
     const expected = document.createElement('button');
     expected.classList.add('lightSwitch');
+    expected.setAttribute('aria-label', 'Toggle between light and dark mode');
     expected.innerHTML = feather.icons.sun.toSvg();
 
     const actual = component.createSwitch();
