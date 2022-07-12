@@ -21,7 +21,7 @@ Press `CTRL+Z`. This suspends the **current process**, freeing up your terminal 
 Pressing `CTRL+Z` sends a `SIGTSTP` signal to the process running in the foreground. This is designed to suspend a process, though not mandatory, and some processes may choose to ignore it. Once suspended, the process will await the `SIGCONT` signal to continue.
 
 ## Okay, so what does `fg` do?
-The `fg` command brings a suspend process back to the **foreground** with a `SIGCONT` signal. If there are multiple suspended processes, you'll need to specify which job id you want to bring back. To see all suspended processes, run `jobs -l` to list them out, the output would look something like this:
+The `fg` command brings a suspended process back to the **foreground** with a `SIGCONT` signal. If there are multiple suspended processes, you'll need to specify which process you want to bring back. To see all suspended processes, run `jobs -l` to list them out. The output would look something like this:
 
 ```bash {linenos=false}
 [4]+ 6161 Stopped       ping barnz.dev
