@@ -28,11 +28,11 @@ I decided to go with [Hugo](https://gohugo.io/) for a couple of reasons. I wante
 
 **TypeScript** was a no-brainer. I love it. It was relatively easy to integrate the build into the Hugo workflow. As a first for me outside of the **Angular** ecosystem, everything is also fully unit tested with **Jest**.
 
-It was important to me that everything worked with **JavaScript disabled**. I spent a lot of time making sure the core functionality all worked, and JavaScript only ever added additional flavour. I believe that core mechanics of all websites should work with JavaScript disabled where possible.
+It was important to me that everything worked with **JavaScript disabled**. I spent a lot of time making sure the core functionality all worked, and JavaScript only ever added additional flavour.
 
 # Future
 
-My intention is for this iteration of the website to stay around for a while. If I ever feel the itch to rebuild it, I can just create a new theme and use that without throwing everything away and starting from scratch. I want to add more fun and pointless interactive areas - such as the accent colour picker - and I intend on releasing various components as open source freebies.
+My intention is for this iteration of the website to stay around for a while. If I ever feel the itch to rebuild it, I can just create a new theme and use that without throwing everything away and starting from scratch. I want to add more fun and pointless interactive areas (such as the accent colour picker), and I intend on releasing various components individually.
 
 I want to write more blog posts. As I mentioned in my [Hello World]({{< relref "hello-world.md" >}}) post, I am not a confident writer. I want that to change.
 

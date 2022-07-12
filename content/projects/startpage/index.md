@@ -38,17 +38,17 @@ As for the design, I had nothing in mind when I started, and went through many i
 I used this project as an excuse to play around with the templating language **Pug**.
 
 - PUG
-  - For quick and easy templating
+  - Templating engine
 - TypeScript
-  - Controls all interactive elements
+  - Strongly typed JavaScript
 - SASS
-  - CSS preprocessor for sanity
+  - CSS preprocessor
 
 # Usage
 
-Anyone can use the startpage. All configuration options, theme settings, bookmarks and weather location data is saved to the browser's **local storage**. Making clearing your data trivial.
+Anyone can use the startpage. All configuration options, theme settings, bookmarks and weather location data is saved to the browser's **local storage**. This makes clearing your data easy.
 
-Settings can be found by clicking the cog icon in the top right of the page. Here you're able to configure certain components, add bookmarks etc.
+Settings can be found by clicking the cog icon in the top right of the page. Here you're able to configure certain components, add bookmarks, set the weather location etc.
 
 I added some default bookmarks as an example so the page doesn't feel so empty. Feel free to remove them!
 
@@ -56,7 +56,7 @@ I added some default bookmarks as an example so the page doesn't feel so empty. 
 
 It seems every time I load it up, I get struck with inspiration on how I can improve it. I use it daily, and intend to support the project for the foreseeable future. 
 
-As it stands, the project currently **requires JavaScript**. I do intend on creating a cut-down version which will run without it enabled. Watch this space!
+As it stands, the project currently **requires JavaScript**. I intend on creating a simplified version which will run without it enabled.
 
 There are many other features and improvements I'd like to make moving forward. If you spot an issue, feel free to open an issue on the [GitHub](https://github.com/incinn/startpage) issues page for the project.
 
