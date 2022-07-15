@@ -1,5 +1,5 @@
 ---
-title: 'Restore a Suspended Processes'
+title: 'Restore a Suspended Process'
 date: 2022-04-12T00:00:00Z
 draft: false
 tags: ['linux']
