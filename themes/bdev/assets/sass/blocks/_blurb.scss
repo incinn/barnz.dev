@@ -15,6 +15,11 @@
   background-color: var(--dark);
   background: linear-gradient(10deg, #313142 0%, #1b1b27 65%);
 
+  &__flag {
+    height: 30px;
+    width: auto;
+  }
+
   &__inner {
     display: flex;
     flex-direction: column;
