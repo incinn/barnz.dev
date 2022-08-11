@@ -3,7 +3,7 @@ title: 'barnz.dev'
 date: 2022-02-24T23:45:04Z
 slug: 'barnz-dot-dev'
 liveUrl: 'https://barnz.dev/'
-sourceUrl: 'https://barnz.dev/'
+sourceUrl: 'https://github.com/incinn/barnz.dev'
 screenshotImage: 'barnzdev-screenshot.webp'
 tags: ['TypeScript', 'Hugo', 'Markdown', 'Jest']
 ---
