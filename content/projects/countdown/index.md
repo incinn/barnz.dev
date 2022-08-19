@@ -28,17 +28,17 @@ As with all projects, I had a couple of broad goals:
 - have the ability to easily add/remove timers
 - confetti 🎉
 
-I decided against using any kind of frontend framework, as the scope of the project is fairly small.
-Besides, sometimes its just nice to do something **vanilla**. The business logic of the project means it can all be done front-end, and requires no back-end infrastructure.
+I decided against using any kind of front-end framework, as the scope of the project is fairly small.
+Besides, sometimes it's just nice to do something **vanilla**. The business logic of the project means it can all be done front-end, and requires no back-end infrastructure.
 
 ## Custom Timers
-The original version of the project only supported hardcoded dates. After a while it got annoying to have to re-deploy the application every time I wanted a new timer.
+The original version of the project only supported hardcoded dates. After a while it got annoying to have to redeploy the application every time I wanted a new timer.
 I explored a couple of ways around that, eventually settling on handling timer data encoded in the URL. This has multiple benefits:
 - ability to add timers at will without redeploying
 - anyone could add timers they desire (once I've built the UI to allow it, coming soon!)
-- it is privacy respecting, as you'd need to know the url in order to see the timer
+- it is privacy respecting, as you'd need to know the URL in order to see the timer
 
-But also has a couple of drawbacks:
+But it also has a couple of drawbacks:
 - not able to revoke a timer once it has been shared
 - could potentially hit URL length limits with large text fields
 - long/ugly URLs
