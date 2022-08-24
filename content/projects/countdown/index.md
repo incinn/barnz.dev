@@ -2,6 +2,7 @@
 title: 'Countdown'
 date: 2022-08-19T18:37:04+01:00
 draft: false
+layout: project
 slug: 'countdown'
 liveUrl: https://count.barnz.dev
 sourceUrl: https://github.com/incinn/countdown
