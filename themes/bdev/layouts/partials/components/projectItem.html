@@ -13,7 +13,7 @@
       <div class="content__title__buttons">
         {{ with .context.Params.liveUrl }}
         <a
-          class="btn btn--small btn--light"
+          class="btn btn--small btn--dark"
           title="Visit project website"
           href="{{ . }}"
           rel="noreferrer noopener"
@@ -25,7 +25,7 @@
         {{ end }}
         {{ with .context.Params.sourceUrl }}
         <a
-          class="btn btn--invert btn--small btn--dark"
+          class="btn btn--small btn--dark"
           title="View project source"
           href="{{ .}}"
           rel="noreferrer noopener"
@@ -41,28 +41,5 @@
       {{ .context.Summary | safeHTML }}
     </span>
   </div>
-  <div class="window">
-    <div class="window__bar">
-      <span>{{ .context.Title }}</span>
-    </div>
-    <div class="window__address">
-      <span>
-        {{ if .context.Params.liveUrl }}
-          {{ .context.Params.liveUrl }}
-        {{ else }}
-          https://localhost
-        {{ end }}
-      </span>
-    </div>
-    <img
-      {{ if .context.Params.screenshotImage }}
-      src="{{ .context.Permalink }}{{ .context.Params.screenshotImage }}"
-      {{ else }}
-      src="/img/coming-soon.webp"
-      {{ end }}
-      alt="{{ .context.Title }} screenshot"
-      width="350px"
-      height="190px"
-    />
-  </div>
+  {{ partial "components/window" (dict "context" .context) }}
 </section>

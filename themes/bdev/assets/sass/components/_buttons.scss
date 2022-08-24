@@ -1,6 +1,7 @@
 .btn {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-radius: 6px;
   border: 1px solid transparent;
   padding: 1.25rem 3rem;
@@ -8,7 +9,7 @@
   cursor: pointer;
   transition: 100ms;
 
-  @include media('>tablet') {
+  @include media(">tablet") {
     padding: 0.85rem;
   }
 
@@ -26,10 +27,8 @@
     box-shadow: 0px 0px 8px 1px var(--accent);
   }
 
-  img {
-    width: 15px;
-    height: 15px;
-    margin-right: 0.5rem;
+  .icon {
+    margin-left: 0.5rem;
   }
 
   &--primary {
@@ -42,24 +41,8 @@
     border-color: var(--dark);
     background-color: var(--dark);
 
-    @include media('>tablet') {
-      padding: calc(var(--gutter) / 2);
-    }
-  }
-
-  &--invert {
-    img {
-      filter: invert(100%);
-    }
-  }
-
-  &--dark {
-    color: var(--grey);
-    border-color: var(--dark);
-    background-color: var(--dark);
-
     &:hover {
-      background-color: hsla(var(--dark-hue), var(--dark-sat), 18%, 100%);
+      background-color: hsla(var(--dark-hue), var(--dark-sat), 10%, 100%);
     }
 
     &:active {

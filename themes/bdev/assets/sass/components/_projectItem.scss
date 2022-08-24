@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column-reverse;
 
-  @include media('>tablet') {
+  @include media(">tablet") {
     flex-direction: row;
 
     &:nth-child(odd) {
@@ -23,7 +23,7 @@
   &:not(:last-of-type) {
     margin-bottom: 4rem;
 
-    @include media('>tablet') {
+    @include media(">tablet") {
       margin-bottom: 8rem;
     }
   }
@@ -40,7 +40,7 @@
       justify-content: space-between;
       margin-bottom: calc(var(--gutter) * 2);
 
-      @include media('>tablet') {
+      @include media(">tablet") {
         flex-direction: row;
       }
 
@@ -54,14 +54,14 @@
         display: flex;
         margin-top: var(--gutter);
 
-        @include media('>tablet') {
+        @include media(">tablet") {
           margin-top: unset;
         }
 
         a:not(:last-of-type) {
           margin-right: 1.5rem;
 
-          @include media('>tablet') {
+          @include media(">tablet") {
             margin-right: 0.5rem;
           }
         }
@@ -86,153 +86,6 @@
 
     em {
       font-style: italic;
-    }
-  }
-
-  .window {
-    $radius: 6px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    user-select: none;
-    background-color: var(--window-border);
-    color: var(--dark);
-    border-radius: 6px;
-    width: 100%;
-    margin-bottom: 2rem;
-    box-shadow: 0px 0px 15px 2px
-      hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 0.5);
-
-    @include media('>desktop') {
-      min-width: 350px;
-      max-width: 350px;
-      margin-bottom: auto;
-      transition: all 200ms;
-
-      &:hover {
-        transform: scale(1.06);
-        box-shadow: 10px 20px 15px 2px
-          hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 0.6);
-      }
-    }
-
-    * {
-      backface-visibility: hidden;
-      -webkit-font-smoothing: subpixel-antialiased;
-    }
-
-    &__bar {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      background-color: var(--window-border);
-      min-height: 25px;
-      width: 100%;
-      border-top-left-radius: $radius;
-      border-top-right-radius: $radius;
-      border: 2px solid var(--window-border);
-
-      @mixin window-button {
-        content: '';
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        top: 5px;
-      }
-
-      &:before,
-      &:after {
-        @include window-button;
-      }
-
-      &:before {
-        background-color: #fe5f57;
-        top: 7px;
-        left: 5px;
-      }
-
-      &:after {
-        background-color: #febb2c;
-        top: 7px;
-        left: 20px;
-      }
-
-      span {
-        color: var(--light);
-        font-size: 0.75rem;
-        text-align: center;
-
-        &:before {
-          @include window-button;
-
-          background-color: #28cc42;
-          top: 7px;
-          left: 35px;
-        }
-      }
-    }
-
-    &__address {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 25px;
-      width: 100%;
-      border-right: 2px solid var(--window-border);
-      border-left: 2px solid var(--window-border);
-      background-color: var(--light);
-
-      @mixin window-ui-button {
-        font-size: 0.75rem;
-        text-align: center;
-        font-weight: bold;
-        position: absolute;
-        background-color: rgba(black, 0.15);
-        height: 15px;
-        width: 15px;
-        border-radius: 3px;
-      }
-
-      &:before {
-        @include window-ui-button;
-        content: '<';
-        left: 5px;
-      }
-
-      &:after {
-        @include window-ui-button;
-        content: '>';
-        left: 25px;
-      }
-
-      span {
-        width: 60%;
-        text-align: left;
-        background-color: rgba(black, 0.25);
-        font-size: 0.6rem;
-        padding: 0.1rem 0.2rem;
-        border-radius: 3px;
-
-        &:after {
-          @include window-ui-button;
-          content: '=';
-          right: 5px;
-        }
-      }
-    }
-
-    img {
-      position: relative;
-      width: 100%;
-      height: auto;
-      border: 2px solid var(--window-border);
-      border-top: none;
-      border-bottom-left-radius: $radius;
-      border-bottom-right-radius: $radius;
     }
   }
 }

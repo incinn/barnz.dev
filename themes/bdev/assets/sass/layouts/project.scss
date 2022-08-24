@@ -1,0 +1,54 @@
+.project {
+  .page__header__inner {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    max-width: var(--content-width);
+    text-align: center;
+
+    @include media(">desktop") {
+      text-align: left;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__details {
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-top: 2rem;
+    width: 100%;
+
+    @include media(">tablet") {
+      flex-direction: row;
+    }
+
+    @include media(">desktop") {
+      flex-direction: column;
+    }
+
+    .btn:first-of-type {
+      margin: 0 0 1rem 0;
+
+      @include media(">tablet") {
+        margin: 0 1rem 0 0;
+      }
+
+      @include media(">desktop") {
+        margin: 0 0 1rem 0;
+      }
+    }
+  }
+
+  .window {
+    width: 100%;
+
+    @include media(">desktop") {
+      max-width: 60%;
+    }
+  }
+}
