@@ -1,0 +1,26 @@
+.project {
+  .page__header__inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__details {
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-top: 2rem;
+
+    .btn:first-of-type {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .window {
+    max-width: 60%;
+  }
+}
