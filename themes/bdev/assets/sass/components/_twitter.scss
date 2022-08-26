@@ -1,0 +1,84 @@
+.twitterBox {
+  $twitterBlue: #1da1f2;
+
+  display: flex;
+  justify-content: center;
+  padding-top: calc(var(--gutter) * 7);
+
+  @include media(">tablet") {
+    padding-top: calc(var(--gutter) * 10);
+  }
+
+  &__container {
+    padding: 0 var(--gutter);
+    max-width: var(--content-width);
+    width: 100%;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.75rem;
+    box-sizing: border-box;
+    align-self: center;
+    color: var(--light);
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background: linear-gradient(
+      to bottom right,
+      $twitterBlue 0%,
+      darken($twitterBlue, 20%) 100%
+    );
+    transition: transform 100ms;
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      max-width: 50vw;
+
+      @include media('>tablet') {
+        max-width: 100%;
+      }
+
+      strong {
+        text-decoration: underline;
+      }
+    }
+
+    h2 {
+      font-size: 1rem;
+      opacity: 0.5;
+      letter-spacing: 1px;
+    }
+
+    .icon {
+      position: absolute;
+
+      &:first-of-type {
+        left: 1.75rem;
+      }
+
+      &:last-of-type {
+        right: 1.75rem;
+      }
+
+      svg {
+        opacity: 0.25;
+        width: 65px;
+        height: 65px;
+      }
+    }
+  }
+}
