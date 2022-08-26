@@ -9,13 +9,11 @@
   <div class="page__content">
     <div class="page__content__inner">
       <section class="projectList__items">
-        {{ range .Pages.ByPublishDate.Reverse }}
-            {{ partial "components/projectItem" (dict "context" .) }}
-        {{ end }}
+        {{ range .Pages.ByPublishDate.Reverse }} {{ partial
+        "components/projectItem" (dict "context" .) }} {{ end }}
       </section>
+      <aside>{{- partial "components/picker.html" . -}}</aside>
     </div>
   </div>
-
-  {{- partial "components/picker.html" . -}}
 </div>
 {{ end }}
