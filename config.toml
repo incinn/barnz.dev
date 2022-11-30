@@ -1,8 +1,24 @@
 baseURL = "https://barnz.dev/"
-languageCode = "en-gb"
 title = "barnz.dev"
 theme = "bdev"
 copyright = "barnz.dev"
+defaultContentLanguage = 'en'
+
+[languages]
+    [languages.en]
+        languageName = "English"
+        baseURL = "en/"
+        weight = 1
+
+    [languages.nl]
+        languageName = "Dutch"
+        baseURL = "nl/"
+        weight = 2
+
+    [languages.fr]
+        languageName = "French"
+        baseURL = "fr/"
+        weigth = 3
 
 [author]
   name = "Barnz"
