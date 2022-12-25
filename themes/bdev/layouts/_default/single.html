@@ -1,33 +1,47 @@
 {{ define "main" }}
 <div class="page">
-  <section class="page__header">
-    <div class="page__header__inner">
-      <h1>{{ .Title }}</h1>
-      {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
-      else }}
-      <span class="post__date">
-        <span>Posted:</span>
-        {{ .Date.Format "Monday" }} {{ .Date.Format "2" }}{{ if in (slice 1 21
-        31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in
-        (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format
-        "January 2006" }}
-      </span>
-      {{ end }}
-      <span class="post__readTime">
-        <span>Read Time:</span>
-        {{ math.Round (div (countwords .Content) 100.0) }} minutes
-      </span>
-    </div>
-  </section>
-
-  {{- partial "components/separator.html" -}}
-
-  <div class="page__content">
-    <section class="page__content__inner prose">
-      {{ .Content | safeHTML }} {{ partial "components/tags" . }}
+    <section class="page__header">
+        <div class="page__header__inner">
+            <h1>{{ .Title }}</h1>
+            {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
+            else }}
+            <span class="post__date">
+                <span>Posted:</span>
+                {{ .Date.Format "Monday" }} {{ .Date.Format "2" }}{{ if in (slice 1 21
+                31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in
+                (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format
+                "January 2006" }}
+            </span>
+            {{ end }}
+            <span class="post__readTime">
+                <span>Read Time:</span>
+                {{ math.Round (div (countwords .Content) 100.0) }} minutes
+            </span>
+            {{ if .IsTranslated }}
+            <span class="post__translations">
+                <span>Translations:</span>
+                <ul>
+                    {{ range .Translations }}
+                    <li>
+                        <a href="{{ .Permalink }}" title="{{ .Title }}">
+                            {{ .Lang }}
+                        </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </span>
+            {{ end }}
+        </div>
     </section>
-  </div>
 
-  {{- partial "components/twitter.html" . -}}
+    {{- partial "components/separator.html" -}}
+
+    <div class="page__content">
+        <section class="page__content__inner prose">
+            {{ .Content | safeHTML }} {{ partial "components/tags" . }}
+        </section>
+    </div>
+
+    {{- partial "components/twitter.html" . -}}
 </div>
 {{ end }}
