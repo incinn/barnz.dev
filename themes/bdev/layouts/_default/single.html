@@ -7,10 +7,11 @@
             else }}
             <span class="post__date">
                 <span>Posted:</span>
-                {{ .Date.Format "Monday" }} {{ .Date.Format "2" }}{{ if in (slice 1 21
+                {{ time.Format "Monday" .Date }}
+                {{ .Date.Format "2" }}{{ if in (slice 1 21
                 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in
-                (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ .Date.Format
-                "January 2006" }}
+                (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} 
+                {{ time.Format "January 2006" .Date }}
             </span>
             {{ end }}
             <span class="post__readTime">
