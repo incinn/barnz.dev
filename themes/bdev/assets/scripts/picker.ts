@@ -68,8 +68,6 @@ export default class Picker {
     },
   ];
 
-  constructor() {}
-
   init(): void {
     this.create();
 
