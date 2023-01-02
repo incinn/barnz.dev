@@ -6,7 +6,7 @@
             {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
             else }}
             <span class="post__date">
-                <span>Posted:</span>
+                <span>{{ i18n "single_published" }}:</span>
                 {{ time.Format "Monday" .Date }}
                 {{ .Date.Format "2" }}{{ if in (slice 1 21
                 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in
@@ -15,17 +15,17 @@
             </span>
             {{ end }}
             <span class="post__readTime">
-                <span>Read Time:</span>
-                {{ math.Round (div (countwords .Content) 100.0) }} minutes
+                <span>{{ i18n "single_read_time" }}:</span>
+                {{ math.Round (div (countwords .Content) 100.0) }} {{ i18n "single_read_time_minutes" }}
             </span>
             {{ if .IsTranslated }}
             <span class="post__translations">
-                <span>Translations:</span>
+                <span>{{ i18n "single_translations" }}:</span>
                 <ul>
                     {{ range .Translations }}
                     <li>
                         <a href="{{ .Permalink }}" title="{{ .Title }}">
-                            {{ .Lang }}
+                            <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16px" height="11px" />
                         </a>
                     </li>
                     {{ end }}

@@ -1,0 +1,8 @@
+- id: single_published
+  translation: "Posted"
+- id: single_read_time
+  translation: "Read Time"
+- id: single_read_time_minutes
+  translation: "minutes"
+- id: single_translations
+  translation: "Translations"

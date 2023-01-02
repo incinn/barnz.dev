@@ -1,0 +1,8 @@
+- id: single_published
+  translation: "Gepubliceerd"
+- id: single_read_time
+  translation: "Leestijd"
+- id: single_read_time_minutes
+  translation: "minuten"
+- id: single_translations
+  translation: "Vertalingen"
