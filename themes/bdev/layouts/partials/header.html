@@ -1,31 +1,26 @@
 <header class="header">
-  <div class="header__inner">
-    <h1>
-      <a href="/" title="homepage">
-        barnz<span class="dot">.</span><span class="dev">dev</span>
-      </a>
-    </h1>
+    <div class="header__inner">
+        <h1>
+            <a href="/" title="homepage">
+                barnz<span class="dot">.</span><span class="dev">dev</span>
+            </a>
+        </h1>
 
-    <input
-      type="checkbox"
-      name="menuToggle"
-      id="menuToggle"
-      class="menuToggle__input"
-    />
-    <label for="menuToggle" class="menuToggle">
-      <span class="menuToggle__open">
-        {{ partial "components/icon" "menu" }}
-      </span>
-      <span class="menuToggle__close">
-        {{ partial "components/icon" "x" }}
-      </span>
-    </label>
+        <input type="checkbox" name="menuToggle" id="menuToggle" class="menuToggle__input" />
+        <label for="menuToggle" class="menuToggle">
+            <span class="menuToggle__open">
+                {{ partial "components/icon" "menu" }}
+            </span>
+            <span class="menuToggle__close">
+                {{ partial "components/icon" "x" }}
+            </span>
+        </label>
 
-    <nav id="js-nav">
-      <a href="/" title="home" class="showMobile">home</a>
-      <a href="/projects/" title="projects">projects</a>
-      <a href="/blog/" title="articles">blog</a>
-      <a href="/contact/" title="contact">contact</a>
-    </nav>
-  </div>
+        <nav id="js-nav">
+            <a href="/" title="{{ i18n "menu_home" }}" class="showMobile">{{ i18n "menu_home" }}</a>
+            <a href="/projects/" title="{{ i18n "menu_projects" }}">{{ i18n "menu_projects" }}</a>
+            <a href="/blog/" title="{{ i18n "menu_blog" }}">{{ i18n "menu_blog" }}</a>
+            <a href="/contact/" title="{{ i18n "menu_contact" }}">{{ i18n "menu_contact" }}</a>
+        </nav>
+    </div>
 </header>

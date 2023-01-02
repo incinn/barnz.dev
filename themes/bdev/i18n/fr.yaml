@@ -1,3 +1,12 @@
+- id: menu_home
+  translation: "domicile"
+- id: menu_projects
+  translation: "projets"
+- id: menu_blog
+  translation: "blog"
+- id: menu_contact
+  translation: "contactez"
+
 - id: single_published
   translation: "Publié"
 - id: single_read_time

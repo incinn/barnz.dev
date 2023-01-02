@@ -1,3 +1,12 @@
+- id: menu_home
+  translation: "thuis"
+- id: menu_projects
+  translation: "projecten"
+- id: menu_blog
+  translation: "bloggen"
+- id: menu_contact
+  translation: "contact"
+
 - id: single_published
   translation: "Gepubliceerd"
 - id: single_read_time
