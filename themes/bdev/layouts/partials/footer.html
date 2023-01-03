@@ -2,7 +2,7 @@
     <div class="footer__inner">
         <p>{{ i18n "footer_made_with" }} <span class="heart">&hearts;</span> {{ i18n "footer_by" }} <a href="https://barnz.dev/">barnz</a></p>
       <p>
-      {{ now.Year }} &copy; {{ .Site.Copyright }} &bull; <a href="/legal/" title="{{ i18n "footer_legal"}}">{{ i18n "footer_legal" }}</a>
+      {{ now.Year }} &copy; {{ .Site.Copyright }} &bull; <a href="{{ ref . "/legal" }}" title="{{ i18n "footer_legal"}}">{{ i18n "footer_legal" }}</a>
       </p>
       <span class="links">
         <a
