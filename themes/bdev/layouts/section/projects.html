@@ -12,7 +12,6 @@
         {{ range .Pages.ByPublishDate.Reverse }} {{ partial
         "components/projectItem" (dict "context" .) }} {{ end }}
       </section>
-      <aside>{{- partial "components/picker.html" . -}}</aside>
     </div>
   </div>
 </div>
