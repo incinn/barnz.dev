@@ -15,3 +15,13 @@
   translation: "minuten"
 - id: single_translations
   translation: "Vertalingen"
+
+- id: common_view_source
+  translation: "view source"
+
+- id: footer_made_with
+  translation: "gemaakt met"
+- id: footer_by
+  translation: "by"
+- id: footer_legal
+  translation: "legal"
