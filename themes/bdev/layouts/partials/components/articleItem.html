@@ -12,9 +12,11 @@
 
     <div class="articleItem__metadata">
         <span class="articleItem__metadata--date">
-            {{ .context.Date.Format "Mon" }} {{ .context.Date.Format "2" }}{{ if in (slice 1 21 31) .context.Date.Day
-            }}st{{ else if in (slice 2 22) .context.Date.Day}}nd{{ else if in (slice 3 23) .context.Date.Day }}rd{{ else
-            }}th {{ end }} {{ .context.Date.Format "Jan 2006" }}
+            {{ time.Format "Mon" .context.Date }}
+            {{ .context.Date.Format "2" }}{{ if in (slice 1 21
+            31) .context.Date.Day }}st{{ else if in (slice 2 22) .context.Date.Day}}nd{{ else if in
+            (slice 3 23) .context.Date.Day }}rd{{ else }}th {{ end }} 
+            {{ time.Format "Jan 2006" .context.Date }}
         </span>
         {{ if .context.IsTranslated }}
         <ul class="articleItem__metadata--translations">
