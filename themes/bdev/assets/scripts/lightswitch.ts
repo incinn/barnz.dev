@@ -2,13 +2,13 @@ import feather = require('feather-icons');
 
 export default class LightSwitch {
   switchEl: HTMLButtonElement;
-  navEl: HTMLElement;
+  wrapper: HTMLElement;
   toggle = true;
 
   constructor() {
-    this.navEl = document.getElementById('js-nav');
+    this.wrapper = document.getElementById('js-lightswitch');
 
-    if (!this.navEl || !feather) {
+    if (!this.wrapper || !feather) {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
       this.init = () => {};
       console.error('LightSwitch unable to start');
@@ -19,7 +19,7 @@ export default class LightSwitch {
     this.switchEl = this.createSwitch();
 
     this.switchEl.addEventListener('click', this.handleToggle.bind(this));
-    this.navEl.appendChild(this.switchEl);
+    this.wrapper.appendChild(this.switchEl);
 
     this.setTheme();
   }
