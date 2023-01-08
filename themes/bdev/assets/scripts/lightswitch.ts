@@ -45,7 +45,7 @@ export default class LightSwitch {
   createSwitch(): HTMLButtonElement {
     const btn = document.createElement('button');
 
-    btn.classList.add('lightSwitch');
+    btn.classList.add("lightSwitch","btn","btn--small", "btn--dark");
     btn.innerHTML = feather.icons.sun.toSvg();
     btn.setAttribute('aria-label', 'Toggle between light and dark mode');
 
