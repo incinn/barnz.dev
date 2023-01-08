@@ -245,6 +245,11 @@
     }
 
     &__language {
+        small {
+            display: flex;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
        ul {
             li {
                 display: flex;

@@ -40,9 +40,7 @@
                 </div>
                 <div class="optionsMenu__language">
                     <span>Language</span>
-                    <p>Select the language you prefer.
-                        <br />Note that not all content is available in every language.
-                    </p>
+                    <p>Select the language you prefer.</p>
                     <ul>
                         {{ range $.AllTranslations }}
                         <li>
@@ -54,6 +52,7 @@
                         </li>
                         {{ end }}
                     </ul>
+                    <small>Note: not all content is available in every language.</small>
                 </div>
                 <div class="optionsMenu__clearData">
                     <span>Reset</span>
