@@ -89,6 +89,7 @@
       flex: 1;
       justify-content: flex-end;
       align-items: center;
+      margin-right: 2rem;
 
       a {
         margin-left: 2rem;
@@ -167,7 +168,7 @@
 
         &:checked {
             ~ .optionsMenuToggle .icon {
-                transform: rotate(45deg);
+                transform: rotate(55deg);
             }
 
             ~ .optionsMenu .optionsMenu__backdrop {
