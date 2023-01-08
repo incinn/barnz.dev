@@ -46,7 +46,7 @@
                     <ul>
                         {{ range $.AllTranslations }}
                         <li>
-                            <a class="{{ if eq .Lang $.Lang }}selected{{ end }}" href="{{ .RelPermalink }}">
+                            <a  class="{{ if eq .Lang $.Lang }}selected{{ end }} btn btn--small btn--dark" href="{{ .RelPermalink }}">
                                 <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16px"
                                     height="11px" />
                                 {{ .Language.LanguageName }}

@@ -245,7 +245,25 @@
     }
 
     &__language {
-        
+       ul {
+            li {
+                display: flex;
+
+                &:not(:last-of-type) {
+                    margin-bottom: .5rem;
+                }
+
+                a {
+                    display: flex;
+                    justify-content: flex-start;
+                    width: 150px;
+
+                    img {
+                        margin-right: .75rem;
+                    }
+                }
+            }
+       }
     }
 
   }

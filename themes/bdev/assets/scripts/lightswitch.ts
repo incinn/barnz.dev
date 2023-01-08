@@ -10,7 +10,7 @@ export default class LightSwitch {
 
     if (!this.wrapper || !feather) {
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      this.init = () => {};
+      this.init = () => { };
       console.error('LightSwitch unable to start');
     }
   }
@@ -29,10 +29,10 @@ export default class LightSwitch {
 
     if (!theme) {
       theme =
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light';
+                window.matchMedia &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches
+                  ? 'dark'
+                  : 'light';
     }
 
     if (theme !== this.getThemeName()) this.handleToggle();
@@ -45,7 +45,7 @@ export default class LightSwitch {
   createSwitch(): HTMLButtonElement {
     const btn = document.createElement('button');
 
-    btn.classList.add("lightSwitch","btn","btn--small", "btn--dark");
+    btn.classList.add('lightSwitch', 'btn', 'btn--small', 'btn--dark');
     btn.innerHTML = feather.icons.sun.toSvg();
     btn.setAttribute('aria-label', 'Toggle between light and dark mode');
 
