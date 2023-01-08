@@ -155,11 +155,11 @@
   }
 
   .optionsMenuToggle {
-      cursor: pointer;
+    cursor: pointer;
 
-      .icon {
+    .icon {
         transition: transform 250ms;
-      }
+    }
 
     
     &__input {
@@ -201,17 +201,50 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background-color: rgba(0,0,0,0.45);
+        background-color: rgba(0,0,0,0.5);
         height: 100vh;
         width: 100vw;
     }
 
+    &__close {
+        position: absolute;
+        cursor: pointer;
+        top: .75rem;
+        right: .75rem;
+        opacity: .35;
+    }
+
     &__inner {
+        position: relative;
         z-index: 6;
-        background-color: red;
+        width: 550px;
+        background-color: var(--body-bg);
+        border-radius: 6px;
+        padding: 2rem;
+        box-shadow: 0px 0px 15px 12px rgba(0,0,0,0.5);
 
         display: flex;
         flex-direction: column;
+
+        > div:not(:last-of-type) {
+            margin-bottom: 2rem;
+        }
+
+        span {
+            display: block;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: .5rem;
+        }
+
+        p {
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__language {
+        
     }
 
   }

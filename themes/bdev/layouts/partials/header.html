@@ -30,16 +30,35 @@
         <div class="optionsMenu" id="js-options-nav">
             <label for="optionsMenuToggle" class="optionsMenu__backdrop"></label>
             <div class="optionsMenu__inner">
+                <label for="optionsMenuToggle" class="optionsMenu__close">
+                    {{ partial "components/icon" "x" }}
+                </label>
+
                 <div id="js-lightswitch">
-                    <span>Theme:</span>
+                    <span>Theme</span>
+                    <p>Toggle between light and dark themes.</p>
                 </div>
                 <div class="optionsMenu__language">
-                    <span>Language:</span>
-                    {{ range $.AllTranslations }}
-                    <a class="{{ if eq .Lang $.Lang }}selected{{ end }}" href="{{ .RelPermalink }}">
-                        {{ .Language.LanguageName }}
-                    </a>
-                    {{ end }}
+                    <span>Language</span>
+                    <p>Select the language you prefer.
+                        <br />Note that not all content is available in every language.
+                    </p>
+                    <ul>
+                        {{ range $.AllTranslations }}
+                        <li>
+                            <a class="{{ if eq .Lang $.Lang }}selected{{ end }}" href="{{ .RelPermalink }}">
+                                <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16px"
+                                    height="11px" />
+                                {{ .Language.LanguageName }}
+                            </a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                <div class="optionsMenu__clearData">
+                    <span>Reset</span>
+                    <p>Clear all saved data and reset to defaults.</p>
+                    <button class="btn btn-danger">Reset</button>
                 </div>
             </div>
         </div>
