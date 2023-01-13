@@ -1,0 +1,16 @@
+.translationCredit {
+    display: flex;
+    justify-content: center;
+    padding-top: calc(var(--gutter) * 7);
+
+    @include media(">tablet") {
+        padding-top: calc(var(--gutter) * 10);
+    }
+
+    &__container {
+        padding: 0 var(--gutter);
+        max-width: var(--content-width);
+        width: 100%;
+    }
+}
+

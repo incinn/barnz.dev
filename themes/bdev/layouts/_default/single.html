@@ -42,5 +42,8 @@
             {{ .Content | safeHTML }} {{ partial "components/tags" . }}
         </section>
     </div>
+
+
+    {{- partial "components/translationCredit.html" -}}
 </div>
 {{ end }}
