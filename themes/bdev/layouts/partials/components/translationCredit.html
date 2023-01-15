@@ -1,6 +1,16 @@
 <aside class="translationCredit">
     <div class="translationCredit__container">
-        <p>Content originally written in English. Unfortunately that is the only language I speak at the moment.</p>
-        <p>Massive thank you to my amazing girlfriend for providing the translations for Dutch and French. Isn't she talented?</p>
+        <div class="translationCredit__text">
+            <p>Content originally written in English. Unfortunately, that's the only language I speak.</p>
+            <p>Translations for Dutch and French provided by my amazing girlfriend. Isn't she so talented?</p>
+        </div>
+        <div class="translationCredit__vote">
+            <button class="voteYes btn btn--small btn--dark">
+                {{ partial "components/icon" "thumbs-up" }}
+            </button>
+            <button class="voteNo btn btn--small btn--dark">
+                {{ partial "components/icon" "thumbs-down" }}
+            </button>
+        </div>
     </div>
 </aside>

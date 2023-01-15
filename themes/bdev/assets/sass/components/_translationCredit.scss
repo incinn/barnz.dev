@@ -8,9 +8,44 @@
     }
 
     &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 0 var(--gutter);
         max-width: var(--content-width);
         width: 100%;
+    }
+
+    &__text {
+        margin-right: 2rem;
+        max-width: 600px;
+        
+        p:not(:last-of-type) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__vote {
+        display: flex;
+
+        .btn {
+            &:last-of-type {
+                margin-left: 1rem;
+            }
+
+            .icon {
+                opacity: .7;
+                transition: transform 150ms;
+            }
+        }
+
+        .voteNo {
+            &:hover {
+                .icon {
+                    transform: rotate(180deg);
+                }
+           }
+        }
     }
 }
 
