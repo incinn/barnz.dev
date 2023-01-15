@@ -40,7 +40,7 @@
         }
 
         .voteNo {
-            &:hover {
+            &:hover,&:focus {
                 .icon {
                     transform: rotate(180deg);
                 }
