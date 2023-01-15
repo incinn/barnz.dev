@@ -77,10 +77,6 @@
           visibility: visible;
         }
       }
-
-      .lightSwitch {
-        margin-top: 1.5rem;
-      }
     }
 
     @include media('>tablet') {
@@ -104,19 +100,8 @@
           visibility: hidden;
         }
       }
-
-      .lightSwitch {
-        margin-left: 1.5rem;
-      }
     }
-
-    .lightSwitch {
-      background-color: transparent;
-      color: var(--light);
-      border: none;
-      cursor: pointer;
-    }
-  }
+}
 
   .menuToggle {
     z-index: 6;
