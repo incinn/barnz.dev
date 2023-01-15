@@ -43,7 +43,8 @@
         </section>
     </div>
 
-
+    {{ if .IsTranslated }}
     {{- partial "components/translationCredit.html" -}}
+    {{ end }}
 </div>
 {{ end }}
