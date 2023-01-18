@@ -27,31 +27,33 @@
         <label for="optionsMenuToggle" class="optionsMenuToggle">
             {{ partial "components/icon" "settings" }}
         </label>
-        <div class="optionsMenu" id="js-options-nav">
+
+        <aside class="optionsMenu" id="js-options-nav">
             <label for="optionsMenuToggle" class="optionsMenu__backdrop"></label>
             <div class="optionsMenu__inner">
                 <label for="optionsMenuToggle" class="optionsMenu__close">
                     {{ partial "components/icon" "x" }}
                 </label>
 
-                <div id="js-lightswitch">
-                    <span>Theme</span>
-                    <p>Toggle between light and dark themes.</p>
-                </div>
-                <div class="optionsMenu__language">
-                    <span>Language</span>
-                    <p>Select the language you prefer.</p>
-                    <ul>
-                        {{ range $.AllTranslations }}
-                        <li>
-                            <a class="{{ if eq .Lang $.Lang }}selected{{ end }} btn btn--small btn--dark" href="{{ .RelPermalink }}">
-                                <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16px" height="11px" />
-                                {{ .Language.LanguageName }}
-                            </a>
-                        </li>
-                        {{ end }}
-                    </ul>
-                    <small>Note: not all content is available in every language.</small>
+                <div class="optionsMenu__display">
+                    <span>Display</span>
+                    <div class="optionsMenu__content">
+                        <label for="darkModeToggle">Enable light mode</label>
+                        <div id="js-lightswitch"></div>
+                    </div>
+                    <div class="optionsMenu__content">
+                        <p>Select language</p>
+                        <ul>
+                            {{ range $.AllTranslations }}
+                            <li>
+                                <a class="{{ if eq .Lang $.Lang }}selected{{ end }}" href="{{ .RelPermalink }}">
+                                    <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16px" height="11px" />
+                                    {{ .Language.LanguageName }}
+                                </a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
                 </div>
                 <div class="optionsMenu__clearData">
                     <span>Reset</span>
@@ -59,6 +61,6 @@
                     <button class="btn btn--small btn--dark">Reset</button>
                 </div>
             </div>
-        </div>
+        </aside>
     </div>
 </header>

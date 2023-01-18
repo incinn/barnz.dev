@@ -224,7 +224,7 @@
 
         position: relative;
         z-index: 6;
-        width: 550px;
+        width: 450px;
         background-color: var(--body-bg);
         border-radius: 6px;
         padding: 2rem;
@@ -249,31 +249,18 @@
         }
     }
 
-    &__language {
-        small {
-            display: flex;
-            font-size: 0.8rem;
-            margin-top: 1rem;
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-of-type) {
+            margin-bottom: 1rem;
         }
-       ul {
-            li {
-                display: flex;
 
-                &:not(:last-of-type) {
-                    margin-bottom: .5rem;
-                }
-
-                a {
-                    display: flex;
-                    justify-content: flex-start;
-                    width: 150px;
-
-                    img {
-                        margin-right: .75rem;
-                    }
-                }
-            }
-       }
+        label {
+            cursor: pointer;
+        }
     }
   }
 }
