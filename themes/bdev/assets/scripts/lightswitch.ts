@@ -1,30 +1,31 @@
-import feather = require('feather-icons');
-
 export default class LightSwitch {
-  switchEl: HTMLButtonElement;
   wrapper: HTMLElement;
-  toggle = true;
+  inputEl: HTMLInputElement;
+  toggle: boolean; // true = lightMode
 
   constructor() {
     this.wrapper = document.getElementById('js-lightswitch');
 
-    if (!this.wrapper || !feather) {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      this.init = () => { };
-      console.error('LightSwitch unable to start');
+    if (!this.wrapper) {
+      this.init = () => console.error('LightSwitch unable to start');
     }
   }
 
   init(): void {
-    this.switchEl = this.createSwitch();
+    const switchEl = this.createSwitch();
 
-    this.switchEl.addEventListener('click', this.handleToggle.bind(this));
-    this.wrapper.appendChild(this.switchEl);
+    this.inputEl = switchEl.querySelector('input[type=checkbox]');
+    this.inputEl.addEventListener('change', (e: InputEvent) => {
+      this.toggle = (<HTMLInputElement>e.target).checked;
+      this.handleToggle();
+    });
 
-    this.setTheme();
+    this.wrapper.appendChild(switchEl);
+
+    this.setDefaultTheme();
   }
 
-  setTheme(): void {
+  setDefaultTheme(): void {
     let theme = localStorage.getItem('theme');
 
     if (!theme) {
@@ -35,37 +36,39 @@ export default class LightSwitch {
                   : 'light';
     }
 
-    if (theme !== this.getThemeName()) this.handleToggle();
-    else {
-      this.setToggleIcon();
-      this.setThemeAttr();
-    }
+    this.toggle = theme === 'light' ? true : false;
+    this.handleToggle();
+    this.setThemeAttr();
   }
 
-  createSwitch(): HTMLButtonElement {
-    const btn = document.createElement('button');
+  createSwitch(): HTMLElement {
+    const elId = 'darkModeToggle';
+    const wrapper = document.createElement('label');
 
-    btn.classList.add('lightSwitch', 'btn', 'btn--small', 'btn--dark');
-    btn.innerHTML = feather.icons.sun.toSvg();
-    btn.setAttribute('aria-label', 'Toggle between light and dark mode');
+    wrapper.classList.add('switch');
+    wrapper.setAttribute('for', elId);
 
-    return btn;
+    const inputEl = document.createElement('input');
+    inputEl.setAttribute('type', 'checkbox');
+    inputEl.classList.add('switch__input');
+    inputEl.setAttribute('id', elId);
+
+    const fillEl = document.createElement('div');
+    fillEl.classList.add('switch__fill');
+
+    wrapper.appendChild(inputEl);
+    wrapper.appendChild(fillEl);
+
+    return wrapper;
   }
 
   handleToggle(): void {
-    this.toggle = !this.toggle;
+    this.inputEl.checked = this.toggle;
 
-    this.setToggleIcon();
     this.setThemeAttr();
     this.storeTheme();
   }
-
-  setToggleIcon(): void {
-    this.switchEl.innerHTML = this.toggle
-      ? feather.icons.sun.toSvg()
-      : feather.icons.moon.toSvg();
-  }
-
+ 
   setThemeAttr(): void {
     document.documentElement.setAttribute('data-theme', this.getThemeName());
   }
