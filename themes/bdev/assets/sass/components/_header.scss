@@ -236,7 +236,7 @@
             margin-bottom: 2rem;
         }
 
-        span {
+        &__title {
             display: block;
             text-transform: uppercase;
             font-weight: bold;
@@ -263,4 +263,87 @@
         }
     }
   }
+}
+
+.languageSwitcher {
+    --width: 150px;
+    --height: 35px;
+
+    position: relative;
+    color: var(--dark);
+
+    &__input {
+        display: none;
+
+        &:checked {
+            ~ .languageSwitcher__options {
+                display: flex;
+            }
+
+            ~ .languageSwitcher__current {
+                border-bottom-right-radius: 0px;
+                border-bottom-left-radius: 0px;
+
+                .icon {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+    &__current {
+        display: flex;
+        align-items: center;
+        width: var(--width);
+        height: var(--height);
+        background: var(--light);
+        border-radius: 6px;
+        padding: .5rem;
+        border: 1px solid rgba(black, 0.3);
+
+        &__name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; 
+        }
+
+        img {
+            margin-right: .5rem;
+        }
+
+        .icon {
+            opacity: .5;
+            display: flex;
+            margin-left: auto;
+            transition: transform 200ms;
+        }
+    }
+
+    &__options {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: calc(var(--height) - 1px);
+        right: 0;
+        width: var(--width);
+        background: var(--light);
+        border-bottom-right-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border: 1px solid rgba(black, 0.3);
+
+        li {
+            a {
+                display: block;
+                padding: .25rem .5rem;
+                color: var(--dark);
+                font-weight: normal;
+                transition: background-color 200ms, color 200ms;
+
+                &:hover {
+                    background-color: var(--accent);
+                    color: var(--accent-alt);
+                }
+            }
+        }
+    }
 }
