@@ -44,9 +44,12 @@
                     <div class="optionsMenu__content">
                         <label for="languageSwitcher__input">Language</label>
                         <div class="languageSwitcher">
-                            <input type="checkbox" name="languageSwitcher__input" id="languageSwitcher__input" class="languageSwitcher__input" />
-                            <label class="languageSwitcher__current" for="languageSwitcher__input" title="{{ $.Site.Language.LanguageName }}">
-                                <img src="/img/flags/{{ $.Lang }}.png" alt="{{ $.Lang }}" title="{{ $.Lang }}" width="16px" height="11px" />
+                            <input type="checkbox" name="languageSwitcher__input" id="languageSwitcher__input"
+                                class="languageSwitcher__input" />
+                            <label class="languageSwitcher__current" for="languageSwitcher__input"
+                                title="{{ $.Site.Language.LanguageName }}">
+                                <img src="/img/flags/{{ $.Lang }}.png" alt="{{ $.Lang }}" title="{{ $.Lang }}"
+                                    width="16px" height="11px" />
                                 <div class="languageSwitcher__current__name">{{ $.Site.Language.LanguageName }}</div>
                                 {{ partial "components/icon" "chevron-down" }}
                             </label>
@@ -55,7 +58,8 @@
                                 {{ if not (eq .Lang $.Lang) }}
                                 <li>
                                     <a href="{{ .RelPermalink }}" title="{{ .Language.LanguageName }}">
-                                        <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16px" height="11px" />
+                                        <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}"
+                                            width="16px" height="11px" />
                                         {{ .Language.LanguageName }}
                                     </a>
                                 </li>
