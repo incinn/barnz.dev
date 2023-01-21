@@ -69,4 +69,9 @@
     padding: 0.75rem;
     font-size: 0.9rem;
   }
+
+  &--danger {
+    color: var(--white);
+    background-color: var(--red);
+  }
 }
