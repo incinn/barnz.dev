@@ -242,7 +242,7 @@
         text-transform: uppercase;
         font-weight: bold;
         font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
       }
 
       p {
@@ -261,6 +261,18 @@
 
       label {
         cursor: pointer;
+      }
+
+      &__title {
+        display: flex;
+        flex-direction: column;
+        margin-right: 1rem;
+        max-width: 50%;
+
+        small {
+          margin-top: 0.5rem;
+          font-size: 0.75rem;
+        }
       }
     }
   }
