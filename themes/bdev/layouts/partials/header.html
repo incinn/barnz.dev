@@ -36,13 +36,21 @@
                 </label>
 
                 <div class="optionsMenu__display">
-                    <span class="optionsMenu__inner__title">Settings</span>
+                    <span class="optionsMenu__inner__title">
+                        Settings
+                    </span>
                     <div class="optionsMenu__content">
-                        <label for="darkModeToggle">Light mode</label>
+                        <label class="optionsMenu__content__title" for="darkModeToggle">
+                            Light mode
+                            <small>For those scared of the dark</small>
+                        </label>
                         <div id="js-lightswitch"></div>
                     </div>
                     <div class="optionsMenu__content">
-                        <label for="languageSwitcher__input">Language</label>
+                        <label class="optionsMenu__content__title" for="languageSwitcher__input">
+                            Language
+                            <small>Note: not all content is avaibale in every language (yet)</small>
+                        </label>
                         <div class="languageSwitcher">
                             <input type="checkbox" name="languageSwitcher__input" id="languageSwitcher__input"
                                 class="languageSwitcher__input" />
@@ -68,12 +76,15 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="optionsMenu__content">
+                        <span class="optionsMenu__content__title">
+                            Reset
+                            <small>Reverts all options to default values</small>
+                        </span>
+                        <button class="btn btn--small btn--danger">Reset</button>
+                    </div>
                 </div>
-                <div class="optionsMenu__clearData">
-                    <span>Reset</span>
-                    <p>Clear all saved data and reset to defaults.</p>
-                    <button class="btn btn--small btn--dark">Reset</button>
-                </div>
+
             </div>
         </aside>
     </div>
