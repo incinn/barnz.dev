@@ -204,10 +204,15 @@
     }
 
     &__close {
+      @include media("<tablet") {
+        top: 1.5rem;
+        right: 1.75rem;
+      }
+
       position: absolute;
       cursor: pointer;
-      top: 0.75rem;
-      right: 0.75rem;
+      top: 1rem;
+      right: 1rem;
       opacity: 0.35;
     }
 
