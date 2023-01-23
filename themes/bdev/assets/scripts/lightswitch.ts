@@ -42,7 +42,7 @@ export default class LightSwitch {
   }
 
   createSwitch(): HTMLElement {
-    const elId = "darkModeToggle";
+    const elId = "lightModeToggle";
     const wrapper = document.createElement("label");
 
     wrapper.classList.add("switch");
