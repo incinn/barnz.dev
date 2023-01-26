@@ -1,21 +1,50 @@
 <form
-  action="mailto:website+contactform@barnz.dev"
-  method="get"
-  enctype="multipart/form-data"
+  action="https://submit-form.com/FmT2sPU6"
+  method="post"
   class="contactForm"
+  autocomplete="off"
 >
-  <label for="body">Message</label>
+  <div class="contactForm__row">
+    <div class="contactForm__row__item">
+      <label for="name">Name<span class="required">*</span></label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        autocomplete="name"
+        placeholder="Joe Bloggs"
+        required="true"
+      />
+    </div>
+    <div class="contactForm__row__item">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        autocomplete="email"
+        placeholder="admin@example.com"
+      />
+    </div>
+  </div>
+  <div class="contactForm__row--confirm">
+    <label for="emailConfirm">Confirm Email</label>
+    <input
+      type="email"
+      name="emailConfirm"
+      id="emailConfirm"
+      autocomplete="off"
+    />
+  </div>
+  <label for="message">Message<span class="required">*</span></label>
   <textarea
-    name="body"
-    id="body"
-    placeholder="Wow, what an impressive website you have here.&#10;&#10;&#10;&#10;Joe Bloggs"
+    name="message"
+    id="message"
+    placeholder="Wow, what an amazing website."
     cols="20"
     rows="12"
+    required="true"
   ></textarea>
-  <input
-    type="hidden"
-    name="subject"
-    value="barnz.dev&nbsp;contact&nbsp;form"
-  />
-  <input class="btn btn--primary" type="submit" name="submit" value="send" />
+  <input type="hidden" name="_redirect" value="{{ ref . " /thanks"}}" />
+  <button class="btn btn--primary" type="submit">Submit</button>
 </form>

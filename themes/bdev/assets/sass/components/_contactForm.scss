@@ -1,8 +1,8 @@
-form.contactForm {
+.contactForm {
   display: flex;
   flex-direction: column;
 
-  @include media('>tablet') {
+  @include media(">tablet") {
     max-width: calc(var(--content-width) / 1.5);
   }
 
@@ -26,7 +26,24 @@ form.contactForm {
     }
 
     &::placeholder {
-      opacity: 0.6;
+      opacity: 0.35;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &--confirm {
+      display: none;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    &__item {
+      flex-basis: calc(50% -0.5rem);
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -36,18 +53,29 @@ form.contactForm {
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
+    cursor: pointer;
+
+    .required {
+      color: red;
+      margin-left: 0.25rem;
+    }
   }
 
-  input[type='submit'] {
+  button[type="submit"] {
     margin-left: auto;
     margin-top: 1rem;
     width: 100%;
     justify-content: center;
 
-    @include media('>tablet') {
+    @include media(">tablet") {
       margin-top: 2rem;
       width: 75px;
     }
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    @include input;
   }
 
   textarea {
@@ -55,7 +83,7 @@ form.contactForm {
     height: 120px;
     resize: vertical;
 
-    @include media('>tablet') {
+    @include media(">tablet") {
       height: 110px;
     }
   }
