@@ -2,7 +2,7 @@ import Website from "./website";
 import Picker from "./picker";
 import ProjectItem from "./projectItem";
 import ResponsiveHelpers from "./helpers/responsive.helpers";
-import Blurb from "./blurb";
+import TextDecode from "./textDecode";
 
 document.addEventListener("DOMContentLoaded", () => {
   const responsiveHelpers = new ResponsiveHelpers();
@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const w = new Website();
   const p = new Picker();
   const pi = new ProjectItem(responsiveHelpers);
-  const b = new Blurb();
+  const t = new TextDecode();
   w.init();
   p.init();
   pi.init();
-  b.init();
+  t.init();
 });
