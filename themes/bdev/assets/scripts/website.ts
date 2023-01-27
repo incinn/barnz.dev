@@ -22,5 +22,20 @@ export default class Website {
 
   init(): void {
     this.plugins.forEach((plugin: Plugin) => plugin.init());
+    this.handleResetAllButton();
+  }
+
+  resetAll(): void {
+    this.plugins.forEach((plugin: Plugin) => plugin.reset());
+  }
+
+  handleResetAllButton(): void {
+    const button = document.getElementById("js-plugin-reset-all");
+    if (!button) {
+      console.error("Unable to find reset all button");
+      return;
+    }
+
+    button.addEventListener("click", () => this.resetAll());
   }
 }

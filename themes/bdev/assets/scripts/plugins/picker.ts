@@ -138,7 +138,7 @@ export default class Picker extends Plugin {
     const icon = document.createElement("span");
     icon.innerHTML = feather.icons["refresh-cw"].toSvg();
 
-    button.addEventListener("click", this.resetItem.bind(this));
+    button.addEventListener("click", this.reset.bind(this));
     button.appendChild(icon);
 
     return button;
@@ -153,7 +153,7 @@ export default class Picker extends Plugin {
     localStorage.setItem("accent", this.color);
   }
 
-  resetItem(): void {
+  reset(): void {
     localStorage.removeItem("accent");
     window.location.reload();
   }
