@@ -26,6 +26,7 @@ const component = `
 const presets = ["#26bf80", "#df1155", "#457dd3", "#c18f34", "#834ed3"];
 
 export default class Picker {
+  container: HTMLElement;
   wrapperEl: HTMLElement;
   color: string;
 
@@ -69,8 +70,8 @@ export default class Picker {
   ];
 
   constructor() {
-    const container = document.getElementById("picker");
-    if (!container) {
+    this.container = document.getElementById("picker");
+    if (!this.container) {
       this.init = () => console.error("Picker unable to start");
     }
   }
@@ -99,7 +100,7 @@ export default class Picker {
     const resetButton = this.createResetButton();
     pickerInner.appendChild(resetButton);
 
-    container.appendChild(this.wrapperEl);
+    this.container.appendChild(this.wrapperEl);
   }
 
   createPresetButton(colour: string): HTMLButtonElement {
