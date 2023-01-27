@@ -1,10 +1,11 @@
-import { debounce } from "./helpers/util.helpers";
+import Plugin from "../plugin";
 
-export default class TextDecode {
+export default class TextDecode extends Plugin {
   letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   targets: NodeListOf<HTMLElement>;
 
   constructor() {
+    super();
     this.targets = document.querySelectorAll(".js-decode");
 
     if (!this.targets || this.targets.length < 1) {
@@ -21,6 +22,8 @@ export default class TextDecode {
       );
     });
   }
+
+  reset(): void {}
 
   handleEffect(el: HTMLElement, hover = false): void {
     if (el.classList.contains("animating")) return;

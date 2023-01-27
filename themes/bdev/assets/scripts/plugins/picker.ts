@@ -1,4 +1,5 @@
 import feather = require("feather-icons");
+import Plugin from "../plugin";
 
 interface UserChangedResponse {
   text: string;
@@ -25,7 +26,7 @@ const component = `
 
 const presets = ["#26bf80", "#df1155", "#457dd3", "#c18f34", "#834ed3"];
 
-export default class Picker {
+export default class Picker extends Plugin {
   container: HTMLElement;
   wrapperEl: HTMLElement;
   color: string;
@@ -70,6 +71,8 @@ export default class Picker {
   ];
 
   constructor() {
+    super();
+
     this.container = document.getElementById("picker");
     if (!this.container) {
       this.init = () => console.error("Picker unable to start");
@@ -135,7 +138,7 @@ export default class Picker {
     const icon = document.createElement("span");
     icon.innerHTML = feather.icons["refresh-cw"].toSvg();
 
-    button.addEventListener("click", this.reset.bind(this));
+    button.addEventListener("click", this.resetItem.bind(this));
     button.appendChild(icon);
 
     return button;
@@ -150,7 +153,7 @@ export default class Picker {
     localStorage.setItem("accent", this.color);
   }
 
-  reset(): void {
+  resetItem(): void {
     localStorage.removeItem("accent");
     window.location.reload();
   }

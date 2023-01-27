@@ -1,6 +1,7 @@
-import ResponsiveHelpers from './helpers/responsive.helpers';
+import ResponsiveHelpers from "../helpers/responsive.helpers";
+import Plugin from "../plugin";
 
-export default class ProjectItemEffect {
+export default class ProjectItemEffect extends Plugin {
   private _responsive: ResponsiveHelpers;
   private threshold = 10;
   private minScale = 1.2;
@@ -10,39 +11,42 @@ export default class ProjectItemEffect {
   private scale = this.minScale;
 
   constructor(rh: ResponsiveHelpers) {
+    super();
     this._responsive = rh;
   }
 
   init(): void {
-    const previews = document.querySelectorAll('.projectItem .window');
+    const previews = document.querySelectorAll(".projectItem .window");
 
     previews.forEach((preview: HTMLElement) => {
-      preview.addEventListener('mousemove', (ev: MouseEvent) => {
+      preview.addEventListener("mousemove", (ev: MouseEvent) => {
         this.handleMove(preview, ev.x, ev.y);
       });
 
-      preview.addEventListener('wheel', (ev: WheelEvent) => {
+      preview.addEventListener("wheel", (ev: WheelEvent) => {
         if (this.shouldHideEffect()) return;
         ev.preventDefault();
         this.handleZoom(preview, ev.deltaY);
       });
 
-      preview.addEventListener('click', () => {
+      preview.addEventListener("click", () => {
         this.handleClick(preview);
       });
 
-      preview.addEventListener('mouseleave', () => {
-        this.reset(preview);
+      preview.addEventListener("mouseleave", () => {
+        this.resetItem(preview);
       });
     });
   }
+
+  reset(): void {}
 
   shouldHideEffect(): boolean {
     return this._responsive.isMobile() || this._responsive.isTablet();
   }
 
-  reset(el: HTMLElement): void {
-    el.removeAttribute('style');
+  resetItem(el: HTMLElement): void {
+    el.removeAttribute("style");
     this.scale = this.minScale;
     this.rotateX = 0;
     this.rotateY = 0;
@@ -67,7 +71,7 @@ export default class ProjectItemEffect {
       scale(${this.scale}) 
       rotateY(${this.rotateY}deg)
       rotateX(${-this.rotateX}deg)`;
-    el.style.zIndex = '999';
+    el.style.zIndex = "999";
   }
 
   handleZoom(el: HTMLElement, deltaY: number): void {

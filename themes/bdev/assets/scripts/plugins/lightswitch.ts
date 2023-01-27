@@ -1,9 +1,12 @@
-export default class LightSwitch {
+import Plugin from "../plugin";
+
+export default class LightSwitch extends Plugin {
   wrapper: HTMLElement;
   inputEl: HTMLInputElement;
   toggle: boolean; // true = lightMode
 
   constructor() {
+    super();
     this.wrapper = document.getElementById("js-lightswitch");
 
     if (!this.wrapper) {
@@ -24,6 +27,8 @@ export default class LightSwitch {
 
     this.setDefaultTheme();
   }
+
+  reset(): void {}
 
   setDefaultTheme(): void {
     let theme = localStorage.getItem("theme");
