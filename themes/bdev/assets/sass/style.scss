@@ -80,6 +80,7 @@ html {
       .js-decode {
         &.animating {
           line-break: anywhere;
+          cursor: wait;
         }
       }
     }
