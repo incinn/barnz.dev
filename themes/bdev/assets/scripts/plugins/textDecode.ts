@@ -2,6 +2,7 @@ import Plugin from "../plugin";
 
 export default class TextDecode extends Plugin {
   letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
   targets: NodeListOf<HTMLElement>;
 
   constructor() {
@@ -40,6 +41,7 @@ export default class TextDecode extends Plugin {
         .map((_letter, index) => {
           if (index < iterations && !hover) return initialText[index];
           return this.letters[Math.floor(Math.random() * 26)];
+          return this.letters[Math.floor(Math.random() * this.letters.length)];
         })
         .join("");
 
