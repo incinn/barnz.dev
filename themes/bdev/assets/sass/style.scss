@@ -1,39 +1,39 @@
-@import './mixins/browsers.mixin';
-@import './vars';
-@import 'node_modules/include-media/dist/_include-media.scss';
-@import 'node_modules/reset-css/sass/_reset';
-@import './fonts';
+@import "./mixins/browsers.mixin";
+@import "./vars";
+@import "node_modules/include-media/dist/_include-media.scss";
+@import "node_modules/reset-css/sass/_reset";
+@import "./fonts";
 
-@import './pages/page';
-@import './pages/contact';
+@import "./pages/page";
+@import "./pages/contact";
 
-@import './components/icons';
-@import './components/prose';
-@import './components/window';
-@import './components/buttons';
-@import './components/header';
-@import './components/projectItem';
-@import './components/articleItem';
-@import './components/projectList';
-@import './components/contactForm';
-@import './components/tags';
-@import './components/error';
-@import './components/separator';
-@import './components/picker';
-@import './components/twitter';
-@import './components/translationCredit';
-@import './components/footer';
-@import './components/switch';
+@import "./components/icons";
+@import "./components/prose";
+@import "./components/window";
+@import "./components/buttons";
+@import "./components/header";
+@import "./components/projectItem";
+@import "./components/articleItem";
+@import "./components/projectList";
+@import "./components/contactForm";
+@import "./components/tags";
+@import "./components/error";
+@import "./components/separator";
+@import "./components/picker";
+@import "./components/twitter";
+@import "./components/translationCredit";
+@import "./components/footer";
+@import "./components/switch";
 
-@import './blocks/blurb';
-@import './blocks/projectsHighlight';
-@import './blocks/articlesHighlight';
-@import './blocks/author';
-@import './blocks/contact';
+@import "./blocks/blurb";
+@import "./blocks/projectsHighlight";
+@import "./blocks/articlesHighlight";
+@import "./blocks/author";
+@import "./blocks/contact";
 
-@import './layouts/list';
-@import './layouts/single';
-@import './layouts/project';
+@import "./layouts/list";
+@import "./layouts/single";
+@import "./layouts/project";
 
 ::selection {
   background: var(--accent);
@@ -65,7 +65,7 @@ html {
     main {
       min-height: calc(100vh - 207px);
 
-      @include media('>tablet') {
+      @include media(">tablet") {
         padding-top: 69px;
       }
 
@@ -74,6 +74,12 @@ html {
 
         &:hover {
           text-decoration: underline;
+        }
+      }
+
+      .js-decode {
+        &.animating {
+          line-break: anywhere;
         }
       }
     }
