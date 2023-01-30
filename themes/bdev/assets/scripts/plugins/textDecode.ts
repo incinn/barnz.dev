@@ -1,7 +1,7 @@
 import Plugin from "../plugin";
 
 export default class TextDecode extends Plugin {
-  letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+  cyphers = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "01", "BARNZ", "-_."];
   targets: NodeListOf<HTMLElement>;
 
   constructor() {
@@ -29,6 +29,8 @@ export default class TextDecode extends Plugin {
     if (el.classList.contains("animating")) return;
     el.classList.add("animating");
 
+    const source: string =
+      this.cyphers[Math.floor(Math.random() * this.cyphers.length)];
     const initialText = el.innerText;
     let iterations = 0;
 
@@ -39,7 +41,7 @@ export default class TextDecode extends Plugin {
         .split("")
         .map((_letter, index) => {
           if (index < iterations && !infinite) return initialText[index];
-          return this.letters[Math.floor(Math.random() * this.letters.length)];
+          return source[Math.floor(Math.random() * source.length)];
         })
         .join("");
 
