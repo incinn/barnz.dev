@@ -16,8 +16,14 @@
   background: linear-gradient(10deg, #313142 0%, #1b1b27 65%);
 
   &__flag {
-    height: 30px;
+    height: 20px;
     width: auto;
+    margin-right: 0.75rem;
+
+    @include media(">tablet") {
+      height: 30px;
+      width: auto;
+    }
   }
 
   &__inner {
@@ -31,11 +37,11 @@
     padding: 0 var(--gutter);
     margin: 0 auto;
 
-    @include media('>phone') {
+    @include media(">phone") {
       max-width: 390px;
     }
 
-    @include media('>tablet') {
+    @include media(">tablet") {
       height: 90vh;
       max-width: var(--content-width);
       min-height: 500px;
@@ -83,11 +89,11 @@
       display: none;
     }
 
-    @include media('>phone') {
+    @include media(">phone") {
       font-size: 2rem;
     }
 
-    @include media('>tablet') {
+    @include media(">tablet") {
       font-size: 2.7rem;
       text-align: center;
       margin-bottom: 1.25rem;
@@ -113,7 +119,7 @@
     max-width: 230px;
     margin-bottom: 4rem;
 
-    @include media('>tablet') {
+    @include media(">tablet") {
       font-size: 1.45rem;
       text-align: center;
       max-width: unset;
@@ -137,7 +143,7 @@
       height: 105px;
       width: 750px;
 
-      @include media('>tablet') {
+      @include media(">tablet") {
         width: 120vw;
       }
 
