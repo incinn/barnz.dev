@@ -66,10 +66,12 @@
     z-index: 2;
     cursor: pointer;
     animation: more_bounce 1500ms infinite;
-    transition: background-color 100ms, color 100ms;
+    transition: all 150ms;
 
     &:hover {
       text-decoration: none;
+      animation-play-state: paused;
+      border-radius: 6px;
     }
 
     .icon svg {
