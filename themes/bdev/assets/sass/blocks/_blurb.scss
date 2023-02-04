@@ -63,7 +63,7 @@
     width: 50px;
     height: 50px;
     bottom: 0;
-    z-index: 1;
+    z-index: 2;
     cursor: pointer;
     animation: more_bounce 1500ms infinite;
     transition: background-color 100ms, color 100ms;
@@ -124,32 +124,6 @@
       text-align: center;
       max-width: unset;
       margin-bottom: initial;
-    }
-  }
-
-  .divider {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-
-    svg {
-      position: relative;
-      display: block;
-      height: 105px;
-      width: 750px;
-
-      @include media(">tablet") {
-        width: 120vw;
-      }
-
-      .shape-fill {
-        fill: var(--body-bg);
-      }
     }
   }
 }
