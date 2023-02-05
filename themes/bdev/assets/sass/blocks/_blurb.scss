@@ -120,6 +120,7 @@
     text-align: left;
     max-width: 230px;
     margin-bottom: 4rem;
+    opacity: 0.6;
 
     @include media(">tablet") {
       font-size: 1.45rem;
