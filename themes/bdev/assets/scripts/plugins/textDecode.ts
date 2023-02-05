@@ -1,7 +1,7 @@
 import Plugin from "../plugin";
 
 export default class TextDecode extends Plugin {
-  cyphers = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "01", "BARNZ", "-_."];
+  cyphers = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "01", "BARNZ", "-_.", "▒░", "¦|¡!"];
   targets: NodeListOf<HTMLElement>;
 
   constructor() {
