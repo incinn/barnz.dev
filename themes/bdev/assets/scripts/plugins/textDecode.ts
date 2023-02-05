@@ -29,19 +29,24 @@ export default class TextDecode extends Plugin {
     if (el.classList.contains("animating")) return;
     el.classList.add("animating");
 
-    const source: string =
-      this.cyphers[Math.floor(Math.random() * this.cyphers.length)];
+    const previousCypherIndex = el.dataset.previousCypher;
+    const cypher = this.selectRandomCypher(+previousCypherIndex);
+    el.dataset.previousCypher = cypher.index.toString();
+
     const initialText = el.innerText;
-    let iterations = 0;
 
     if (infinite) el.addEventListener("mouseout", () => (infinite = false));
 
+    let iterations = 0;
     const interval = setInterval(() => {
       el.innerText = el.innerText
         .split("")
-        .map((_letter, index) => {
+        .map((_, index) => {
           if (index < iterations && !infinite) return initialText[index];
-          return source[Math.floor(Math.random() * source.length)];
+
+          return cypher.cypher[
+            Math.floor(Math.random() * cypher.cypher.length)
+          ];
         })
         .join("");
 
@@ -51,5 +56,15 @@ export default class TextDecode extends Plugin {
       }
       if (!infinite) iterations += initialText.length / 50;
     }, 55);
+  }
+
+  selectRandomCypher(previous: number): { index: number; cypher: string } {
+    let index = 0;
+
+    while (index === previous) {
+      index = Math.floor(Math.random() * this.cyphers.length);
+    }
+
+    return { index, cypher: this.cyphers[index] };
   }
 }
