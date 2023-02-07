@@ -1,13 +1,32 @@
 .window {
   $radius: 6px;
 
+  @mixin window-ui-button {
+    font-size: 0.75rem;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    opacity: 0.65;
+  }
+
+  @mixin window-button {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 8px;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
   user-select: none;
-  background-color: var(--window-border);
-  color: var(--dark);
+  background-color: var(--window-background);
+  color: var(--window-text);
   border-radius: 6px;
   width: 100%;
   margin-bottom: 2rem;
@@ -28,8 +47,8 @@
   }
 
   * {
-    backface-visibility: hidden;
-    -webkit-font-smoothing: subpixel-antialiased;
+    //backface-visibility: hidden;
+    //-webkit-font-smoothing: subpixel-antialiased;
   }
 
   &__bar {
@@ -37,21 +56,13 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: var(--window-border);
+    background-color: var(--window-background);
     min-height: 25px;
     width: 100%;
     border-top-left-radius: $radius;
     border-top-right-radius: $radius;
-    border: 2px solid var(--window-border);
-
-    @mixin window-button {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      top: 5px;
-    }
+    border: 2px solid var(--window-background);
+    padding-left: 3rem;
 
     &:before,
     &:after {
@@ -60,51 +71,22 @@
 
     &:before {
       background-color: #fe5f57;
-      top: 7px;
       left: 5px;
     }
 
     &:after {
       background-color: #febb2c;
-      top: 7px;
       left: 20px;
-    }
-
-    span {
-      color: var(--light);
-      font-size: 0.75rem;
-      text-align: center;
-
-      &:before {
-        @include window-button;
-
-        background-color: #28cc42;
-        top: 7px;
-        left: 35px;
-      }
     }
   }
 
   &__address {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 25px;
     width: 100%;
-    border-right: 2px solid var(--window-border);
-    border-left: 2px solid var(--window-border);
-    background-color: var(--light);
-
-    @mixin window-ui-button {
-      font-size: 0.75rem;
-      text-align: center;
-      font-weight: bold;
-      position: absolute;
-      background-color: rgba(black, 0.15);
-      height: 15px;
-      width: 15px;
-      border-radius: 3px;
-    }
 
     &:before {
       @include window-ui-button;
@@ -121,15 +103,22 @@
     span {
       width: 60%;
       text-align: left;
-      background-color: rgba(black, 0.25);
+      background-color: rgba(black, 0.05);
+      border: 1px solid rgba(black, 0.03);
       font-size: 0.6rem;
       padding: 0.1rem 0.2rem;
       border-radius: 3px;
 
       &:after {
         @include window-ui-button;
-        content: "=";
+        content: "≡";
         right: 5px;
+      }
+
+      &:before {
+        @include window-button;
+        background-color: #28cc42;
+        left: -0.75rem;
       }
     }
   }
@@ -138,9 +127,10 @@
     position: relative;
     width: 100%;
     height: auto;
-    border: 2px solid var(--window-border);
+    border: 2px solid var(--window-background);
     border-top: none;
-    border-bottom-left-radius: $radius;
     border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+    border-radius: $radius;
   }
 }
