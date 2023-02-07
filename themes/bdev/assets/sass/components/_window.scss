@@ -27,7 +27,7 @@
   user-select: none;
   background-color: var(--window-background);
   color: var(--window-text);
-  border-radius: 6px;
+  border-radius: $radius;
   width: 100%;
   margin-bottom: 2rem;
   box-shadow: 0px 0px 15px 2px
@@ -110,10 +110,8 @@
     position: relative;
     width: 100%;
     height: auto;
-    border: 2px solid var(--window-background);
+    border: 4px solid var(--window-background);
     border-top: none;
-    border-bottom-right-radius: $radius;
-    border-bottom-left-radius: $radius;
-    border-radius: $radius;
+    border-radius: 8px;
   }
 }
