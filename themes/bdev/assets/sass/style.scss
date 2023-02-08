@@ -40,6 +40,24 @@
   color: var(--accent-alt);
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation-hide {
+  opacity: 0 !important;
+}
+
+.animation-fadeIn {
+  opacity: inherit;
+  transition: opacity 200ms;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: black;
@@ -55,6 +73,7 @@ html {
     font-size: 18px;
     line-height: 1.3;
     font-family: Ubuntu-Mono, monospace;
+    animation: fadeIn ease 250ms;
 
     a {
       color: var(--light);

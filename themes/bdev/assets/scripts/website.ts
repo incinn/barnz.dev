@@ -21,8 +21,10 @@ export default class Website {
   }
 
   init(): void {
-    this.plugins.forEach((plugin: Plugin) => plugin.init());
     this.removeNoJsClass();
+    this.plugins.forEach((plugin: Plugin) => plugin.init());
+
+    this.introAnimation();
     this.handleResetAllButton();
   }
 
@@ -43,5 +45,48 @@ export default class Website {
     }
 
     button.addEventListener("click", () => this.resetAll());
+  }
+
+  introAnimation(): void {
+    const animationRun = localStorage.getItem("introAnimation");
+    if (animationRun) return;
+
+    const header = document.querySelector("header.header > div");
+    const blurbTitle = document.querySelector(
+      "main article.blurb .blurb__inner h1"
+    );
+    const blurbSubTitle = document.querySelector(
+      "main article.blurb .blurb__inner p"
+    );
+    const blurbMoreButton = document.querySelector(
+      "main article.blurb a.blurb__more"
+    );
+    if (!header || !blurbTitle || !blurbSubTitle || !blurbMoreButton) return;
+
+    const elements = [header, blurbTitle, blurbSubTitle, blurbMoreButton];
+    elements.forEach((el: Element) => el.classList.add("animation-hide"));
+
+    const cleanup = () => {
+      elements.forEach((el: Element) => {
+        el.classList.remove("animation", "animation-hide", "animation-fadeIn");
+      });
+    };
+
+    const fadeIn = (el: Element) => {
+      el.classList.remove("animation-hide");
+      el.classList.add("animation-fadeIn");
+    };
+
+    setTimeout(() => {
+      fadeIn(blurbTitle);
+      fadeIn(blurbSubTitle);
+    }, 100);
+    setTimeout(() => {
+      fadeIn(header);
+      fadeIn(blurbMoreButton);
+    }, 2500);
+    setTimeout(() => cleanup(), 3000);
+
+    localStorage.setItem("introAnimation", true);
   }
 }
