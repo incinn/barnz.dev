@@ -22,7 +22,13 @@ export default class Website {
 
   init(): void {
     this.plugins.forEach((plugin: Plugin) => plugin.init());
+    this.removeNoJsClass();
     this.handleResetAllButton();
+  }
+
+  removeNoJsClass(): void {
+    const bodyEl = document.querySelector("body");
+    bodyEl.classList.remove("no-js");
   }
 
   resetAll(): void {
