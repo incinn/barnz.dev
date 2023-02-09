@@ -18,7 +18,7 @@ of using JavaScript? Well, this tutorial is for you!
 In this tutorial, I will make the following assumptions:
 
 - You have some basic experience with **HTML**, especially form elements such as `input` and `label`
-- You are comfortable with **CSS**, and understand **SASS**
+- You are comfortable with **CSS**, and understand **Sass**
 
 ## Step One: Structure
 

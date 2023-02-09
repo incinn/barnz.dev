@@ -1,15 +1,15 @@
 ---
-title: 'barnz.dev'
+title: "barnz.dev"
 date: 2022-02-24T23:45:04Z
-slug: 'barnz-dot-dev'
+slug: "barnz-dot-dev"
 layout: project
-liveUrl: 'https://barnz.dev/'
-sourceUrl: 'https://github.com/incinn/barnz.dev'
-screenshotImage: 'barnzdev-screenshot.webp'
-tags: ['TypeScript', 'Hugo', 'Markdown', 'Jest']
+liveUrl: "https://barnz.dev/"
+sourceUrl: "https://github.com/incinn/barnz.dev"
+screenshotImage: "barnzdev-screenshot.webp"
+tags: ["TypeScript", "Hugo", "Markdown", "Jest"]
 ---
 
-This website. My home on the web. Built with **Hugo**, **SASS** and **TypeScript**. This project is ever evolving and changing, I doubt it'll ever be finished.
+This website. My home on the web. Built with **Hugo**, **Sass** and **TypeScript**. This project is ever evolving and changing, I doubt it'll ever be finished.
 
 I am the worst client.
 
@@ -19,7 +19,7 @@ I am the worst client.
 
 # About
 
-This website has gone through many, many iterations. The current iteration is a result of picking up the [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode) challenge. I needed a deliverable project I could work on during that time, and a personal website update was a perfect fit. 
+This website has gone through many, many iterations. The current iteration is a result of picking up the [#100DaysOfCode](https://twitter.com/hashtag/100DaysOfCode) challenge. I needed a deliverable project I could work on during that time, and a personal website update was a perfect fit.
 
 Originally, it was only meant to be a handful of static pages: A landing page, contact page, and maybe a project listing page. The landing page would contain 95% of the information, with a separate contact page purely for linking convenience. However, as with most things, the original plans were thrown out of the window and the spec expanded.
 
@@ -38,4 +38,3 @@ My intention is for this iteration of the website to stay around for a while. If
 I want to write more blog posts. As I mentioned in my [Hello World]({{< relref "hello-world.md" >}}) post, I am not a confident writer. I want that to change.
 
 I don't think I'll ever consider this project finished, and intend on keeping it up to date for the foreseeable future.
-
