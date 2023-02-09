@@ -75,7 +75,7 @@ export default class Picker extends Plugin {
 
     this.container = document.getElementById("picker");
     if (!this.container) {
-      this.init = () => console.error("Picker unable to start");
+      this.init = () => console.info("Picker did not start");
     }
   }
 
