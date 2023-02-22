@@ -7,21 +7,8 @@
       </span>
     </div>
   </div>
-  <img
-    {{
-    if
-    .context.Params.screenshotImage
-    }}
-    src="{{ .context.Permalink }}{{ .context.Params.screenshotImage }}"
-    {{
-    else
-    }}
-    src="/img/coming-soon.webp"
-    {{
-    end
-    }}
-    alt="{{ .context.Title }} screenshot"
-    width="350px"
-    height="190px"
-  />
+  <img {{ if .context.Params.screenshotImage }} src="{{ .context.Permalink }}{{
+  .context.Params.screenshotImage }}" {{ else }} src="/img/coming-soon.webp" {{
+  end }} alt="{{ .context.Title }} {{ i18n " common_screenshot" }}"
+  width="350px" height="190px" />
 </div>

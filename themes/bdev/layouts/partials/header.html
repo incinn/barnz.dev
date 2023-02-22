@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header__inner">
         <h1>
-            <a href="{{ ref . " /" }}" title="homepage">
+            <a href="{{ ref . " /" }}" title="{{ i18n " header_homepage" }}">
                 barnz<span class="dot">.</span><span class="dev">dev</span>
             </a>
         </h1>
@@ -37,19 +37,19 @@
 
                 <div class="optionsMenu__display">
                     <span class="optionsMenu__inner__title">
-                        Settings
+                        {{ i18n "options_menu_title" }}
                     </span>
                     <div class="optionsMenu__content">
                         <label class="optionsMenu__content__title" for="lightModeToggle">
-                            Light mode
-                            <small>For those scared of the dark</small>
+                            {{ i18n "options_menu_light_mode_title" }}
+                            <small>{{ i18n "options_menu_light_mode_desc" }}</small>
                         </label>
                         <div id="js-lightswitch"></div>
                     </div>
                     <div class="optionsMenu__content">
                         <label class="optionsMenu__content__title" for="languageSwitcher__input">
-                            Language
-                            <small>Note: not all content is available in every language (yet)</small>
+                            {{ i18n "options_menu_language_title" }}
+                            <small>{{ i18n "options_menu_language_desc" }}</small>
                         </label>
                         <div class="languageSwitcher">
                             <input type="checkbox" name="languageSwitcher__input" id="languageSwitcher__input"
@@ -78,10 +78,11 @@
                     </div>
                     <div class="optionsMenu__content">
                         <span class="optionsMenu__content__title">
-                            Reset
-                            <small>Reverts all options to default values</small>
+                            {{ i18n "options_menu_reset_title" }}
+                            <small>{{ i18n "options_menu_reset_desc" }}</small>
                         </span>
-                        <button id="js-plugin-reset-all" class="btn btn--small btn--danger">Reset</button>
+                        <button id="js-plugin-reset-all" class="btn btn--small btn--danger">{{ i18n
+                            "options_menu_reset_button" }}</button>
                     </div>
                 </div>
 

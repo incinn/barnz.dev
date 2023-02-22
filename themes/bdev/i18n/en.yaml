@@ -7,6 +7,35 @@
 - id: menu_contact
   translation: "contact"
 
+- id: header_homepage
+  translation: "Homepage"
+
+- id: options_menu_title
+  translation: "Settings"
+- id: options_menu_light_mode_title
+  translation: "Light mode"
+- id: options_menu_light_mode_desc
+  translation: "For those scared of the dark"
+- id: options_menu_language_title
+  translation: "Language"
+- id: options_menu_language_desc
+  translation: "Note: not all content is available in every language (yet)"
+- id: options_menu_reset_title
+  translation: "Reset"
+- id: options_menu_reset_desc
+  translation: "Reverts all options to default values"
+- id: options_menu_reset_button
+  translation: "Reset"
+
+- id: blurb_title_1
+  translation: "Hey, my name is <em>Barnz</em>! I'm a web developer from the"
+- id: blurb_title_2
+  translation: "<em>United Kingdom</em>"
+- id: blurb_tagline
+  translation: "I build web applications and the APIs that power them"
+- id: blurb_jump_content
+  translation: "Jump to content"
+
 - id: single_published
   translation: "Posted"
 - id: single_read_time
@@ -18,6 +47,47 @@
 
 - id: common_view_source
   translation: "view source"
+- id: common_screenshot
+  translation: "screenshot"
+
+- id: project_view_project
+  translation: "view project"
+- id: project_view_source
+  translation: "view source"
+
+- id: taxonomy_title
+  translation: "Displaying all posts tagged with"
+
+- id: contact_block_title
+  translation: "Contact"
+- id: contact_block_p
+  translation: "The best way to contact me is with this shiny form below:"
+
+- id: contact_form_name
+  translation: "Name"
+- id: contact_form_name_placeholder
+  translation: "Joe Bloggs"
+- id: contact_form_email
+  translation: "Email"
+- id: contact_form_email_placeholder
+  translation: "joe@example.com"
+- id: contact_form_email_confirm
+  translation: "Confirm Email"
+- id: contact_form_message
+  translation: "Message"
+- id: contact_form_message_placeholder
+  translation: "Wow, what an amazing website..."
+- id: contact_form_send
+  translation: "Send"
+
+- id: error_404_title
+  translation: "Page Not Found"
+- id: error_404_p1
+  translation: "Sorry, the page you're looking for cannot be found. Maybe it has moved and I forgot to redirect it, or maybe it never even existed to begin with. All I can tell you now is that it isn't here now."
+- id: error_404_p2
+  translation: "If you think this is a mistake, please"
+- id: error_404_link
+  translation: "let me know"
 
 - id: footer_made_with
   translation: "made with"

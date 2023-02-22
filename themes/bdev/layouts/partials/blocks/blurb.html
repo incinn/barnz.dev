@@ -1,17 +1,14 @@
 <article class="blurb">
     <div class="blurb__inner">
         <h1>
-            Hey, my name is <em>Barnz</em>! I'm a web developer
-            <span class="space">&nbsp;</span><br />
-            from the
-            <img class="blurb__flag" src="/img/gb.webp" alt="United Kingdom Flag" height="30px"
-                width="38.45px" /><em>United Kingdom</em>
+            {{ i18n "blurb_title_1" | safeHTML }}
+            <img class="blurb__flag" src="/img/gb.webp" alt="United Kingdom Flag" height="30px" width="38.45px" />{{
+            i18n "blurb_title_2" | safeHTML }}
         </h1>
-        <p class="js-decode">
-            I build web applications and the APIs that power them
-        </p>
+        <p class="js-decode">{{ i18n "blurb_tagline" }}</p>
     </div>
-    <a aria-label="Jump to content" title="Jump to content" href="#jump" id="jump" class="blurb__more">
+    <a aria-label="{{ i18n " blurb_jump_content" }}" title="{{ i18n " blurb_jump_content" }}" href="#jump" id="jump"
+        class="blurb__more">
         {{ partial "components/icon" "chevrons-down" }}
     </a>
 
