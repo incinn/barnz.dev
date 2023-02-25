@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     max-width: calc(var(--content-width) / 1.5);
   }
 
@@ -61,20 +61,20 @@
     }
   }
 
-  button[type="submit"] {
+  button[type='submit'] {
     margin-left: auto;
     margin-top: 1rem;
     width: 100%;
     justify-content: center;
 
-    @include media(">tablet") {
+    @include media('>tablet') {
       margin-top: 2rem;
       width: 75px;
     }
   }
 
-  input[type="text"],
-  input[type="email"] {
+  input[type='text'],
+  input[type='email'] {
     @include input;
   }
 
@@ -83,7 +83,7 @@
     height: 120px;
     resize: vertical;
 
-    @include media(">tablet") {
+    @include media('>tablet') {
       height: 110px;
     }
   }
