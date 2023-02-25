@@ -1,5 +1,5 @@
 import fs = require('fs');
-import Picker from '../themes/bdev/assets/scripts/picker';
+import Picker from '../themes/bdev/assets/scripts/plugins/picker';
 import { fakeLocalStorage } from './helpers/store.helper';
 
 describe('Accent picker', () => {

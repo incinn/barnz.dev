@@ -1,9 +1,9 @@
-import ResponsiveHelpers from "./helpers/responsive.helpers";
-import Plugin from "./plugin";
-import LightSwitch from "./plugins/lightswitch";
-import Picker from "./plugins/picker";
-import ProjectItemEffect from "./plugins/projectItem";
-import TextDecode from "./plugins/textDecode";
+import ResponsiveHelpers from './helpers/responsive.helpers';
+import Plugin from './plugin';
+import LightSwitch from './plugins/lightswitch';
+import Picker from './plugins/picker';
+import ProjectItemEffect from './plugins/projectItem';
+import TextDecode from './plugins/textDecode';
 
 export default class Website {
   plugins: Plugin[] = [];
@@ -29,8 +29,8 @@ export default class Website {
   }
 
   removeNoJsClass(): void {
-    const bodyEl = document.querySelector("body");
-    bodyEl.classList.remove("no-js");
+    const bodyEl = document.querySelector('body');
+    bodyEl.classList.remove('no-js');
   }
 
   resetAll(): void {
@@ -38,43 +38,43 @@ export default class Website {
   }
 
   handleResetAllButton(): void {
-    const button = document.getElementById("js-plugin-reset-all");
+    const button = document.getElementById('js-plugin-reset-all');
     if (!button) {
-      console.error("Unable to find reset all button");
+      console.error('Unable to find reset all button');
       return;
     }
 
-    button.addEventListener("click", () => this.resetAll());
+    button.addEventListener('click', () => this.resetAll());
   }
 
   introAnimation(): void {
-    const animationRun = localStorage.getItem("introAnimation");
+    const animationRun = localStorage.getItem('introAnimation');
     if (animationRun) return;
 
-    const header = document.querySelector("header.header > div");
+    const header = document.querySelector('header.header > div');
     const blurbTitle = document.querySelector(
-      "main article.blurb .blurb__inner h1"
+      'main article.blurb .blurb__inner h1'
     );
     const blurbSubTitle = document.querySelector(
-      "main article.blurb .blurb__inner p"
+      'main article.blurb .blurb__inner p'
     );
     const blurbMoreButton = document.querySelector(
-      "main article.blurb a.blurb__more"
+      'main article.blurb a.blurb__more'
     );
     if (!header || !blurbTitle || !blurbSubTitle || !blurbMoreButton) return;
 
     const elements = [header, blurbTitle, blurbSubTitle, blurbMoreButton];
-    elements.forEach((el: Element) => el.classList.add("animation-hide"));
+    elements.forEach((el: Element) => el.classList.add('animation-hide'));
 
     const cleanup = () => {
       elements.forEach((el: Element) => {
-        el.classList.remove("animation", "animation-hide", "animation-fadeIn");
+        el.classList.remove('animation', 'animation-hide', 'animation-fadeIn');
       });
     };
 
     const fadeIn = (el: Element) => {
-      el.classList.remove("animation-hide");
-      el.classList.add("animation-fadeIn");
+      el.classList.remove('animation-hide');
+      el.classList.add('animation-fadeIn');
     };
 
     setTimeout(() => {
@@ -87,6 +87,6 @@ export default class Website {
     }, 2500);
     setTimeout(() => cleanup(), 3000);
 
-    localStorage.setItem("introAnimation", true);
+    localStorage.setItem('introAnimation', 'true');
   }
 }
