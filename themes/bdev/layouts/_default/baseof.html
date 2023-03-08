@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}" data-theme="light">
-    {{- partial "head.html" . -}}
-    <body class="no-js">
-        {{- partial "header.html" . -}}
-        <main>{{- block "main" . }}{{- end }}</main>
-        {{- partial "footer.html" . -}}
-    </body>
+<html
+  lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}"
+  data-theme="light"
+>
+  {{- partial "head.html" . -}}
+
+  <body class="no-js">
+    {{- partial "header.html" . -}}
+    <main>{{- block "main" . }}{{- end }}</main>
+    {{- partial "footer.html" . -}}
+  </body>
+  <script
+    defer
+    data-domain="barnz.dev"
+    src="https://admin.barnz.dev/js/script.js"
+  ></script>
 </html>
