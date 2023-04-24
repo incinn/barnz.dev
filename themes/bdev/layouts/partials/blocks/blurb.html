@@ -1,16 +1,16 @@
 <article class="blurb">
-    <div class="blurb__inner">
-        <h1>
-            {{ i18n "blurb_title_1" | safeHTML }}
-            <img class="blurb__flag" src="/img/gb.webp" alt="United Kingdom Flag" height="30px" width="38.45px" />{{
-            i18n "blurb_title_2" | safeHTML }}
-        </h1>
-        <p class="js-decode">{{ i18n "blurb_tagline" }}</p>
-    </div>
-    <a aria-label="{{ i18n " blurb_jump_content" }}" title="{{ i18n " blurb_jump_content" }}" href="#jump" id="jump"
-        class="blurb__more">
-        {{ partial "components/icon" "chevrons-down" }}
-    </a>
+  <div class="blurb__inner">
+    <h1>
+      {{ i18n "blurb_title_1" | safeHTML }}
+      <img class="blurb__flag" src="/img/gb.webp" alt="United Kingdom Flag" height="30px" width="38.45px" />{{ i18n
+      "blurb_title_2" | safeHTML }}
+    </h1>
+    <p class="js-decode">{{ i18n "blurb_tagline" }}</p>
+  </div>
+  <a aria-label='{{ i18n "blurb_jump_content" }}' title='{{ i18n "blurb_jump_content" }}' href="#jump" id="jump"
+    class="blurb__more">
+    {{ partial "components/icon" "chevrons-down" }}
+  </a>
 
-    {{- partial "components/separator.html" -}}
+  {{- partial "components/separator.html" -}}
 </article>
