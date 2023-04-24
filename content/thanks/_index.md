@@ -1,11 +1,9 @@
 ---
-title: "Thanks"
+title: 'Thanks'
 kind: page
 layout: page
 description: Thanks for using the contact form
 ---
-
-# Thanks!
 
 Thanks for using the contact form. I aim to reply to legitimate enquiries within 3 business days.
 
