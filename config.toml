@@ -3,6 +3,7 @@ title = "barnz.dev"
 theme = "bdev"
 copyright = "barnz.dev"
 defaultContentLanguage = 'en'
+disableHugoGeneratorInject = true
 
 [languages]
     [languages.en]
