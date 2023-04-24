@@ -1,27 +1,97 @@
 - id: menu_home
-  translation: "domicile"
+  translation: ""
 - id: menu_projects
-  translation: "projets"
+  translation: ""
 - id: menu_blog
-  translation: "blog"
+  translation: ""
 - id: menu_contact
-  translation: "contactez"
+  translation: ""
+
+- id: header_homepage
+  translation: ""
+
+- id: options_menu_title
+  translation: ""
+- id: options_menu_light_mode_title
+  translation: ""
+- id: options_menu_light_mode_desc
+  translation: ""
+- id: options_menu_language_title
+  translation: ""
+- id: options_menu_language_desc
+  translation: ""
+- id: options_menu_reset_title
+  translation: ""
+- id: options_menu_reset_desc
+  translation: ""
+- id: options_menu_reset_button
+  translation: ""
+
+- id: blurb_title_1
+  translation: ""
+- id: blurb_title_2
+  translation: ""
+- id: blurb_tagline
+  translation: ""
+- id: blurb_jump_content
+  translation: ""
 
 - id: single_published
-  translation: "Publié"
+  translation: ""
 - id: single_read_time
-  translation: "Temps de lecture"
+  translation: ""
 - id: single_read_time_minutes
-  translation: "minutes"
+  translation: ""
 - id: single_translations
-  translation: "Traductions"
+  translation: ""
 
 - id: common_view_source
-  translation: "view source"
+  translation: ""
+- id: common_screenshot
+  translation: ""
+
+- id: project_view_project
+  translation: ""
+- id: project_view_source
+  translation: ""
+
+- id: taxonomy_title
+  translation: ""
+
+- id: contact_block_title
+  translation: ""
+- id: contact_block_p
+  translation: ""
+
+- id: contact_form_name
+  translation: ""
+- id: contact_form_name_placeholder
+  translation: ""
+- id: contact_form_email
+  translation: ""
+- id: contact_form_email_placeholder
+  translation: ""
+- id: contact_form_email_confirm
+  translation: ""
+- id: contact_form_message
+  translation: ""
+- id: contact_form_message_placeholder
+  translation: ""
+- id: contact_form_send
+  translation: ""
+
+- id: error_404_title
+  translation: ""
+- id: error_404_p1
+  translation: ""
+- id: error_404_p2
+  translation: ""
+- id: error_404_link
+  translation: ""
 
 - id: footer_made_with
-  translation: "fabriqué avec"
+  translation: ""
 - id: footer_by
-  translation: "by"
+  translation: ""
 - id: footer_legal
-  translation: "legal"
+  translation: ""
