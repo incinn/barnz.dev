@@ -1,5 +1,5 @@
 ---
-title: "Hallo Wereld!"
+title: 'Hallo Wereld!'
 date: 2022-02-28T20:00:00Z
 draft: false
 author: barnz
@@ -7,7 +7,7 @@ description: Hello! Nice to meet you. My name is Barnz and I'm a web developer f
 slug: hallo-wereld
 ---
 
-Hello Dutch!!! Nice to meet you. My name is Barnz and I'm a web developer from the UK. I love **Linux**, ramen, and in my free time I play the same [WWII FPS game](https://www.splashdamage.com/games/wolfenstein-enemy-territory/) I have since 2006. I enjoy mechanical keyboards and long walks on the beach.
+Nice to meet you. My name is Barnz and I'm a web developer from the UK. I love **Linux**, ramen, and in my free time I play the same [WWII FPS game](https://www.splashdamage.com/games/wolfenstein-enemy-territory/) I have since 2006. I enjoy mechanical keyboards and long walks on the beach.
 
 Now that we know each other a little better, I want to talk about the purpose of this blog.
 
