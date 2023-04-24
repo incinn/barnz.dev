@@ -1,97 +1,97 @@
 - id: menu_home
-  translation: ""
+  translation: 'home'
 - id: menu_projects
-  translation: ""
+  translation: 'projecten'
 - id: menu_blog
-  translation: ""
+  translation: 'blog'
 - id: menu_contact
-  translation: ""
+  translation: 'contact'
 
 - id: header_homepage
-  translation: ""
+  translation: 'Homepage'
 
 - id: options_menu_title
-  translation: ""
+  translation: 'Instellingen'
 - id: options_menu_light_mode_title
-  translation: ""
+  translation: 'Lichte modus'
 - id: options_menu_light_mode_desc
-  translation: ""
+  translation: 'Voor wie bang is in het donker'
 - id: options_menu_language_title
-  translation: ""
+  translation: 'Taal'
 - id: options_menu_language_desc
-  translation: ""
+  translation: '(Nog) niet alle content is beschikbaar in elke taal'
 - id: options_menu_reset_title
-  translation: ""
+  translation: 'Reset'
 - id: options_menu_reset_desc
-  translation: ""
+  translation: 'Zet alle opties terug naar standaardwaarden'
 - id: options_menu_reset_button
-  translation: ""
+  translation: 'Reset'
 
 - id: blurb_title_1
-  translation: ""
+  translation: 'Hey, mijn naam is <em>Barnz</em>! Ik ben een webdeveloper van het'
 - id: blurb_title_2
-  translation: ""
+  translation: '<em>Verenigd Koninkrijk</em>'
 - id: blurb_tagline
-  translation: ""
+  translation: "Ik maak webapplicaties en de API's die ze aandrijven"
 - id: blurb_jump_content
-  translation: ""
+  translation: 'Ga naar inhoud'
 
 - id: single_published
-  translation: ""
+  translation: 'Gepost'
 - id: single_read_time
-  translation: ""
+  translation: 'Leestijd'
 - id: single_read_time_minutes
-  translation: ""
+  translation: 'minuten'
 - id: single_translations
-  translation: ""
+  translation: 'Vertalingen'
 
 - id: common_view_source
-  translation: ""
+  translation: 'broncode bekijken'
 - id: common_screenshot
-  translation: ""
+  translation: 'screenshot'
 
 - id: project_view_project
-  translation: ""
+  translation: 'project bekijken'
 - id: project_view_source
-  translation: ""
+  translation: 'broncode bekijken'
 
 - id: taxonomy_title
-  translation: ""
+  translation: 'Toont alle berichten getagd met'
 
 - id: contact_block_title
-  translation: ""
+  translation: 'Contact'
 - id: contact_block_p
-  translation: ""
+  translation: 'De beste manier om mij te contacteren is via dit formulier hieronder'
 
 - id: contact_form_name
-  translation: ""
+  translation: 'Naam'
 - id: contact_form_name_placeholder
-  translation: ""
+  translation: 'Joe Bloggs'
 - id: contact_form_email
-  translation: ""
+  translation: 'E-mail'
 - id: contact_form_email_placeholder
-  translation: ""
+  translation: 'joe@voorbeeld.com'
 - id: contact_form_email_confirm
-  translation: ""
+  translation: 'Bevestig e-mail'
 - id: contact_form_message
-  translation: ""
+  translation: 'Bericht'
 - id: contact_form_message_placeholder
-  translation: ""
+  translation: 'Wauw, wat een fantastische website...'
 - id: contact_form_send
-  translation: ""
+  translation: 'Verzend'
 
 - id: error_404_title
-  translation: ""
+  translation: 'Pagina niet gevonden'
 - id: error_404_p1
-  translation: ""
+  translation: 'Sorry, de pagina die je zoekt kan niet gevonden worden. Misschien is het verplaatst en ben ik vergeten het om te leiden, of misschien heeft het gewoon nooit bestaan. Het enige wat ik je nu kan vertellen is dat het er nu niet is.'
 - id: error_404_p2
-  translation: ""
+  translation: 'Als je denkt dat dit een fout is, gelieve mij dit'
 - id: error_404_link
-  translation: ""
+  translation: 'te laten weten'
 
 - id: footer_made_with
-  translation: ""
+  translation: 'gemaakt met'
 - id: footer_by
-  translation: ""
+  translation: 'door'
 - id: footer_legal
-  translation: ""
+  translation: 'disclaimer'
