@@ -15,7 +15,7 @@
         id="name"
         autocomplete="name"
         placeholder='{{ i18n "contact_form_name_placeholder" }}'
-        required="true"
+        required
       />
     </div>
     <div class="contactForm__row__item">
@@ -47,10 +47,17 @@
     placeholder='{{ i18n "contact_form_message_placeholder" }}'
     cols="20"
     rows="12"
-    required="true"
+    required
   ></textarea>
-  <input type="hidden" name="_redirect" value='{{ ref . "/thanks"}}' />
-  <button class="btn btn--primary" type="submit">
+  <input
+    type="hidden"
+    name="_redirect"
+    value='{{ ref . "/thanks"}}'
+  />
+  <button
+    class="btn btn--primary"
+    type="submit"
+  >
     {{ i18n "contact_form_send" }}
   </button>
 </form>

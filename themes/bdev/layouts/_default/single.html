@@ -1,50 +1,58 @@
 {{ define "main" }}
 <div class="page">
-    <section class="page__header">
-        <div class="page__header__inner">
-            <h1>{{ .Title }}</h1>
-            {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
-            else }}
-            <span class="post__date">
-                <span>{{ i18n "single_published" }}:</span>
-                {{ time.Format "Monday" .Date }}
-                {{ .Date.Format "2" }}{{ if in (slice 1 21
-                31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if in
-                (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} 
-                {{ time.Format "January 2006" .Date }}
-            </span>
-            {{ end }}
-            <span class="post__readTime">
-                <span>{{ i18n "single_read_time" }}:</span>
-                {{ math.Round (div (countwords .Content) 100.0) }} {{ i18n "single_read_time_minutes" }}
-            </span>
-            {{ if .IsTranslated }}
-            <span class="post__translations">
-                <span>{{ i18n "single_translations" }}:</span>
-                <ul>
-                    {{ range .Translations }}
-                    <li>
-                        <a href="{{ .Permalink }}" title="{{ .Title }}">
-                            <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16px" height="11px" />
-                        </a>
-                    </li>
-                    {{ end }}
-                </ul>
-            </span>
-            {{ end }}
-        </div>
-    </section>
-
-    {{- partial "components/separator.html" -}}
-
-    <div class="page__content">
-        <section class="page__content__inner prose">
-            {{ .Content | safeHTML }} {{ partial "components/tags" . }}
-        </section>
+  <section class="page__header">
+    <div class="page__header__inner">
+      <h1>{{ .Title }}</h1>
+      {{ if isset .Params "show_date" | and (eq .Params.show_date false) }} {{
+      else }}
+      <span class="post__date">
+        <span>{{ i18n "single_published" }}:</span>
+        {{ time.Format "Monday" .Date }} {{ .Date.Format "2" }}{{ if in (slice 1
+        21 31) .Date.Day }}st{{ else if in (slice 2 22) .Date.Day}}nd{{ else if
+        in (slice 3 23) .Date.Day }}rd{{ else }}th {{ end }} {{ time.Format
+        "January 2006" .Date }}
+      </span>
+      {{ end }}
+      <span class="post__readTime">
+        <span>{{ i18n "single_read_time" }}:</span>
+        {{ math.Round (div (countwords .Content) 100.0) }} {{ i18n
+        "single_read_time_minutes" }}
+      </span>
+      {{ if .IsTranslated }}
+      <span class="post__translations">
+        <span>{{ i18n "single_translations" }}:</span>
+        <ul>
+          {{ range .Translations }}
+          <li>
+            <a
+              href="{{ .Permalink }}"
+              title="{{ .Title }}"
+            >
+              <img
+                src="/img/flags/{{ .Lang }}.png"
+                alt="{{ .Lang }}"
+                title="{{ .Lang }}"
+                width="16"
+                height="11"
+              />
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </span>
+      {{ end }}
     </div>
+  </section>
 
-    {{ if .IsTranslated }}
-    {{- partial "components/translationCredit.html" -}}
-    {{ end }}
+  {{- partial "components/separator.html" -}}
+
+  <div class="page__content">
+    <section class="page__content__inner prose">
+      {{ .Content | safeHTML }} {{ partial "components/tags" . }}
+    </section>
+  </div>
+
+  {{ if .IsTranslated }} {{- partial "components/translationCredit.html" -}} {{
+  end }}
 </div>
 {{ end }}

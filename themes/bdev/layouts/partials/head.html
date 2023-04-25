@@ -1,35 +1,79 @@
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta property="description"
-    content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+  />
+  <meta
+    property="description"
+    content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"
+  />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-  <meta property="og:title"
-    content="{{ if not .IsHome }}{{ with .Title }}{{ . }}{{ end }}{{ else }}{{ .Site.Title }}{{ end }}" />
-  <meta property="og:locale" content="{{ .Language.Lang }}" />
-  <meta property="og:description"
-    content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
-  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta
+    property="og:title"
+    content="{{ if not .IsHome }}{{ with .Title }}{{ . }}{{ end }}{{ else }}{{ .Site.Title }}{{ end }}"
+  />
+  <meta
+    property="og:locale"
+    content="{{ .Language.Lang }}"
+  />
+  <meta
+    property="og:description"
+    content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"
+  />
+  <meta
+    property="og:url"
+    content="{{ .Permalink }}"
+  />
   {{ if .IsNode }}
-  <meta property="og:type" content="website" />
+  <meta
+    property="og:type"
+    content="website"
+  />
   {{ else }}
-  <meta property="og:type" content="article" />
-  <meta property="og:article:published_time" content='{{ .Date.Format "2006-01-02T15:04:05Z0700" }}' />
-  <meta property="og:article:modified_time" content='{{ .Lastmod.Format "2006-01-02T15:04:05Z0700" }}' />
+  <meta
+    property="og:type"
+    content="article"
+  />
+  <meta
+    property="og:article:published_time"
+    content='{{ .Date.Format "2006-01-02T15:04:05Z0700" }}'
+  />
+  <meta
+    property="og:article:modified_time"
+    content='{{ .Lastmod.Format "2006-01-02T15:04:05Z0700" }}'
+  />
   {{ range .Params.tags }}
-  <meta property="og:article:tag" content="{{ . | urlize }}" />
+  <meta
+    property="og:article:tag"
+    content="{{ . | urlize }}"
+  />
   {{ end }} {{ end }}
-  <meta property="og:image" content="{{ .Site.BaseURL }}img/barnz-dev-icon-full.png" />
+  <meta
+    property="og:image"
+    content="{{ .Site.BaseURL }}img/barnz-dev-icon-full.png"
+  />
 
   <title>
     {{ if not .IsHome }}{{ with .Title }}{{ . }} | {{ end }}{{ end }}{{
     .Site.Title }}
   </title>
 
-  <link rel="icon" href="{{ .Site.BaseURL }}favicon.png" />
+  <link
+    rel="icon"
+    href="{{ .Site.BaseURL }}favicon.png"
+  />
 
   {{ $sass := resources.Get "sass/style.scss" }} {{ $style := $sass |
   resources.ToCSS | resources.PostCSS | fingerprint "sha512" }}
-  <link href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" rel="preload stylesheet" as="style" />
+  <link
+    href="{{ $style.Permalink }}"
+    integrity="{{ $style.Data.Integrity }}"
+    rel="preload stylesheet"
+    as="style"
+  />
 </head>
