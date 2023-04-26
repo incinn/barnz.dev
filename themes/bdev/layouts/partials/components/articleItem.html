@@ -1,15 +1,11 @@
 <div class="articleItem">
-  <div class="articleItem__title">
+  <h3 class="articleItem__title">
     {{ if .context.Params.externalLink }}
-    <a
-      target="_blank"
-      href="{{ .context.Params.externalLink }}"
-      >{{ .context.Title }}</a
-    >
+    <a target="_blank" href="{{ .context.Params.externalLink }}">{{ .context.Title }}</a>
     {{ partial "components/icon" "external-link" }} {{ else }}
     <a href="{{ .context.RelPermalink }}">{{ .context.Title }}</a>
     {{ end }}
-  </div>
+  </h3>
 
   <div class="articleItem__summary prose">
     {{ .context.Summary | safeHTML | truncate 200 }}
@@ -26,17 +22,8 @@
     <ul class="articleItem__metadata--translations">
       {{ range .context.Translations }}
       <li>
-        <a
-          href="{{ .Permalink }}"
-          title="{{ .Title }}"
-        >
-          <img
-            src="/img/flags/{{ .Lang }}.png"
-            alt="{{ .Lang }}"
-            title="{{ .Lang }}"
-            width="16"
-            height="11"
-          />
+        <a href="{{ .Permalink }}" title="{{ .Title }}">
+          <img src="/img/flags/{{ .Lang }}.png" alt="{{ .Lang }}" title="{{ .Lang }}" width="16" height="11" />
         </a>
       </li>
       {{ end }}

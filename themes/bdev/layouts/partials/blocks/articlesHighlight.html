@@ -1,6 +1,6 @@
 <section class="articles">
   <div class="articles__inner">
-    <h1 id="articles">Blog</h1>
+    <h2 id="articles">Blog</h2>
     <p>I don't write much, but when I do it will appear here.</p>
     <div class="articles__list">
       {{ range ( where .Site.RegularPages "Type" "blog" | first 2 ) }} {{
