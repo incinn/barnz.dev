@@ -123,10 +123,14 @@ describe('Lightswitch', () => {
     });
   });
 
-  test('createSwitch() should create the default switch element', () => {
-    const expected = document.createElement('label');
-    expected.classList.add('switch');
+  test('createLabel() should create the label element', () => {
+    const actual = component.createLabel();
+    expect(actual.outerHTML.toString()).toContain(
+      'optionsMenu__content__title'
+    );
+  });
 
+  test('createSwitch() should create the switch element', () => {
     const actual = component.createSwitch();
     expect(JSON.stringify(actual)).toContain(JSON.stringify(expected));
   });
