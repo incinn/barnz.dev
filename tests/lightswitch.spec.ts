@@ -132,7 +132,7 @@ describe('Lightswitch', () => {
 
   test('createSwitch() should create the switch element', () => {
     const actual = component.createSwitch();
-    expect(JSON.stringify(actual)).toContain(JSON.stringify(expected));
+    expect(actual.outerHTML.toString()).toContain('switch__input');
   });
 
   test('handleToggle() should set toggle correctly', () => {
