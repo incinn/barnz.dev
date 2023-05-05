@@ -1,65 +1,80 @@
-import Plugin from "../plugin";
+import Plugin from '../plugin';
 
 export default class LightSwitch extends Plugin {
+  elementId = 'lightModeToggle';
   wrapper: HTMLElement;
   inputEl: HTMLInputElement;
   toggle: boolean; // true = lightMode
 
   constructor() {
     super();
-    this.wrapper = document.getElementById("js-lightswitch");
+    this.wrapper = document.getElementById('js-lightswitch');
 
     if (!this.wrapper) {
-      this.init = () => console.error("LightSwitch unable to start");
+      this.init = () => console.error('LightSwitch unable to start');
     }
   }
 
   init(): void {
     const switchEl = this.createSwitch();
+    const label = this.createLabel();
 
-    this.inputEl = switchEl.querySelector("input[type=checkbox]");
-    this.inputEl.addEventListener("change", (e: InputEvent) => {
+    this.inputEl = switchEl.querySelector('input[type=checkbox]');
+    this.inputEl.addEventListener('change', (e: InputEvent) => {
       this.toggle = (<HTMLInputElement>e.target).checked;
       this.handleToggle();
     });
 
-    this.wrapper.appendChild(switchEl);
+    this.wrapper.replaceWith(label, switchEl);
 
     this.setDefaultTheme();
   }
 
-  reset(): void {}
+  reset(): void { }
 
   setDefaultTheme(): void {
-    let theme = localStorage.getItem("theme");
+    let theme = localStorage.getItem('theme');
 
     if (!theme) {
       theme =
         window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
     }
 
-    this.toggle = theme === "light" ? true : false;
+    this.toggle = theme === 'light' ? true : false;
     this.handleToggle();
     this.setThemeAttr();
   }
 
+  createLabel(): HTMLElement {
+    const label = document.createElement('label');
+    label.setAttribute('for', this.elementId);
+    label.classList.add('optionsMenu__content__title');
+
+    const smallText = document.createElement('small');
+    smallText.innerText = 'For those scared of the dark';
+
+    label.innerText = 'Light mode';
+    label.appendChild(smallText);
+
+    return label;
+  }
+
   createSwitch(): HTMLElement {
-    const elId = "lightModeToggle";
-    const wrapper = document.createElement("label");
+    const wrapper = document.createElement('label');
 
-    wrapper.classList.add("switch");
-    wrapper.setAttribute("for", elId);
+    wrapper.classList.add('switch');
+    wrapper.setAttribute('for', this.elementId);
 
-    const inputEl = document.createElement("input");
-    inputEl.setAttribute("type", "checkbox");
-    inputEl.classList.add("switch__input");
-    inputEl.setAttribute("id", elId);
+    const inputEl = document.createElement('input');
+    inputEl.setAttribute('type', 'checkbox');
+    inputEl.classList.add('switch__input');
+    inputEl.setAttribute('id', this.elementId);
 
-    const fillEl = document.createElement("div");
-    fillEl.classList.add("switch__fill");
+    const fillEl = document.createElement('div');
+    fillEl.classList.add('switch__fill');
 
     wrapper.appendChild(inputEl);
     wrapper.appendChild(fillEl);
@@ -75,14 +90,14 @@ export default class LightSwitch extends Plugin {
   }
 
   setThemeAttr(): void {
-    document.documentElement.setAttribute("data-theme", this.getThemeName());
+    document.documentElement.setAttribute('data-theme', this.getThemeName());
   }
 
   getThemeName(): string {
-    return this.toggle ? "light" : "dark";
+    return this.toggle ? 'light' : 'dark';
   }
 
   storeTheme(): void {
-    localStorage.setItem("theme", this.getThemeName());
+    localStorage.setItem('theme', this.getThemeName());
   }
 }
