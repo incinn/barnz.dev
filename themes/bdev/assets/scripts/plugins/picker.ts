@@ -1,28 +1,11 @@
 import feather = require('feather-icons');
+import i18next from 'i18next';
 import Plugin from '../plugin';
 
 interface UserChangedResponse {
   text: string;
   postText: string;
 }
-
-const component = `
-  <div class="picker__container">
-    <div class="picker__inner">
-      <h2>
-        <span class="picker__titleText">Hate</span>
-        <span class="picker__titleColor">#df1155</span>
-        <span class="picker__titleTextPost">?</span>
-      </h2>
-      <p>
-        Select an accent colour below, or choose your own with the picker on the right.
-      </p>
-      <div class="picker__presets"></div>
-      <small>Changing the accent colour may impact readability in some areas.</small>
-      <button class="picker__reset" title="I made a mistake, put it back to how it was"></button>
-    </div>
-  </div>
-`;
 
 export default class Picker extends Plugin {
   container: HTMLElement;
@@ -70,6 +53,30 @@ export default class Picker extends Plugin {
     },
   ];
 
+  component = `
+    <div class="picker__container">
+      <div class="picker__inner">
+        <h2>
+          <span class="picker__titleText">
+          ${i18next.t('picker.title.hate')}
+          </span>
+          <span class="picker__titleColor">#df1155</span>
+          <span class="picker__titleTextPost">?</span>
+        </h2>
+        <p>
+          ${i18next.t('picker.description')}
+        </p>
+        <div class="picker__presets"></div>
+        <small>
+          ${i18next.t('picker.disclaimer')}
+        </small>
+        <button class="picker__reset" title="${i18next.t(
+    'picker.resetTitle'
+  )}"></button>
+      </div>
+    </div>
+  `;
+
   constructor() {
     super();
 
@@ -89,7 +96,7 @@ export default class Picker extends Plugin {
   create(): void {
     this.wrapperEl = document.createElement('aside');
     this.wrapperEl.classList.add('picker');
-    this.wrapperEl.innerHTML = component;
+    this.wrapperEl.innerHTML = this.component;
 
     const presetContainer = this.wrapperEl.querySelector('.picker__presets');
     this.presets.forEach((val) => {

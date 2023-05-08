@@ -11,9 +11,20 @@ document.addEventListener('DOMContentLoaded', () => {
     resources: {
       en: {
         translation: {
+          test: 'test',
           lightswitch: {
             optionsLabelTitle: 'Light mode',
             optionsLabelDesc: 'For those scared of the dark',
+          },
+          picker: {
+            title: {
+              hate: "Don't like",
+            },
+            description:
+              'Select an accent colour below, or choose your own with the picker on the right.',
+            disclaimer:
+              'Changing the accent colour may impact readability in some areas.',
+            resetTitle: 'Eww! Put it back to how it was!',
           },
         },
       },
@@ -23,6 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
             optionsLabelTitle: 'Lichte modus',
             optionsLabelDesc: 'Voor wie bang is in het donker',
           },
+          picker: {
+            title: {
+              hate: '',
+            },
+            description: '',
+            disclaimer: '',
+            resetTitle: '',
+          },
         },
       },
       fr: {
@@ -30,6 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
           lightswitch: {
             optionsLabelTitle: 'Light mode',
             optionsLabelDesc: 'Pour ceux qui ont peur du noir',
+          },
+          picker: {
+            title: {
+              hate: '',
+            },
+            description: '',
+            disclaimer: '',
+            resetTitle: '',
           },
         },
       },
