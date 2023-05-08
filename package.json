@@ -1,5 +1,6 @@
 {
   "author": "Barnz <hi@barnz.dev>",
+  "version": "1.1.0",
   "bugs": {
     "url": "https://github.com/incinn/barnz.dev/issues",
     "email": "bugs@barnz.dev"
@@ -55,6 +56,5 @@
   "scripts": {
     "test": "jest",
     "deploy": "bash ./deploy.sh"
-  },
-  "version": "1.1.0"
+  }
 }
