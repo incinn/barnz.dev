@@ -12,7 +12,7 @@ export default class Picker extends Plugin {
   wrapperEl: HTMLElement;
   color: string;
 
-  presets = ['#26bf80', '#e64d4d', '#457dd3', '#d96845', '#9572ca'];
+  presets = ['#26bf80', '#e64d4d', '#457dd3', '#e89463', '#9572ca'];
 
   userChangedResponses: UserChangedResponse[] = [
     {
