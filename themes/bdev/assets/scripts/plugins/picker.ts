@@ -25,7 +25,7 @@ export default class Picker extends Plugin {
     },
     {
       text: '😍',
-      postText: 'is much nicer!',
+      postText: '',
     },
     {
       text: '🤢',
@@ -37,15 +37,11 @@ export default class Picker extends Plugin {
     },
     {
       text: '',
-      postText: "wouldn't be my first choice",
-    },
-    {
-      text: '',
       postText: '❤️',
     },
     {
       text: '',
-      postText: 'reminds me of Comic Sans',
+      postText: 'reminds me a bit of Comic Sans',
     },
     {
       text: '',
