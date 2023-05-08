@@ -24,12 +24,12 @@ const component = `
   </div>
 `;
 
-const presets = ['#26bf80', '#df1155', '#457dd3', '#c18f34', '#834ed3'];
-
 export default class Picker extends Plugin {
   container: HTMLElement;
   wrapperEl: HTMLElement;
   color: string;
+
+  presets = ['#26bf80', '#e64d4d', '#457dd3', '#d96845', '#9572ca'];
 
   userChangedResponses: UserChangedResponse[] = [
     {
@@ -92,7 +92,7 @@ export default class Picker extends Plugin {
     this.wrapperEl.innerHTML = component;
 
     const presetContainer = this.wrapperEl.querySelector('.picker__presets');
-    presets.forEach((val) => {
+    this.presets.forEach((val) => {
       const btn = this.createPresetButton(val);
       btn.addEventListener('click', this.handlePresetClick.bind(this));
       presetContainer.appendChild(btn);
