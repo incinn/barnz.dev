@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import Plugin from '../plugin';
 
 export default class LightSwitch extends Plugin {
@@ -54,9 +55,9 @@ export default class LightSwitch extends Plugin {
     label.classList.add('optionsMenu__content__title');
 
     const smallText = document.createElement('small');
-    smallText.innerText = 'For those scared of the dark';
+    smallText.innerText = i18next.t('lightswitch.optionsLabelDesc');
 
-    label.innerText = 'Light mode';
+    label.innerText = i18next.t('lightswitch.optionsLabelTitle');
     label.appendChild(smallText);
 
     return label;
