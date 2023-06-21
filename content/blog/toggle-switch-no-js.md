@@ -6,21 +6,24 @@ tags: ["css", "sass", "tutorial"]
 author: barnz
 ---
 
-Ever found yourself in need of an aestheticly pleasing, user friendly toggle switch for your form, but didn't want the hassle
-of using JavaScript? Well, this tutorial is for you!
+Ever found yourself needing an aestheticly pleasing and user friendly toggle switch for your website? But didn't want the hassle
+of using JavaScript? Well, I put together this five step programme just for you!
 
 <!--more-->
 
 **TLDR**: Complete example available on [Codepen](https://codepen.io/barnz/pen/bGjKxZj).
 
-## Prerequisites
+## What you need to begin
 
-In this tutorial, I will make the following assumptions:
+In this short and sweet tutorial I will make the following assumptions:
 
-- You have some basic experience with **HTML**, especially form elements such as `input` and `label`
-- You are comfortable with **CSS**, and understand **Sass**
+- You have some experience with **HTML**
+- You are aware how form elements such as `input` and `label` work together
+- You are comfortable with **CSS**, and can understand **Sass**
 
-## Step One: Structure
+With that out of the way, let's begin.
+
+## 1: Structure
 
 First things first. We need some elements on the page:
 
@@ -31,17 +34,17 @@ First things first. We need some elements on the page:
 </label>
 ```
 
-Here we have a `label` element that contains a checkbox `input`, as well as an empty `div`. The `label`'s `for` attribute is tied
+Here we have a `label` element that contains a checkbox `input`. We also added an empty `div` next to it. The `label`'s `for` attribute is tied
 to the checkbox element, which means clicking on the label - or anything within the label - will toggle the value between checked
-and unchecked.
+and unchecked. This is crucial.
 
-## Step Two: Colouring in
+## 2: Colouring in
 
-Now we have some structure on the page, we can begin creating our toggle switch.
+Now the boring part is out of the way, we can start making something that looks more like a toggle switch!
 
-We will be making use of the empty `div` element with the class `toggle__fill` for our toggle switch. We can utilize the
-[`::after`](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) selector to create a pseudo element at the end of
-our `div`. This will become the "button" that moves from left to right to signify whether or not the checkbox is active.
+We will be making use of the empty `div` element we added earlier for the container of the switch. And we can utilize the
+[`::after`](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) selector to create a pseudo element at the end of it, 
+which will become the "button" that moves from left to right to signify whether or not the checkbox is active.
 
 ```SASS
 .toggle {
@@ -72,11 +75,11 @@ our `div`. This will become the "button" that moves from left to right to signif
 ```
 
 The positioning here is important. We need to make sure that `.toggle__fill` has its position set to `relative`
-so that all the child elements can position themselves in relation to it.
+so that all the child elements (and pseudo elements) can position themselves in relation to it.
 
-Then we add `position: absolute;` to our pseudo element which allows us to precisely position it within its parent.
+We then need to add `position: absolute;` to our pseudo element, and can precisely position it in relation to `.toggle__fill` with `top` and `left`.
 
-## Step Three: Hide the input
+## 3: Hide the input
 
 Now we can safely hide the checkbox element from the page:
 
@@ -90,14 +93,14 @@ Now we can safely hide the checkbox element from the page:
     &__fill {
 ```
 
-## Step Four: Movement
+## 4: Movement
 
 At this point we have a plain looking toggle that does absolutely nothing when you click it. Let's change that.
 
-The magic here comes from the [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) pseudo selector.
-This allows us to target elements differently based on whether or not the checkbox is checked. This, along with
-the [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) `~` which
-helps us select the relevant sibling elements, allows us to create the toggle effect:
+The magic here comes from the [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) pseudo selector, which 
+allows us to target elements differently based on whether or not the checkbox is checked. Along with
+the [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) `~` (which
+helps us select the relevant sibling elements) allows us to complete the toggle effect:
 
 ```SASS{hl_lines=["4-12"],linenostart=4}
     input[type="checkbox"] {
@@ -115,10 +118,11 @@ helps us select the relevant sibling elements, allows us to create the toggle ef
     }
 ```
 
-## Step Five: Smooth transitions
+## 5: Smooth transitions
 
-Our toggle now snaps quickly left to right, then back again when we click it. This is very jarring from a usability
-standpoint. We can use the `transition` property to smooth this out a little:
+Now our toggle snaps quickly from left to right, then back again when we click it. This is very jarring, not to mention ugly. We can do better.
+
+Using the `transition` property we can smooth out the change between the two states:
 
 ```SASS{hl_lines=[8, 20],linenostart=20}
     &__fill {
@@ -153,14 +157,15 @@ You might want to think about adjusting the transition speed for users who have 
 }
 ```
 
-## Conclusion
+## Switch it up
 
-There you have it. A simple toggle switch that utilizes a checkbox input and a label. You can use this method to create
-more than just toggle switches. You can use the same method to create dropdown menus, mobile menus, modals, really anything
-that has a "toggle" nature to it.
+So there you have it! A simple toggle switch created from three simple HTML elements and a handful of CSS sprinkles.
 
-On [my website](https://barnz.dev), the settings menu, mobile navigation and language switcher are all built using this method.
-One of the biggest benefits of building UI interactions this way is that you add interactivity for browsers where JavaScript
-might be disabled.
+The biggest benefit I've found of building UI this way is that you add interactivity for browsers where JavaScript is disabled.
 
-You can find a complete example I've put together on [Codepen](https://codepen.io/barnz/pen/bGjKxZj).
+But that's not it. You can use this method to create more than just toggle switches. I've used this method 
+to create dropdown menus and modals. It's suitible for almost anything that has a "toggle" nature to it. For a live example 
+[my website](https://barnz.dev)'s settings menu, mobile navigation and language switcher are all built like this.
+
+You can find a complete example on [Codepen](https://codepen.io/barnz/pen/bGjKxZj) (copy and paste friendly).
+
