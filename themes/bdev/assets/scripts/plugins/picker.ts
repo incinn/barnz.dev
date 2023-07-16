@@ -49,44 +49,52 @@ export default class Picker extends Plugin {
     },
   ];
 
-  component = `
-    <div class="picker__container">
-      <div class="picker__inner">
-        <h2>
-          <span class="picker__titleText">
-          ${i18next.t('picker.title.hate')}
-          </span>
-          <span class="picker__titleColor">#df1155</span>
-          <span class="picker__titleTextPost">?</span>
-        </h2>
-        <p>
-          ${i18next.t('picker.description')}
-        </p>
-        <div class="picker__presets"></div>
-        <small>
-          ${i18next.t('picker.disclaimer')}
-        </small>
-        <button class="picker__reset" title="${i18next.t(
-    'picker.resetTitle'
-  )}"></button>
-      </div>
-    </div>
-  `;
+  component = '';
 
   constructor() {
     super();
 
     this.container = document.getElementById('picker');
     if (!this.container) {
-      this.init = () => console.info('Picker did not start');
+      this.init = undefined;
     }
   }
 
-  init(): void {
+  async init(): Promise<void> {
+    await i18next.loadNamespaces('picker');
+
+    this.component = this.buildTemplate();
     this.create();
 
     const savedAccent = this.loadValueFromStore();
     if (savedAccent) this.update(savedAccent);
+  }
+
+  buildTemplate(): string {
+    return `
+    <div class="picker__container">
+      <div class="picker__inner">
+        <h2>
+          <span class="picker__titleText">
+          ${i18next.t('picker:title.hate')}
+          </span>
+          <span class="picker__titleColor">#df1155</span>
+          <span class="picker__titleTextPost">?</span>
+        </h2>
+        <p>
+          ${i18next.t('picker:description')}
+        </p>
+        <div class="picker__presets"></div>
+        <small>
+          ${i18next.t('picker:disclaimer')}
+        </small>
+        <button class="picker__reset" title="${i18next.t(
+    'picker:resetTitle'
+  )}"></button>
+      </div>
+    </div>
+  `;
+
   }
 
   create(): void {
