@@ -15,7 +15,7 @@ export default class ProjectItemEffect extends Plugin {
     this._responsive = rh;
   }
 
-  init(): void {
+  async init(): Promise<void> {
     const previews = document.querySelectorAll(".projectItem .window");
 
     previews.forEach((preview: HTMLElement) => {

@@ -16,7 +16,7 @@ export default class LightSwitch extends Plugin {
     }
   }
 
-  init(): void {
+  async init(): Promise<void> {
     const switchEl = this.createSwitch();
     const label = this.createLabel();
 

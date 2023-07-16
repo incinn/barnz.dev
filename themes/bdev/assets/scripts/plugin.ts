@@ -1,4 +1,4 @@
 export default abstract class Plugin {
-  abstract init(): void;
+  abstract init(): Promise<void>;
   abstract reset(): void;
 }

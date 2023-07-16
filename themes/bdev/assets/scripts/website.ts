@@ -22,7 +22,7 @@ export default class Website {
 
   init(): void {
     this.removeNoJsClass();
-    this.plugins.forEach((plugin: Plugin) => plugin.init());
+    this.plugins.forEach(async (plugin: Plugin) => await plugin.init());
 
     this.introAnimation();
     this.handleResetAllButton();

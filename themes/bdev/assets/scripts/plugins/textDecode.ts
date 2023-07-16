@@ -13,7 +13,7 @@ export default class TextDecode extends Plugin {
     }
   }
 
-  init(): void {
+  async init(): Promise<void> {
     this.targets.forEach((target: HTMLElement) => {
       this.handleEffect(target);
 
