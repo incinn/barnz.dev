@@ -9,7 +9,7 @@ export default class TextDecode extends Plugin {
     this.targets = document.querySelectorAll(".js-decode");
 
     if (!this.targets || this.targets.length < 1) {
-      this.init = () => console.info("No decode-effect elements found");
+      this.init = undefined;
     }
   }
 
