@@ -12,11 +12,13 @@ export default class LightSwitch extends Plugin {
     this.wrapper = document.getElementById('js-lightswitch');
 
     if (!this.wrapper) {
-      this.init = () => console.error('LightSwitch unable to start');
+      this.init = undefined;
     }
   }
 
   async init(): Promise<void> {
+    await i18next.loadNamespaces('lightswitch');
+
     const switchEl = this.createSwitch();
     const label = this.createLabel();
 
@@ -55,9 +57,9 @@ export default class LightSwitch extends Plugin {
     label.classList.add('optionsMenu__content__title');
 
     const smallText = document.createElement('small');
-    smallText.innerText = i18next.t('lightswitch.optionsLabelDesc');
+    smallText.innerText = i18next.t('optionsLabelDesc', { ns: 'lightswitch' });
 
-    label.innerText = i18next.t('lightswitch.optionsLabelTitle');
+    label.innerText = i18next.t('optionsLabelTitle', { ns: 'lightswitch' });
     label.appendChild(smallText);
 
     return label;
