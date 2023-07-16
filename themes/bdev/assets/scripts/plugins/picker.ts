@@ -88,9 +88,7 @@ export default class Picker extends Plugin {
         <small>
           ${i18next.t('picker:disclaimer')}
         </small>
-        <button class="picker__reset" title="${i18next.t(
-    'picker:resetTitle'
-  )}"></button>
+        <button class="picker__reset" title="${i18next.t('picker:resetTitle')}"></button>
       </div>
     </div>
   `;

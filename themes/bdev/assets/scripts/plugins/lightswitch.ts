@@ -57,9 +57,9 @@ export default class LightSwitch extends Plugin {
     label.classList.add('optionsMenu__content__title');
 
     const smallText = document.createElement('small');
-    smallText.innerText = i18next.t('optionsLabelDesc', { ns: 'lightswitch' });
+    smallText.innerText = i18next.t('lightswitch:optionsLabelDesc');
 
-    label.innerText = i18next.t('optionsLabelTitle', { ns: 'lightswitch' });
+    label.innerText = i18next.t('lightswitch:optionsLabelTitle');
     label.appendChild(smallText);
 
     return label;
