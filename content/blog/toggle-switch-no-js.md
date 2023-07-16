@@ -15,7 +15,7 @@ of using JavaScript? Well, I put together this five step programme just for you!
 
 ## What you need to begin
 
-In this short and sweet tutorial I will make the following assumptions:
+In this tutorial I will make the following assumptions:
 
 - You have some experience with **HTML**
 - You are aware how form elements such as `input` and `label` work together
