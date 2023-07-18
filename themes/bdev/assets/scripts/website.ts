@@ -4,6 +4,7 @@ import LightSwitch from './plugins/lightswitch';
 import Picker from './plugins/picker';
 import ProjectItemEffect from './plugins/projectItem';
 import TextDecode from './plugins/textDecode';
+import TranslationCredit from './plugins/translationCredit';
 
 export default class Website {
   plugins: Plugin[] = [];
@@ -15,6 +16,7 @@ export default class Website {
       new Picker(),
       new TextDecode(),
       new ProjectItemEffect(responsiveHelpers),
+      new TranslationCredit()
     ];
 
     this.init();
