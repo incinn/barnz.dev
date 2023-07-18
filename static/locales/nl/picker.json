@@ -1,8 +1,17 @@
 {
-  "title": {
-    "hate": "Don't like"
-  },
+  "title": "Don't like {{color}}?",
   "description": "Select an accent colour from the options below.",
-  "disclaimer": "Some colour options might impact readability.",
-  "resetTitle": "Eww! Put it back to how it was!"
+  "disclaimer": "Some colour combinations might impact readability.",
+  "resetTitle": "Eww! Put it back to how it was!",
+  "presetTitle": "Select preset {{color}}",
+  "customTitle": "Select your own colour",
+  "responses": [
+    "🤔 {{color}}...",
+    "{{color}} if you insist...",
+    "{{color}} 👀",
+    "{{color}} 🤢",
+    "😍 {{color}}",
+    "{{color}} ❤️",
+    "Really {{color}}? Okay..."
+  ]
 }

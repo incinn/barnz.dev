@@ -2,53 +2,11 @@ import feather = require('feather-icons');
 import i18next from 'i18next';
 import Plugin from '../plugin';
 
-interface UserChangedResponse {
-  text: string;
-  postText: string;
-}
-
 export default class Picker extends Plugin {
   container: HTMLElement;
   wrapperEl: HTMLElement;
-  color: string;
-
   presets = ['#26bf80', '#e64d4d', '#457dd3', '#e89463', '#9572ca'];
-
-  userChangedResponses: UserChangedResponse[] = [
-    {
-      text: 'Hmmm',
-      postText: '...',
-    },
-    {
-      text: '',
-      postText: '👀',
-    },
-    {
-      text: '😍',
-      postText: '',
-    },
-    {
-      text: '🤢',
-      postText: '',
-    },
-    {
-      text: '',
-      postText: 'if you insist...',
-    },
-    {
-      text: '',
-      postText: '❤️',
-    },
-    {
-      text: '',
-      postText: 'reminds me a bit of Comic Sans',
-    },
-    {
-      text: '',
-      postText: 'perfect!',
-    },
-  ];
-
+  color: string = this.presets[0];
   component = '';
 
   constructor() {
@@ -74,13 +32,7 @@ export default class Picker extends Plugin {
     return `
     <div class="picker__container">
       <div class="picker__inner">
-        <h2>
-          <span class="picker__titleText">
-          ${i18next.t('picker:title.hate')}
-          </span>
-          <span class="picker__titleColor">#df1155</span>
-          <span class="picker__titleTextPost">?</span>
-        </h2>
+        ${this.createTitle(i18next.t('picker:title', { color: this.color })).outerHTML.toString()}
         <p>
           ${i18next.t('picker:description')}
         </p>
@@ -92,7 +44,6 @@ export default class Picker extends Plugin {
       </div>
     </div>
   `;
-
   }
 
   create(): void {
@@ -115,11 +66,11 @@ export default class Picker extends Plugin {
     this.container.appendChild(this.wrapperEl);
   }
 
-  createPresetButton(colour: string): HTMLButtonElement {
+  createPresetButton(color: string): HTMLButtonElement {
     const btn = document.createElement('button');
-    btn.dataset.colour = colour;
-    btn.style.backgroundColor = colour;
-    btn.setAttribute('aria-label', `Set accent colour ${colour}`);
+    btn.dataset.colour = color;
+    btn.style.backgroundColor = color;
+    btn.setAttribute('title', i18next.t('picker:presetTitle', { color }));
 
     return btn;
   }
@@ -129,6 +80,7 @@ export default class Picker extends Plugin {
     wrapper.classList.add('colorWrapper');
     const picker = document.createElement('input');
     picker.type = 'color';
+    picker.title = i18next.t('picker:customTitle');
     const icon = document.createElement('span');
     icon.innerHTML = feather.icons.edit.toSvg();
 
@@ -151,6 +103,13 @@ export default class Picker extends Plugin {
     button.appendChild(icon);
 
     return button;
+  }
+
+  createTitle(content: string): HTMLHeadingElement{
+    const titleEl = document.createElement('h2');
+    titleEl.innerHTML = content.replace(/(#[0-9a-f]{6}|[0-9a-f]{3})/ig, `<span class="picker__titleColor">$1</span>`);
+
+    return titleEl;
   }
 
   loadValueFromStore(): string | null {
@@ -177,17 +136,16 @@ export default class Picker extends Plugin {
   }
 
   updateText(): void {
-    const colorText = this.wrapperEl.querySelector('.picker__titleColor');
-    const text = this.wrapperEl.querySelector('.picker__titleText');
-    const textPost = this.wrapperEl.querySelector('.picker__titleTextPost');
+    const titleContainer: HTMLElement = this.wrapperEl.querySelector('.picker__inner h2');
+    const prevResponseIndex = titleContainer.dataset.prevIndex || 0;
+    
+    const responses: string[] = i18next.t('picker:responses', { returnObjects: true, color: this.color });
+    const response = this.selectRandomResponse(responses, +prevResponseIndex);
 
-    colorText.innerHTML = this.color;
+    const titleEl = this.createTitle(response.response);
+    titleEl.dataset.prevIndex = response.index.toString();
 
-    const random = Math.floor(Math.random() * this.userChangedResponses.length);
-    const response = this.userChangedResponses[random];
-
-    text.innerHTML = response.text;
-    textPost.innerHTML = response.postText;
+    titleContainer.parentElement.replaceChild(titleEl, titleContainer);
   }
 
   handlePresetClick(event: MouseEvent): void {
@@ -219,6 +177,19 @@ export default class Picker extends Plugin {
       0.2126 * rgbColor[0] + 0.7152 * rgbColor[1] + 0.0722 * rgbColor[2];
 
     return contrast >= 165 ? '#000000' : '#ffffff';
+  }
+
+  selectRandomResponse(responses: string[], previous: number = 0): { index: number; response: string } {
+    // TODO: refactor into shared method 
+    //       used in both pircker.ts and textDeconde.ts
+
+    let index = 0;
+
+    while (index === previous) {
+      index = Math.floor(Math.random() * responses.length);
+    }
+
+    return { index, response: responses[index] };
   }
 
   hexToRgb(hex: string): number[] {
