@@ -89,6 +89,9 @@
 - id: error_404_link
   translation: "let me know"
 
+- id: incomplete_translation_message
+  translation: "Not all content has been translated yet. Change to English to view all available content."
+
 - id: footer_made_with
   translation: "made with"
 - id: footer_by

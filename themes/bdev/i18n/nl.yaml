@@ -89,6 +89,9 @@
 - id: error_404_link
   translation: 'te laten weten'
 
+- id: incomplete_translation_message
+  translation: "XXXXXXX Not all content has been translated yet. Change to English to view all available content."
+
 - id: footer_made_with
   translation: 'gemaakt met'
 - id: footer_by

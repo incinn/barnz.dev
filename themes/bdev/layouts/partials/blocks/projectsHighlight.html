@@ -2,8 +2,11 @@
   <div class="projects__inner">
     <h2 id="projects">Projects</h2>
     <p>Some projects that I'm especially proud of:</p>
-
-    {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }} {{
-    partial "components/projectItem" (dict "context" .) }} {{end}}
+    {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
+    {{ partial "components/projectItem" (dict "context" .) }}
+    {{ end }}
   </div>
 </section>
+{{ if not (gt (where .Site.RegularPages "Type" "projects" | len) 0) }}
+{{ partial "components/incompleteTranslationMessage" . }}
+{{ end }}

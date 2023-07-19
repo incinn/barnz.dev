@@ -3,8 +3,12 @@
     <h2 id="articles">Blog</h2>
     <p>I don't write much, but when I do it will appear here.</p>
     <div class="articles__list">
-      {{ range ( where .Site.RegularPages "Type" "blog" | first 2 ) }} {{
-      partial "components/articleItem" (dict "context" .) }} {{end}}
+      {{ range ( where .Site.RegularPages "Type" "blog" | first 2 ) }}
+      {{ partial "components/articleItem" (dict "context" .) }}
+      {{ end }}
     </div>
   </div>
 </section>
+{{ if not (gt (where .Site.RegularPages "Type" "blog" | len) 0) }}
+{{ partial "components/incompleteTranslationMessage" . }}
+{{ end }}
