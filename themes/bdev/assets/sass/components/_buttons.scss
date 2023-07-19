@@ -18,12 +18,14 @@
 }
 
 @mixin lightButton {
+  $bg: #f5f5f5;
+
   color: var(--dark);
   border-color: rgba(black, 0.25);
-  background-color: #f5f5f5;
+  background-color: $bg;
 
   &:hover {
-    background-color: var(--grey);
+    background-color: darken($bg, 3%);
   }
 }
 
