@@ -59,9 +59,9 @@
   translation: 'Toont alle berichten getagd met'
 
 - id: projects_block_p
-  translation: "XXX some projects I'm especially proud of:"
+  translation: "enkele projecten waar ik bijzonder trots op ben:"
 - id: articles_block_p
-  translation: "XXX I don't write much, but when I do it will appear here:"
+  translation: "Ik schrijf niet vaak, maar als ik schrijf zal het hier verschijnen:"
 - id: contact_block_p
   translation: 'De beste manier om mij te contacteren is via dit formulier hieronder'
 
@@ -92,16 +92,16 @@
   translation: 'te laten weten'
 
 - id: incomplete_translation_message
-  translation: "XXXXXXX Not all content has been translated yet. Change to English to view all available content."
+  translation: "Nog niet alle inhoud is vertaald. Schakel over op Engels om alle beschikbare inhoud te bekijken."
 
 - id: translation_credit_p_1
-  translation: "XXX Content originally written in English. Unfortunately that's the only language I can speak."
+  translation: "Inhoud oorspronkelijk geschreven in het Engels. Helaas is dat de enige taal die ik spreek."
 - id: translation_credit_p_2
-  translation: "XXX Translations for Dutch and French provided by my amazing girlfriend. Isn't she talented?"
+  translation: "Vertalingen voor Nederlands en Frans verzorgd door mijn fantastische vriendin. Is ze niet getalenteerd?"
 - id: translation_credit_button_yes
-  translation: "XXX Yeah!"
+  translation: "Ja!"
 - id: translation_credit_button_no
-  translation: "XXX ...absolutely!"
+  translation: "...absoluut!"
 
 - id: footer_made_with
   translation: 'gemaakt met'

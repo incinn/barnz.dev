@@ -59,9 +59,9 @@
   translation: "Afficher tous les messages tagués avec"
 
 - id: projects_block_p
-  translation: "XXX some projects I'm especially proud of:"
+  translation: "certains projets dont je suis particulièrement fier:"
 - id: articles_block_p
-  translation: "XXX I don't write much, but when I do it will appear here:"
+  translation: "Je n'écris pas souvent, mais quand je le fais, ça apparaîtra ici:"
 - id: contact_block_p
   translation: "La meilleure façon de me contacter est d'utiliser le formulaire ci-dessous"
 
@@ -92,16 +92,16 @@
   translation: "me le signaler"
 
 - id: incomplete_translation_message
-  translation: "XXXXXXX Not all content has been translated yet. Change to English to view all available content."
+  translation: "Tout le contenu n'a pas encore été traduit. Passe à l'anglais pour afficher tout le contenu disponible."
 
 - id: translation_credit_p_1
-  translation: "XXXX Content originally written in English. Unfortunately that's the only language I can speak."
+  translation: "Contenu rédigé en anglais. Malheureusement c'est la seule langue que je parle."
 - id: translation_credit_p_2
-  translation: "XXX Translations for Dutch and French provided by my amazing girlfriend. Isn't she talented?"
+  translation: "Traductions pour le néerlandais et le français fournies par mon incroyable petite amie. N'est-elle pas douée?"
 - id: translation_credit_button_yes
-  translation: "XXX Yeah!"
+  translation: "Oui!"
 - id: translation_credit_button_no
-  translation: "XXX ...absolutely!"
+  translation: "...absolument!"
 
 - id: footer_made_with
   translation: "fait avec"

@@ -61,7 +61,7 @@
 - id: projects_block_p
   translation: "some projects I'm especially proud of:"
 - id: articles_block_p
-  translation: "I don't write much, but when I do it will appear here:"
+  translation: "I don't often write, but when I do it will appear here:"
 - id: contact_block_p
   translation: "the best way to contact me is with this shiny form below:"
 

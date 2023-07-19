@@ -1,17 +1,17 @@
 {
-  "title": "Don't like {{color}}?",
-  "description": "Select an accent colour from the options below.",
-  "disclaimer": "Some colour combinations might impact readability.",
-  "resetTitle": "Eww! Put it back to how it was!",
-  "presetTitle": "Select preset {{color}}",
-  "customTitle": "Select your own colour",
+  "title": "N'aime pas le {{color}}?",
+  "description": "Choisis une couleur d'accent parmi les options ci-dessous",
+  "disclaimer": "Certaines combinaisons de couleurs peuvent avoir un impact sur la lisibilité.",
+  "resetTitle": "Beurk! Remets-le comme il était!",
+  "presetTitle": "Sélectionne preset {{color}}",
+  "customTitle": "Choisis ta propre couleur",
   "responses": [
     "🤔 {{color}}...",
-    "{{color}} if you insist...",
+    "{{color}} Si tu insistes ...",
     "{{color}} 👀",
     "{{color}} 🤢",
     "😍 {{color}}",
     "{{color}} ❤️",
-    "Really {{color}}? Okay..."
+    "Vraiment le {{color}}? D'accord..."
   ]
 }
