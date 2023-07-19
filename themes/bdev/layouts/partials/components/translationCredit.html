@@ -1,14 +1,14 @@
 <aside class="translationCredit">
     <div class="translationCredit__container">
         <div class="translationCredit__text">
-            <p>Content originally written in English. Unfortunately, that's the only language I can speak.</p>
-            <p>Translations for Dutch and French provided by my amazing girlfriend. Isn't she talented?</p>
+          <p>{{ i18n "translation_credit_p_1" }}</p>
+          <p>{{ i18n "translation_credit_p_2" }}</p>
         </div>
         <div class="translationCredit__vote">
-            <button class="voteYes btn btn--small btn--dark" title="Yes she is">
+            <button class="voteYes btn btn--small btn--dark" title='{{ i18n "translation_credit_button_yes" }}'>
                 {{ partial "components/icon" "thumbs-up" }}
             </button>
-            <button class="voteNo btn btn--small btn--dark" title="... yes she is">
+            <button class="voteNo btn btn--small btn--dark" title='{{ i18n "translation_credit_button_no" }}'>
                 {{ partial "components/icon" "thumbs-down" }}
             </button>
         </div>

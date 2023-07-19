@@ -94,6 +94,15 @@
 - id: incomplete_translation_message
   translation: "Not all content has been translated yet. Change to English to view all available content."
 
+- id: translation_credit_p_1
+  translation: "Content originally written in English. Unfortunately that's the only language I can speak."
+- id: translation_credit_p_2
+  translation: "Translations for Dutch and French provided by my amazing girlfriend. Isn't she talented?"
+- id: translation_credit_button_yes
+  translation: "Yeah!"
+- id: translation_credit_button_no
+  translation: "...absolutely!"
+
 - id: footer_made_with
   translation: "made with"
 - id: footer_by
