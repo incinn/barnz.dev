@@ -1,7 +1,13 @@
 <section class="articles">
   <div class="articles__inner">
-    <h2 id="articles">Blog</h2>
-    <p>I don't write much, but when I do it will appear here.</p>
+    <h2 id="articles">
+      <a
+        href='{{ ref . "/blog" }}'
+        title='{{ i18n "menu_blog" }}'
+        >{{ i18n "menu_blog" }}</a
+      >
+    </h2>
+    <p>{{ i18n "articles_block_p" }}</p>
     <div class="articles__list">
       {{ range ( where .Site.RegularPages "Type" "blog" | first 2 ) }}
       {{ partial "components/articleItem" (dict "context" .) }}

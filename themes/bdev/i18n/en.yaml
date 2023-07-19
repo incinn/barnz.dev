@@ -58,10 +58,12 @@
 - id: taxonomy_title
   translation: "Displaying all posts tagged with"
 
-- id: contact_block_title
-  translation: "Contact"
+- id: projects_block_p
+  translation: "some projects I'm especially proud of:"
+- id: articles_block_p
+  translation: "I don't write much, but when I do it will appear here:"
 - id: contact_block_p
-  translation: "The best way to contact me is with this shiny form below:"
+  translation: "the best way to contact me is with this shiny form below:"
 
 - id: contact_form_name
   translation: "Name"

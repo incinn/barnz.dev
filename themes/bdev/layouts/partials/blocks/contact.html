@@ -1,6 +1,12 @@
 <article class="contact">
   <div class="contact__inner">
-    <h2 id="contact">{{ i18n "contact_block_title" }}</h2>
+    <h2 id="contact">
+      <a
+        href='{{ ref . "/contact" }}'
+        title='{{ i18n "menu_contact" }}'
+        >{{ i18n "menu_contact" }}</a
+      >
+    </h2>
     <p>{{ i18n "contact_block_p" }}</p>
     {{- partial "components/contactForm" . -}}
   </div>

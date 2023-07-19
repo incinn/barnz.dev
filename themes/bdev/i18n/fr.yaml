@@ -58,8 +58,10 @@
 - id: taxonomy_title
   translation: "Afficher tous les messages tagués avec"
 
-- id: contact_block_title
-  translation: "Contact"
+- id: projects_block_p
+  translation: "XXX some projects I'm especially proud of:"
+- id: articles_block_p
+  translation: "XXX I don't write much, but when I do it will appear here:"
 - id: contact_block_p
   translation: "La meilleure façon de me contacter est d'utiliser le formulaire ci-dessous"
 

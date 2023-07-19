@@ -6,7 +6,6 @@
 
     {{- partial "components/separator.html" -}}
 
-
     {{ if (gt (.Pages.ByPublishDate.Reverse | len) 0) }}
     <section class="list__content">
         {{ range .Pages.ByPublishDate.Reverse }}

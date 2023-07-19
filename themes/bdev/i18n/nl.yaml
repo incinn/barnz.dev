@@ -58,8 +58,10 @@
 - id: taxonomy_title
   translation: 'Toont alle berichten getagd met'
 
-- id: contact_block_title
-  translation: 'Contact'
+- id: projects_block_p
+  translation: "XXX some projects I'm especially proud of:"
+- id: articles_block_p
+  translation: "XXX I don't write much, but when I do it will appear here:"
 - id: contact_block_p
   translation: 'De beste manier om mij te contacteren is via dit formulier hieronder'
 
