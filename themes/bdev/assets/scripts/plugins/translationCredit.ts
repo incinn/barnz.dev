@@ -53,7 +53,7 @@ export default class TranslationCredit extends Plugin {
 
     setTimeout(() => {
       heart.remove();
-    }, 1000)
+    }, 990)
   }
 
   randomNumber(min: number, max: number): number {
