@@ -4,4 +4,4 @@ title: 'Blog'
 
 # Blog
 
-I don't write much, but when I do it'll be published here.
+Ik schrijf niet vaak, maar als ik schrijf zal het hier verschijnen:
