@@ -63,7 +63,7 @@
 - id: articles_block_p
   translation: "Ik schrijf niet vaak, maar als ik schrijf zal het hier verschijnen:"
 - id: contact_block_p
-  translation: 'De beste manier om mij te contacteren is via dit formulier hieronder'
+  translation: 'De beste manier om mij te contacteren is via dit formulier hieronder:'
 
 - id: contact_form_name
   translation: 'Naam'
