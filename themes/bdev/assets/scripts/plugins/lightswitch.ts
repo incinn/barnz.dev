@@ -12,7 +12,7 @@ export default class LightSwitch extends Plugin {
     this.wrapper = document.getElementById('js-lightswitch');
 
     if (!this.wrapper) {
-      this.init = undefined;
+      this.init = () => (Promise.resolve());
     }
   }
 

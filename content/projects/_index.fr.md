@@ -1,7 +1,7 @@
 ---
-title: 'Projects but in Dutch'
+title: 'Projets'
 ---
 
-# Projects but in dutch
+# Projets
 
-Ik ben geen appel!!
+Certains projets dont je suis particulièrement fier:

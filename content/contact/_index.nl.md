@@ -2,8 +2,8 @@
 title: 'Contact'
 kind: page
 layout: contact
-description: Say hi! Get in touch with the contact form below
 ---
 
 # Contact
-Drop me a message with the form below
+
+De beste manier om mij te contacteren is via dit formulier hieronder:

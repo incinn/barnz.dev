@@ -63,7 +63,7 @@
 - id: articles_block_p
   translation: "Je n'écris pas souvent, mais quand je le fais, cela apparaîtra ici:"
 - id: contact_block_p
-  translation: "La meilleure façon de me contacter est d'utiliser le formulaire ci-dessous"
+  translation: "La meilleure façon de me contacter est d'utiliser le formulaire ci-dessous:"
 
 - id: contact_form_name
   translation: "Nom"

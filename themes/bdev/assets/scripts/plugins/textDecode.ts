@@ -9,7 +9,7 @@ export default class TextDecode extends Plugin {
     this.targets = document.querySelectorAll(".js-decode");
 
     if (!this.targets || this.targets.length < 1) {
-      this.init = undefined;
+      this.init = () => (Promise.resolve());
     }
   }
 
