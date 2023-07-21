@@ -8,15 +8,12 @@ disableHugoGeneratorInject = true
 [languages]
     [languages.en]
         languageName = "English"
-        weight = 1
 
     [languages.nl]
         languageName = "Dutch"
-        weight = 2
 
     [languages.fr]
         languageName = "French"
-        weigth = 3
 
 [author]
   name = "Barnz"
