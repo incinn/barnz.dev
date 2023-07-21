@@ -1,10 +1,18 @@
 <section class="projects">
-    <div class="projects__inner">
-        <h1 id="projects">Projects</h1>
-        <p>Some projects that I'm especially proud of:</p>
-
-        {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
-            {{ partial "components/projectItem" (dict "context" .) }}
-        {{end}}
-    </div>
+  <div class="projects__inner">
+    <h2 id="projects">
+      <a
+        href='{{ ref . "/projects" }}'
+        title='{{ i18n "menu_projects" }}'
+        >{{ i18n "menu_projects" }}</a
+      >
+    </h2>
+    <p>{{ i18n "projects_block_p" }}</p>
+    {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
+    {{ partial "components/projectItem" (dict "context" .) }}
+    {{ end }}
+  </div>
 </section>
+{{ if not (gt (where .Site.RegularPages "Type" "projects" | len) 0) }}
+{{ partial "components/incompleteTranslationMessage" . }}
+{{ end }}

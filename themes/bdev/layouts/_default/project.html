@@ -1,46 +1,34 @@
 {{ define "main" }}
 <div class="page project">
-  <section class="page__header">
-    <div class="page__header__inner">
-      <div class="project__details">
-        <h1>{{ .Title }}</h1>
-        <div class="project__buttons">
-          {{ with .Params.liveUrl }}
-          <a
-            class="btn btn--small btn--primary"
-            title="Visit project website"
-            href="{{ . }}"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            view project {{ partial "components/icon" "external-link" }}
-          </a>
-          {{ end }} {{ with .Params.sourceUrl }}
-          <a
-            class="btn btn--small btn--dark"
-            title="View project source"
-            href="{{ .}}"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            inspect source {{ partial "components/icon" "github" }}
-          </a>
-          {{ end }}
+    <section class="page__header">
+        <div class="page__header__inner">
+            <div class="project__details">
+                <h1>{{ .Title }}</h1>
+                <div class="project__buttons">
+                    {{ with .Params.liveUrl }}
+                    <a class="btn btn--small btn--primary" title="{{ i18n " project_view_project" }}" href="{{ . }}"
+                        rel="noreferrer noopener" target="_blank">
+                        {{ i18n "project_view_project" }} {{ partial "components/icon" "external-link" }}
+                    </a>
+                    {{ end }} {{ with .Params.sourceUrl }}
+                    <a class="btn btn--small btn--dark" title="{{ i18n " project_view_source" }}" href="{{ .}}"
+                        rel="noreferrer noopener" target="_blank">
+                        {{ i18n "project_view_source" }} {{ partial "components/icon" "github" }}
+                    </a>
+                    {{ end }}
+                </div>
+            </div>
+
+            {{ partial "components/window" (dict "context" .) }}
         </div>
-      </div>
-
-      {{ partial "components/window" (dict "context" .) }}
-    </div>
-  </section>
-
-  {{- partial "components/separator.html" -}}
-
-  <div class="page__content">
-    <section class="page__content__inner prose">
-      {{ .Content | safeHTML }} {{ partial "components/tags" . }}
     </section>
-  </div>
 
-  {{- partial "components/twitter.html" -}}
+    {{- partial "components/separator.html" -}}
+
+    <div class="page__content">
+        <section class="page__content__inner prose">
+            {{ .Content | safeHTML }} {{ partial "components/tags" . }}
+        </section>
+    </div>
 </div>
 {{ end }}

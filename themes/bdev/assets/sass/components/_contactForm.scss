@@ -1,4 +1,4 @@
-form.contactForm {
+.contactForm {
   display: flex;
   flex-direction: column;
 
@@ -11,7 +11,7 @@ form.contactForm {
     font-size: 1rem;
     font-family: Ubuntu-Mono;
     border-radius: 3px;
-    border: 4px solid hsla(var(--dark-hue), var(--dark-sat), 75%, 100%);
+    border: 3px solid transparent;
     box-shadow: none;
     margin-bottom: var(--gutter);
     transition: 200ms;
@@ -26,7 +26,24 @@ form.contactForm {
     }
 
     &::placeholder {
-      opacity: 0.6;
+      opacity: 0.35;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &--confirm {
+      display: none;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    &__item {
+      flex-basis: calc(50% -0.5rem);
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -36,9 +53,15 @@ form.contactForm {
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
+    cursor: pointer;
+
+    .required {
+      color: red;
+      margin-left: 0.25rem;
+    }
   }
 
-  input[type='submit'] {
+  button[type='submit'] {
     margin-left: auto;
     margin-top: 1rem;
     width: 100%;
@@ -48,6 +71,11 @@ form.contactForm {
       margin-top: 2rem;
       width: 75px;
     }
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    @include input;
   }
 
   textarea {

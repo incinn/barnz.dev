@@ -1,92 +1,54 @@
 import feather = require('feather-icons');
+import i18next from 'i18next';
+import Plugin from '../plugin';
 
-interface UserChangedResponse {
-  text: string;
-  postText: string;
-}
-
-const component = `
-  <div class="picker__container">
-    <div class="picker__inner">
-      <h1>
-        <span class="picker__titleText">Hate</span>
-        <span class="picker__titleColor">#df1155</span>
-        <span class="picker__titleTextPost">?</span>
-      </h1>
-      <p>
-        Select an accent colour below, or choose your own with the picker on the right.
-      </p>
-      <div class="picker__presets"></div>
-      <small>Changing the accent colour may impact readability in some areas.</small>
-      <button class="picker__reset" title="I made a mistake, put it back to how it was"></button>
-    </div>
-  </div>
-`;
-
-const presets = ['#26bf80', '#df1155', '#457dd3', '#c18f34', '#834ed3'];
-
-export default class Picker {
+export default class Picker extends Plugin {
+  container: HTMLElement;
   wrapperEl: HTMLElement;
-  color: string;
+  presets = ['#26bf80', '#e64d4d', '#457dd3', '#e89463', '#9572ca'];
+  color: string = this.presets[0];
+  component = '';
 
-  userChangedResponses: UserChangedResponse[] = [
-    {
-      text: 'Hmmm',
-      postText: '...',
-    },
-    {
-      text: '',
-      postText: '👀',
-    },
-    {
-      text: '😍',
-      postText: 'is much nicer!',
-    },
-    {
-      text: '🤢',
-      postText: '',
-    },
-    {
-      text: '',
-      postText: 'if you insist...',
-    },
-    {
-      text: '',
-      postText: 'wouldn\'t be my first choice',
-    },
-    {
-      text: '',
-      postText: '❤️',
-    },
-    {
-      text: '',
-      postText: 'reminds me of Comic Sans',
-    },
-    {
-      text: '',
-      postText: 'perfect!',
-    },
-  ];
+  constructor() {
+    super();
 
-  constructor() {}
+    this.container = document.getElementById('picker');
+    if (!this.container) {
+      this.init = () => (Promise.resolve());
+    }
+  }
 
-  init(): void {
+  async init(): Promise<void> {
+    await i18next.loadNamespaces('picker');
+
+    this.component = this.buildTemplate();
     this.create();
 
     const savedAccent = this.loadValueFromStore();
-    if(savedAccent) this.update(savedAccent);
+    if (savedAccent) this.update(savedAccent);
+  }
+
+  buildTemplate(): string {
+    return `
+      <div class="picker__container">
+        <div class="picker__inner">
+          ${this.createTitle(i18next.t('picker:title', { color: this.color })).outerHTML.toString()}
+          <p>${i18next.t('picker:description')}</p>
+          <div class="picker__presets"></div>
+          <small>${i18next.t('picker:disclaimer')}</small>
+          <button class="picker__reset" title="${i18next.t('picker:resetTitle')}"></button>
+        </div>
+      </div>
+    `;
   }
 
   create(): void {
-    const container = document.getElementById('picker');
-    if(!container) return;
-
     this.wrapperEl = document.createElement('aside');
     this.wrapperEl.classList.add('picker');
-    this.wrapperEl.innerHTML = component;
+    this.wrapperEl.innerHTML = this.component;
 
     const presetContainer = this.wrapperEl.querySelector('.picker__presets');
-    presets.forEach((val) => {
+    this.presets.forEach((val) => {
       const btn = this.createPresetButton(val);
       btn.addEventListener('click', this.handlePresetClick.bind(this));
       presetContainer.appendChild(btn);
@@ -97,14 +59,14 @@ export default class Picker {
     const resetButton = this.createResetButton();
     pickerInner.appendChild(resetButton);
 
-    container.appendChild(this.wrapperEl);
+    this.container.appendChild(this.wrapperEl);
   }
 
-  createPresetButton(colour: string): HTMLButtonElement {
+  createPresetButton(color: string): HTMLButtonElement {
     const btn = document.createElement('button');
-    btn.dataset.colour = colour;
-    btn.style.backgroundColor = colour;
-    btn.setAttribute('aria-label', `Set accent colour ${colour}`);
+    btn.dataset.colour = color;
+    btn.style.backgroundColor = color;
+    btn.setAttribute('title', i18next.t('picker:presetTitle', { color }));
 
     return btn;
   }
@@ -114,6 +76,7 @@ export default class Picker {
     wrapper.classList.add('colorWrapper');
     const picker = document.createElement('input');
     picker.type = 'color';
+    picker.title = i18next.t('picker:customTitle');
     const icon = document.createElement('span');
     icon.innerHTML = feather.icons.edit.toSvg();
 
@@ -126,14 +89,26 @@ export default class Picker {
   }
 
   createResetButton(): HTMLButtonElement {
-    const button = this.wrapperEl.querySelector('.picker__reset') as HTMLButtonElement;
+    const button = this.wrapperEl.querySelector(
+      '.picker__reset'
+    ) as HTMLButtonElement;
     const icon = document.createElement('span');
     icon.innerHTML = feather.icons['refresh-cw'].toSvg();
 
-    button.addEventListener('click', this.reset.bind(this));
+    button.addEventListener('click', () => this.reset());
     button.appendChild(icon);
 
     return button;
+  }
+
+  createTitle(content: string): HTMLHeadingElement {
+    const titleEl = document.createElement('h2');
+
+    if(!content || content.length < 1) return titleEl;
+
+    titleEl.innerHTML = content.replace(/(#[0-9a-f]{6}|[0-9a-f]{3})/ig, `<span class="picker__titleColor">$1</span>`);
+
+    return titleEl;
   }
 
   loadValueFromStore(): string | null {
@@ -151,7 +126,7 @@ export default class Picker {
   }
 
   update(colour: string): void {
-    if(this.color === colour) return;
+    if (this.color === colour) return;
 
     this.color = colour;
     this.setValueInStore();
@@ -160,17 +135,18 @@ export default class Picker {
   }
 
   updateText(): void {
-    const colorText = this.wrapperEl.querySelector('.picker__titleColor');
-    const text = this.wrapperEl.querySelector('.picker__titleText');
-    const textPost = this.wrapperEl.querySelector('.picker__titleTextPost');
+    const titleContainer: HTMLElement = this.wrapperEl.querySelector('.picker__inner h2');
+    const prevResponseIndex = titleContainer.dataset.prevIndex || 0;
+    
+    const responses: string[] = i18next.t('picker:responses', { returnObjects: true, color: this.color });
+    const response = this.selectRandomResponse(responses, +prevResponseIndex);
 
-    colorText.innerHTML = this.color;
+    if(!response || !response.response) return;
 
-    const random = Math.floor(Math.random() * this.userChangedResponses.length);
-    const response = this.userChangedResponses[random];
+    const titleEl = this.createTitle(response.response);
+    titleEl.dataset.prevIndex = response.index.toString();
 
-    text.innerHTML = response.text;
-    textPost.innerHTML = response.postText;
+    titleContainer.parentElement.replaceChild(titleEl, titleContainer);
   }
 
   handlePresetClick(event: MouseEvent): void {
@@ -202,6 +178,20 @@ export default class Picker {
       0.2126 * rgbColor[0] + 0.7152 * rgbColor[1] + 0.0722 * rgbColor[2];
 
     return contrast >= 165 ? '#000000' : '#ffffff';
+  }
+
+  selectRandomResponse(responses: string[] = [], previous: number = 0): { index: number; response: string } {
+    if(responses.length < 1) return;
+    // TODO: refactor into shared method 
+    //       used in both pircker.ts and textDeconde.ts
+
+    let index = 0;
+
+    while (index === previous) {
+      index = Math.floor(Math.random() * responses.length);
+    }
+
+    return { index, response: responses[index] };
   }
 
   hexToRgb(hex: string): number[] {

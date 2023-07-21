@@ -1,8 +1,8 @@
 <footer class="footer">
     <div class="footer__inner">
-      <p>made with <span class="heart">&hearts;</span> by <a href="https://barnz.dev/">barnz</a></p>
+        <p>{{ i18n "footer_made_with" }} <span class="heart">❤️</span> {{ i18n "footer_by" }} <a href="https://barnz.dev/">barnz</a></p>
       <p>
-        {{ now.Year }} &copy; {{ .Site.Copyright }} &bull; <a href="/legal/" title="Legal">legal</a>
+      {{ now.Year }} &copy; {{ .Site.Copyright }} &bull; <a href="{{ ref . "/legal" }}" title="{{ i18n "footer_legal"}}">{{ i18n "footer_legal" }}</a>
       </p>
       <span class="links">
         <a
@@ -15,7 +15,7 @@
         </a>
         <a
             href="https://github.com/incinn"
-            title="View source"
+            title="{{ i18n "common_view_source"}}"
             rel="noreferrer noopener"
             target="_blank"
         >

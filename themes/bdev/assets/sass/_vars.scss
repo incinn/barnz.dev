@@ -1,69 +1,89 @@
 $breakpoints: (
-    'phone': 500px,
-    'tablet': 768px,
-    'desktop': 1024px,
+  'phone': 500px,
+  'tablet': 768px,
+  'desktop': 1024px,
 ) !default;
 
 :root {
-    --gutter: 0.85rem;
-    --content-width: 1024px;
+  --gutter: 0.85rem;
+  --content-width: 1024px;
 
-    --white: #FFF;
+  --white: #fbfbfb;
 
-    --dark-hue: 244;
-    --dark-sat: 20%;
-    --dark-lightness: 13%;
-    --dark: hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 100%);
+  --dark-hue: 244;
+  --dark-sat: 20%;
+  --dark-lightness: 13%;
+  --dark: hsla(var(--dark-hue), var(--dark-sat), var(--dark-lightness), 100%);
 
-    --light-hue: 60;
-    --light-sat: 53%;
-    --light-lightness: 97%;
-    --light: hsla(
-        var(--light-hue),
-        var(--light-sat),
-        var(--light-lightness),
-        100%
-    );
+  --light-hue: 60;
+  --light-sat: 53%;
+  --light-lightness: 97%;
+  --light: hsla(
+    var(--light-hue),
+    var(--light-sat),
+    var(--light-lightness),
+    100%
+  );
 
-    --grey-hue: 90;
-    --grey-sat: 4%;
-    --grey-lightness: 90%;
-    --grey: hsla(var(--grey-hue), var(--grey-sat), var(--grey-lightness), 100%);
+  --grey-hue: 90;
+  --grey-sat: 4%;
+  --grey-lightness: 90%;
+  --grey: hsla(var(--grey-hue), var(--grey-sat), var(--grey-lightness), 100%);
 
-    --red-hue: 340;
-    --red-sat: 86%;
-    --red-lightness: 47%;
-    --red: hsla(var(--red-hue), var(--red-sat), var(--red-lightness), 100%);
+  --red-hue: 340;
+  --red-sat: 86%;
+  --red-lightness: 47%;
+  --red: hsla(var(--red-hue), var(--red-sat), var(--red-lightness), 100%);
 
-    --accent: #26bf80;
-    --accent-alt: var(--white);
+  --accent: #26bf80;
+  --accent-alt: var(--white);
 }
 
 [data-theme='dark'] {
-  --body-bg: #252532;
-  --body-text: hsla(60, 53%, 97%, 100%);
-  
-  --footer-bg: hsla(244, 20%, 16%, 100%);
-  --footer-text: hsla(60, 53%, 97%, 70%);
+  --body-bg: hsla(var(--dark-hue), 15%, 17%, 100%);
+  --body-text: var(--light);
 
-  --card-bg: #343442;
+  --footer-text: hsla(
+    var(--light-hue),
+    var(--light-sat),
+    var(--light-lightness),
+    50%
+  );
 
-  --window-border: #343442;
+  --card-bg: hsla(var(--dark-hue), 13%, 22%, 100%);
+
+  --window-background: var(--card-bg);
+  --window-text: hsla(
+    var(--light-hue),
+    var(--light-sat),
+    var(--light-lightness),
+    75%
+  );
 
   --content-bg: var(--card-bg);
   --content-text: var(--white);
 }
 
 [data-theme='light'] {
-  --body-bg: hsla(90, 4%, 90%, 100%);
-  --body-text: hsla(244, 20%, 13%, 100%);
-  
-  --footer-bg: hsla(90, 4%, 85%, 100%);
-  --footer-text: hsla(244, 20%, 13%, 80%);
+  --body-bg: var(--grey);
+  --body-text: var(--dark);
 
-  --card-bg: #fbfbfb;
-  
-  --window-border: hsla(244, 20%, 13%, 100%);
+  --footer-text: hsla(
+    var(--dark-hue),
+    var(--dark-sat),
+    var(--dark-lightness),
+    80%
+  );
+
+  --card-bg: var(--white);
+
+  --window-background: var(--white);
+  --window-text: hsla(
+    var(--dark-hue),
+    var(--dark-sat),
+    var(--dark-lightness),
+    75%
+  );
 
   --content-bg: var(--white);
   --content-text: var(--body-text);

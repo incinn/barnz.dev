@@ -1,18 +1,17 @@
 {{ define "main" }}
 <div class="page">
-    <div class="page__header">
-        <div class="page__header__inner">
-          <h1>{{ .Title }}</h1>
-          <p>Displaying all posts tagged with <strong>{{ .Title }}</strong></p>
-        </div>
+  <div class="page__header">
+    <div class="page__header__inner">
+      <h1>{{ .Title }}</h1>
+      <p>{{ i18n "taxonomy_title" }} <strong>{{ .Title }}</strong></p>
     </div>
+  </div>
 
-    {{- partial "components/separator.html" -}}
-    
-    <section class="list__content">
-        {{ range .Pages.ByPublishDate.Reverse }}
-            {{ partial "components/articleItem" (dict "context" .) }}
-        {{ end }}
-    </section>
+  {{- partial "components/separator.html" -}}
+
+  <section class="list__content">
+    {{ range .Pages.ByPublishDate.Reverse }} {{ partial "components/articleItem"
+    (dict "context" .) }} {{ end }}
+  </section>
 </div>
 {{ end }}

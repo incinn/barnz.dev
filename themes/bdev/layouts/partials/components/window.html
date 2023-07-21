@@ -1,24 +1,28 @@
 <div class="window">
   <div class="window__bar">
-    <span>{{ .context.Title }}</span>
-  </div>
-  <div class="window__address">
-    <span>
-      {{ if .context.Params.liveUrl }}
-        {{ .context.Params.liveUrl }}
-      {{ else }}
-        https://localhost
-      {{ end }}
-    </span>
+    <div class="window__address">
+      <span>
+        {{ if .context.Params.liveUrl }} {{ .context.Params.liveUrl }} {{ else
+        }} https://localhost {{ end }}
+      </span>
+    </div>
   </div>
   <img
-    {{ if .context.Params.screenshotImage }}
-    src="{{ .context.Permalink }}{{ .context.Params.screenshotImage }}"
-    {{ else }}
+    {{
+    if
+    .context.Params.screenshotImage
+    }}
+    src="{{ .context.Permalink }}{{
+  .context.Params.screenshotImage }}"
+    {{
+    else
+    }}
     src="/img/coming-soon.webp"
-    {{ end }}
-    alt="{{ .context.Title }} screenshot"
-    width="350px"
-    height="190px"
+    {{
+    end
+    }}
+    alt='{{ .context.Title }} {{ i18n "common_screenshot" }}'
+    width="350"
+    height="190"
   />
 </div>

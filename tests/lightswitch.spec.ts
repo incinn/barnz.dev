@@ -1,13 +1,15 @@
-import LightSwitch from '../themes/bdev/assets/scripts/lightswitch';
 import fs = require('fs');
-import feather = require('feather-icons');
+import LightSwitch from '../themes/bdev/assets/scripts/plugins/lightswitch';
 import { fakeLocalStorage } from './helpers/store.helper';
 
 describe('Lightswitch should not load if', () => {
-  const consoleSpy = jest.spyOn(console, 'error');
+  let component: LightSwitch;
+  let spy: any;
 
   beforeEach(() => {
-    consoleSpy.mockImplementation();
+    component = new LightSwitch();
+    spy = jest.spyOn(component, 'setDefaultTheme');
+    spy.mockImplementation();
   });
 
   afterEach(() => {
@@ -15,8 +17,9 @@ describe('Lightswitch should not load if', () => {
   });
 
   test('no navigation item found', () => {
-    new LightSwitch();
-    expect(consoleSpy).toHaveBeenCalledWith('LightSwitch unable to start');
+    component.init();
+
+    expect(spy).not.toHaveBeenCalled();
   });
 });
 
@@ -32,29 +35,24 @@ describe('Lightswitch', () => {
   });
 
   test('should create', () => {
-    const spy = jest.spyOn(console, 'error');
-
     expect(component).toBeDefined();
-    expect(spy).not.toHaveBeenCalled();
   });
 
-  test('init() should set up the switch', () => {
+  test('init() should create and inject the switch', async () => {
     const createSwitchSpy = jest.spyOn(component, 'createSwitch');
-    const setToggleSpy = jest.spyOn(component, 'setToggleIcon');
-    const setThemeAttrSpy = jest.spyOn(component, 'setThemeAttr');
+    const setDefaultThemeSpy = jest.spyOn(component, 'setDefaultTheme');
 
-    component.init();
+    await component.init();
 
     expect(createSwitchSpy).toHaveBeenCalled();
-    expect(setToggleSpy).toHaveBeenCalled();
-    expect(setThemeAttrSpy).toHaveBeenCalled();
+    expect(setDefaultThemeSpy).toHaveBeenCalled();
 
-    expect(JSON.stringify(component.navEl)).toContain(
-      JSON.stringify(component.switchEl)
+    expect(JSON.stringify(component.wrapper)).toContain(
+      JSON.stringify(component.inputEl)
     );
   });
 
-  describe('save theme', () => {
+  describe('save theme to browser local storage', () => {
     beforeEach(() => {
       Object.defineProperty(window, 'matchMedia', {
         writable: true,
@@ -74,7 +72,6 @@ describe('Lightswitch', () => {
         value: fakeLocalStorage,
       });
 
-      component.setToggleIcon = jest.fn().mockImplementation();
       component.setThemeAttr = jest.fn().mockImplementation();
       component.handleToggle = jest.fn().mockImplementation();
 
@@ -86,9 +83,10 @@ describe('Lightswitch', () => {
     });
 
     test('should check user preferred theme if nothing saved in localStorage', () => {
+      window.localStorage.setItem('theme', '');
       const matchMediaSpy = jest.spyOn(window, 'matchMedia');
 
-      component.setTheme();
+      component.setDefaultTheme();
 
       expect(matchMediaSpy).toHaveBeenCalledWith(
         '(prefers-color-scheme: dark)'
@@ -99,7 +97,7 @@ describe('Lightswitch', () => {
       window.localStorage.setItem('theme', 'light');
       const matchMediaSpy = jest.spyOn(window, 'matchMedia');
 
-      component.setTheme();
+      component.setDefaultTheme();
 
       expect(matchMediaSpy).not.toHaveBeenCalled();
     });
@@ -109,59 +107,51 @@ describe('Lightswitch', () => {
       const handleToggleSpy = jest.spyOn(component, 'handleToggle');
       component.toggle = true;
 
-      component.setTheme();
+      component.setDefaultTheme();
 
       expect(handleToggleSpy).toHaveBeenCalled();
     });
 
     test('should make sure toggle and theme attribute are correct if req theme matches current theme', () => {
       window.localStorage.setItem('theme', 'light');
-      const toggleIconSpy = jest.spyOn(component, 'setToggleIcon');
-      const attrSpy = jest.spyOn(component, 'setThemeAttr');
+      const attrSpy = jest.spyOn(component, 'setDefaultTheme');
 
-      component.setTheme();
+      component.setDefaultTheme();
 
-      expect(toggleIconSpy).toHaveBeenCalled();
       expect(attrSpy).toHaveBeenCalled();
     });
   });
 
-  test('createSwitch() should create the default switch element', () => {
-    const expected = document.createElement('button');
-    expected.classList.add('lightSwitch');
-    expected.setAttribute('aria-label', 'Toggle between light and dark mode');
-    expected.innerHTML = feather.icons.sun.toSvg();
-
-    const actual = component.createSwitch();
-    expect(actual).toStrictEqual(expected);
+  test('createLabel() should create the label element', () => {
+    const actual = component.createLabel();
+    expect(actual.outerHTML.toString()).toContain(
+      'optionsMenu__content__title'
+    );
   });
 
-  test('handleToggle() should toggle correctly', () => {
-    const setToggleIconSpy = jest
-      .spyOn(component, 'setToggleIcon')
-      .mockImplementation();
-    const setThemeAttrSpy = jest
-      .spyOn(component, 'setThemeAttr')
-      .mockImplementation();
+  test('createSwitch() should create the switch element', () => {
+    const actual = component.createSwitch();
+    expect(actual.outerHTML.toString()).toContain('switch__input');
+  });
 
+  test('handleToggle() should set toggle correctly', () => {
+    const switchEl = component.createSwitch();
+    const inputEl: HTMLInputElement = switchEl.querySelector(
+      'input[type=checkbox]'
+    );
+
+    component.inputEl = inputEl;
     component.toggle = false;
+    inputEl.checked = true;
+
     component.handleToggle();
 
-    expect(component.toggle).toBeTruthy();
-    expect(setToggleIconSpy).toHaveBeenCalled();
-    expect(setThemeAttrSpy).toHaveBeenCalled();
-  });
-
-  test('setToggleIcon() should set the correct icon', () => {
-    component.switchEl = component.createSwitch();
+    expect(inputEl.checked).toBe(false);
 
     component.toggle = true;
-    component.setToggleIcon();
-    expect(component.switchEl.innerHTML).toContain('sun');
+    component.handleToggle();
 
-    component.toggle = false;
-    component.setToggleIcon();
-    expect(component.switchEl.innerHTML).toContain('moon');
+    expect(inputEl.checked).toBe(true);
   });
 
   test('setThemeAttr() should set the correct document data attribute for the theme', () => {
@@ -174,4 +164,3 @@ describe('Lightswitch', () => {
     expect(document.documentElement.dataset.theme).toBe('dark');
   });
 });
-

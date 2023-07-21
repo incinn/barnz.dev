@@ -1,16 +1,13 @@
 <article class="contact">
   <div class="contact__inner">
-    <h1 id="contact">Contact</h1>
-    <p>
-      The best way to contact me is with this shiny form below:<br />
-      <small>
-        spoiler: it's just a
-        <a href="https://en.wikipedia.org/wiki/Mailto" target="_blank"
-          >mailto</a
-        >
-        link
-      </small>
-    </p>
+    <h2 id="contact">
+      <a
+        href='{{ ref . "/contact" }}'
+        title='{{ i18n "menu_contact" }}'
+        >{{ i18n "menu_contact" }}</a
+      >
+    </h2>
+    <p>{{ i18n "contact_block_p" }}</p>
     {{- partial "components/contactForm" . -}}
   </div>
 </article>

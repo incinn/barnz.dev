@@ -1,0 +1,17 @@
+{
+  "title": "N'aime pas le {{color}}?",
+  "description": "Choisis une couleur d'accent parmi les options ci-dessous",
+  "disclaimer": "Certaines combinaisons de couleurs peuvent avoir un impact sur la lisibilité.",
+  "resetTitle": "Beurk! Remets-le comme il était!",
+  "presetTitle": "Sélectionne preset {{color}}",
+  "customTitle": "Choisis ta propre couleur",
+  "responses": [
+    "🤔 {{color}}...",
+    "{{color}} Si tu insistes ...",
+    "{{color}} 👀",
+    "{{color}} 🤢",
+    "😍 {{color}}",
+    "{{color}} ❤️",
+    "Vraiment le {{color}}? D'accord..."
+  ]
+}

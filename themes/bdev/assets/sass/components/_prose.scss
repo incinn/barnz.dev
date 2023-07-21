@@ -1,4 +1,4 @@
-[data-theme='dark'] {
+[data-theme="dark"] {
   .prose {
     table {
       tbody {
@@ -12,6 +12,7 @@
       }
     }
     p code,
+    li code,
     h1 code,
     h2 code {
       color: var(--white);
@@ -143,6 +144,7 @@
   }
 
   p code,
+  li code,
   h1 code,
   h2 code {
     font-size: 0.8em;
@@ -160,7 +162,7 @@
     margin-left: -1rem;
     margin-bottom: 1rem;
 
-    @include media('>tablet') {
+    @include media(">tablet") {
       margin: 0 0 1rem 0;
     }
 
@@ -172,7 +174,7 @@
       padding: 1rem;
       overflow: auto;
 
-      @include media('>tablet') {
+      @include media(">tablet") {
         border-radius: 6px;
       }
     }
@@ -181,7 +183,7 @@
       padding: 1rem;
       border-radius: 0px;
 
-      @include media('>tablet') {
+      @include media(">tablet") {
         border-radius: 6px;
       }
     }

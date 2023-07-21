@@ -1,3 +1,42 @@
+@mixin darkButton {
+  color: var(--grey);
+  border-color: var(--dark);
+  background-color: var(--dark);
+
+  &:hover {
+    background-color: hsla(var(--dark-hue), var(--dark-sat), 10%, 100%);
+  }
+
+  &:active {
+    box-shadow: inset 0px 0px 10px 1px var(--dark);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 0px;
+  }
+}
+
+@mixin lightButton {
+  $bg: #f5f5f5;
+
+  color: var(--dark);
+  border-color: rgba(black, 0.25);
+  background-color: $bg;
+
+  &:hover {
+    background-color: darken($bg, 3%);
+  }
+}
+
+[data-theme="dark"] {
+  .btn {
+    &--resp {
+      @include darkButton;
+    }
+  }
+}
+
 .btn {
   display: flex;
   align-items: center;
@@ -36,37 +75,25 @@
     background-color: var(--accent);
   }
 
+  &--resp {
+    @include lightButton;
+  }
+
   &--dark {
-    color: var(--grey);
-    border-color: var(--dark);
-    background-color: var(--dark);
-
-    &:hover {
-      background-color: hsla(var(--dark-hue), var(--dark-sat), 10%, 100%);
-    }
-
-    &:active {
-      box-shadow: inset 0px 0px 10px 1px var(--dark);
-    }
-
-    &:focus-visible {
-      outline: 1px solid var(--accent);
-      outline-offset: 0px;
-    }
+    @include darkButton;
   }
 
   &--light {
-    color: var(--dark);
-    border-color: rgba(black, 0.25);
-    background-color: var(--white);
-
-    &:hover {
-      background-color: var(--grey);
-    }
+    @include lightButton;
   }
 
   &--small {
     padding: 0.75rem;
     font-size: 0.9rem;
+  }
+
+  &--danger {
+    color: var(--white);
+    background-color: var(--red);
   }
 }

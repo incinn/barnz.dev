@@ -1,0 +1,45 @@
+.switch {
+  --width: 55px;
+  --height: calc(var(--width) / 2);
+  --radius: calc(var(--height) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+
+    &:checked {
+      ~ .switch__fill {
+        background: var(--accent);
+      }
+
+      ~ .switch__fill::after {
+        transform: translateX(var(--height));
+      }
+    }
+  }
+
+  &__fill {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--radius);
+    border: 1px solid rgba(black, 0.3);
+    background: var(--light);
+    transition: background 500ms;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      height: calc(var(--height) - 2px);
+      width: calc(var(--height) - 2px);
+      background: var(--accent-alt);
+      border-radius: var(--radius);
+      border: 1px solid rgba(black, 0.3);
+      transition: transform 250ms;
+    }
+  }
+}

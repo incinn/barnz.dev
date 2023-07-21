@@ -1,5 +1,5 @@
 import fs = require('fs');
-import Picker from '../themes/bdev/assets/scripts/picker';
+import Picker from '../themes/bdev/assets/scripts/plugins/picker';
 import { fakeLocalStorage } from './helpers/store.helper';
 
 describe('Accent picker', () => {
@@ -29,33 +29,33 @@ describe('Accent picker', () => {
   });
 
   describe('on init()', () => {
-    test('should create picker element', () => {
+    test('should create picker element', async () => {
       const createSpy = jest.spyOn(component, 'create');
 
-      component.init();
+      await component.init();
 
       expect(createSpy).toHaveBeenCalled();
     });
 
-    test('should not call update() if no value found in store', () => {
+    test('should not call update() if no value found in store', async () => {
       jest
         .spyOn(component, 'loadValueFromStore')
         .mockImplementation(() => undefined);
       const updateSpy = jest.spyOn(component, 'update');
 
-      component.init();
+      await component.init();
 
       expect(updateSpy).not.toHaveBeenCalled();
     });
 
-    test('should call update with colour if value found in store', () => {
+    test('should call update with colour if value found in store', async () => {
       const colour = '#404040';
       jest
         .spyOn(component, 'loadValueFromStore')
         .mockImplementation(() => colour);
       const updateSpy = jest.spyOn(component, 'update');
 
-      component.init();
+      await component.init();
 
       expect(updateSpy).toHaveBeenCalledWith(colour);
     });
@@ -86,6 +86,12 @@ describe('Accent picker', () => {
     });
   });
 
+  test('createTitle() should create correctly formatted title', () => {
+    const result = component.createTitle('test #000000');
+
+    expect(result.outerHTML).toBe(`<h2>test <span class="picker__titleColor">#000000</span></h2>`);
+  });
+
   test('reset() should empty store and reload page', () => {
     const spy = jest.spyOn(window.location, 'reload');
     window.localStorage.setItem('accent', '#404040');
@@ -98,7 +104,7 @@ describe('Accent picker', () => {
   test('update() should set color property and call other methods', () => {
     const storeSpy = jest
       .spyOn(component, 'setValueInStore')
-      .mockImplementation();
+      // .mockImplementation();
     const colorSpy = jest.spyOn(component, 'setColour').mockImplementation();
     const textSpy = jest.spyOn(component, 'updateText').mockImplementation();
 

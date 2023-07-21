@@ -1,11 +1,28 @@
 .post {
   &__date,
-  &__readTime {
+  &__readTime,
+  &__translations {
     font-size: 0.9rem;
 
     span {
       font-weight: bold;
       opacity: 0.5;
+    }
+  }
+
+  &__translations {
+    display: flex;
+
+    span {
+        margin-right: .5rem;
+    }
+
+    ul {
+        display: flex;
+
+        li {
+            margin-right: .5rem;
+        }
     }
   }
 }

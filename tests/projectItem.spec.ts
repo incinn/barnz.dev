@@ -1,5 +1,5 @@
 import ResponsiveHelpers from '../themes/bdev/assets/scripts/helpers/responsive.helpers';
-import ProjectItemEffect from '../themes/bdev/assets/scripts/projectItem';
+import ProjectItemEffect from '../themes/bdev/assets/scripts/plugins/projectItem';
 
 describe('Project item', () => {
   let rh: ResponsiveHelpers;
@@ -49,7 +49,7 @@ describe('Project item', () => {
 
       expect(el.getAttribute('style')).toBeTruthy();
 
-      component.reset(el);
+      component.resetItem(el);
       expect(el.getAttribute('style')).toBeFalsy();
     });
   });

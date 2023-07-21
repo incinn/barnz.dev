@@ -6,7 +6,7 @@
     background-color: #313142;
     color: var(--light);
     background: linear-gradient(0deg, #313142 0%, #262635 33%, #1b1b27 90%);
-    padding: 5rem 0 7rem 0;
+    padding: 5rem 0 10rem 0;
 
     &__inner {
       display: flex;
@@ -15,7 +15,7 @@
       padding: 0 var(--gutter);
       margin: 0 auto;
 
-      @include media('>desktop') {
+      @include media(">desktop") {
         max-width: var(--content-width);
       }
 
@@ -40,10 +40,10 @@
       border-radius: 6px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       padding: 1rem;
-      margin-top: -3rem;
+      margin-top: -5rem;
       z-index: 2;
 
-      @include media('>desktop') {
+      @include media(">desktop") {
         padding: 2rem;
       }
     }

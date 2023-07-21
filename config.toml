@@ -1,8 +1,19 @@
 baseURL = "https://barnz.dev/"
-languageCode = "en-gb"
 title = "barnz.dev"
 theme = "bdev"
 copyright = "barnz.dev"
+defaultContentLanguage = 'en'
+disableHugoGeneratorInject = true
+
+[languages]
+    [languages.en]
+        languageName = "English"
+
+    [languages.nl]
+        languageName = "Dutch"
+
+    [languages.fr]
+        languageName = "French"
 
 [author]
   name = "Barnz"

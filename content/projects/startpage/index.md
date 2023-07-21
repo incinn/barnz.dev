@@ -1,13 +1,13 @@
 ---
-title: 'Startpage'
+title: "Startpage"
 date: 2022-02-25T00:03:14Z
 lastmod: 2022-06-09T21:44:00Z
 layout: project
 slug:
-liveUrl: 'https://start.barnz.dev/'
+liveUrl: "https://start.barnz.dev/"
 sourceUrl: https://github.com/incinn/startpage
-screenshotImage: 'startpage-screenshot.webp'
-tags: ['TypeScript']
+screenshotImage: "startpage-screenshot.webp"
+tags: ["TypeScript"]
 ---
 
 A lightweight start page, providing quick access to information that is important to me.
@@ -23,11 +23,13 @@ Built with **TypeScript**, with the intention of being as fast to load as possib
 I've long admired the creative startpages shown off on [/r/startpages](https://old.reddit.com/r/startpages/) and wanted to have a go at building my own. I was still pretty new to **TypeScript** when I started, and thought this would be a nice side project to work on.
 
 Before I began, I wrote down some requirements I had for the project. It had to be:
+
 - Fast to load
-- Customisable 
+- Customisable
 - Aesthetic
 
 And I wanted to provide the following features:
+
 - Search
 - Date & time
 - Weather
@@ -36,13 +38,14 @@ And I wanted to provide the following features:
 As for the design, I had nothing in mind when I started, and went through many iterations before landing on what you see now. I wanted it to be simple, but allow for the user to customise the experience to some degree. I think it turned out well and accomplished those goals.
 
 # Technology
+
 I used this project as an excuse to play around with the templating language **Pug**.
 
 - PUG
   - Templating engine
 - TypeScript
   - Strongly typed JavaScript
-- SASS
+- Sass
   - CSS preprocessor
 
 # Usage
@@ -55,9 +58,8 @@ I added some default bookmarks as an example so the page doesn't feel so empty. 
 
 # Future
 
-It seems every time I load it up, I get struck with inspiration on how I can improve it. I use it daily, and intend to support the project for the foreseeable future. 
+It seems every time I load it up, I get struck with inspiration on how I can improve it. I use it daily, and intend to support the project for the foreseeable future.
 
 As it stands, the project currently **requires JavaScript**. I intend on creating a simplified version which will run without it enabled.
 
 There are many other features and improvements I'd like to make moving forward. If you spot an issue, feel free to open an issue on the [GitHub](https://github.com/incinn/startpage) issues page for the project.
-

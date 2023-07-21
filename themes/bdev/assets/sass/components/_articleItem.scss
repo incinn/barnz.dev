@@ -25,8 +25,24 @@
     margin: 1rem 0;
   }
 
-  &__date {
+  &__metadata {
+      display:flex;
+      justify-content: space-between;
     margin-top: auto;
     font-size: 0.75rem;
+
+    &--translations {
+        display: flex;
+
+        li {
+            display: flex;
+            margin-left: .5rem;
+
+            a {
+                display: flex;
+                align-items:center;
+            }
+        }
+    }
   }
 }

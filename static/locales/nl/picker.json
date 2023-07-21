@@ -1,0 +1,17 @@
+{
+  "title": "Vind je {{color}} niet leuk?",
+  "description": "Selecteer een accentkleur uit de onderstaande opties.",
+  "disclaimer": "Sommige kleurencombinaties kunnen de leesbaarheid beïnvloeden.",
+  "resetTitle": "Ieuw! Zet het terug naar hoe het was!",
+  "presetTitle": "Selecteer preset {{color}}",
+  "customTitle": "Selecteer je eigen kleur",
+  "responses": [
+    "🤔 {{color}}...",
+    "{{color}} als je erop staat...",
+    "{{color}} 👀",
+    "{{color}} 🤢",
+    "😍 {{color}}",
+    "{{color}} ❤️",
+    "Zeker van {{color}}? Oké..."
+  ]
+}

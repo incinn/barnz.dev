@@ -1,0 +1,10 @@
+{{ if not (eq $.Site.Language.LanguageName "English") }}
+<aside class="infoBlock">
+  <div class="infoBlock__inner">
+    {{ partial "components/icon" "info" }}
+    <div class="infoBlock__content">
+      <p>{{ i18n "incomplete_translation_message" }}</p>
+    </div>
+  </div>
+</aside>
+{{ end }}

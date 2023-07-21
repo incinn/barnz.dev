@@ -1,0 +1,111 @@
+- id: menu_home
+  translation: "accueil"
+- id: menu_projects
+  translation: "projets"
+- id: menu_blog
+  translation: "blog"
+- id: menu_contact
+  translation: "contact"
+
+- id: header_homepage
+  translation: "Page d'accueil"
+
+- id: options_menu_title
+  translation: "Paramètres"
+- id: options_menu_light_mode_title
+  translation: "Light mode"
+- id: options_menu_light_mode_desc
+  translation: "Pour ceux qui ont peur du noir"
+- id: options_menu_language_title
+  translation: "Langue"
+- id: options_menu_language_desc
+  translation: "Remarque: tout le contenu n'est pas (encore) disponible dans toutes les langues"
+- id: options_menu_reset_title
+  translation: "Reset"
+- id: options_menu_reset_desc
+  translation: "Rétablit toutes les options aux valeurs par défaut"
+- id: options_menu_reset_button
+  translation: "Reset"
+
+- id: blurb_title_1
+  translation: "Salut, je m'appelle <em>Barnz</em>! Je suis un développeur web du"
+- id: blurb_title_2
+  translation: "Royaume-Uni"
+- id: blurb_tagline
+  translation: "Je développe des applications web et les API qui les font fonctioner"
+- id: blurb_jump_content
+  translation: "Aller au contenu"
+
+- id: single_published
+  translation: "Publié"
+- id: single_read_time
+  translation: "Temps de lecture"
+- id: single_read_time_minutes
+  translation: "minutes"
+- id: single_translations
+  translation: "Traductions"
+
+- id: common_view_source
+  translation: "voir le code source"
+- id: common_screenshot
+  translation: "screenshot"
+
+- id: project_view_project
+  translation: "voir le projet"
+- id: project_view_source
+  translation: "voir le code source"
+
+- id: taxonomy_title
+  translation: "Afficher tous les messages tagués avec"
+
+- id: projects_block_p
+  translation: "certains projets dont je suis particulièrement fier:"
+- id: articles_block_p
+  translation: "Je n'écris pas souvent, mais quand je le fais, ça apparaîtra ici:"
+- id: contact_block_p
+  translation: "La meilleure façon de me contacter est d'utiliser le formulaire ci-dessous:"
+
+- id: contact_form_name
+  translation: "Nom"
+- id: contact_form_name_placeholder
+  translation: "Joe Bloggs"
+- id: contact_form_email
+  translation: "E-mail"
+- id: contact_form_email_placeholder
+  translation: "joe@exemple.com"
+- id: contact_form_email_confirm
+  translation: "Confirmez votre e-mail"
+- id: contact_form_message
+  translation: "Message"
+- id: contact_form_message_placeholder
+  translation: "Waouh, quel site incroyable..."
+- id: contact_form_send
+  translation: "Envoyer"
+
+- id: error_404_title
+  translation: "Page non trouvée"
+- id: error_404_p1
+  translation: "Désolé, la page que vous recherchez est introuvable. Peut-être qu'elle a été déplacée et j'ai oublié de la rediriger ou la page n'a jamais existé. Tout ce que je peux vous dire maintenant, c'est qu'elle n'est plus là"
+- id: error_404_p2
+  translation: "Si vous pensez qu'il s'agit d'une erreur, veuillez"
+- id: error_404_link
+  translation: "me le signaler"
+
+- id: incomplete_translation_message
+  translation: "Tout le contenu n'a pas encore été traduit. Passe à l'anglais pour afficher tout le contenu disponible."
+
+- id: translation_credit_p_1
+  translation: "Contenu rédigé en anglais. Malheureusement c'est la seule langue que je parle."
+- id: translation_credit_p_2
+  translation: "Traductions pour le néerlandais et le français fournies par mon incroyable petite amie. N'est-elle pas douée?"
+- id: translation_credit_button_yes
+  translation: "Oui!"
+- id: translation_credit_button_no
+  translation: "...absolument!"
+
+- id: footer_made_with
+  translation: "fait avec"
+- id: footer_by
+  translation: "par"
+- id: footer_legal
+  translation: "disclaimer"

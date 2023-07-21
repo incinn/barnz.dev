@@ -1,21 +1,63 @@
 <form
-  action="mailto:website+contactform@barnz.dev"
-  method="get"
-  enctype="multipart/form-data"
+  action="https://submit-form.com/FmT2sPU6"
+  method="post"
   class="contactForm"
+  autocomplete="off"
 >
-  <label for="body">Message</label>
+  <div class="contactForm__row">
+    <div class="contactForm__row__item">
+      <label for="name">
+        {{ i18n "contact_form_name" }}<span class="required">*</span>
+      </label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        autocomplete="name"
+        placeholder='{{ i18n "contact_form_name_placeholder" }}'
+        required
+      />
+    </div>
+    <div class="contactForm__row__item">
+      <label for="email">{{ i18n "contact_form_email" }}</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        autocomplete="email"
+        placeholder='{{ i18n "contact_form_email_placeholder" }}'
+      />
+    </div>
+  </div>
+  <div class="contactForm__row--confirm">
+    <label for="emailConfirm">{{ i18n "contact_form_email_confirm" }}</label>
+    <input
+      type="email"
+      name="emailConfirm"
+      id="emailConfirm"
+      autocomplete="off"
+    />
+  </div>
+  <label for="message"
+    >{{ i18n "contact_form_message" }}<span class="required">*</span></label
+  >
   <textarea
-    name="body"
-    id="body"
-    placeholder="Wow, what an impressive website you have here.&#10;&#10;&#10;&#10;Joe Bloggs"
+    name="message"
+    id="message"
+    placeholder='{{ i18n "contact_form_message_placeholder" }}'
     cols="20"
     rows="12"
+    required
   ></textarea>
   <input
     type="hidden"
-    name="subject"
-    value="barnz.dev&nbsp;contact&nbsp;form"
+    name="_redirect"
+    value='{{ ref . "/thanks"}}'
   />
-  <input class="btn btn--primary" type="submit" name="submit" value="send" />
+  <button
+    class="btn btn--primary"
+    type="submit"
+  >
+    {{ i18n "contact_form_send" }}
+  </button>
 </form>

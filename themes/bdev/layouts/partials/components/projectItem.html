@@ -1,45 +1,28 @@
 <section class="projectItem">
   <div class="content">
     <div class="content__title">
-      <h1>
+      <h3>
         {{ with .context.Permalink }}
-          <a href="{{ . }}">
-        {{ end }}
-          {{ .context.Title }}
-        {{ with .context.Permalink }}
+        <a href="{{ . }}">
+          {{ end }} {{ .context.Title }} {{ with .context.Permalink }}
         </a>
         {{ end }}
-      </h1>
+      </h3>
       <div class="content__title__buttons">
         {{ with .context.Params.liveUrl }}
-        <a
-          class="btn btn--small btn--dark"
-          title="Visit project website"
-          href="{{ . }}"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          view
-          {{ partial "components/icon" "external-link" }}
+        <a class="btn btn--small btn--resp" title="Visit project website" href="{{ . }}" rel="noreferrer noopener"
+          target="_blank">
+          view {{ partial "components/icon" "external-link" }}
         </a>
-        {{ end }}
-        {{ with .context.Params.sourceUrl }}
-        <a
-          class="btn btn--small btn--dark"
-          title="View project source"
-          href="{{ .}}"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          source
-          {{ partial "components/icon" "github" }}
+        {{ end }} {{ with .context.Params.sourceUrl }}
+        <a class="btn btn--small btn--resp" title="View project source" href="{{ . }}" rel="noreferrer noopener"
+          target="_blank">
+          source {{ partial "components/icon" "github" }}
         </a>
         {{ end }}
       </div>
     </div>
-    <span class="prose">
-      {{ .context.Summary | safeHTML }}
-    </span>
+    <div class="prose">{{ .context.Summary | safeHTML }}</div>
   </div>
   {{ partial "components/window" (dict "context" .context) }}
 </section>

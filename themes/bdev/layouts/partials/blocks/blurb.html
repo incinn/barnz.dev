@@ -1,30 +1,16 @@
 <article class="blurb">
-    <div class="blurb__inner">
-        <h1>
-            Hey, my name is <em>Barnz</em>! I'm a web developer
-            <span
-              class="space"
-              >&nbsp;</span><br />
-            from the 
-            <img class="blurb__flag" src="/img/gb.webp" alt="United Kingdom Flag" height="30px" width="38.45px" />
-            <em>United Kingdom</em>
-        </h1>
-        <p>I enjoy building <em>web apps</em> and the APIs that power them</p>
-    </div>
-    <a aria-label="Jump to content" href="#jump" id="jump" class="blurb__more">
-        {{ partial "components/icon" "chevrons-down" }}
-    </a>
-    <div class="divider">
-        <svg
-            data-name="wave"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-        >
-            <path
-                d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                class="shape-fill"
-            ></path>
-        </svg>
-    </div>
+  <div class="blurb__inner">
+    <h2>
+      {{ i18n "blurb_title_1" | safeHTML }}
+      <img class="blurb__flag" src="/img/gb.webp" alt="United Kingdom Flag" height="30" width="38" />{{ i18n
+      "blurb_title_2" | safeHTML }}
+    </h2>
+    <p class="js-decode">{{ i18n "blurb_tagline" }}</p>
+  </div>
+  <a aria-label='{{ i18n "blurb_jump_content" }}' title='{{ i18n "blurb_jump_content" }}' href="#jump" id="jump"
+    class="blurb__more">
+    {{ partial "components/icon" "chevrons-down" }}
+  </a>
+
+  {{- partial "components/separator.html" -}}
 </article>

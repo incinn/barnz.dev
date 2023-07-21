@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column-reverse;
 
-  @include media(">tablet") {
+  @include media('>tablet') {
     flex-direction: row;
 
     &:nth-child(odd) {
@@ -23,7 +23,7 @@
   &:not(:last-of-type) {
     margin-bottom: 4rem;
 
-    @include media(">tablet") {
+    @include media('>tablet') {
       margin-bottom: 8rem;
     }
   }
@@ -40,11 +40,11 @@
       justify-content: space-between;
       margin-bottom: calc(var(--gutter) * 2);
 
-      @include media(">tablet") {
+      @include media('>tablet') {
         flex-direction: row;
       }
 
-      h1 {
+      h3 {
         font-size: 1.75rem;
         letter-spacing: 2px;
         font-weight: bold;
@@ -54,14 +54,14 @@
         display: flex;
         margin-top: var(--gutter);
 
-        @include media(">tablet") {
+        @include media('>tablet') {
           margin-top: unset;
         }
 
         a:not(:last-of-type) {
           margin-right: 1.5rem;
 
-          @include media(">tablet") {
+          @include media('>tablet') {
             margin-right: 0.5rem;
           }
         }
