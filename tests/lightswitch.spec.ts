@@ -3,10 +3,13 @@ import LightSwitch from '../themes/bdev/assets/scripts/plugins/lightswitch';
 import { fakeLocalStorage } from './helpers/store.helper';
 
 describe('Lightswitch should not load if', () => {
-  const consoleSpy = jest.spyOn(console, 'error');
+  let component: LightSwitch;
+  let spy: any;
 
   beforeEach(() => {
-    consoleSpy.mockImplementation();
+    component = new LightSwitch();
+    spy = jest.spyOn(component, 'setDefaultTheme');
+    spy.mockImplementation();
   });
 
   afterEach(() => {
@@ -14,10 +17,9 @@ describe('Lightswitch should not load if', () => {
   });
 
   test('no navigation item found', () => {
-    const x = new LightSwitch();
-    x.init();
+    component.init();
 
-    expect(consoleSpy).toHaveBeenCalledWith('LightSwitch unable to start');
+    expect(spy).not.toHaveBeenCalled();
   });
 });
 
@@ -33,17 +35,14 @@ describe('Lightswitch', () => {
   });
 
   test('should create', () => {
-    const consoleSpy = jest.spyOn(console, 'error');
-
     expect(component).toBeDefined();
-    expect(consoleSpy).not.toHaveBeenCalled();
   });
 
-  test('init() should create and inject the switch', () => {
+  test('init() should create and inject the switch', async () => {
     const createSwitchSpy = jest.spyOn(component, 'createSwitch');
     const setDefaultThemeSpy = jest.spyOn(component, 'setDefaultTheme');
 
-    component.init();
+    await component.init();
 
     expect(createSwitchSpy).toHaveBeenCalled();
     expect(setDefaultThemeSpy).toHaveBeenCalled();

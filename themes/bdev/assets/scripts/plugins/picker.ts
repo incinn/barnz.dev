@@ -14,7 +14,7 @@ export default class Picker extends Plugin {
 
     this.container = document.getElementById('picker');
     if (!this.container) {
-      this.init = undefined;
+      this.init = () => (Promise.resolve());
     }
   }
 
@@ -30,20 +30,16 @@ export default class Picker extends Plugin {
 
   buildTemplate(): string {
     return `
-    <div class="picker__container">
-      <div class="picker__inner">
-        ${this.createTitle(i18next.t('picker:title', { color: this.color })).outerHTML.toString()}
-        <p>
-          ${i18next.t('picker:description')}
-        </p>
-        <div class="picker__presets"></div>
-        <small>
-          ${i18next.t('picker:disclaimer')}
-        </small>
-        <button class="picker__reset" title="${i18next.t('picker:resetTitle')}"></button>
+      <div class="picker__container">
+        <div class="picker__inner">
+          ${this.createTitle(i18next.t('picker:title', { color: this.color })).outerHTML.toString()}
+          <p>${i18next.t('picker:description')}</p>
+          <div class="picker__presets"></div>
+          <small>${i18next.t('picker:disclaimer')}</small>
+          <button class="picker__reset" title="${i18next.t('picker:resetTitle')}"></button>
+        </div>
       </div>
-    </div>
-  `;
+    `;
   }
 
   create(): void {
@@ -99,14 +95,17 @@ export default class Picker extends Plugin {
     const icon = document.createElement('span');
     icon.innerHTML = feather.icons['refresh-cw'].toSvg();
 
-    button.addEventListener('click', this.reset.bind(this));
+    button.addEventListener('click', () => this.reset());
     button.appendChild(icon);
 
     return button;
   }
 
-  createTitle(content: string): HTMLHeadingElement{
+  createTitle(content: string): HTMLHeadingElement {
     const titleEl = document.createElement('h2');
+
+    if(!content || content.length < 1) return titleEl;
+
     titleEl.innerHTML = content.replace(/(#[0-9a-f]{6}|[0-9a-f]{3})/ig, `<span class="picker__titleColor">$1</span>`);
 
     return titleEl;
@@ -141,6 +140,8 @@ export default class Picker extends Plugin {
     
     const responses: string[] = i18next.t('picker:responses', { returnObjects: true, color: this.color });
     const response = this.selectRandomResponse(responses, +prevResponseIndex);
+
+    if(!response || !response.response) return;
 
     const titleEl = this.createTitle(response.response);
     titleEl.dataset.prevIndex = response.index.toString();
@@ -179,7 +180,8 @@ export default class Picker extends Plugin {
     return contrast >= 165 ? '#000000' : '#ffffff';
   }
 
-  selectRandomResponse(responses: string[], previous: number = 0): { index: number; response: string } {
+  selectRandomResponse(responses: string[] = [], previous: number = 0): { index: number; response: string } {
+    if(responses.length < 1) return;
     // TODO: refactor into shared method 
     //       used in both pircker.ts and textDeconde.ts
 

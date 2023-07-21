@@ -8,7 +8,7 @@ export default class TranslationCredit extends Plugin {
     
     this.buttons = document.querySelectorAll('.translationCredit__vote button');
     if(!this.buttons || this.buttons.length === 0) {
-      this.init = undefined;
+      this.init = () => (Promise.resolve());
     }
   }
 
