@@ -106,7 +106,7 @@ export default class Picker extends Plugin {
 
     if(!content || content.length < 1) return titleEl;
 
-    titleEl.innerHTML = content.replace(/(#[0-9a-f]{6}|[0-9a-f]{3})/ig, `<span class="picker__titleColor">$1</span>`);
+    titleEl.innerHTML = content.replace(/(#[0-9a-f]{6}|#[0-9a-f]{3})/ig, `<span class="picker__titleColor">$1</span>`);
 
     return titleEl;
   }
