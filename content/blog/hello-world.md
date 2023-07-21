@@ -6,7 +6,7 @@ author: barnz
 description: Hello world! Nice to meet you. My name is Barnz, and I'm a web developer from the UK.
 ---
 
-Hello world! Nice to meet you. My name is Barnz, and I'm a web developer from the UK. I love **Linux**, ramen, and in my spare time I still play the same [WWII FPS game](https://www.splashdamage.com/games/wolfenstein-enemy-territory/) I've been playing since 2006. I enjoy mechanical keyboards and long walks on the beach. I hate the colour yellow.
+Hello world! Nice to meet you. My name is Barnz, and I'm a web developer from the UK. I love **Linux**, ramen, and in my spare time I still play the same [WWII FPS game](https://www.splashdamage.com/games/wolfenstein-enemy-territory/) I've been playing since 2006. I enjoy mechanical keyboards and long walks on the beach - oh and I hate the colour yellow.
 
 Now that we know each other a little better, I want to talk about why I started a blog.
 
@@ -20,7 +20,7 @@ Everything published on this website is available on [GitHub](https://github.com
 
 # So what content can I find here?
 
-I'll mainly be writing about **Web Development**, with a focus on the front end. I might mention some **Linux** tools or issues I come across too. I'd like to dabble with some **hardware projects**, and plan to **self-host** some services in the future so I am sure I'll write about those too.
+I'll mainly be writing about **Web Development**, with a focus on the front end. I might mention some **Linux** tools or issues I come across too. I'd like to experiment with some **hardware projects**, and plan to **self-host** some services in the future so I'm sure I'll write about those too.
 
 If any of that sounds interesting, consider subscribing to my [RSS](/blog/index.xml) feed to stay up to date.
 
