@@ -1,1 +1,5 @@
 <div id="picker"></div>
+{{ define "scripts" }}
+{{ $js := resources.Get "scripts/plugins/picker.ts" | js.Build | resources.Minify | resources.Fingerprint "sha512" }}
+<script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{ end }}

@@ -8,6 +8,7 @@ export default class Picker extends Plugin {
   presets = ['#26bf80', '#e64d4d', '#457dd3', '#e89463', '#9572ca'];
   color: string = this.presets[0];
   component = '';
+  i18next: typeof i18next;
 
   constructor() {
     super();
@@ -16,10 +17,19 @@ export default class Picker extends Plugin {
     if (!this.container) {
       this.init = () => (Promise.resolve());
     }
+
+    console.log('PICKER CTOR');
+
+    document.addEventListener('loadPlugins', async (e: CustomEvent) => {
+      this.i18next = e.detail.i18n;
+      await this.init();
+    });
   }
 
   async init(): Promise<void> {
-    await i18next.loadNamespaces('picker');
+    console.log('INIT PICKER');
+    console.log('here',i18next.languages);
+    await this.i18next.loadNamespaces('picker');
 
     this.component = this.buildTemplate();
     this.create();
@@ -32,11 +42,11 @@ export default class Picker extends Plugin {
     return `
       <div class="picker__container">
         <div class="picker__inner">
-          ${this.createTitle(i18next.t('picker:title', { color: this.color })).outerHTML.toString()}
-          <p>${i18next.t('picker:description')}</p>
+          ${this.createTitle(this.i18next.t('picker:title', { color: this.color })).outerHTML.toString()}
+          <p>${this.i18next.t('picker:description')}</p>
           <div class="picker__presets"></div>
-          <small>${i18next.t('picker:disclaimer')}</small>
-          <button class="picker__reset" title="${i18next.t('picker:resetTitle')}"></button>
+          <small>${this.i18next.t('picker:disclaimer')}</small>
+          <button class="picker__reset" title="${this.i18next.t('picker:resetTitle')}"></button>
         </div>
       </div>
     `;
@@ -66,7 +76,7 @@ export default class Picker extends Plugin {
     const btn = document.createElement('button');
     btn.dataset.colour = color;
     btn.style.backgroundColor = color;
-    btn.setAttribute('title', i18next.t('picker:presetTitle', { color }));
+    btn.setAttribute('title', this.i18next.t('picker:presetTitle', { color }));
 
     return btn;
   }
@@ -76,7 +86,7 @@ export default class Picker extends Plugin {
     wrapper.classList.add('colorWrapper');
     const picker = document.createElement('input');
     picker.type = 'color';
-    picker.title = i18next.t('picker:customTitle');
+    picker.title = this.i18next.t('picker:customTitle');
     const icon = document.createElement('span');
     icon.innerHTML = feather.icons.edit.toSvg();
 
@@ -138,7 +148,7 @@ export default class Picker extends Plugin {
     const titleContainer: HTMLElement = this.wrapperEl.querySelector('.picker__inner h2');
     const prevResponseIndex = titleContainer.dataset.prevIndex || 0;
     
-    const responses: string[] = i18next.t('picker:responses', { returnObjects: true, color: this.color });
+    const responses: string[] = this.i18next.t('picker:responses', { returnObjects: true, color: this.color });
     const response = this.selectRandomResponse(responses, +prevResponseIndex);
 
     if(!response || !response.response) return;
@@ -206,3 +216,5 @@ export default class Picker extends Plugin {
     ];
   }
 }
+
+new Picker();

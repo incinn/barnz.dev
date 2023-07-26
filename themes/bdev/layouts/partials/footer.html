@@ -27,3 +27,6 @@
 
 {{ $js := resources.Get "scripts/_init.ts" | js.Build | resources.Minify | resources.Fingerprint "sha512" }}
 <script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+
+{{ block "scripts" . }}{{ end }}
+

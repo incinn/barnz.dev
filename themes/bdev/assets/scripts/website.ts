@@ -1,19 +1,18 @@
+import i18next from 'i18next';
 import ResponsiveHelpers from './helpers/responsive.helpers';
 import Plugin from './plugin';
 import LightSwitch from './plugins/lightswitch';
-import Picker from './plugins/picker';
 import ProjectItemEffect from './plugins/projectItem';
 import TextDecode from './plugins/textDecode';
 import TranslationCredit from './plugins/translationCredit';
 
 export default class Website {
-  plugins: Plugin[] = [];
+  corePlugins: Plugin[] = [];
 
   constructor() {
     const responsiveHelpers = new ResponsiveHelpers();
-    this.plugins = [
+    this.corePlugins = [
       new LightSwitch(),
-      new Picker(),
       new TextDecode(),
       new ProjectItemEffect(responsiveHelpers),
       new TranslationCredit()
@@ -24,10 +23,20 @@ export default class Website {
 
   init(): void {
     this.removeNoJsClass();
-    this.plugins.forEach(async (plugin: Plugin) => await plugin.init());
+    this.corePlugins.forEach(async (plugin: Plugin) => await plugin.init());
 
+    this.loadAdditionalPlugins();
     this.introAnimation();
     this.handleResetAllButton();
+  }
+
+  loadAdditionalPlugins(): void {
+    document.dispatchEvent(new CustomEvent('loadPlugins', {
+      detail: {
+        i18n: i18next
+      }
+    }));
+    console.log('LOADPLUGINS EVENT');
   }
 
   removeNoJsClass(): void {
@@ -36,7 +45,8 @@ export default class Website {
   }
 
   resetAll(): void {
-    this.plugins.forEach((plugin: Plugin) => plugin.reset());
+    this.corePlugins.forEach((plugin: Plugin) => plugin.reset());
+    document.dispatchEvent(new CustomEvent('pluginReset'));
   }
 
   handleResetAllButton(): void {
