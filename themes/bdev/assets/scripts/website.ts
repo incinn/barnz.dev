@@ -7,10 +7,8 @@ import LightSwitch from './plugins/lightswitch';
 
 export default class Website {
   corePlugins: Plugin[] = [];
-  responsiveHelpers: ResponsiveHelpers;
 
   constructor() {
-    this.responsiveHelpers = new ResponsiveHelpers();
     this.corePlugins = [
       new LightSwitch(),
     ];
@@ -20,9 +18,10 @@ export default class Website {
 
   init(): void {
     this.removeNoJsClass();
+    this.setAccent();
+
     this.corePlugins.forEach(async (plugin: Plugin) => await plugin.init());
 
-    this.setAccent();
     this.loadAdditionalPlugins();
     this.introAnimation();
     this.handleResetAllButton();
@@ -32,7 +31,7 @@ export default class Website {
     document.dispatchEvent(new CustomEvent<LoadPluginsPayload>('loadPlugins', {
       detail: {
         translation: i18next,
-        responsive: this.responsiveHelpers,
+        responsive: new ResponsiveHelpers(),
         icons: feather
       }
     }));
@@ -40,10 +39,12 @@ export default class Website {
 
   setAccent(): void {
     const accent = localStorage.getItem('accent');
-    if(!accent) return;
+    const accentAlt = localStorage.getItem('accent-alt');
+    if(!accent || !accentAlt) return;
 
     const root = document.querySelector(':root') as HTMLElement;
     root.style.setProperty('--accent', accent);
+    root.style.setProperty('--accent-alt', accent);
   }
 
   removeNoJsClass(): void {
@@ -58,10 +59,7 @@ export default class Website {
 
   handleResetAllButton(): void {
     const button = document.getElementById('js-plugin-reset-all');
-    if (!button) {
-      console.error('Unable to find reset all button');
-      return;
-    }
+    if (!button) return;
 
     button.addEventListener('click', () => this.resetAll());
   }

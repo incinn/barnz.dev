@@ -70,17 +70,17 @@ describe('Accent picker', () => {
       const colour = '#404040';
       window.localStorage.setItem('accent', colour);
 
-      expect(component.loadValueFromStore()).toBe(colour);
+      expect(component.loadAccentFromStore()).toBe(colour);
     });
 
     test('should return undefined if value not found in store', () => {
-      expect(component.loadValueFromStore()).toBe(null);
+      expect(component.loadAccentFromStore()).toBe(null);
     });
 
     test('setValueInStore() should set value in store', () => {
       const value = '#404040';
       component.color = value;
-      component.setValueInStore();
+      component.updateStore();
 
       expect(window.localStorage.getItem('accent')).toBe(value);
     });

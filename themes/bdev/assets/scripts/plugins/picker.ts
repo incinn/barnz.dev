@@ -11,6 +11,7 @@ export default class Picker extends Plugin {
   wrapperEl: HTMLElement;
   presets = ['#26bf80', '#e64d4d', '#457dd3', '#e89463', '#9572ca'];
   color: string = this.presets[0];
+  colorAlt: string;
   component = '';
 
   constructor() {
@@ -34,7 +35,7 @@ export default class Picker extends Plugin {
     this.component = this.buildTemplate();
     this.create();
 
-    const savedAccent = this.loadValueFromStore();
+    const savedAccent = this.loadAccentFromStore();
     if (savedAccent) this.update(savedAccent);
   }
 
@@ -72,7 +73,7 @@ export default class Picker extends Plugin {
 
   createPresetButton(color: string): HTMLButtonElement {
     const btn = document.createElement('button');
-    btn.dataset.colour = color;
+    btn.dataset.color = color;
     btn.style.backgroundColor = color;
     btn.setAttribute('title', this._translationLib.t('picker:presetTitle', { color }));
 
@@ -119,26 +120,29 @@ export default class Picker extends Plugin {
     return titleEl;
   }
 
-  loadValueFromStore(): string | null {
+  loadAccentFromStore(): string | null {
     const savedValue = localStorage.getItem('accent');
     return savedValue ? savedValue : null;
   }
 
-  setValueInStore(): void {
+  updateStore(): void {
     localStorage.setItem('accent', this.color);
+    localStorage.setItem('accent-alt', this.colorAlt);
   }
 
   reset(): void {
     localStorage.removeItem('accent');
-    window.location.reload();
+    localStorage.removeItem('accent-alt');
   }
 
-  update(colour: string): void {
-    if (this.color === colour) return;
+  update(color: string): void {
+    if (color === this.color) return;
 
-    this.color = colour;
-    this.setValueInStore();
-    this.setColour();
+    this.color = color;
+    this.colorAlt = this.getContrastColor(this.color);
+
+    this.updateStore();
+    this.setColor();
     this.updateText();
   }
 
@@ -161,7 +165,7 @@ export default class Picker extends Plugin {
     event.preventDefault();
 
     if (event !== null && event.target instanceof HTMLButtonElement) {
-      this.update(event.target.dataset.colour);
+      this.update(event.target.dataset.color);
     }
   }
 
@@ -173,14 +177,14 @@ export default class Picker extends Plugin {
     }
   }
 
-  setColour(): void {
+  setColor(): void {
     const root = document.querySelector(':root') as HTMLElement;
 
     root.style.setProperty('--accent', this.color);
-    root.style.setProperty('--accent-alt', this.getContrastColour(this.color));
+    root.style.setProperty('--accent-alt', this.getContrastColor(this.color));
   }
 
-  getContrastColour(color: string): string {
+  getContrastColor(color: string): string {
     const rgbColor = this.hexToRgb(color);
     const contrast =
       0.2126 * rgbColor[0] + 0.7152 * rgbColor[1] + 0.0722 * rgbColor[2];
