@@ -1,4 +1,5 @@
 import ResponsiveHelpers from "../helpers/responsive.helpers";
+import LoadPluginsPayload from "../interfaces/loadPlugins.event";
 import Plugin from "../plugin";
 
 export default class ProjectItemEffect extends Plugin {
@@ -10,9 +11,13 @@ export default class ProjectItemEffect extends Plugin {
   private rotateX = 0;
   private scale = this.minScale;
 
-  constructor(rh: ResponsiveHelpers) {
+  constructor() {
     super();
-    this._responsive = rh;
+
+    document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
+      this._responsive = e.detail.responsive;
+      await this.init();
+    });
   }
 
   async init(): Promise<void> {
@@ -105,3 +110,5 @@ export default class ProjectItemEffect extends Plugin {
     }
   }
 }
+
+new ProjectItemEffect();

@@ -1,20 +1,20 @@
 import i18next from 'i18next';
 import ResponsiveHelpers from './helpers/responsive.helpers';
+import LoadPluginsPayload from './interfaces/loadPlugins.event';
 import Plugin from './plugin';
 import LightSwitch from './plugins/lightswitch';
-import ProjectItemEffect from './plugins/projectItem';
 import TextDecode from './plugins/textDecode';
 import TranslationCredit from './plugins/translationCredit';
 
 export default class Website {
   corePlugins: Plugin[] = [];
+  responsiveHelpers: ResponsiveHelpers;
 
   constructor() {
-    const responsiveHelpers = new ResponsiveHelpers();
+    this.responsiveHelpers = new ResponsiveHelpers();
     this.corePlugins = [
       new LightSwitch(),
       new TextDecode(),
-      new ProjectItemEffect(responsiveHelpers),
       new TranslationCredit()
     ];
 
@@ -31,9 +31,10 @@ export default class Website {
   }
 
   loadAdditionalPlugins(): void {
-    document.dispatchEvent(new CustomEvent('loadPlugins', {
+    document.dispatchEvent(new CustomEvent<LoadPluginsPayload>('loadPlugins', {
       detail: {
-        i18n: i18next
+        translation: i18next,
+        responsive: this.responsiveHelpers
       }
     }));
     console.log('LOADPLUGINS EVENT');

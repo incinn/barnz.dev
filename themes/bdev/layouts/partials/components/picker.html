@@ -1,5 +1,3 @@
 <div id="picker"></div>
-{{ define "scripts" }}
-{{ $js := resources.Get "scripts/plugins/picker.ts" | js.Build | resources.Minify | resources.Fingerprint "sha512" }}
-<script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
-{{ end }}
+{{- $js := resources.Get "scripts/plugins/picker.ts" | js.Build | resources.Minify | resources.Fingerprint "sha512" }}
+{{- $.Page.Scratch.SetInMap "js" "picker" (printf "<script src='%s' integrity='%s' defer></script>" $js.Permalink $js.Data.Integrity | safeHTML) -}}

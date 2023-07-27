@@ -16,3 +16,6 @@
 {{ if not (gt (where .Site.RegularPages "Type" "projects" | len) 0) }}
 {{ partial "components/incompleteTranslationMessage" . }}
 {{ end }}
+
+{{- $js := resources.Get "scripts/plugins/projectItem.ts" | js.Build | resources.Minify | resources.Fingerprint "sha512" }}
+{{- $.Page.Scratch.SetInMap "js" "projectItem" (printf "<script src='%s' integrity='%s' defer></script>" $js.Permalink $js.Data.Integrity | safeHTML) -}}
