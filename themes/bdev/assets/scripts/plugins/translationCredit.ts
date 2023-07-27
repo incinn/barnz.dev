@@ -10,6 +10,10 @@ export default class TranslationCredit extends Plugin {
     if(!this.buttons || this.buttons.length === 0) {
       this.init = () => (Promise.resolve());
     }
+
+    document.addEventListener('loadPlugins', async () => {
+      await this.init();
+    });
   }
 
   async init(): Promise<void> {
@@ -60,3 +64,5 @@ export default class TranslationCredit extends Plugin {
     return Math.floor(Math.random() * (max - min) + min);
   }
 }
+
+new TranslationCredit();

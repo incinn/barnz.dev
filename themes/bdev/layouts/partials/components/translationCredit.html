@@ -14,3 +14,7 @@
         </div>
     </div>
 </aside>
+
+{{- $options := dict "targetPath" "js/love.min.js" "minify" true -}}
+{{- $js := resources.Get "scripts/plugins/translationCredit.ts" | js.Build $options | resources.Fingerprint "sha512" }}
+{{- $.Page.Scratch.SetInMap "js" "translationCredit" (printf "<script src='%s' integrity='%s' defer></script>" $js.Permalink $js.Data.Integrity | safeHTML) -}}

@@ -4,7 +4,6 @@ import ResponsiveHelpers from './helpers/responsive.helpers';
 import LoadPluginsPayload from './interfaces/loadPlugins.event';
 import Plugin from './plugin';
 import LightSwitch from './plugins/lightswitch';
-import TranslationCredit from './plugins/translationCredit';
 
 export default class Website {
   corePlugins: Plugin[] = [];
@@ -14,7 +13,6 @@ export default class Website {
     this.responsiveHelpers = new ResponsiveHelpers();
     this.corePlugins = [
       new LightSwitch(),
-      new TranslationCredit()
     ];
 
     this.init();
