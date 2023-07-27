@@ -25,7 +25,8 @@
     </div>
 </footer>
 
-{{ $js := resources.Get "scripts/_init.ts" | js.Build | resources.Minify | resources.Fingerprint "sha512" }}
+{{- $options := dict "targetPath" "js/bundle.min.js" "minify" true -}}
+{{ $js := resources.Get "scripts/_init.ts" | js.Build $options | resources.Fingerprint "sha512" }}
 <script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 
 {{- range .Scratch.GetSortedMapValues "js" -}}

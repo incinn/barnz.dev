@@ -1,4 +1,5 @@
 import i18next from 'i18next';
+import feather from 'feather-icons';
 import ResponsiveHelpers from './helpers/responsive.helpers';
 import LoadPluginsPayload from './interfaces/loadPlugins.event';
 import Plugin from './plugin';
@@ -34,10 +35,10 @@ export default class Website {
     document.dispatchEvent(new CustomEvent<LoadPluginsPayload>('loadPlugins', {
       detail: {
         translation: i18next,
-        responsive: this.responsiveHelpers
+        responsive: this.responsiveHelpers,
+        icons: feather
       }
     }));
-    console.log('LOADPLUGINS EVENT');
   }
 
   removeNoJsClass(): void {

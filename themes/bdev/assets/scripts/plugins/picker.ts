@@ -1,4 +1,4 @@
-import feather = require('feather-icons');
+import feather from 'feather-icons';
 import i18next from 'i18next';
 import LoadPluginsPayload from '../interfaces/loadPlugins.event';
 import Plugin from '../plugin';
@@ -10,6 +10,7 @@ export default class Picker extends Plugin {
   color: string = this.presets[0];
   component = '';
   translation: typeof i18next;
+  feather: typeof feather;
 
   constructor() {
     super();
@@ -19,17 +20,14 @@ export default class Picker extends Plugin {
       this.init = () => (Promise.resolve());
     }
 
-    console.log('PICKER CTOR');
-
     document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
       this.translation = e.detail.translation;
+      this.feather = e.detail.icons;
       await this.init();
     });
   }
 
   async init(): Promise<void> {
-    console.log('INIT PICKER');
-    console.log('here',i18next.languages);
     await this.translation.loadNamespaces('picker');
 
     this.component = this.buildTemplate();
@@ -89,7 +87,7 @@ export default class Picker extends Plugin {
     picker.type = 'color';
     picker.title = this.translation.t('picker:customTitle');
     const icon = document.createElement('span');
-    icon.innerHTML = feather.icons.edit.toSvg();
+    icon.innerHTML = this.feather.icons.edit.toSvg();
 
     picker.addEventListener('change', this.handleInputChange.bind(this));
 
@@ -104,7 +102,7 @@ export default class Picker extends Plugin {
       '.picker__reset'
     ) as HTMLButtonElement;
     const icon = document.createElement('span');
-    icon.innerHTML = feather.icons['refresh-cw'].toSvg();
+    icon.innerHTML = this.feather.icons['refresh-cw'].toSvg();
 
     button.addEventListener('click', () => this.reset());
     button.appendChild(icon);
