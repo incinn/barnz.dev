@@ -38,17 +38,15 @@ export default class Picker extends Plugin {
   }
 
   buildTemplate(): string {
-    return `
-      <div class="picker__container">
-        <div class="picker__inner">
-          ${this.createTitle(this.translation.t('picker:title', { color: this.color })).outerHTML.toString()}
-          <p>${this.translation.t('picker:description')}</p>
-          <div class="picker__presets"></div>
-          <small>${this.translation.t('picker:disclaimer')}</small>
-          <button class="picker__reset" title="${this.translation.t('picker:resetTitle')}"></button>
-        </div>
-      </div>
-    `;
+    return '<div class="picker__container">' +
+        '<div class="picker__inner">' +
+          this.createTitle(this.translation.t('picker:title', { color: this.color })).outerHTML.toString() +
+          '<p>' + this.translation.t('picker:description') + '</p>' +
+          '<div class="picker__presets"></div>' + 
+          '<small>' + this.translation.t('picker:disclaimer') + '</small>' +
+          '<button class="picker__reset" title="' + this.translation.t('picker:resetTitle') + '"></button>' +
+        '</div>' +
+      '</div>';
   }
 
   create(): void {

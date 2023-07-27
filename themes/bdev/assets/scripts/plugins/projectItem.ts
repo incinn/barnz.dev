@@ -71,11 +71,10 @@ export default class ProjectItemEffect extends Plugin {
   }
 
   updateStyle(el: HTMLElement): void {
-    el.style.transform = `
-      perspective(1000px)
-      scale(${this.scale}) 
-      rotateY(${this.rotateY}deg)
-      rotateX(${-this.rotateX}deg)`;
+    el.style.transform = 'perspective(1000px)' +
+      'scale(' + this.scale + ') ' +
+      'rotateY(' + this.rotateY + 'deg) ' + 
+      'rotateX(' + -this.rotateX + 'deg)';
     el.style.zIndex = "999";
   }
 
