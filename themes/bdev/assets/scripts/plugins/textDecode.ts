@@ -11,6 +11,10 @@ export default class TextDecode extends Plugin {
     if (!this.targets || this.targets.length < 1) {
       this.init = () => (Promise.resolve());
     }
+
+    document.addEventListener('loadPlugins', async () => {
+      await this.init();
+    });
   }
 
   async init(): Promise<void> {
@@ -68,3 +72,5 @@ export default class TextDecode extends Plugin {
     return { index, cypher: this.cyphers[index] };
   }
 }
+
+new TextDecode();
