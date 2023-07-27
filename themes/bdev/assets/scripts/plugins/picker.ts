@@ -189,7 +189,7 @@ export default class Picker extends Plugin {
     const contrast =
       0.2126 * rgbColor[0] + 0.7152 * rgbColor[1] + 0.0722 * rgbColor[2];
 
-    return contrast >= 165 ? '#000000' : '#ffffff';
+    return contrast >= 165 ? '#1b1b28' : '#fbfbfb';
   }
 
   selectRandomResponse(responses: string[] = [], previous: number = 0): { index: number; response: string } {
