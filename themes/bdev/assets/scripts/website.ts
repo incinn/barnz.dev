@@ -22,6 +22,7 @@ export default class Website {
     this.removeNoJsClass();
     this.corePlugins.forEach(async (plugin: Plugin) => await plugin.init());
 
+    this.setAccent();
     this.loadAdditionalPlugins();
     this.introAnimation();
     this.handleResetAllButton();
@@ -35,6 +36,14 @@ export default class Website {
         icons: feather
       }
     }));
+  }
+
+  setAccent(): void {
+    const accent = localStorage.getItem('accent');
+    if(!accent) return;
+
+    const root = document.querySelector(':root') as HTMLElement;
+    root.style.setProperty('--accent', accent);
   }
 
   removeNoJsClass(): void {
