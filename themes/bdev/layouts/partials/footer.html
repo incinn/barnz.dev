@@ -28,7 +28,12 @@
 {{ $js := resources.Get "scripts/_init.ts" | js.Build | resources.Minify | resources.Fingerprint "sha512" }}
 <script src="{{ $js.Permalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 
-{{- $noop := .Content -}}
 {{- range .Scratch.GetSortedMapValues "js" -}}
 {{ . }}
 {{- end -}}
+
+<script
+  data-domain="barnz.dev"
+  src="https://admin.barnz.dev/js/script.js"
+  defer
+></script>
