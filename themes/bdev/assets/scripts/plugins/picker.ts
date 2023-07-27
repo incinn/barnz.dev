@@ -4,13 +4,14 @@ import LoadPluginsPayload from '../interfaces/loadPlugins.event';
 import Plugin from '../plugin';
 
 export default class Picker extends Plugin {
+  _translationLib: typeof i18next;
+  _iconLib: typeof feather;
+
   container: HTMLElement;
   wrapperEl: HTMLElement;
   presets = ['#26bf80', '#e64d4d', '#457dd3', '#e89463', '#9572ca'];
   color: string = this.presets[0];
   component = '';
-  translation: typeof i18next;
-  feather: typeof feather;
 
   constructor() {
     super();
@@ -21,14 +22,14 @@ export default class Picker extends Plugin {
     }
 
     document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
-      this.translation = e.detail.translation;
-      this.feather = e.detail.icons;
+      this._translationLib = e.detail.translation;
+      this._iconLib = e.detail.icons;
       await this.init();
     });
   }
 
   async init(): Promise<void> {
-    await this.translation.loadNamespaces('picker');
+    await this._translationLib.loadNamespaces('picker');
 
     this.component = this.buildTemplate();
     this.create();
@@ -40,11 +41,11 @@ export default class Picker extends Plugin {
   buildTemplate(): string {
     return '<div class="picker__container">' +
         '<div class="picker__inner">' +
-          this.createTitle(this.translation.t('picker:title', { color: this.color })).outerHTML.toString() +
-          '<p>' + this.translation.t('picker:description') + '</p>' +
+          this.createTitle(this._translationLib.t('picker:title', { color: this.color })).outerHTML.toString() +
+          '<p>' + this._translationLib.t('picker:description') + '</p>' +
           '<div class="picker__presets"></div>' + 
-          '<small>' + this.translation.t('picker:disclaimer') + '</small>' +
-          '<button class="picker__reset" title="' + this.translation.t('picker:resetTitle') + '"></button>' +
+          '<small>' + this._translationLib.t('picker:disclaimer') + '</small>' +
+          '<button class="picker__reset" title="' + this._translationLib.t('picker:resetTitle') + '"></button>' +
         '</div>' +
       '</div>';
   }
@@ -73,7 +74,7 @@ export default class Picker extends Plugin {
     const btn = document.createElement('button');
     btn.dataset.colour = color;
     btn.style.backgroundColor = color;
-    btn.setAttribute('title', this.translation.t('picker:presetTitle', { color }));
+    btn.setAttribute('title', this._translationLib.t('picker:presetTitle', { color }));
 
     return btn;
   }
@@ -83,9 +84,9 @@ export default class Picker extends Plugin {
     wrapper.classList.add('colorWrapper');
     const picker = document.createElement('input');
     picker.type = 'color';
-    picker.title = this.translation.t('picker:customTitle');
+    picker.title = this._translationLib.t('picker:customTitle');
     const icon = document.createElement('span');
-    icon.innerHTML = this.feather.icons.edit.toSvg();
+    icon.innerHTML = this._iconLib.icons.edit.toSvg();
 
     picker.addEventListener('change', this.handleInputChange.bind(this));
 
@@ -100,7 +101,7 @@ export default class Picker extends Plugin {
       '.picker__reset'
     ) as HTMLButtonElement;
     const icon = document.createElement('span');
-    icon.innerHTML = this.feather.icons['refresh-cw'].toSvg();
+    icon.innerHTML = this._iconLib.icons['refresh-cw'].toSvg();
 
     button.addEventListener('click', () => this.reset());
     button.appendChild(icon);
@@ -145,7 +146,7 @@ export default class Picker extends Plugin {
     const titleContainer: HTMLElement = this.wrapperEl.querySelector('.picker__inner h2');
     const prevResponseIndex = titleContainer.dataset.prevIndex || 0;
     
-    const responses: string[] = this.translation.t('picker:responses', { returnObjects: true, color: this.color });
+    const responses: string[] = this._translationLib.t('picker:responses', { returnObjects: true, color: this.color });
     const response = this.selectRandomResponse(responses, +prevResponseIndex);
 
     if(!response || !response.response) return;
