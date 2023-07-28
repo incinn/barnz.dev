@@ -108,9 +108,7 @@ describe('Accent picker', () => {
   });
 
   test('update() should set color property and call other methods', () => {
-    const storeSpy = jest
-      .spyOn(component, 'updateStore')
-      // .mockImplementation();
+    const storeSpy = jest.spyOn(component, 'updateStore').mockImplementation();
     const colorSpy = jest.spyOn(component, 'setColor').mockImplementation();
     const textSpy = jest.spyOn(component, 'updateText').mockImplementation();
 
