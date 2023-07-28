@@ -1,6 +1,8 @@
 import fs = require('fs');
 import Picker from '../themes/bdev/assets/scripts/plugins/picker';
 import { fakeLocalStorage } from './helpers/store.helper';
+import feather from 'feather-icons';
+import i18next from 'i18next';
 
 describe('Accent picker', () => {
   let component: Picker;
@@ -21,7 +23,7 @@ describe('Accent picker', () => {
       reload: jest.fn(),
     };
 
-    component = new Picker();
+    component = new Picker(jest.mocked(i18next), jest.mocked(feather));
   });
 
   test('should create', () => {
@@ -39,7 +41,7 @@ describe('Accent picker', () => {
 
     test('should not call update() if no value found in store', async () => {
       jest
-        .spyOn(component, 'loadValueFromStore')
+        .spyOn(component, 'loadAccentFromStore')
         .mockImplementation(() => undefined);
       const updateSpy = jest.spyOn(component, 'update');
 
@@ -51,7 +53,7 @@ describe('Accent picker', () => {
     test('should call update with colour if value found in store', async () => {
       const colour = '#404040';
       jest
-        .spyOn(component, 'loadValueFromStore')
+        .spyOn(component, 'loadAccentFromStore')
         .mockImplementation(() => colour);
       const updateSpy = jest.spyOn(component, 'update');
 
@@ -77,12 +79,16 @@ describe('Accent picker', () => {
       expect(component.loadAccentFromStore()).toBe(null);
     });
 
-    test('setValueInStore() should set value in store', () => {
-      const value = '#404040';
-      component.color = value;
+    test('updateStore() should set accent values in store', () => {
+      const accent = '#404040';
+      const accentAlt = '#f5f5f5';
+      component.color = accent;
+      component.colorAlt = accentAlt;
+
       component.updateStore();
 
-      expect(window.localStorage.getItem('accent')).toBe(value);
+      expect(window.localStorage.getItem('accent')).toBe(accent);
+      expect(window.localStorage.getItem('accent-alt')).toBe(accentAlt);
     });
   });
 
@@ -103,9 +109,9 @@ describe('Accent picker', () => {
 
   test('update() should set color property and call other methods', () => {
     const storeSpy = jest
-      .spyOn(component, 'setValueInStore')
+      .spyOn(component, 'updateStore')
       // .mockImplementation();
-    const colorSpy = jest.spyOn(component, 'setColour').mockImplementation();
+    const colorSpy = jest.spyOn(component, 'setColor').mockImplementation();
     const textSpy = jest.spyOn(component, 'updateText').mockImplementation();
 
     const colour = '#404040';
