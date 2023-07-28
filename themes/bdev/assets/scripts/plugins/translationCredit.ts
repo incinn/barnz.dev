@@ -1,5 +1,9 @@
 import Plugin from "../plugin";
 
+document.addEventListener('loadPlugins', async () => {
+  new TranslationCredit();
+});
+
 export default class TranslationCredit extends Plugin {
   buttons: NodeListOf<HTMLButtonElement>;
 
@@ -10,10 +14,8 @@ export default class TranslationCredit extends Plugin {
     if(!this.buttons || this.buttons.length === 0) {
       this.init = () => (Promise.resolve());
     }
-
-    document.addEventListener('loadPlugins', async () => {
-      await this.init();
-    });
+    
+    this.init();
   }
 
   async init(): Promise<void> {
@@ -65,4 +67,3 @@ export default class TranslationCredit extends Plugin {
   }
 }
 
-new TranslationCredit();

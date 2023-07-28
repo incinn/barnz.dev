@@ -2,8 +2,12 @@ import ResponsiveHelpers from "../helpers/responsive.helpers";
 import LoadPluginsPayload from "../interfaces/loadPlugins.event";
 import Plugin from "../plugin";
 
+document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
+  new ProjectItemEffect(e.detail.responsive);
+});
+
 export default class ProjectItemEffect extends Plugin {
-  private _responsive: ResponsiveHelpers;
+  protected _responsive: ResponsiveHelpers;
   private threshold = 10;
   private minScale = 1.2;
   private maxScale = 2;
@@ -11,13 +15,12 @@ export default class ProjectItemEffect extends Plugin {
   private rotateX = 0;
   private scale = this.minScale;
 
-  constructor() {
+  constructor(helpers: ResponsiveHelpers) {
     super();
 
-    document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
-      this._responsive = e.detail.responsive;
-      await this.init();
-    });
+    this._responsive = helpers;
+
+    this.init();
   }
 
   async init(): Promise<void> {
@@ -110,4 +113,3 @@ export default class ProjectItemEffect extends Plugin {
   }
 }
 
-new ProjectItemEffect();

@@ -3,6 +3,10 @@ import i18next from 'i18next';
 import LoadPluginsPayload from '../interfaces/loadPlugins.event';
 import Plugin from '../plugin';
 
+document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
+  new Picker(e.detail.translation, e.detail.icons);
+});
+
 export default class Picker extends Plugin {
   _translationLib: typeof i18next;
   _iconLib: typeof feather;
@@ -14,19 +18,18 @@ export default class Picker extends Plugin {
   colorAlt: string;
   component = '';
 
-  constructor() {
+  constructor(translation: typeof i18next, icons: typeof feather) {
     super();
+    
+    this._translationLib = translation;
+    this._iconLib = icons;
 
     this.container = document.getElementById('picker');
     if (!this.container) {
       this.init = () => (Promise.resolve());
     }
-
-    document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
-      this._translationLib = e.detail.translation;
-      this._iconLib = e.detail.icons;
-      await this.init();
-    });
+   
+    this.init();
   }
 
   async init(): Promise<void> {
@@ -219,4 +222,3 @@ export default class Picker extends Plugin {
   }
 }
 
-new Picker();
