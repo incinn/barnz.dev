@@ -136,6 +136,7 @@ export default class Picker extends Plugin {
   reset(): void {
     localStorage.removeItem('accent');
     localStorage.removeItem('accent-alt');
+    window.location.reload();
   }
 
   update(color: string): void {
