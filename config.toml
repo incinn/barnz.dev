@@ -4,6 +4,7 @@ theme = "bdev"
 copyright = "barnz.dev"
 defaultContentLanguage = 'en'
 disableHugoGeneratorInject = true
+enableGitInfo = true
 
 [languages]
     [languages.en]
