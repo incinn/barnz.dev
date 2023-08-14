@@ -44,7 +44,7 @@ export default class Website {
 
     const root = document.querySelector(':root') as HTMLElement;
     root.style.setProperty('--accent', accent);
-    root.style.setProperty('--accent-alt', accent);
+    root.style.setProperty('--accent-alt', accentAlt);
   }
 
   removeNoJsClass(): void {
