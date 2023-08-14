@@ -25,11 +25,8 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Get latest commit data
-        run: source get-latest-commit.sh
-
       - name: Build
-        run: hugo --minify
+        run: source get-latest-commit.sh; hugo --minify
         
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2

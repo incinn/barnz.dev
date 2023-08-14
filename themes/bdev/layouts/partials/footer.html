@@ -5,7 +5,7 @@
       {{ now.Year }} 
       <span class="footer__copyIcon">&copy;</span> {{ .Site.Copyright }} &bull; 
       {{ with site.Params.git.last_commit }}
-      <a href="https://github.com/incinn/barnz.dev/commit/{{ .hashlong }}" title="{{ .date }}">{{ .hash }}</a> &bull;
+      <a href="https://github.com/incinn/barnz.dev/commit/{{ .hashlong }}" title="{{ .date }}" target="_blank">{{ .hash }}</a> &bull;
       {{ end }}
       <a href="{{ ref . "/legal" }}" title="{{ i18n "footer_legal"}}">{{ i18n "footer_legal" }}</a>
       </p>
