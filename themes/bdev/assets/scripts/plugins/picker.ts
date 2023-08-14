@@ -1,45 +1,57 @@
-import feather = require('feather-icons');
+import feather from 'feather-icons';
 import i18next from 'i18next';
+import LoadPluginsPayload from '../interfaces/loadPlugins.event';
 import Plugin from '../plugin';
 
+document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
+  new Picker(e.detail.translation, e.detail.icons);
+});
+
 export default class Picker extends Plugin {
+  _translationLib: typeof i18next;
+  _iconLib: typeof feather;
+
   container: HTMLElement;
   wrapperEl: HTMLElement;
   presets = ['#26bf80', '#e64d4d', '#457dd3', '#e89463', '#9572ca'];
   color: string = this.presets[0];
+  colorAlt: string;
   component = '';
 
-  constructor() {
+  constructor(translation: typeof i18next, icons: typeof feather) {
     super();
+    
+    this._translationLib = translation;
+    this._iconLib = icons;
 
     this.container = document.getElementById('picker');
     if (!this.container) {
       this.init = () => (Promise.resolve());
     }
+   
+    this.init();
   }
 
   async init(): Promise<void> {
-    await i18next.loadNamespaces('picker');
+    await this._translationLib.loadNamespaces('picker');
 
     this.component = this.buildTemplate();
     this.create();
 
-    const savedAccent = this.loadValueFromStore();
+    const savedAccent = this.loadAccentFromStore();
     if (savedAccent) this.update(savedAccent);
   }
 
   buildTemplate(): string {
-    return `
-      <div class="picker__container">
-        <div class="picker__inner">
-          ${this.createTitle(i18next.t('picker:title', { color: this.color })).outerHTML.toString()}
-          <p>${i18next.t('picker:description')}</p>
-          <div class="picker__presets"></div>
-          <small>${i18next.t('picker:disclaimer')}</small>
-          <button class="picker__reset" title="${i18next.t('picker:resetTitle')}"></button>
-        </div>
-      </div>
-    `;
+    return '<div class="picker__container">' +
+        '<div class="picker__inner">' +
+          this.createTitle(this._translationLib.t('picker:title', { color: this.color })).outerHTML.toString() +
+          '<p>' + this._translationLib.t('picker:description') + '</p>' +
+          '<div class="picker__presets"></div>' + 
+          '<small>' + this._translationLib.t('picker:disclaimer') + '</small>' +
+          '<button class="picker__reset" title="' + this._translationLib.t('picker:resetTitle') + '"></button>' +
+        '</div>' +
+      '</div>';
   }
 
   create(): void {
@@ -64,9 +76,9 @@ export default class Picker extends Plugin {
 
   createPresetButton(color: string): HTMLButtonElement {
     const btn = document.createElement('button');
-    btn.dataset.colour = color;
+    btn.dataset.color = color;
     btn.style.backgroundColor = color;
-    btn.setAttribute('title', i18next.t('picker:presetTitle', { color }));
+    btn.setAttribute('title', this._translationLib.t('picker:presetTitle', { color }));
 
     return btn;
   }
@@ -76,9 +88,9 @@ export default class Picker extends Plugin {
     wrapper.classList.add('colorWrapper');
     const picker = document.createElement('input');
     picker.type = 'color';
-    picker.title = i18next.t('picker:customTitle');
+    picker.title = this._translationLib.t('picker:customTitle');
     const icon = document.createElement('span');
-    icon.innerHTML = feather.icons.edit.toSvg();
+    icon.innerHTML = this._iconLib.icons.edit.toSvg();
 
     picker.addEventListener('change', this.handleInputChange.bind(this));
 
@@ -93,7 +105,7 @@ export default class Picker extends Plugin {
       '.picker__reset'
     ) as HTMLButtonElement;
     const icon = document.createElement('span');
-    icon.innerHTML = feather.icons['refresh-cw'].toSvg();
+    icon.innerHTML = this._iconLib.icons['refresh-cw'].toSvg();
 
     button.addEventListener('click', () => this.reset());
     button.appendChild(icon);
@@ -111,26 +123,30 @@ export default class Picker extends Plugin {
     return titleEl;
   }
 
-  loadValueFromStore(): string | null {
+  loadAccentFromStore(): string | null {
     const savedValue = localStorage.getItem('accent');
     return savedValue ? savedValue : null;
   }
 
-  setValueInStore(): void {
+  updateStore(): void {
     localStorage.setItem('accent', this.color);
+    localStorage.setItem('accent-alt', this.colorAlt);
   }
 
   reset(): void {
     localStorage.removeItem('accent');
+    localStorage.removeItem('accent-alt');
     window.location.reload();
   }
 
-  update(colour: string): void {
-    if (this.color === colour) return;
+  update(color: string): void {
+    if (color === this.color) return;
 
-    this.color = colour;
-    this.setValueInStore();
-    this.setColour();
+    this.color = color;
+    this.colorAlt = this.getContrastColor(this.color);
+
+    this.updateStore();
+    this.setColor();
     this.updateText();
   }
 
@@ -138,7 +154,7 @@ export default class Picker extends Plugin {
     const titleContainer: HTMLElement = this.wrapperEl.querySelector('.picker__inner h2');
     const prevResponseIndex = titleContainer.dataset.prevIndex || 0;
     
-    const responses: string[] = i18next.t('picker:responses', { returnObjects: true, color: this.color });
+    const responses: string[] = this._translationLib.t('picker:responses', { returnObjects: true, color: this.color });
     const response = this.selectRandomResponse(responses, +prevResponseIndex);
 
     if(!response || !response.response) return;
@@ -153,7 +169,7 @@ export default class Picker extends Plugin {
     event.preventDefault();
 
     if (event !== null && event.target instanceof HTMLButtonElement) {
-      this.update(event.target.dataset.colour);
+      this.update(event.target.dataset.color);
     }
   }
 
@@ -165,19 +181,19 @@ export default class Picker extends Plugin {
     }
   }
 
-  setColour(): void {
+  setColor(): void {
     const root = document.querySelector(':root') as HTMLElement;
 
     root.style.setProperty('--accent', this.color);
-    root.style.setProperty('--accent-alt', this.getContrastColour(this.color));
+    root.style.setProperty('--accent-alt', this.getContrastColor(this.color));
   }
 
-  getContrastColour(color: string): string {
+  getContrastColor(color: string): string {
     const rgbColor = this.hexToRgb(color);
     const contrast =
       0.2126 * rgbColor[0] + 0.7152 * rgbColor[1] + 0.0722 * rgbColor[2];
 
-    return contrast >= 165 ? '#000000' : '#ffffff';
+    return contrast >= 165 ? '#1b1b28' : '#fbfbfb';
   }
 
   selectRandomResponse(responses: string[] = [], previous: number = 0): { index: number; response: string } {
@@ -206,3 +222,4 @@ export default class Picker extends Plugin {
     ];
   }
 }
+

@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     .use(LanguageDetector)
     .use(Backend)
     .init({
-      debug: true,
       fallbackLng: 'en',
       detection: {
         order: ['htmlTag'],

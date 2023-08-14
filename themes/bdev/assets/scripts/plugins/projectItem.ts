@@ -1,8 +1,13 @@
 import ResponsiveHelpers from "../helpers/responsive.helpers";
+import LoadPluginsPayload from "../interfaces/loadPlugins.event";
 import Plugin from "../plugin";
 
+document.addEventListener('loadPlugins', async (e: CustomEvent<LoadPluginsPayload>) => {
+  new ProjectItemEffect(e.detail.responsive);
+});
+
 export default class ProjectItemEffect extends Plugin {
-  private _responsive: ResponsiveHelpers;
+  protected _responsive: ResponsiveHelpers;
   private threshold = 10;
   private minScale = 1.2;
   private maxScale = 2;
@@ -10,9 +15,12 @@ export default class ProjectItemEffect extends Plugin {
   private rotateX = 0;
   private scale = this.minScale;
 
-  constructor(rh: ResponsiveHelpers) {
+  constructor(helpers: ResponsiveHelpers) {
     super();
-    this._responsive = rh;
+
+    this._responsive = helpers;
+
+    this.init();
   }
 
   async init(): Promise<void> {
@@ -66,11 +74,10 @@ export default class ProjectItemEffect extends Plugin {
   }
 
   updateStyle(el: HTMLElement): void {
-    el.style.transform = `
-      perspective(1000px)
-      scale(${this.scale}) 
-      rotateY(${this.rotateY}deg)
-      rotateX(${-this.rotateX}deg)`;
+    el.style.transform = 'perspective(1000px)' +
+      'scale(' + this.scale + ') ' +
+      'rotateY(' + this.rotateY + 'deg) ' + 
+      'rotateX(' + -this.rotateX + 'deg)';
     el.style.zIndex = "999";
   }
 
@@ -105,3 +112,4 @@ export default class ProjectItemEffect extends Plugin {
     }
   }
 }
+

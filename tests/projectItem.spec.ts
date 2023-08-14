@@ -2,134 +2,141 @@ import ResponsiveHelpers from '../themes/bdev/assets/scripts/helpers/responsive.
 import ProjectItemEffect from '../themes/bdev/assets/scripts/plugins/projectItem';
 
 describe('Project item', () => {
-  let rh: ResponsiveHelpers;
   let component: ProjectItemEffect;
+  let helpers: ResponsiveHelpers;
 
   beforeEach(() => {
-    rh = new ResponsiveHelpers();
-
-    component = new ProjectItemEffect(rh);
+    helpers = new ResponsiveHelpers();
+    component = new ProjectItemEffect(helpers);
   });
 
-  test('should create', () => {
-    expect(component).toBeDefined();
-  });
-
-  describe('shouldHideEffect()', () => {
-    it('should return true if detected as mobile', () => {
-      jest.spyOn(rh, 'isMobile').mockImplementation(() => true);
-
-      expect(component.shouldHideEffect()).toBe(true);
+  describe('setup', () => {
+    test('should create', () => {
+      expect(component).toBeDefined();
     });
 
-    it('should return true if detected as a tablet', () => {
-      jest.spyOn(rh, 'isTablet').mockImplementation(() => true);
-
-      expect(component.shouldHideEffect()).toBe(true);
-    });
-
-    it('should return false if not detected as a mobile or tablet', () => {
-      jest.spyOn(rh, 'isMobile').mockImplementation(() => false);
-      jest.spyOn(rh, 'isTablet').mockImplementation(() => false);
-
-      expect(component.shouldHideEffect()).toBe(false);
+    test('should have correctly injected dependencies', () => {
+      expect(component['_responsive']).toBeInstanceOf(ResponsiveHelpers);
     });
   });
 
-  describe('reset()', () => {
-    let el: HTMLElement;
+  describe('component', () => {
+    describe('shouldHideEffect()', () => {
+      it('should return true if detected as mobile', () => {
+        jest.spyOn(helpers, 'isMobile').mockImplementation(() => true);
 
-    beforeEach(() => {
-      el = document.createElement('div');
+        expect(component.shouldHideEffect()).toBe(true);
+      });
+
+      it('should return true if detected as a tablet', () => {
+        jest.spyOn(helpers, 'isTablet').mockImplementation(() => true);
+
+        expect(component.shouldHideEffect()).toBe(true);
+      });
+
+      it('should return false if not detected as a mobile or tablet', () => {
+        jest.spyOn(helpers, 'isMobile').mockImplementation(() => false);
+        jest.spyOn(helpers, 'isTablet').mockImplementation(() => false);
+
+        expect(component.shouldHideEffect()).toBe(false);
+      });
     });
 
-    it('should remove style attribute from element', () => {
-      el.style.transform = 'scale(2)';
-      el.style.zIndex = '999';
+    describe('reset()', () => {
+      let el: HTMLElement;
 
-      expect(el.getAttribute('style')).toBeTruthy();
+      beforeEach(() => {
+        el = document.createElement('div');
+      });
 
-      component.resetItem(el);
-      expect(el.getAttribute('style')).toBeFalsy();
-    });
-  });
+      it('should remove style attribute from element', () => {
+        el.style.transform = 'scale(2)';
+        el.style.zIndex = '999';
 
-  describe('handleMove()', () => {
-    let el: HTMLElement;
+        expect(el.getAttribute('style')).toBeTruthy();
 
-    beforeEach(() => {
-      el = document.createElement('div');
-    });
-
-    it('should do nothing if shouldHideEffect() returns true', () => {
-      jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => true);
-
-      const updateSpy = jest.spyOn(component, 'updateStyle');
-
-      component.handleMove(el, 10, 10);
-
-      expect(updateSpy).not.toHaveBeenCalled();
+        component.resetItem(el);
+        expect(el.getAttribute('style')).toBeFalsy();
+      });
     });
 
-    it('should call through to updateStyle if shouldHideEffect() is false', () => {
-      jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => false);
+    describe('handleMove()', () => {
+      let el: HTMLElement;
 
-      const updateSpy = jest.spyOn(component, 'updateStyle');
+      beforeEach(() => {
+        el = document.createElement('div');
+      });
 
-      component.handleMove(el, 10, 10);
+      it('should do nothing if shouldHideEffect() returns true', () => {
+        jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => true);
 
-      expect(updateSpy).toHaveBeenCalled();
-    });
-  });
+        const updateSpy = jest.spyOn(component, 'updateStyle');
 
-  describe('updateStyle()', () => {
-    let el: HTMLElement;
+        component.handleMove(el, 10, 10);
 
-    beforeEach(() => {
-      el = document.createElement('div');
-    });
+        expect(updateSpy).not.toHaveBeenCalled();
+      });
 
-    it('should update style attribute', () => {
-      component.updateStyle(el);
-      expect(el.getAttribute('style')).toBeTruthy();
-    });
+      it('should call through to updateStyle if shouldHideEffect() is false', () => {
+        jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => false);
 
-    it('should set perspective, scale, rotation and z-index', () => {
-      component.updateStyle(el);
+        const updateSpy = jest.spyOn(component, 'updateStyle');
 
-      expect(el.getAttribute('style')).toContain('perspective');
-      expect(el.getAttribute('style')).toContain('scale');
-      expect(el.getAttribute('style')).toContain('rotateX');
-      expect(el.getAttribute('style')).toContain('rotateY');
-      expect(el.getAttribute('style')).toContain('z-index');
-    });
-  });
+        component.handleMove(el, 10, 10);
 
-  describe('handleZoom()', () => {
-    let el: HTMLElement;
-
-    beforeEach(() => {
-      el = document.createElement('div');
+        expect(updateSpy).toHaveBeenCalled();
+      });
     });
 
-    it('should do nothing if shouldHideEffect() returns true', () => {
-      jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => true);
+    describe('updateStyle()', () => {
+      let el: HTMLElement;
 
-      const updateSpy = jest.spyOn(component, 'updateStyle');
+      beforeEach(() => {
+        el = document.createElement('div');
+      });
 
-      component.handleZoom(el, 10);
+      it('should update style attribute', () => {
+        component.updateStyle(el);
+        expect(el.getAttribute('style')).toBeTruthy();
+      });
 
-      expect(updateSpy).not.toHaveBeenCalled();
+      it('should set perspective, scale, rotation and z-index', () => {
+        component.updateStyle(el);
+
+        expect(el.getAttribute('style')).toContain('perspective');
+        expect(el.getAttribute('style')).toContain('scale');
+        expect(el.getAttribute('style')).toContain('rotateX');
+        expect(el.getAttribute('style')).toContain('rotateY');
+        expect(el.getAttribute('style')).toContain('z-index');
+      });
     });
 
-    it('should call through to updateStyle if shouldHideEffect() is false', () => {
-      jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => false);
+    describe('handleZoom()', () => {
+      let el: HTMLElement;
 
-      const updateSpy = jest.spyOn(component, 'updateStyle');
+      beforeEach(() => {
+        el = document.createElement('div');
+      });
 
-      component.handleZoom(el, 10);
+      it('should do nothing if shouldHideEffect() returns true', () => {
+        jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => true);
 
-      expect(updateSpy).toHaveBeenCalled();
+        const updateSpy = jest.spyOn(component, 'updateStyle');
+
+        component.handleZoom(el, 10);
+
+        expect(updateSpy).not.toHaveBeenCalled();
+      });
+
+      it('should call through to updateStyle if shouldHideEffect() is false', () => {
+        jest.spyOn(component, 'shouldHideEffect').mockImplementation(() => false);
+
+        const updateSpy = jest.spyOn(component, 'updateStyle');
+
+        component.handleZoom(el, 10);
+
+        expect(updateSpy).toHaveBeenCalled();
+      });
     });
   });
 });

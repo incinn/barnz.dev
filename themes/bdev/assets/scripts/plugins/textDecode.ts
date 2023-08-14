@@ -1,5 +1,9 @@
 import Plugin from "../plugin";
 
+document.addEventListener('loadPlugins', async () => {
+  new TextDecode();
+});
+
 export default class TextDecode extends Plugin {
   cyphers = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "01", "-_.", "▒░", "¦|¡!"];
   targets: NodeListOf<HTMLElement>;
@@ -11,6 +15,8 @@ export default class TextDecode extends Plugin {
     if (!this.targets || this.targets.length < 1) {
       this.init = () => (Promise.resolve());
     }
+    
+    this.init();
   }
 
   async init(): Promise<void> {
@@ -68,3 +74,4 @@ export default class TextDecode extends Plugin {
     return { index, cypher: this.cyphers[index] };
   }
 }
+

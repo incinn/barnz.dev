@@ -1,22 +1,16 @@
+import i18next from 'i18next';
+import feather from 'feather-icons';
 import ResponsiveHelpers from './helpers/responsive.helpers';
+import LoadPluginsPayload from './interfaces/loadPlugins.event';
 import Plugin from './plugin';
 import LightSwitch from './plugins/lightswitch';
-import Picker from './plugins/picker';
-import ProjectItemEffect from './plugins/projectItem';
-import TextDecode from './plugins/textDecode';
-import TranslationCredit from './plugins/translationCredit';
 
 export default class Website {
-  plugins: Plugin[] = [];
+  corePlugins: Plugin[] = [];
 
   constructor() {
-    const responsiveHelpers = new ResponsiveHelpers();
-    this.plugins = [
+    this.corePlugins = [
       new LightSwitch(),
-      new Picker(),
-      new TextDecode(),
-      new ProjectItemEffect(responsiveHelpers),
-      new TranslationCredit()
     ];
 
     this.init();
@@ -24,10 +18,33 @@ export default class Website {
 
   init(): void {
     this.removeNoJsClass();
-    this.plugins.forEach(async (plugin: Plugin) => await plugin.init());
+    this.setAccent();
 
+    this.corePlugins.forEach(async (plugin: Plugin) => await plugin.init());
+
+    this.loadAdditionalPlugins();
     this.introAnimation();
     this.handleResetAllButton();
+  }
+
+  loadAdditionalPlugins(): void {
+    document.dispatchEvent(new CustomEvent<LoadPluginsPayload>('loadPlugins', {
+      detail: {
+        translation: i18next,
+        responsive: new ResponsiveHelpers(),
+        icons: feather
+      }
+    }));
+  }
+
+  setAccent(): void {
+    const accent = localStorage.getItem('accent');
+    const accentAlt = localStorage.getItem('accent-alt');
+    if(!accent || !accentAlt) return;
+
+    const root = document.querySelector(':root') as HTMLElement;
+    root.style.setProperty('--accent', accent);
+    root.style.setProperty('--accent-alt', accentAlt);
   }
 
   removeNoJsClass(): void {
@@ -36,15 +53,13 @@ export default class Website {
   }
 
   resetAll(): void {
-    this.plugins.forEach((plugin: Plugin) => plugin.reset());
+    this.corePlugins.forEach((plugin: Plugin) => plugin.reset());
+    document.dispatchEvent(new CustomEvent('pluginReset'));
   }
 
   handleResetAllButton(): void {
     const button = document.getElementById('js-plugin-reset-all');
-    if (!button) {
-      console.error('Unable to find reset all button');
-      return;
-    }
+    if (!button) return;
 
     button.addEventListener('click', () => this.resetAll());
   }

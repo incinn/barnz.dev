@@ -25,6 +25,9 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Get latest commit data
+        run: source get-latest-commit.sh
+
       - name: Build
         run: hugo --minify
         
