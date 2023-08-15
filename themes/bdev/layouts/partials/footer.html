@@ -9,12 +9,12 @@
       {{ with site.Params.git.last_commit }}
       <a 
         href="https://github.com/incinn/barnz.dev/commit/{{ .hashlong }}" 
-        title="{{ i18n "common_view_source"}} [{{.date}}]"
+        title="{{ i18n "common_view_source"}} [{{ .hash }}] [{{ .date }}]"
         rel="noreferrer noopener" 
         target="_blank"
       >
         {{ partial "components/icon" "git-pull-request" }}
-        v{{ .version }}-{{ .hash }}
+        v{{ .version }}
       </a>
       {{ else }}
       <a
