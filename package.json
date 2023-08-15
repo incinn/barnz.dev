@@ -55,6 +55,8 @@
     "url": "git+https://github.com/incinn/barnz.dev.git"
   },
   "scripts": {
+    "start": "source ./get-latest-commit.sh; hugo serve",
+    "build": "source ./get-latest-commit.sh; hugo --minify",
     "test": "jest",
     "deploy": "bash ./deploy.sh"
   }
