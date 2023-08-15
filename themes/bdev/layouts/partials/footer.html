@@ -1,9 +1,9 @@
 <footer class="footer">
     <div class="footer__inner">
-      <p>{{ i18n "footer_made_with" }} <span class="heart">❤️</span> {{ i18n "footer_by" }} <a href="https://barnz.dev/">barnz</a></p>
+      <p>{{ i18n "footer_made_with" }} <span class="heart">❤️</span> {{ i18n "footer_by" }} <a href="https://barnz.dev/" title="barnz.dev">barnz</a></p>
       <p>
         {{ now.Year }} 
-        <span class="footer__copyIcon">&copy;</span> {{ .Site.Copyright }} &bull; 
+        <span class="footer__copyIcon">&copy;</span> <a href="https://barnz.dev" title="barnz.dev">{{ .Site.Copyright }}</a> &bull; 
         <a href="{{ ref . "/legal" }}" title="{{ i18n "footer_legal"}}">{{ i18n "footer_legal" }}</a>
       </p>
       {{ with site.Params.git.last_commit }}
@@ -14,7 +14,7 @@
         target="_blank"
       >
         {{ partial "components/icon" "git-pull-request" }}
-        v{{.version}}-{{ .hash }}
+        v{{ .version }}-{{ .hash }}
       </a>
       {{ else }}
       <a
