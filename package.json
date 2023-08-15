@@ -1,6 +1,6 @@
 {
   "author": "Barnz <hi@barnz.dev>",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "bugs": {
     "url": "https://github.com/incinn/barnz.dev/issues",
     "email": "bugs@barnz.dev"
@@ -55,6 +55,8 @@
     "url": "git+https://github.com/incinn/barnz.dev.git"
   },
   "scripts": {
+    "start": "source ./get-latest-commit.sh; hugo serve",
+    "build": "source ./get-latest-commit.sh; hugo --minify",
     "test": "jest",
     "deploy": "bash ./deploy.sh"
   }
