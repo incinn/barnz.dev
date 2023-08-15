@@ -38,15 +38,9 @@
       }
     }
 
-    .links {
-      display: flex;
-
-      a {
-        margin-left: 0.5rem;
-      }
-    }
-
     a {
+      display: inline-flex;
+      align-items: center;
       font-weight: normal;
 
       &:hover {
@@ -55,9 +49,12 @@
     }
 
     .icon {
-      width: 15px;
-      height: 15px;
-      margin-right: 0.25rem;
+      margin-right: .25rem;
+
+      svg {
+        width: 15px;
+        height: 15px;
+      }
     }
   }
 
