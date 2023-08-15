@@ -1,40 +1,32 @@
 <footer class="footer">
     <div class="footer__inner">
-      <p>{{ i18n "footer_made_with" }} <span class="heart">❤️</span> {{ i18n "footer_by" }} <a href="https://barnz.dev/">barnz</a></p>
+      <p>{{ i18n "footer_made_with" }} <span class="heart">❤️</span> {{ i18n "footer_by" }} <a href="https://barnz.dev/" title="barnz.dev">barnz</a></p>
       <p>
         {{ now.Year }} 
-        <span class="footer__copyIcon">&copy;</span> {{ .Site.Copyright }} &bull; 
+        <span class="footer__copyIcon">&copy;</span> <a href="https://barnz.dev" title="barnz.dev">{{ .Site.Copyright }}</a> &bull; 
         <a href="{{ ref . "/legal" }}" title="{{ i18n "footer_legal"}}">{{ i18n "footer_legal" }}</a>
       </p>
-      <span class="links">
-        {{ with site.Params.git.last_commit }}
-        <a 
-          href="https://github.com/incinn/barnz.dev/commit/{{ .hashlong }}" 
-          title="{{ i18n "common_view_source"}} {{.date}}"
-          rel="noreferrer noopener" 
+      {{ with site.Params.git.last_commit }}
+      <a 
+        href="https://github.com/incinn/barnz.dev/commit/{{ .hashlong }}" 
+        title="{{ i18n "common_view_source"}} [{{ .hash }}] [{{ .date }}]"
+        rel="noreferrer noopener" 
+        target="_blank"
+      >
+        {{ partial "components/icon" "git-pull-request" }}
+        v{{ .version }}
+      </a>
+      {{ else }}
+      <a
+          href="https://github.com/incinn"
+          title="{{ i18n "common_view_source"}}"
+          rel="noreferrer noopener"
           target="_blank"
-        >
-          v{{.version}}-{{ .hash }}
-        </a>
-        {{ end }}
-        <a
-            href="https://twitter.com/devcpu"
-            title="Twitter"
-            rel="noreferrer noopener"
-            target="_blank"
-        >
-            {{ partial "components/icon" "twitter" }}
-        </a>
-        <a
-            href="https://github.com/incinn"
-            title="{{ i18n "common_view_source"}}"
-            rel="noreferrer noopener"
-            target="_blank"
-        >
-            {{ partial "components/icon" "github" }}
-        </a>
-      </span>
-    </div>
+      >
+          {{ partial "components/icon" "github" }}
+      </a>
+    </span>
+    {{ end }}
 </footer>
 
 {{- $options := dict "targetPath" "js/bundle.min.js" "minify" true -}}
