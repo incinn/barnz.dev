@@ -35,22 +35,22 @@
         href='{{ ref . "/" }}'
         title='{{ i18n "menu_home" }}'
         class="showMobile"
-        >{{ i18n "menu_home" }}</a
+        >{{ i18n "menu_home" | lower }}</a
       >
       <a
         href='{{ ref . "/projects" }}'
         title='{{ i18n "menu_projects" }}'
-        >{{ i18n "menu_projects" }}</a
+        >{{ i18n "menu_projects" | lower }}</a
       >
       <a
         href='{{ ref . "/blog" }}'
         title='{{ i18n "menu_blog" }}'
-        >{{ i18n "menu_blog" }}</a
+        >{{ i18n "menu_blog" | lower }}</a
       >
       <a
         href='{{ ref . "/contact" }}'
         title='{{ i18n "menu_contact" }}'
-        >{{ i18n "menu_contact" }}</a
+        >{{ i18n "menu_contact" | lower }}</a
       >
     </nav>
 
@@ -85,7 +85,7 @@
 
         <div class="optionsMenu__display">
           <span class="optionsMenu__inner__title">
-            {{ i18n "options_menu_title" }}
+            {{ i18n "options_menu_title" | title }}
           </span>
           <div class="optionsMenu__content">
             <div id="js-lightswitch"></div>
