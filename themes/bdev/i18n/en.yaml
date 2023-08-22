@@ -63,7 +63,7 @@
 - id: articles_block_p
   translation: "I don't often write, but when I do it will appear here:"
 - id: contact_block_p
-  translation: "the best way to contact me is with this shiny form below:"
+  translation: "The best way to contact me is with this shiny form below:"
 
 - id: contact_form_name
   translation: "Name"
