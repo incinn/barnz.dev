@@ -59,7 +59,7 @@
   translation: "Displaying all posts tagged with"
 
 - id: projects_block_p
-  translation: "some projects I'm especially proud of:"
+  translation: "Some projects I'm especially proud of:"
 - id: articles_block_p
   translation: "I don't often write, but when I do it will appear here:"
 - id: contact_block_p
