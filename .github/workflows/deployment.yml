@@ -38,4 +38,4 @@ jobs:
         run: ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
         
       - name: Deploy Website
-        run: rsync -avz --delete -e 'ssh -p ${{ secrets.SSH_PORT }}' public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOYMENT_DIR }}
+        run: rsync -avz -O --delete -e 'ssh -p ${{ secrets.SSH_PORT }}' public/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOYMENT_DIR }}
