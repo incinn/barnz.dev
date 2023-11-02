@@ -4,29 +4,33 @@ layout: page
 description: Legal mumbo-jumbo
 ---
 
-**TLDR**: I host an instance of [Plausible Analytics](https://plausible.io/), which is a [privacy respecting](https://plausible.io/privacy-focused-web-analytics) open-source alternative to other big name Analytics tools. The source code for this website is also [open-source](https://github.com/incinn/barnz.dev), and has been released into the public domain. Written content is covered by a Creative Commons license, making it free to be used for any purpose (except commercial).
+## Too long, didn't read
 
-## Privacy Policy
+This domain contains no tracking scripts.
 
-I host an instance of Plausible Analytics which is used on this website. You can read detailed information on exactly [what information is collected here](https://plausible.io/data-policy). To opt-out, simply block the subdomain `admin.barnz.dev` which is serving the analytics script.
+The source code is [open-source](https://github.com/incinn/barnz.dev), and has been released into the public domain under [The Unlicense](https://github.com/incinn/barnz.dev/blob/main/LICENSE) license. Feel free to take a look.
 
-The only other information I have about your visit is from the webserver logs, which contain basic information about your visit such as your ip address and useragent. These logs are rotated often and not stored long-term.
+Written content is covered by a [Creative Commons license](https://github.com/incinn/barnz.dev/blob/main/content/LICENSE), making it free to be used for any purpose (except commercial).
 
-Preferences you have chosen while using this website (such as using the accent colour picker, or enabling light mode) are stored in your browser's local storage and the data **never leaves your machine**. I have no way of knowing that #F733FF is your favourite colour.
+## Privacy policy
 
-## Contact Form
+The only information I have about your visit to this website is from the webserver logs. These contain basic information about your visit such as your ip address and useragent. These logs are rotated often and not stored long-term.
+
+Preferences you have chosen while using this website (such as using the accent colour picker, or enabling light mode) are stored in your browser's local storage and the data never leaves your machine. I have no way of knowing that #F733FF is your favourite colour.
+
+## Contact form
 
 The contact form submissions are processed by [Formspark](https://formspark.io). You can read their [privacy policy here](https://formspark.io/legal/privacy-policy/).
 
-## Terms & Conditions
+## Terms & conditions
 
-The site is provided as-is. I am not to be held liable for anything. Leave me alone.
+The site is provided as is, with no guarantees of anything.
 
 ## Licenses
 
 ### Codebase
 
-The website source code is released into the public domain via the "unlicence" [license](https://github.com/incinn/barnz.dev/blob/main/LICENSE), this includes but is not limited to:
+Source code is released into the public domain via the "unlicence" [license](https://github.com/incinn/barnz.dev/blob/main/LICENSE), this includes but is not limited to:
 
 - Hugo Theme
 - SCSS
@@ -47,9 +51,9 @@ All written content is covered by the Creative Commons [license](https://github.
 
 For more information on the specific Creative Commons license used [click here](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-## Third Party Software & Acknowledgements
+## Third party software & acknowledgements
 
-A lot of what I do makes use of fantastic open-source projects. This website is no different.
+We all use open source projects every day. Often without knowing it.
 
 I directly use and want to thank the following projects:
 
@@ -58,6 +62,4 @@ I directly use and want to thank the following projects:
 - [NodeJs](https://github.com/nodejs/node)
 - [ESLint](https://github.com/eslint/eslint)
 - [ResetCSS](https://github.com/shannonmoeller/reset-css)
-
-For a complete up to date list check my [package.json](https://github.com/incinn/barnz.dev/blob/main/package.json).
 
