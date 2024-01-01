@@ -6,7 +6,7 @@ tags: ["css", "sass", "tutorial"]
 author: barnz
 ---
 
-Ever found yourself needing an aestheticly pleasing and user friendly toggle switch for your website? But didn't want the hassle
+Ever found yourself needing an aesthetically pleasing and user friendly toggle switch for your website? But didn't want the hassle
 of using JavaScript? Well, I put together this five step programme just for you!
 
 <!--more-->
