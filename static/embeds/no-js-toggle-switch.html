@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>barnz.dev | Embed | No JavaScript Toggle Switch Example</title>
+
+    <style>
+      :root {
+        --dark: #282a36;
+        --darker: #282a36;
+        --light: #eeeeee;
+
+        --radius: 6px;
+      }
+
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--dark);
+        color: var(--light);
+        min-height: 100vh;
+        min-width: 100vw;
+      }
+
+      .toggle {
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .toggle input[type="checkbox"] {
+        display: none;
+      }
+
+      .toggle input[type="checkbox"]:checked ~ .toggle__fill {
+        background-color: #7ba266;
+      }
+
+      .toggle input[type="checkbox"]:checked ~ .toggle__fill::after {
+        transform: translateX(25px);
+      }
+
+      .toggle__fill {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        border-radius: 15px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: #c46e6e;
+        transition: background-color 500ms;
+      }
+
+      .toggle__fill::after {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        height: 25px;
+        width: 25px;
+        background-color: #eee;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        transition: transform 400ms;
+      }
+    </style>
+  </head>
+  <body>
+    <label class="toggle" for="myInput">
+      <input type="checkbox" name="myInput" id="myInput" />
+      <div class="toggle__fill"></div>
+    </label>
+  </body>
+</html>

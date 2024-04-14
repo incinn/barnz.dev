@@ -6,10 +6,12 @@ tags: ["css", "sass", "tutorial"]
 author: barnz
 ---
 
-Ever found yourself needing an aestheticly pleasing and user friendly toggle switch for your website? But didn't want the hassle
+Ever found yourself needing an aesthetically pleasing and user friendly toggle switch for your website? But didn't want the hassle
 of using JavaScript? Well, I put together this five step programme just for you!
 
 <!--more-->
+
+{{< embed "/embeds/no-js-toggle-switch.html" "100" >}}
 
 **TLDR**: Complete example available on [Codepen](https://codepen.io/barnz/pen/bGjKxZj).
 
@@ -43,7 +45,7 @@ and unchecked. This is crucial.
 Now the boring part is out of the way, we can start making something that looks more like a toggle switch!
 
 We will be making use of the empty `div` element we added earlier for the container of the switch. And we can utilize the
-[`::after`](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) selector to create a pseudo element at the end of it, 
+[`::after`](https://developer.mozilla.org/en-US/docs/Web/CSS/::after) selector to create a pseudo element at the end of it,
 which will become the "button" that moves from left to right to signify whether or not the checkbox is active.
 
 ```SASS
@@ -97,7 +99,7 @@ Now we can safely hide the checkbox element from the page:
 
 At this point we have a plain looking toggle that does absolutely nothing when you click it. Let's change that.
 
-The magic here comes from the [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) pseudo selector, which 
+The magic here comes from the [`:checked`](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked) pseudo selector, which
 allows us to target elements differently based on whether or not the checkbox is checked. Along with
 the [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) `~` (which
 helps us select the relevant sibling elements) allows us to complete the toggle effect:
@@ -163,9 +165,8 @@ So there you have it! A simple toggle switch created from three simple HTML elem
 
 The biggest benefit I've found of building UI this way is that you add interactivity for browsers where JavaScript is disabled.
 
-But that's not it. You can use this method to create more than just toggle switches. I've used this method 
-to create dropdown menus and modals. It's suitible for almost anything that has a "toggle" nature to it. For a live example 
+But that's not it. You can use this method to create more than just toggle switches. I've used this method
+to create dropdown menus and modals. It's suitible for almost anything that has a "toggle" nature to it. For a live example
 [my website](https://barnz.dev)'s settings menu, mobile navigation and language switcher are all built like this.
 
 You can find a complete example on [Codepen](https://codepen.io/barnz/pen/bGjKxZj) (copy and paste friendly).
-
