@@ -2,28 +2,24 @@
 title: "Toggle switch without JavaScript"
 slug: toggle-switch-no-javascript
 date: 2023-01-27T00:00:00Z
+summary: "Sometimes you need a simple toggle switch, without all the hassle of using JavaScript. This short tutorial will hold your hand through creating just that..."
 tags: ["css", "sass", "tutorial"]
 author: barnz
 ---
 
-Ever found yourself needing an aesthetically pleasing and user friendly toggle switch for your website? But didn't want the hassle
-of using JavaScript? Well, I put together this five step programme just for you!
+## Requirements
 
-<!--more-->
-
-{{< embed "/embeds/no-js-toggle-switch.html" "100" >}}
-
-**TLDR**: Complete example available on [Codepen](https://codepen.io/barnz/pen/bGjKxZj).
-
-## What you need to begin
-
-In this tutorial I will make the following assumptions:
+In this tutorial, I will make the following assumptions:
 
 - You have some experience with **HTML**
 - You are aware how form elements such as `input` and `label` work together
-- You are comfortable with **CSS**, and can understand **Sass**
+- You are comfortable with **CSS** and **SCSS**
 
-With that out of the way, let's begin.
+## The result
+
+Here is an example of the toggle switch we are going to create together. It's okay to be excited.
+
+{{< embed "/embeds/no-js-toggle-switch.html" "100" >}}
 
 ## 1: Structure
 
@@ -36,9 +32,9 @@ First things first. We need some elements on the page:
 </label>
 ```
 
-Here we have a `label` element that contains a checkbox `input`. We also added an empty `div` next to it. The `label`'s `for` attribute is tied
+Here we have a `label` element that contains a checkbox `input`, and we created an empty `div` next to it. The `label`'s `for` attribute is tied
 to the checkbox element, which means clicking on the label - or anything within the label - will toggle the value between checked
-and unchecked. This is crucial.
+and unchecked.
 
 ## 2: Colouring in
 
@@ -168,5 +164,3 @@ The biggest benefit I've found of building UI this way is that you add interacti
 But that's not it. You can use this method to create more than just toggle switches. I've used this method
 to create dropdown menus and modals. It's suitible for almost anything that has a "toggle" nature to it. For a live example
 [my website](https://barnz.dev)'s settings menu, mobile navigation and language switcher are all built like this.
-
-You can find a complete example on [Codepen](https://codepen.io/barnz/pen/bGjKxZj) (copy and paste friendly).

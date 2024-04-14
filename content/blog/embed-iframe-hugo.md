@@ -1,15 +1,11 @@
 ---
 title: "Embed an iframe in Hugo content"
 slug: embed-iframe-in-hugo-content
+summary: "In this short post, I will demonstrate how easy embedding an iframe into any Hugo content can be. Using shortcodes to create a consistent and repeatable method of embedding content..."
 date: 2024-04-14T00:00:00Z
 tags: ["hugo", "markdown", "tutorial"]
 author: barnz
 ---
-
-In this short and sweet post, I'll show you how easy embedding an `iframe` into
-any Hugo content can be.
-
-<!--more-->
 
 ## Quick and dirty method
 
@@ -60,4 +56,17 @@ title: "My blog post"
 This will render an `iframe` 100 pixels wide by 50 pixels tall.
 
 Using shortcodes to accomplish this, we have a tidy, consistent and
-repeatable method of embedding iframes into our content.
+repeatable method of embedding `iframe`s into our content.
+
+## Content Security Policy
+
+Depending on your
+[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
+headers, you might find that the `iframe` refuses to load. The header `X-Frame-Options`
+controls this. By setting the value to `SAMEORIGIN`, it will, as the name suggests,
+allow you to load `iframe`s from the same origin.
+
+If you want to load a resource from an external origin, you will need to
+modify your `Content-Security-Policy` header, specifically the `frame-ancestors`
+policy. You can read more about that header
+[here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors).
