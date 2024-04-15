@@ -1,0 +1,2 @@
+{{ $showFull := .Get 2 | default false }}
+<abbr title="{{ .Get 1 }}">{{ .Get 0 }}</abbr>{{ if eq $showFull true }}({{ .Get 1 }}){{ end }}
