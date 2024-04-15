@@ -146,6 +146,16 @@
     }
   }
 
+  abbr {
+    text-decoration: underline dotted var(--accent);
+    cursor: help;
+
+    &+.abbrFull {
+      font-style: italic;
+      opacity:.8;
+    }
+  }
+
   p code,
   li code,
   h1 code,
