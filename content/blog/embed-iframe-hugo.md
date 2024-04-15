@@ -10,7 +10,7 @@ author: barnz
 ## Quick and dirty method
 
 Hugo's rendering engine is smart. If you need a quick solution, you can simply
-add almost any `html` markup you want to use, and it will render as you expect:
+add almost any {{< abbr "HTML" "Hyper Text Markup Language" >}} markup you want to use, and it will render as you expect:
 
 ```markdown
 ---
