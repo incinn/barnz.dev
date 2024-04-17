@@ -11,9 +11,9 @@ author: barnz
 
 In this tutorial, I will make the following assumptions:
 
-- You have some experience with **HTML**
+- You have some experience with {{< abbr "HTML" "Hyper Text Markup Language" >}}
 - You are aware how form elements such as `input` and `label` work together
-- You are comfortable with **CSS** and **SCSS**
+- You are comfortable with {{< abbr "CSS" "Cascading Style Sheets" >}} and {{< abbr "SASS" "Syntactically Awesome Style Sheets" >}}
 
 ## The result
 
@@ -162,5 +162,5 @@ So there you have it! A simple toggle switch created from three simple HTML elem
 The biggest benefit I've found of building UI this way is that you add interactivity for browsers where JavaScript is disabled.
 
 But that's not it. You can use this method to create more than just toggle switches. I've used this method
-to create dropdown menus and modals. It's suitible for almost anything that has a "toggle" nature to it. For a live example
+to create dropdown menus and modals. It's suitable for almost anything that has a "toggle" nature to it. For a live example
 [my website](https://barnz.dev)'s settings menu, mobile navigation and language switcher are all built like this.
