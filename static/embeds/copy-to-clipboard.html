@@ -1,113 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>barnz.dev | Embed | Copy to Clipboard Example</title>
-    <style>
-      :root {
-        --dark: #282a36;
-        --darker: #353535;
-        --light: #eeeeee;
 
-        --radius: 6px;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>barnz.dev | Embed | Copy to Clipboard Example</title>
+  <style>
+    :root {
+      --dark: #282a36;
+      --background: #5e6484;
+      --light: #eeeeee;
+
+      --radius: 6px;
+    }
+
+    body {
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--dark);
+      color: var(--light);
+      min-height: 100vh;
+      min-width: 100vw;
+    }
+
+    .wrapper {
+      position: relative;
+      background-color: var(--background);
+      box-shadow: 0px 0px 15px 1px var(--background);
+      padding: 1.25rem;
+      border-radius: var(--radius);
+    }
+
+    .wrapper p {
+      margin: 0;
+    }
+
+    .wrapper:hover .copyBtn {
+      visibility: visible;
+    }
+
+    .wrapper .copyBtn {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+      background-color: var(--dark);
+      color: var(--light);
+      border: none;
+      border-top-right-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
+      padding: 5px 10px;
+    }
+
+    .wrapper .message {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding: 3px;
+      user-select: none;
+      font-size: 0.63rem;
+      text-align: center;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+    }
+
+    .wrapper .message.success {
+      background-color: #66845e;
+    }
+
+    .wrapper .message.error {
+      background-color: #845e5e;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="js-wrapper" class="wrapper">
+    <p>00111000 00110000 00110000 00111000 00110101</p>
+    <button class="copyBtn" onclick="copyToClipboard()">Copy</button>
+  </div>
+  <script>
+    const wrapper = document.getElementById("js-wrapper");
+    const content = wrapper.querySelector("p");
+
+    async function copyToClipboard() {
+      try {
+        await navigator.clipboard.writeText(content.innerText);
+        showMessage("copied to clipboard");
+      } catch (err) {
+        showMessage("something went wrong, try again", false);
+        console.error(err);
       }
+    }
 
-      body {
-        font-family: monospace;
-        margin: 0;
-        padding: 0;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--dark);
-        color: var(--light);
-        min-height: 100vh;
-        min-width: 100vw;
-      }
+    function showMessage(message, success = true) {
+      const el = document.createElement("div");
 
-      .wrapper {
-        position: relative;
-        background-color: var(--darker);
-        box-shadow: 0px 0px 15px 1px var(--darker);
-        padding: 1.25rem;
-        border-radius: var(--radius);
-      }
+      el.classList.add("message", success ? "success" : "error");
+      el.innerText = message;
 
-      .wrapper p {
-        margin: 0;
-      }
+      wrapper.appendChild(el);
 
-      .wrapper:hover .copyBtn {
-        visibility: visible;
-      }
+      setTimeout(() => el.remove(), 3_000);
+    }
+  </script>
+</body>
 
-      .wrapper .copyBtn {
-        visibility: hidden;
-        position: absolute;
-        top: 0;
-        right: 0;
-        cursor: pointer;
-        background-color: #242424;
-        color: var(--light);
-        border: none;
-        border-top-right-radius: var(--radius);
-        border-bottom-left-radius: var(--radius);
-        padding: 5px 10px;
-      }
-
-      .wrapper .message {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        user-select: none;
-        font-size: 0.7rem;
-        text-align: center;
-        border-bottom-left-radius: var(--radius);
-        border-bottom-right-radius: var(--radius);
-      }
-
-      .wrapper .message.success {
-        background-color: #4d6a4d;
-      }
-
-      .wrapper .message.error {
-        background-color: #664747;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="js-wrapper" class="wrapper">
-      <p>01100010 01101111 01101111 01100010 01110011</p>
-      <button class="copyBtn" onclick="copyToClipboard()">Copy</button>
-    </div>
-    <script>
-      const wrapper = document.getElementById("js-wrapper");
-      const content = wrapper.querySelector("p");
-
-      async function copyToClipboard() {
-        try {
-          await navigator.clipboard.writeText(content.innerText);
-          showMessage("copied to clipboard");
-        } catch (err) {
-          showMessage("something went wrong, try again", false);
-          console.error(err);
-        }
-      }
-
-      function showMessage(message, success = true) {
-        const el = document.createElement("div");
-
-        el.classList.add("message", success ? "success" : "error");
-        el.innerText = message;
-
-        wrapper.appendChild(el);
-
-        setTimeout(() => el.remove(), 3500);
-      }
-    </script>
-  </body>
 </html>
