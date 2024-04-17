@@ -9,8 +9,8 @@ author: barnz
 
 ## Quick and dirty method
 
-Hugo's rendering engine is smart. If you need a quick solution, you can simply
-add almost any {{< abbr "HTML" "Hyper Text Markup Language" >}} markup you want to use, and it will render as you expect:
+Hugo's rendering engine is smart. If you need a quick solution, you can 
+add almost any {{< abbr "HTML" "Hyper Text Markup Language" >}} to your content, and it will render as you expect:
 
 ```markdown
 ---
@@ -61,8 +61,8 @@ repeatable method of embedding `iframe`s into our content.
 ## Content Security Policy
 
 Depending on your
-[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
-headers, you might find that the `iframe` refuses to load. The header `X-Frame-Options`
+[Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy),
+you might find that the `iframe` refuses to load. The header `X-Frame-Options`
 controls this. By setting the value to `SAMEORIGIN`, it will, as the name suggests,
 allow you to load `iframe`s from the same origin.
 
